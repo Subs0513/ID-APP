@@ -66,10 +66,10 @@
             <!-- 说明：这里先只做UI，不绑定跳转函数，避免你 period.js 里没写函数导致报错 -->
             <view class="mini-card tappable" @tap="goPeriodAnalysis">
                 <view class="mini-left">
-                    <image class="mini-icon" src="/static/assets/icons/粉_分析.svg" mode="aspectFit" />
+                    <image class="mini-icon" src="/static/assets/icons/f_fx.svg" mode="aspectFit" />
                     <text class="mini-title">经期健康分析</text>
                 </view>
-                <image class="mini-go" src="/static/assets/icons/粉_跳转.svg" mode="aspectFit" />
+                <image class="mini-go" src="/static/assets/icons/f_tz.svg" mode="aspectFit" />
             </view>
 
             <!-- 下方操作区 -->
@@ -77,7 +77,7 @@
                 <!-- 1）月经来了（开关） -->
                 <view class="row">
                     <view class="row-left row-left-with-icon">
-                        <image class="row-icon" src="/static/assets/icons/粉_水滴.svg" mode="aspectFit" />
+                        <image class="row-icon" src="/static/assets/icons/f_sd.svg" mode="aspectFit" />
                         <text class="row-title">月经来了</text>
                     </view>
 
@@ -87,7 +87,7 @@
                 <!-- 2）痛经（加号 / 修改） -->
                 <view class="row tappable" @tap="onGoPain">
                     <view class="row-left row-left-with-icon">
-                        <image class="row-icon" src="/static/assets/icons/粉_疼.svg" mode="aspectFit" />
+                        <image class="row-icon" src="/static/assets/icons/f_t.svg" mode="aspectFit" />
                         <text class="row-title">痛经</text>
                     </view>
 
@@ -96,29 +96,29 @@
                         <text class="row-value" v-if="selectedPainText">{{ selectedPainText }}</text>
 
                         <!-- 图标：加号 / 修改 -->
-                        <image class="plus-icon" :src="'/static/assets/icons/' + (hasPain ? '粉_修改.svg' : '粉_加号.svg')" mode="aspectFit" />
+                        <image class="plus-icon" :src="'/static/assets/icons/' + (hasPain ? 'f_xg.svg' : 'f_jh.svg')" mode="aspectFit" />
                     </view>
                 </view>
 
                 <!-- 3）体重（加号/修改 + 显示数值） -->
                 <view class="row tappable" @tap="onAddWeight">
                     <view class="row-left row-left-with-icon">
-                        <image class="row-icon" src="/static/assets/icons/粉_体重.svg" mode="aspectFit" />
+                        <image class="row-icon" src="/static/assets/icons/f_tzc.svg" mode="aspectFit" />
                         <text class="row-title">体重</text>
                     </view>
 
                     <view class="row-right">
                         <text class="row-value" v-if="hasWeight">{{ selectedWeightText }}</text>
 
-                        <image class="plus-icon" v-if="!hasWeight" src="/static/assets/icons/粉_加号.svg" mode="aspectFit" />
-                        <image class="plus-icon" v-else src="/static/assets/icons/粉_修改.svg" mode="aspectFit" />
+                        <image class="plus-icon" v-if="!hasWeight" src="/static/assets/icons/f_jh.svg" mode="aspectFit" />
+                        <image class="plus-icon" v-else src="/static/assets/icons/f_xg.svg" mode="aspectFit" />
                     </view>
                 </view>
 
                 <!-- 4）爱爱（加号） -->
                 <view class="row tappable" @tap="onGoLove">
                     <view class="row-left row-left-with-icon">
-                        <image class="row-icon" src="/static/assets/icons/粉_双爱心.svg" mode="aspectFit" />
+                        <image class="row-icon" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
                         <text class="row-title">爱爱</text>
                     </view>
 
@@ -127,7 +127,7 @@
                         <text class="row-value" v-if="selectedSexText">{{ selectedSexText }}</text>
 
                         <!-- 图标：加号 / 修改 -->
-                        <image class="plus-icon" :src="'/static/assets/icons/' + (hasSex ? '粉_修改.svg' : '粉_加号.svg')" />
+                        <image class="plus-icon" :src="'/static/assets/icons/' + (hasSex ? 'f_xg.svg' : 'f_jh.svg')" />
                     </view>
                 </view>
             </view>
@@ -178,7 +178,7 @@
                         <view class="key" data-k="0" @tap="onWeightKey">0</view>
                         <!-- <view class="key key-del" bindtap="onWeightDel">⌫</view> -->
                         <view class="key key-del" @tap="onWeightDel">
-                            <image class="key-del-icon" src="/static/assets/icons/键盘删除.svg" mode="aspectFit" />
+                            <image class="key-del-icon" src="/static/assets/icons/jpsc.svg" mode="aspectFit" />
                         </view>
                     </view>
                 </view>

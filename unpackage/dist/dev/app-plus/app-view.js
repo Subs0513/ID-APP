@@ -390,7 +390,7 @@ var render = function () {
                   _c("v-uni-image", {
                     staticClass: _vm._$g(18, "sc"),
                     attrs: {
-                      src: "/static/assets/icons/粉_日期.svg",
+                      src: "/static/assets/icons/f_rq.svg",
                       mode: "aspectFit",
                       _i: 18,
                     },
@@ -1322,7 +1322,7 @@ var render = function () {
               _c("v-uni-image", {
                 staticClass: _vm._$g(3, "sc"),
                 attrs: {
-                  src: "/static/assets/icons/粉_标题.svg",
+                  src: "/static/assets/icons/f_bt.svg",
                   mode: "aspectFit",
                   _i: 3,
                 },
@@ -1358,7 +1358,7 @@ var render = function () {
               _c("v-uni-image", {
                 staticClass: _vm._$g(8, "sc"),
                 attrs: {
-                  src: "/static/assets/icons/粉_日期.svg",
+                  src: "/static/assets/icons/f_rq.svg",
                   mode: "aspectFit",
                   _i: 8,
                 },
@@ -1400,7 +1400,7 @@ var render = function () {
               _c("v-uni-image", {
                 staticClass: _vm._$g(14, "sc"),
                 attrs: {
-                  src: "/static/assets/icons/粉_类型.svg",
+                  src: "/static/assets/icons/f_lx.svg",
                   mode: "aspectFit",
                   _i: 14,
                 },
@@ -1448,7 +1448,7 @@ var render = function () {
               _c("v-uni-image", {
                 staticClass: _vm._$g(20, "sc"),
                 attrs: {
-                  src: "/static/assets/icons/粉_备注.svg",
+                  src: "/static/assets/icons/f_bz.svg",
                   mode: "aspectFit",
                   _i: 20,
                 },
@@ -1492,7 +1492,7 @@ var render = function () {
                   _c("v-uni-image", {
                     staticClass: _vm._$g(26, "sc"),
                     attrs: {
-                      src: "/static/assets/icons/粉_置顶.svg",
+                      src: "/static/assets/icons/f_zd.svg",
                       mode: "aspectFit",
                       _i: 26,
                     },
@@ -1535,7 +1535,7 @@ var render = function () {
                   _c("v-uni-image", {
                     staticClass: _vm._$g(31, "sc"),
                     attrs: {
-                      src: "/static/assets/icons/粉_加一.svg",
+                      src: "/static/assets/icons/f_jy.svg",
                       mode: "aspectFit",
                       _i: 31,
                     },
@@ -2023,7 +2023,7 @@ var render = function () {
                   _c("v-uni-image", {
                     staticClass: _vm._$g(32, "sc"),
                     attrs: {
-                      src: "/static/assets/icons/粉_分析.svg",
+                      src: "/static/assets/icons/f_fx.svg",
                       mode: "aspectFit",
                       _i: 32,
                     },
@@ -2039,7 +2039,7 @@ var render = function () {
               _c("v-uni-image", {
                 staticClass: _vm._$g(34, "sc"),
                 attrs: {
-                  src: "/static/assets/icons/粉_跳转.svg",
+                  src: "/static/assets/icons/f_tz.svg",
                   mode: "aspectFit",
                   _i: 34,
                 },
@@ -2062,7 +2062,7 @@ var render = function () {
                       _c("v-uni-image", {
                         staticClass: _vm._$g(38, "sc"),
                         attrs: {
-                          src: "/static/assets/icons/粉_水滴.svg",
+                          src: "/static/assets/icons/f_sd.svg",
                           mode: "aspectFit",
                           _i: 38,
                         },
@@ -2109,7 +2109,7 @@ var render = function () {
                       _c("v-uni-image", {
                         staticClass: _vm._$g(43, "sc"),
                         attrs: {
-                          src: "/static/assets/icons/粉_疼.svg",
+                          src: "/static/assets/icons/f_t.svg",
                           mode: "aspectFit",
                           _i: 43,
                         },
@@ -2169,7 +2169,7 @@ var render = function () {
                       _c("v-uni-image", {
                         staticClass: _vm._$g(50, "sc"),
                         attrs: {
-                          src: "/static/assets/icons/粉_体重.svg",
+                          src: "/static/assets/icons/f_tzc.svg",
                           mode: "aspectFit",
                           _i: 50,
                         },
@@ -2200,7 +2200,7 @@ var render = function () {
                         ? _c("v-uni-image", {
                             staticClass: _vm._$g(54, "sc"),
                             attrs: {
-                              src: "/static/assets/icons/粉_加号.svg",
+                              src: "/static/assets/icons/f_jh.svg",
                               mode: "aspectFit",
                               _i: 54,
                             },
@@ -2208,7 +2208,7 @@ var render = function () {
                         : _c("v-uni-image", {
                             staticClass: _vm._$g(55, "sc"),
                             attrs: {
-                              src: "/static/assets/icons/粉_修改.svg",
+                              src: "/static/assets/icons/f_xg.svg",
                               mode: "aspectFit",
                               _i: 55,
                             },
@@ -2238,7 +2238,7 @@ var render = function () {
                       _c("v-uni-image", {
                         staticClass: _vm._$g(58, "sc"),
                         attrs: {
-                          src: "/static/assets/icons/粉_双爱心.svg",
+                          src: "/static/assets/icons/f_sax.svg",
                           mode: "aspectFit",
                           _i: 58,
                         },
@@ -2565,7 +2565,7 @@ var render = function () {
                               _c("v-uni-image", {
                                 staticClass: _vm._$g(91, "sc"),
                                 attrs: {
-                                  src: "/static/assets/icons/键盘删除.svg",
+                                  src: "/static/assets/icons/jpsc.svg",
                                   mode: "aspectFit",
                                   _i: 91,
                                 },
@@ -3822,7 +3822,7 @@ var render = function () {
                       _c("v-uni-image", {
                         staticClass: _vm._$g(8, "sc"),
                         attrs: {
-                          src: "/static/assets/icons/粉_功能介绍.svg",
+                          src: "/static/assets/icons/f_gnjs.svg",
                           _i: 8,
                         },
                       }),
@@ -3865,7 +3865,7 @@ var render = function () {
                       _c("v-uni-image", {
                         staticClass: _vm._$g(14, "sc"),
                         attrs: {
-                          src: "/static/assets/icons/粉_帮助反馈.svg",
+                          src: "/static/assets/icons/f_bzfk.svg",
                           _i: 14,
                         },
                       }),
@@ -3908,7 +3908,7 @@ var render = function () {
                       _c("v-uni-image", {
                         staticClass: _vm._$g(20, "sc"),
                         attrs: {
-                          src: "/static/assets/icons/粉_更新日志.svg",
+                          src: "/static/assets/icons/f_gxrz.svg",
                           _i: 20,
                         },
                       }),
@@ -6461,7 +6461,7 @@ var render = function () {
                               _c("v-uni-image", {
                                 staticClass: _vm._$g(38, "sc"),
                                 attrs: {
-                                  src: "/static/assets/icons/粉_日期.svg",
+                                  src: "/static/assets/icons/f_rq.svg",
                                   mode: "aspectFit",
                                   _i: 38,
                                 },
@@ -6480,7 +6480,7 @@ var render = function () {
                           _c("v-uni-image", {
                             staticClass: _vm._$g(40, "sc"),
                             attrs: {
-                              src: "/static/assets/icons/粉_跳转.svg",
+                              src: "/static/assets/icons/f_tz.svg",
                               mode: "aspectFit",
                               _i: 40,
                             },
@@ -6939,7 +6939,7 @@ var render = function () {
           _c("v-uni-image", {
             staticClass: _vm._$g(2, "sc"),
             attrs: {
-              src: "/static/assets/icons/粉_加号.svg",
+              src: "/static/assets/icons/f_jh.svg",
               mode: "aspectFit",
               _i: 2,
             },
@@ -7027,7 +7027,7 @@ var render = function () {
                               _c("v-uni-image", {
                                 staticClass: _vm._$g("10-" + $30, "sc"),
                                 attrs: {
-                                  src: "/static/assets/icons/粉_双爱心.svg",
+                                  src: "/static/assets/icons/f_sax.svg",
                                   mode: "aspectFit",
                                   _i: "10-" + $30,
                                 },
@@ -7410,7 +7410,7 @@ var render = function () {
           _c("v-uni-image", {
             staticClass: _vm._$g(2, "sc"),
             attrs: {
-              src: "/static/assets/icons/粉_加号.svg",
+              src: "/static/assets/icons/f_jh.svg",
               mode: "aspectFit",
               _i: 2,
             },

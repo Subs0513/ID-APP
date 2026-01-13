@@ -57,10 +57,10 @@
             <view class="card" v-if="cycleChange">
                 <view class="cycle-head">
                     <view class="cycle-head-left">
-                        <image class="cycle-icon" src="/static/assets/icons/粉_日期.svg" mode="aspectFit" />
+                        <image class="cycle-icon" src="/static/assets/icons/f_rq.svg" mode="aspectFit" />
                         <text class="cycle-title">周期变化</text>
                     </view>
-                    <image class="cycle-arrow" src="/static/assets/icons/粉_跳转.svg" mode="aspectFit" />
+                    <image class="cycle-arrow" src="/static/assets/icons/f_tz.svg" mode="aspectFit" />
                 </view>
 
                 <view class="cycle-sub">{{ cycleChange.rangeText }}</view>

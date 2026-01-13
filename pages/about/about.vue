@@ -11,7 +11,7 @@
             <view class="card">
                 <view class="card-item" hover-class="card-item-active" @tap="onIntro">
                     <view class="left">
-                        <image class="item-icon" src="/static/assets/icons/粉_功能介绍.svg" />
+                        <image class="item-icon" src="/static/assets/icons/f_gnjs.svg" />
                         <text class="item-text">功能介绍</text>
                     </view>
                     <text class="arrow">›</text>
@@ -21,7 +21,7 @@
 
                 <view class="card-item" hover-class="card-item-active" @tap="onFeedback">
                     <view class="left">
-                        <image class="item-icon" src="/static/assets/icons/粉_帮助反馈.svg" />
+                        <image class="item-icon" src="/static/assets/icons/f_bzfk.svg" />
                         <text class="item-text">帮助反馈</text>
                     </view>
                     <text class="arrow">›</text>
@@ -31,7 +31,7 @@
 
                 <view class="card-item" hover-class="card-item-active" @tap="onChangelog">
                     <view class="left">
-                        <image class="item-icon" src="/static/assets/icons/粉_更新日志.svg" />
+                        <image class="item-icon" src="/static/assets/icons/f_gxrz.svg" />
                         <text class="item-text">更新日志</text>
                     </view>
                     <text class="arrow">›</text>

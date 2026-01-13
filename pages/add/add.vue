@@ -3,7 +3,7 @@
         <view class="card">
             <!-- <view class="label">标题</view> -->
             <view class="label row-left-with-icon">
-                <image class="label-icon" src="/static/assets/icons/粉_标题.svg" mode="aspectFit" />
+                <image class="label-icon" src="/static/assets/icons/f_bt.svg" mode="aspectFit" />
                 <text>标题</text>
             </view>
 
@@ -13,7 +13,7 @@
 
             <!-- <view class="label">日期</view> -->
             <view class="label row-left-with-icon">
-                <image class="label-icon" src="/static/assets/icons/粉_日期.svg" mode="aspectFit" />
+                <image class="label-icon" src="/static/assets/icons/f_rq.svg" mode="aspectFit" />
                 <text>日期</text>
             </view>
 
@@ -27,7 +27,7 @@
 
             <!-- <view class="label">类型</view> -->
             <view class="label row-left-with-icon">
-                <image class="label-icon" src="/static/assets/icons/粉_类型.svg" mode="aspectFit" />
+                <image class="label-icon" src="/static/assets/icons/f_lx.svg" mode="aspectFit" />
                 <text>类型</text>
             </view>
 
@@ -41,7 +41,7 @@
 
             <!-- <view class="label">备注（可选）</view> -->
             <view class="label row-left-with-icon">
-                <image class="label-icon" src="/static/assets/icons/粉_备注.svg" mode="aspectFit" />
+                <image class="label-icon" src="/static/assets/icons/f_bz.svg" mode="aspectFit" />
                 <text>备注（可选）</text>
             </view>
             <view class="field field--multi">
@@ -55,7 +55,7 @@
 
             <view class="row" style="margin-top: 18rpx">
                 <view class="row-left row-left-with-icon">
-                    <image class="top-icon" src="/static/assets/icons/粉_置顶.svg" mode="aspectFit" />
+                    <image class="top-icon" src="/static/assets/icons/f_zd.svg" mode="aspectFit" />
                     <view class="muted">是否置顶</view>
                 </view>
 
@@ -70,7 +70,7 @@
     </view> -->
             <view class="row" style="margin-top: 18rpx">
                 <view class="row-left row-left-with-icon">
-                    <image class="include-icon" src="/static/assets/icons/粉_加一.svg" mode="aspectFit" />
+                    <image class="include-icon" src="/static/assets/icons/f_jy.svg" mode="aspectFit" />
                     <view class="muted">正数包含起始日</view>
                 </view>
 

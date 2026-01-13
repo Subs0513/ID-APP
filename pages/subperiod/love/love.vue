@@ -2,7 +2,7 @@
     <view class="page">
         <!-- 顶部添加按钮 -->
         <view class="add-btn" @tap="onAddTap" hover-class="btn-active" hover-stay-time="80">
-            <image src="/static/assets/icons/粉_加号.svg" class="icon" mode="aspectFit" />
+            <image src="/static/assets/icons/f_jh.svg" class="icon" mode="aspectFit" />
             <text>添加爱爱记录</text>
         </view>
 
@@ -27,7 +27,7 @@
                 <view :class="'swipe-content ' + (item._moving ? 'no-anim' : '')" :style="'transform: translateX(' + item._x + 'rpx);'" :data-index="index" @tap="onSwipeTap">
                     <view class="card-row">
                         <view class="left">
-                            <image class="heart" src="/static/assets/icons/粉_双爱心.svg" mode="aspectFit" />
+                            <image class="heart" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
                             <text class="count">第{{ index + 1 }}次</text>
                             <text class="time">{{ item.time }}</text>
                         </view>

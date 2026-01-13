@@ -2,7 +2,7 @@
     <view class="page">
         <!-- 顶部添加按钮 -->
         <view class="add-btn" @tap="onAddTap" hover-class="btn-active" hover-stay-time="80">
-            <image src="/static/assets/icons/粉_加号.svg" class="icon" mode="aspectFit" />
+            <image src="/static/assets/icons/f_jh.svg" class="icon" mode="aspectFit" />
             <text>添加痛经记录</text>
         </view>
 

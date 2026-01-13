@@ -35,7 +35,7 @@
       <!-- 标题：重要的日子 -->
       <view class="list-header">
         <view class="list-title">
-          <image class="title-icon" src="/static/assets/icons/粉_日期.svg" mode="aspectFit" />
+          <image class="title-icon" src="/static/assets/icons/f_rq.svg" mode="aspectFit" />
           <text>重要的日子</text>
         </view>
       </view>

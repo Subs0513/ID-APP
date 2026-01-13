@@ -5,7 +5,7 @@
     height: 100vh;
     padding: 20rpx; /* 页面内边距 */
     box-sizing: border-box; /* 计算宽高包含 padding */
-    padding-bottom: calc(104rpx + env(safe-area-inset-bottom)); /* ✅ 104rpx(tabbar) + 20rpx余量 */
+    /* padding-bottom: calc(104rpx + env(safe-area-inset-bottom)); */ /* ✅ 104rpx(tabbar) + 20rpx余量 */
 }
 .content {
     padding-bottom: calc(40rpx + env(safe-area-inset-bottom));

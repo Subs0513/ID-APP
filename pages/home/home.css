@@ -1,0 +1,167 @@
+/* pages/home/home.wxss */
+page {
+    background-color: #fff0f5; /* 你想要的颜色 */
+}
+
+/* 置顶卡 */
+.hero {
+    background: #fff;
+    border-radius: 18rpx;
+    padding: 60rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22rpx;
+}
+
+.hero-left {
+    flex: 1;
+    padding-right: 20rpx;
+}
+
+.hero-title {
+    font-size: 46rpx;
+    font-weight: 800;
+    color: #222;
+}
+
+.hero-sub {
+    margin-top: 10rpx;
+    font-size: 30rpx;
+    color: #9aa0a6;
+}
+
+.hero-right {
+    width: 200rpx;
+    text-align: right;
+}
+
+.hero-days {
+    font-size: 80rpx;
+    font-weight: 900;
+    color: #222;
+    line-height: 1;
+}
+
+.hero-days-unit {
+    margin-top: 6rpx;
+    font-size: 30rpx;
+    color: #9aa0a6;
+}
+
+/* 列表头 */
+.list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8rpx 4rpx 16rpx;
+}
+
+.list-title {
+    font-size: 34rpx;
+    font-weight: 800;
+    color: #ff74a0;
+}
+
+/* 标题行：图标 + 文字 */
+.list-title-row {
+    display: flex;
+    align-items: center;
+}
+
+/* 标题图标 */
+.list-title-icon {
+    width: 46rpx;
+    height: 46rpx;
+    margin-right: 12rpx;
+}
+
+/* 标题文字（沿用你原来的风格） */
+
+/* 空状态 */
+.empty-card {
+    background: #fff;
+    border-radius: 18rpx;
+    padding: 24rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.empty-text {
+    color: #9aa0a6;
+    font-size: 28rpx;
+}
+
+/* 列表卡片 */
+.day-card {
+    background: #fff;
+    border-radius: 18rpx;
+    padding: 26rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.06);
+    margin-top: 16rpx;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.day-title {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: #222;
+}
+
+.day-right {
+    min-width: 240rpx;
+    text-align: right;
+}
+
+.day-badge {
+    font-size: 30rpx;
+    color: #222;
+}
+
+.day-badge-strong {
+    font-size: 38rpx;
+    font-weight: 900;
+    margin: 0 6rpx;
+}
+
+.custom-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(255, 255, 255, 0); /* 透明 */
+}
+
+.custom-nav__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-nav__title {
+    font-size: 34rpx;
+    font-weight: 600;
+    color: #e8849f;
+}
+
+.important-card {
+    transition: transform 0.2s;
+}
+
+.dragging {
+    opacity: 0.85;
+    transform: scale(1.03);
+    box-shadow: 0 12rpx 30rpx rgba(0, 0, 0, 0.12);
+    z-index: 10;
+}
+
+/* 点击态：阴影变浅 + 微微下压 */
+.day-card-active {
+    box-shadow: 0 6rpx 14rpx rgba(0, 0, 0, 0.06);
+    transform: translateY(2rpx);
+}

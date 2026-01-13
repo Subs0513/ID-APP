@@ -1,0 +1,44 @@
+.tabbar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: #ff92b5;
+    /* background: #EC769C; */
+    border-top: 1rpx solid rgba(0, 0, 0, 0.06);
+    z-index: 9999;
+}
+
+.tabbar__safe {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tabbar__items {
+    height: 104rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tabbar__item {
+    flex: 1;
+    height: 104rpx;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabbar__text {
+    font-size: 32rpx; /* 你刚刚想调大的地方 */
+    color: #ffe1eb;
+    /* color: #ffe1eb; */
+    line-height: 1;
+}
+
+.is-active .tabbar__text {
+    color: #ffffff;
+    /* color: #e8849f; */
+    font-weight: 700;
+}

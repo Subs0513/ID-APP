@@ -1,0 +1,563 @@
+/* =========================
+   ✅ 页面整体：scroll-view 容器
+   ========================= */
+.page {
+    height: 100vh;
+    padding: 20rpx; /* 页面内边距 */
+    box-sizing: border-box; /* 计算宽高包含 padding */
+    padding-bottom: calc(104rpx + env(safe-area-inset-bottom)); /* ✅ 104rpx(tabbar) + 20rpx余量 */
+}
+.content {
+    padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
+}
+
+/* =========================
+     ✅ 顶部 Header：月份 + 翻月 + 回到今天
+     ========================= */
+.cal-header {
+    display: flex; /* 横向布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 两边对齐 */
+    padding: 10rpx 0 16rpx; /* 上下内边距 */
+}
+
+/* 左右翻月按钮 */
+.nav-btn {
+    width: 70rpx; /* 按钮宽 */
+    height: 70rpx; /* 按钮高 */
+    border-radius: 20rpx; /* 圆角 */
+    background: #ffffff; /* 白底 */
+    display: flex; /* flex 居中 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    font-size: 44rpx; /* 箭头字号 */
+    color: #333; /* 字色 */
+    box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.06); /* 阴影 */
+}
+
+/* 中间：年月 + 回到今天 */
+.header-center {
+    display: flex; /* 横向排列 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 居中 */
+    gap: 16rpx; /* 两元素间距 */
+}
+
+/* 年月文字 */
+.ym-text {
+    font-size: 34rpx; /* 字号 */
+    font-weight: 700; /* 加粗 */
+    color: #111; /* 深色 */
+}
+
+/* 回到今天按钮 */
+.today-btn {
+    padding: 10rpx 18rpx; /* 内边距 */
+    border-radius: 18rpx; /* 圆角 */
+    background: #ff96b9; /* 粉色背景 */
+    color: #ffffff; /* 白色文字 */
+    font-size: 24rpx; /* 字号 */
+}
+
+/* =========================
+     ✅ 星期栏
+     ========================= */
+.week-row {
+    display: grid; /* 使用 grid */
+    grid-template-columns: repeat(7, 1fr); /* 7列 */
+    gap: 10rpx; /* 间距 */
+    margin: 6rpx 0 10rpx; /* 外边距 */
+}
+
+/* 星期文字 */
+.week-item {
+    text-align: center; /* 居中 */
+    font-size: 24rpx; /* 字号 */
+    color: #888; /* 灰色 */
+}
+
+/* =========================
+     ✅ 日历网格
+     ========================= */
+.grid {
+    display: grid; /* grid 布局 */
+    grid-template-columns: repeat(7, 1fr); /* 7列 */
+    gap: 10rpx; /* cell 间距 */
+    background: #ffffff; /* 白底 */
+    border-radius: 26rpx; /* 大圆角 */
+    padding: 14rpx; /* 内边距 */
+    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06); /* 阴影 */
+}
+
+/* 每一个日期格子 */
+.cell {
+    height: 92rpx; /* 格子高度 */
+    border-radius: 18rpx; /* 圆角 */
+    position: relative; /* 方便绝对定位 top-mark */
+    display: flex; /* flex 垂直排列 */
+    flex-direction: column; /* 竖向 */
+    align-items: center; /* 水平居中 */
+    justify-content: center; /* 垂直居中 */
+    box-sizing: border-box; /* 包含 padding/border */
+}
+
+/* 顶部标记容器（爱心/排卵点） */
+.top-mark {
+    position: absolute; /* 绝对定位 */
+    top: 6rpx; /* 距离顶部 */
+    height: 24rpx; /* 高度 */
+    display: flex; /* 横向排列 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    gap: 8rpx; /* 间距 */
+}
+
+/* 爱心：描边心（中空效果） */
+.heart {
+    font-size: 22rpx; /* 字号 */
+    color: #ffffff; /* 填充白色（看起来接近透明） */
+    -webkit-text-stroke: 2rpx #ff4d6d; /* 红色描边 */
+    line-height: 1; /* 行高 */
+}
+
+/* ✅ 经期（红底）里：爱心改白色描边，保证可见 */
+.cell.period .heart {
+    color: transparent; /* 不填色 */
+    -webkit-text-stroke: 2rpx #ffffff; /* 白色描边 */
+}
+
+/* ✅ 只影响【今天】这一格里的爱心位置 */
+.cell.today .heart {
+    position: relative; /* 相对定位 */
+    top: -3rpx; /* 微调位置 */
+}
+
+/* ✅ 只让【今天】的数字往下挪一点 */
+.cell.today .num {
+    position: relative; /* 相对定位 */
+    top: 4rpx; /* 往下挪 */
+}
+
+/* 排卵日的小圆点 */
+.ovu-dot {
+    width: 14rpx; /* 宽 */
+    height: 14rpx; /* 高 */
+    border-radius: 50%; /* 圆形 */
+    background: #8b5cf6; /* 紫色 */
+}
+
+/* 日期数字 */
+.num {
+    font-size: 30rpx; /* 字号 */
+    color: #222; /* 深灰 */
+    font-weight: 600; /* 半粗 */
+}
+
+/* “今天”标签 */
+.today-tag {
+    margin-top: 2rpx; /* 顶部间距 */
+    font-size: 20rpx; /* 字号 */
+    color: #ff4d6d; /* 粉色 */
+}
+
+/* ✅ 选中日期蓝色边框 */
+.selected {
+    border: 4rpx solid #1e90ff; /* 蓝色描边 */
+}
+
+/* 非当月日期：变淡 */
+.other {
+    opacity: 0.28; /* 透明度 */
+}
+
+/* =========================
+     ✅ 业务展示：月经/预测/排卵期
+     ========================= */
+.period {
+    background: #ff4d6d; /* 背景 */
+}
+.period .num {
+    color: #fff;
+} /* 数字变白 */
+.period .today-tag {
+    color: #fff;
+} /* 今天标签变白 */
+.pred {
+    background: #ffd1dc; /* 背景 */
+}
+.pred .num {
+    color: #fff;
+} /* 数字白色 */
+.ovulation {
+    background: #efe7ff7f; /* 背景 */
+}
+.ovulation .num {
+    color: #8b5cf6;
+} /* 数字紫色 */
+.legend {
+    margin: 16rpx 6rpx 0; /* 外边距 */
+    display: flex; /* 横向 */
+    align-items: center; /* 垂直居中 */
+    gap: 18rpx; /* 间距 */
+    flex-wrap: wrap; /* 换行 */
+    color: #666; /* 字色 */
+    font-size: 22rpx; /* 字号 */
+}
+
+/* 单个图例项 */
+.leg-item {
+    display: flex; /* 横向 */
+    align-items: center; /* 垂直居中 */
+    gap: 8rpx; /* 间距 */
+}
+
+/* 方块 */
+.box {
+    width: 26rpx; /* 宽 */
+    height: 18rpx; /* 高 */
+    border-radius: 6rpx; /* 圆角 */
+}
+
+/* 月经期颜色 */
+.b-period {
+    background: #ff4d6d;
+}
+
+/* 预测经期颜色 */
+.b-pred {
+    background: #ffd1dc;
+}
+
+/* 排卵期颜色 */
+.b-ovu {
+    background: #e9e0fc;
+}
+
+/* 排卵日点 */
+.dot {
+    width: 14rpx; /* 宽 */
+    height: 14rpx; /* 高 */
+    border-radius: 50%; /* 圆 */
+    background: #8b5cf6; /* 紫色 */
+}
+
+/* =========================
+     ✅ 下方操作区 Panel（“月经来了/爱爱”那张白色卡片）
+     ========================= */
+.panel {
+    margin-top: 18rpx; /* 与上方间距 */
+    background: #ffffff; /* 白底 */
+    border-radius: 26rpx; /* 大圆角 */
+    overflow: hidden; /* 裁切圆角 */
+    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06); /* 阴影 */
+}
+
+/* 行：通用 row */
+.row {
+    display: flex; /* 横向 */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 左右两端 */
+    padding: 26rpx 22rpx; /* 内边距 */
+    border-bottom: 1rpx solid #f1f1f1; /* 分割线 */
+}
+
+/* 最后一行去分割线 */
+.row:last-child {
+    border-bottom: none; /* 去掉底边 */
+}
+
+/* 左侧容器 */
+.row-left {
+    display: flex; /* 横向 */
+    align-items: center; /* 垂直居中 */
+    flex-wrap: wrap; /* 允许换行 */
+}
+
+/* 行标题 */
+.row-title {
+    font-size: 34rpx; /* 字号 */
+    color: #111; /* 深色 */
+    font-weight: 650; /* 加粗 */
+}
+
+/* 体重行右侧：数值 + 图标 */
+.row-right {
+    display: flex;
+    align-items: center;
+}
+
+.row-value {
+    font-size: 32rpx;
+    color: #ff4d6d; /* 参考图的粉色 */
+    margin-right: 16rpx;
+    display: flex;
+    align-items: center;
+}
+
+/* 备注预览（你原来就有） */
+.note-preview {
+    font-size: 26rpx; /* 字号 */
+    color: #666; /* 灰色 */
+}
+
+/* 可点击行的点击态 */
+.tappable:active {
+    background: #fafafa; /* 变浅 */
+}
+
+/* ✅ 让 picker 成为块级（你原来就有） */
+.picker-wrap {
+    display: block; /* block */
+}
+
+/* 只影响【今天】这一格的数字（你原来就有） */
+.cell:has(.today-tag) .num {
+    font-size: 26rpx; /* 今天数字更小 */
+    position: relative; /* 相对定位 */
+    top: 6rpx; /* 往下挪 */
+}
+
+/* 只影响【今天】这两个字（你原来就有） */
+.cell .today-tag {
+    font-size: 20rpx; /* 今天文字大小 */
+    line-height: 1; /* 行高 */
+    position: relative; /* 相对定位 */
+    top: 5rpx; /* 位置微调 */
+}
+
+/* 自定义导航模式下，给页面补顶部安全区（你原来就有，虽然这里是 period 页也先保留） */
+.me-page {
+    padding-top: env(safe-area-inset-top); /* 安全区 */
+    box-sizing: border-box; /* 盒模型 */
+}
+
+/* 新增的爱爱图标（你原来就有） */
+.love-icon {
+    width: 32rpx; /* 宽 */
+    height: 32rpx; /* 高 */
+    margin-right: 12rpx; /* 右间距 */
+}
+
+/* 加号图标（你原来就有） */
+.plus-icon {
+    width: 54rpx; /* 宽 */
+    height: 54rpx; /* 高 */
+    margin-right: 8rpx; /* 右间距 */
+}
+
+/* 粉水滴图标容器（你原来就有） */
+.row-left-with-icon {
+    display: flex; /* 横向 */
+    align-items: center; /* 垂直居中 */
+}
+
+/* 粉水滴图标（你原来就有） */
+.period-icon {
+    width: 32rpx; /* 宽 */
+    height: 32rpx; /* 高 */
+    margin-right: 12rpx; /* 右间距 */
+}
+
+/* =========================
+     ✅ 新增：独立小卡片（经期健康分析）
+     目标：不是 row 插入 panel，而是 panel 下方单独一张卡
+     ========================= */
+.mini-card {
+    margin-top: 18rpx; /* 和 panel 拉开距离 */
+    background: #ffffff; /* 白底 */
+    border-radius: 26rpx; /* 与整体风格一致的圆角 */
+    padding: 26rpx 22rpx; /* 内边距（和 row 一致） */
+    display: flex; /* 横向布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 左右两端 */
+    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06); /* 阴影（和 panel/日历一致） */
+}
+
+/* 小卡片左侧：图标 + 文字 */
+.mini-left {
+    display: flex; /* 横向 */
+    align-items: center; /* 垂直居中 */
+}
+
+/* 左侧“粉_分析”图标 */
+.mini-icon {
+    width: 38rpx; /* 图标大小 */
+    height: 38rpx; /* 图标大小 */
+    margin-right: 12rpx; /* 图标和文字间距 */
+}
+
+/* 卡片标题 */
+.mini-title {
+    font-size: 34rpx; /* 字号（跟 row-title 一致） */
+    color: #111; /* 深色 */
+    font-weight: 650; /* 加粗 */
+}
+
+/* 右侧“粉_跳转”图标 */
+.mini-go {
+    width: 28rpx; /* 稍小一点更像箭头 */
+    height: 28rpx; /* 稍小一点更像箭头 */
+    opacity: 0.65; /* 变淡，符合辅助图标风格 */
+    margin-right: 18rpx; /* 右间距 */
+}
+
+/* 左侧：图标+文字 */
+.row-left-with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.row-icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 16rpx;
+}
+
+/* 右侧：加号 */
+.plus-icon {
+    width: 72rpx;
+    height: 72rpx;
+}
+
+/* 底部留白：给最后卡片阴影“呼吸空间”，不改变 tabbar 预留逻辑 */
+.bottom-spacer {
+    height: 24rpx; /* 16~32rpx 都行，建议从 24rpx 开始 */
+}
+
+/* =====================================================
+   ✅ 体重弹窗（底部弹出 / 自定义键盘）
+   说明：
+   - 用 position: fixed 覆盖在页面最上层
+   - sheet-mask 点击关闭
+   ===================================================== */
+.page-wrap {
+    position: relative;
+}
+
+/* 遮罩层 */
+.sheet-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+}
+
+/* 底部弹窗主体 */
+.sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f6f6f7;
+    border-top-left-radius: 24rpx;
+    border-top-right-radius: 24rpx;
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 顶部栏：取消/标题/确定 */
+.sheet-header {
+    height: 96rpx;
+    padding: 0 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f6f6f7;
+    border-top-left-radius: 24rpx;
+    border-top-right-radius: 24rpx;
+}
+
+.sheet-title {
+    font-size: 34rpx;
+    font-weight: 600;
+    color: #111;
+}
+
+.sheet-btn {
+    font-size: 30rpx;
+    color: #666;
+}
+
+.sheet-btn-primary {
+    color: #111;
+}
+
+/* 单位切换行（靠右） */
+.sheet-unit-row {
+    padding: 8rpx 24rpx 0;
+    display: flex;
+    align-items: center;
+}
+.sheet-unit-spacer {
+    flex: 1;
+}
+.unit-toggle {
+    padding: 10rpx 18rpx;
+    background: #ffffff;
+    border-radius: 999rpx;
+    font-size: 24rpx;
+    color: #666;
+    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 数值显示（中间大字） */
+.sheet-value {
+    height: 160rpx;
+    margin: 12rpx 24rpx 18rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.value-num {
+    font-size: 80rpx;
+    font-weight: 600;
+    color: #111;
+}
+
+.value-unit {
+    font-size: 34rpx;
+    color: #999;
+    margin-left: 12rpx;
+}
+
+/* 键盘 */
+.sheet-keypad {
+    padding: 0 18rpx 18rpx;
+}
+
+.key-row {
+    display: flex;
+    gap: 18rpx;
+    margin-top: 18rpx;
+}
+
+.key {
+    flex: 1;
+    height: 120rpx;
+    background: #fff;
+    border-radius: 18rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46rpx;
+    color: #111;
+    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 删除键里的图标 */
+.key-del-icon {
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.key.key-del {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

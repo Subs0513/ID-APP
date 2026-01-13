@@ -1,0 +1,141 @@
+{
+	"pages": [
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationStyle": "custom",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/add/add",
+			"style": {
+				"navigationBarTitleText": "新增重要日子",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/period/period",
+			"style": {
+				"navigationBarTitleText": "经期管理",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/me/me",
+			"style": {
+				"navigationBarTitleText": "我",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "详情",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/about/about",
+			"style": {
+				"navigationBarTitleText": "关于",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/editDetail/editDetail",
+			"style": {
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/subabout/privacy/privacy",
+			"style": {
+				"navigationBarTitleText": "隐私政策",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/subabout/agreement/agreement",
+			"style": {
+				"navigationBarTitleText": "服务协议",
+				"navigationBarBackgroundColor": "#ffffff",
+				"navigationBarTextStyle": "black",
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/subabout/intro/intro",
+			"style": {
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/subabout/feedback/feedback",
+			"style": {
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/subabout/changelog/changelog",
+			"style": {
+				"usingComponents": {}
+			}
+		},
+		{
+			"path": "pages/subperiod/analysis/analysis",
+			"style": {
+				"usingComponents": {},
+				"navigationBarTitleText": "经期健康分析"
+			}
+		},
+		{
+			"path": "pages/subperiod/love/love",
+			"style": {
+				"usingComponents": {},
+				"navigationBarTitleText": "爱爱记录"
+			}
+		},
+		{
+			"path": "pages/subperiod/pain/pain",
+			"style": {
+				"usingComponents": {}
+			}
+		}
+	],
+	"lazyCodeLoading": "requiredComponents",
+	"tabBar": {
+		"custom": true,
+		"color": "#ffe1eb",
+		"selectedColor": "#ffffff",
+		"backgroundColor": "#ff92b5",
+		"borderStyle": "white",
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"text": "主页"
+			},
+			{
+				"pagePath": "pages/add/add",
+				"text": "新增"
+			},
+			{
+				"pagePath": "pages/period/period",
+				"text": "经期"
+			},
+			{
+				"pagePath": "pages/me/me",
+				"text": "我"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTitleText": "重要日子",
+		"navigationBarBackgroundColor": "#ffffff",
+		"navigationBarTextStyle": "black",
+		"backgroundColor": "#f7f7f7"
+	},
+	"subPackages": []
+}

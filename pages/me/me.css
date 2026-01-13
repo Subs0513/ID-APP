@@ -1,0 +1,519 @@
+.page {
+    padding: 24rpx;
+    box-sizing: border-box;
+    background: #fff0f5;
+    min-height: 100vh;
+}
+
+/* 卡片通用 */
+.card {
+    background: #fff;
+    border-radius: 24rpx;
+    box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+/* 顶部用户信息卡 */
+.user-card {
+    display: flex;
+    align-items: center;
+    padding: 24rpx;
+}
+
+.avatar {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 48rpx;
+    background: #eee;
+    flex-shrink: 0;
+}
+
+.user-info {
+    flex: 1;
+    margin-left: 20rpx;
+    min-width: 0;
+}
+
+.nickname {
+    font-size: 34rpx;
+    font-weight: 800;
+    color: #111;
+    line-height: 44rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.desc {
+    margin-top: 8rpx;
+    font-size: 24rpx;
+    color: #9aa0a6;
+    line-height: 32rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 登录按钮（保持你原来的绿色实心风格） */
+.wx-login-btn {
+    height: 68rpx;
+    line-height: 68rpx;
+    padding: 0 28rpx;
+    border-radius: 999rpx;
+    font-size: 30rpx;
+    font-weight: 700;
+    background: #ff92b5;
+    color: #fff;
+    /* transform: translateX(-30rpx); */
+}
+
+/* 去掉小程序按钮默认边框 */
+button::after {
+    border: none;
+}
+
+/* 列表卡 */
+.list-card {
+    margin-top: 18rpx;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26rpx 24rpx;
+    box-sizing: border-box;
+}
+
+.row-left {
+    flex: 1;
+    min-width: 0;
+    padding-right: 16rpx;
+}
+
+.row-title {
+    font-size: 32rpx;
+    font-weight: 800;
+    color: #111;
+    line-height: 42rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.row-sub {
+    margin-top: 8rpx;
+    font-size: 24rpx;
+    color: #9aa0a6;
+    line-height: 32rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.divider {
+    height: 1rpx;
+    background: #f0f1f4;
+    margin-left: 24rpx;
+}
+
+/* ===== 统一右侧三个操作为浅色按钮（修改/分享/查看）===== */
+.row-action {
+    height: 68rpx;
+    line-height: 68rpx;
+    padding: 0 26rpx;
+    min-width: 120rpx;
+
+    background: #f5f6f7;
+    border-radius: 999rpx;
+
+    font-size: 30rpx;
+    font-weight: 700;
+    color: #e8849f;
+    /* color: #f2acb6; */
+
+    text-align: center;
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    /* 关键：让按钮内容垂直居中更稳（不同机型/字体） */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* picker 里的 button 有时会被系统样式影响，显式声明一下 */
+picker {
+    flex-shrink: 0;
+}
+
+/* ===== 弹窗遮罩 + 动画 ===== */
+@keyframes maskFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes sheetUp {
+    from {
+        transform: translateY(28rpx);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 遮罩 */
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 999;
+
+    animation: maskFadeIn 160ms ease-out;
+}
+
+/* 弹窗本体 */
+.sheet {
+    width: calc(100% - 48rpx);
+    margin: 0 24rpx;
+    margin-bottom: calc(24rpx + env(safe-area-inset-bottom) + 110rpx);
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 26rpx;
+    box-shadow: 0 26rpx 70rpx rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+
+    animation: sheetUp 180ms ease-out;
+}
+
+.sheet-header {
+    padding: 16rpx 18rpx 12rpx;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fff;
+}
+
+.sheet-handle {
+    width: 72rpx;
+    height: 8rpx;
+    border-radius: 999rpx;
+    background: rgba(0, 0, 0, 0.12);
+    margin: 0 auto 12rpx;
+}
+
+.sheet-title {
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: 800;
+    color: #111;
+}
+
+.sheet-body {
+    padding: 18rpx;
+    background: #fff;
+}
+
+/* Field（头像/昵称） */
+.field {
+    width: 100%;
+    height: 108rpx;
+    border-radius: 22rpx;
+    background: #f5f6f7;
+    display: flex;
+    align-items: center;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    margin-top: 14rpx;
+    position: relative;
+}
+
+.field-main {
+    flex: 1;
+    overflow: hidden;
+}
+
+.field-label {
+    font-size: 26rpx;
+    color: #777;
+    line-height: 1.1;
+}
+
+.field-value {
+    margin-top: 6rpx;
+    font-size: 30rpx;
+    color: #111;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.placeholder {
+    color: #9aa0a6;
+}
+
+.field-input {
+    margin-top: 6rpx;
+    font-size: 30rpx;
+    color: #111;
+}
+
+/* 头像选中后居中显示 */
+.avatar-only-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-only {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    background: #e7e7e7;
+}
+
+/* 覆盖按钮（点整个块触发 chooseAvatar） */
+.cover-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+.cover-btn::after {
+    border: none;
+}
+
+/* 昵称已选中后：只显示昵称并居中 */
+.nickname-only {
+    width: 100%;
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #111;
+}
+
+/* 通用按钮（确定/退出登录同尺寸） */
+.action {
+    background-color: #ff92b5;
+    width: 100%;
+    height: 88rpx;
+    border-radius: 22rpx;
+    font-size: 32rpx;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 18rpx;
+}
+
+.primary {
+    background: #ff92b5;
+    color: #fff;
+}
+
+/* 退出登录：白底红字，不用绿色背景 */
+.danger {
+    background: #ffffff;
+    color: #e5484d;
+    border: 2rpx solid #f2b8bb;
+}
+.danger::after {
+    border: none;
+}
+/* ========== 微信官方风：底部登录弹层 ========== */
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 999;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    /* 入场淡入 */
+    animation: maskFadeIn 0.16s ease-out;
+}
+
+@keyframes maskFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 弹层本体（上圆角 + 阴影 + 安全区） */
+.sheet {
+    width: 100%;
+    background: #fff;
+    border-top-left-radius: 28rpx;
+    border-top-right-radius: 28rpx;
+    box-shadow: 0 -10rpx 40rpx rgba(0, 0, 0, 0.18);
+    padding-bottom: env(safe-area-inset-bottom);
+
+    /* 入场上滑 */
+    animation: sheetUp 0.18s ease-out;
+}
+
+@keyframes sheetUp {
+    from {
+        transform: translateY(28rpx);
+        opacity: 0.92;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* 顶部区域：把“把手”和标题做得像微信 */
+.sheet-header {
+    padding: 18rpx 24rpx 8rpx;
+    position: relative;
+}
+
+.sheet-handle {
+    width: 88rpx;
+    height: 10rpx;
+    border-radius: 999rpx;
+    background: rgba(0, 0, 0, 0.12);
+    margin: 0 auto 14rpx;
+}
+
+.sheet-title {
+    text-align: center;
+    font-size: 32rpx;
+    font-weight: 600;
+    color: #111;
+    line-height: 44rpx;
+}
+
+/* 内容区整体间距 */
+.sheet-body {
+    padding: 18rpx 24rpx 24rpx;
+}
+
+/* 每一项输入/选择做成“微信设置页”那种灰底卡片 */
+.field {
+    position: relative;
+    background: #f7f8fa;
+    border-radius: 18rpx;
+    padding: 22rpx 24rpx;
+    margin-bottom: 16rpx;
+}
+
+/* 头像行：让“微信头像/点击选择”居中更像官方 */
+.field-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.field-label {
+    font-size: 28rpx;
+    color: #666;
+    line-height: 40rpx;
+}
+
+.field-value {
+    margin-top: 8rpx;
+    font-size: 26rpx;
+    color: #111;
+    line-height: 36rpx;
+}
+
+.placeholder {
+    color: #9aa0a6;
+}
+
+/* 头像已选择：圆形头像居中 */
+.avatar-only-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-only {
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+    background: #eee;
+}
+
+/* 覆盖按钮：让整块都能点（你WXML里已经用 cover-btn 了） */
+.cover-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+}
+
+/* 昵称输入：做成微信常见的“单行输入” */
+.field-input {
+    width: 100%;
+    margin-top: 10rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #111;
+    text-align: center; /* 你要的“字居中”，这里直接给官方风 */
+}
+
+/* 昵称已选：只显示昵称并居中 */
+.nickname-only {
+    text-align: center;
+    font-size: 30rpx;
+    font-weight: 500;
+    color: #111;
+    line-height: 44rpx;
+}
+
+/* 按钮：微信绿 + 大圆角 */
+.action {
+    width: 100%;
+    height: 92rpx;
+    border-radius: 18rpx;
+    font-size: 32rpx;
+    font-weight: 600;
+    line-height: 92rpx;
+    margin-top: 14rpx;
+}
+
+/* 微信主按钮：#07c160 */
+.action.primary {
+    background: #ff92b5;
+    color: #fff;
+}
+
+/* 退出：白底红字，边框弱一点（微信常见的“危险操作”） */
+.action.danger {
+    background: #fff;
+    color: #e5484d;
+    border: 2rpx solid rgba(229, 72, 77, 0.28);
+}
+
+/* 按压反馈（更像官方） */
+.action:active {
+    transform: scale(0.985);
+    opacity: 0.92;
+}

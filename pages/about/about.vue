@@ -68,7 +68,7 @@
 export default {
     data() {
         return {
-            version: '1.2.7'
+            version: '0.0.1'
         };
     },
     onLoad() {

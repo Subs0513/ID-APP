@@ -127,9 +127,9 @@ export default {
         };
     },
     onShow() {
-        if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-            this.getTabBar().setSelected(1); // home=0 / add=1 / period=2 / me=3（按你项目实际）
-        }
+        // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+        //     this.getTabBar().setSelected(1); // home=0 / add=1 / period=2 / me=3（按你项目实际）
+        // }
 
         // ✅ 从 detail 通过 storage 传递 editingId 进入编辑态
         const editingId = uni.getStorageSync('editingId');

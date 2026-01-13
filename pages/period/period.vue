@@ -375,9 +375,9 @@ export default {
         this.refreshAll();
     },
     onShow() {
-        if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-            this.getTabBar().setSelected(2);
-        }
+        // if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+        //     this.getTabBar().setSelected(2);
+        // }
         this.refreshAll();
     },
     methods: {

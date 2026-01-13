@@ -159,7 +159,7 @@ export default {
     data() {
         return {
             draftAvatarUrl: '',
-            defaultAvatar: '/static/assets/images/default-avatar.png',
+            defaultAvatar: '/static/assets/icons/tx.svg',
             userProfile: null,
             isLoggedIn: false,
             coupleStartDate: '',
@@ -176,9 +176,9 @@ export default {
         };
     },
     onShow() {
-        if (this.getTabBar && this.getTabBar()) {
-            this.getTabBar().setSelected(3);
-        }
+        // if (this.getTabBar && this.getTabBar()) {
+        //     this.getTabBar().setSelected(3);
+        // }
         const profile = storage.getUserProfile ? storage.getUserProfile() : null;
         const isLoggedIn = !!(profile && profile.nickName);
 

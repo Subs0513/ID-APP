@@ -38,66 +38,13 @@ export default {
         return {
             logs: [
                 {
-                    version: '1.2.7',
+                    version: '1.0.0',
                     desc: '功能更新',
                     isLatest: true,
-                    items: ['新增“痛经记录”功能', '新增“经期健康分析”功能']
+                    items: ['复写基本功能']
                 },
                 {
-                    version: '1.2.6',
-                    desc: '功能更新',
-                    // isLatest: true,
-                    items: ['新增体重记录功能', '新建“痛经记录”按钮（具体功能未实现）']
-                },
-                {
-                    version: '1.2.5',
-                    desc: '小更新',
-                    // isLatest: true,
-                    items: ['更改一点细节', '新增“服务协议”和“隐私政策”', '新建“经期健康分析”入口（具体功能未实现）']
-                },
-                {
-                    version: '1.2.4',
-                    desc: '小更新',
-                    // isLatest: true,
-                    items: ['新增一点点图标']
-                },
-                {
-                    version: '1.2.3',
-                    desc: '修复',
-                    items: ['修复详情页跳转问题']
-                },
-                {
-                    version: '1.2.2',
-                    desc: '优化',
-                    items: ['改进拖动逻辑', '修改详情页逻辑']
-                },
-                {
-                    version: '1.2.1',
-                    desc: '功能增强',
-                    items: ['新增主页卡片拖动功能', '新增编辑页保存后自动刷新']
-                },
-                {
-                    version: '1.2.0',
-                    desc: '重大更新',
-                    items: ['大幅调整小程序配色', '调整日历布局', '更新经期计算逻辑']
-                },
-                {
-                    version: '1.1.1',
-                    desc: '体验优化',
-                    items: ['更新配色和默认头像图片']
-                },
-                {
-                    version: '1.1.0',
-                    desc: '功能更新',
-                    items: ['更新经期记录功能', '退出登录时自动删除个人数据缓存']
-                },
-                {
-                    version: '1.0.1',
-                    desc: '修复',
-                    items: ['更新登录功能']
-                },
-                {
-                    version: '1.0.0',
+                    version: '0.0.0',
                     desc: '初始版本',
                     items: ['基本框架']
                 }

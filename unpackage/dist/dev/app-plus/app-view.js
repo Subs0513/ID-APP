@@ -1882,18 +1882,16 @@ var render = function () {
                 },
               },
             },
-            _vm._l(_vm._$g(11, "f"), function (item, index, $21, $31) {
-              return _c(
+            [
+              _c(
                 "uni-view",
                 {
-                  key: item,
-                  class: _vm._$g("11-" + $31, "c"),
-                  attrs: {
-                    "data-date": _vm._$g("11-" + $31, "a-data-date"),
-                    _i: "11-" + $31,
-                  },
+                  staticClass: _vm._$g(11, "sc"),
+                  class: _vm._$g(11, "c"),
+                  style: _vm._$g(11, "s"),
+                  attrs: { _i: 11 },
                   on: {
-                    click: function ($event) {
+                    transitionend: function ($event) {
                       return _vm.$handleViewEvent($event)
                     },
                   },
@@ -1901,103 +1899,237 @@ var render = function () {
                 [
                   _c(
                     "uni-view",
-                    {
-                      staticClass: _vm._$g("12-" + $31, "sc"),
-                      attrs: { _i: "12-" + $31 },
-                    },
+                    { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
                     [
-                      _vm._$g("13-" + $31, "i")
-                        ? _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g("13-" + $31, "sc"),
-                              attrs: { _i: "13-" + $31 },
-                            },
-                            [_vm._v("♡")]
-                          )
-                        : _vm._e(),
-                      _vm._$g("14-" + $31, "i")
-                        ? _c("uni-view", {
-                            staticClass: _vm._$g("14-" + $31, "sc"),
-                            attrs: { _i: "14-" + $31 },
-                          })
-                        : _vm._e(),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+                        _vm._l(
+                          _vm._$g(14, "f"),
+                          function (item, index, $21, $31) {
+                            return _c(
+                              "uni-view",
+                              {
+                                key: item,
+                                class: _vm._$g("14-" + $31, "c"),
+                                attrs: {
+                                  "data-date": _vm._$g(
+                                    "14-" + $31,
+                                    "a-data-date"
+                                  ),
+                                  _i: "14-" + $31,
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.$handleViewEvent($event)
+                                  },
+                                },
+                              },
+                              [
+                                _c(
+                                  "uni-view",
+                                  {
+                                    staticClass: _vm._$g("15-" + $31, "sc"),
+                                    attrs: { _i: "15-" + $31 },
+                                  },
+                                  [
+                                    _vm._$g("16-" + $31, "i")
+                                      ? _c(
+                                          "v-uni-text",
+                                          {
+                                            staticClass: _vm._$g(
+                                              "16-" + $31,
+                                              "sc"
+                                            ),
+                                            attrs: { _i: "16-" + $31 },
+                                          },
+                                          [_vm._v("♡")]
+                                        )
+                                      : _vm._e(),
+                                    _vm._$g("17-" + $31, "i")
+                                      ? _c("uni-view", {
+                                          staticClass: _vm._$g(
+                                            "17-" + $31,
+                                            "sc"
+                                          ),
+                                          attrs: { _i: "17-" + $31 },
+                                        })
+                                      : _vm._e(),
+                                  ],
+                                  1
+                                ),
+                                _c(
+                                  "v-uni-text",
+                                  {
+                                    staticClass: _vm._$g("18-" + $31, "sc"),
+                                    attrs: { _i: "18-" + $31 },
+                                  },
+                                  [_vm._v(_vm._$g("18-" + $31, "t0-0"))]
+                                ),
+                                _vm._$g("19-" + $31, "i")
+                                  ? _c(
+                                      "v-uni-text",
+                                      {
+                                        staticClass: _vm._$g("19-" + $31, "sc"),
+                                        attrs: { _i: "19-" + $31 },
+                                      },
+                                      [_vm._v("今天")]
+                                    )
+                                  : _vm._e(),
+                              ],
+                              1
+                            )
+                          }
+                        ),
+                        1
+                      ),
                     ],
                     1
                   ),
                   _c(
-                    "v-uni-text",
-                    {
-                      staticClass: _vm._$g("15-" + $31, "sc"),
-                      attrs: { _i: "15-" + $31 },
-                    },
-                    [_vm._v(_vm._$g("15-" + $31, "t0-0"))]
+                    "uni-view",
+                    { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                        _vm._l(
+                          _vm._$g(22, "f"),
+                          function (item, index, $22, $32) {
+                            return _c(
+                              "uni-view",
+                              {
+                                key: item,
+                                class: _vm._$g("22-" + $32, "c"),
+                                attrs: {
+                                  "data-date": _vm._$g(
+                                    "22-" + $32,
+                                    "a-data-date"
+                                  ),
+                                  _i: "22-" + $32,
+                                },
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.$handleViewEvent($event)
+                                  },
+                                },
+                              },
+                              [
+                                _c(
+                                  "uni-view",
+                                  {
+                                    staticClass: _vm._$g("23-" + $32, "sc"),
+                                    attrs: { _i: "23-" + $32 },
+                                  },
+                                  [
+                                    _vm._$g("24-" + $32, "i")
+                                      ? _c(
+                                          "v-uni-text",
+                                          {
+                                            staticClass: _vm._$g(
+                                              "24-" + $32,
+                                              "sc"
+                                            ),
+                                            attrs: { _i: "24-" + $32 },
+                                          },
+                                          [_vm._v("♡")]
+                                        )
+                                      : _vm._e(),
+                                    _vm._$g("25-" + $32, "i")
+                                      ? _c("uni-view", {
+                                          staticClass: _vm._$g(
+                                            "25-" + $32,
+                                            "sc"
+                                          ),
+                                          attrs: { _i: "25-" + $32 },
+                                        })
+                                      : _vm._e(),
+                                  ],
+                                  1
+                                ),
+                                _c(
+                                  "v-uni-text",
+                                  {
+                                    staticClass: _vm._$g("26-" + $32, "sc"),
+                                    attrs: { _i: "26-" + $32 },
+                                  },
+                                  [_vm._v(_vm._$g("26-" + $32, "t0-0"))]
+                                ),
+                                _vm._$g("27-" + $32, "i")
+                                  ? _c(
+                                      "v-uni-text",
+                                      {
+                                        staticClass: _vm._$g("27-" + $32, "sc"),
+                                        attrs: { _i: "27-" + $32 },
+                                      },
+                                      [_vm._v("今天")]
+                                    )
+                                  : _vm._e(),
+                              ],
+                              1
+                            )
+                          }
+                        ),
+                        1
+                      ),
+                    ],
+                    1
                   ),
-                  _vm._$g("16-" + $31, "i")
-                    ? _c(
-                        "v-uni-text",
-                        {
-                          staticClass: _vm._$g("16-" + $31, "sc"),
-                          attrs: { _i: "16-" + $31 },
-                        },
-                        [_vm._v("今天")]
-                      )
-                    : _vm._e(),
                 ],
                 1
-              )
-            }),
+              ),
+            ],
             1
           ),
           _c(
             "uni-view",
-            { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
+            { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
                 [
                   _c("uni-view", {
-                    staticClass: _vm._$g(19, "sc"),
-                    attrs: { _i: 19 },
+                    staticClass: _vm._$g(30, "sc"),
+                    attrs: { _i: 30 },
                   }),
-                  _c("v-uni-text", { attrs: { _i: 20 } }, [_vm._v("月经期")]),
+                  _c("v-uni-text", { attrs: { _i: 31 } }, [_vm._v("月经期")]),
                 ],
                 1
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
                 [
                   _c("uni-view", {
-                    staticClass: _vm._$g(22, "sc"),
-                    attrs: { _i: 22 },
+                    staticClass: _vm._$g(33, "sc"),
+                    attrs: { _i: 33 },
                   }),
-                  _c("v-uni-text", { attrs: { _i: 23 } }, [_vm._v("预测经期")]),
+                  _c("v-uni-text", { attrs: { _i: 34 } }, [_vm._v("预测经期")]),
                 ],
                 1
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
                 [
                   _c("uni-view", {
-                    staticClass: _vm._$g(25, "sc"),
-                    attrs: { _i: 25 },
+                    staticClass: _vm._$g(36, "sc"),
+                    attrs: { _i: 36 },
                   }),
-                  _c("v-uni-text", { attrs: { _i: 26 } }, [_vm._v("排卵期")]),
+                  _c("v-uni-text", { attrs: { _i: 37 } }, [_vm._v("排卵期")]),
                 ],
                 1
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
                 [
                   _c("uni-view", {
-                    staticClass: _vm._$g(28, "sc"),
-                    attrs: { _i: 28 },
+                    staticClass: _vm._$g(39, "sc"),
+                    attrs: { _i: 39 },
                   }),
-                  _c("v-uni-text", { attrs: { _i: 29 } }, [_vm._v("排卵日")]),
+                  _c("v-uni-text", { attrs: { _i: 40 } }, [_vm._v("排卵日")]),
                 ],
                 1
               ),
@@ -2007,8 +2139,8 @@ var render = function () {
           _c(
             "uni-view",
             {
-              staticClass: _vm._$g(30, "sc"),
-              attrs: { _i: 30 },
+              staticClass: _vm._$g(41, "sc"),
+              attrs: { _i: 41 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -2018,30 +2150,30 @@ var render = function () {
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
+                { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
                 [
                   _c("v-uni-image", {
-                    staticClass: _vm._$g(32, "sc"),
+                    staticClass: _vm._$g(43, "sc"),
                     attrs: {
                       src: "/static/assets/icons/f_fx.svg",
                       mode: "aspectFit",
-                      _i: 32,
+                      _i: 43,
                     },
                   }),
                   _c(
                     "v-uni-text",
-                    { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
+                    { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
                     [_vm._v("经期健康分析")]
                   ),
                 ],
                 1
               ),
               _c("v-uni-image", {
-                staticClass: _vm._$g(34, "sc"),
+                staticClass: _vm._$g(45, "sc"),
                 attrs: {
                   src: "/static/assets/icons/f_tz.svg",
                   mode: "aspectFit",
-                  _i: 34,
+                  _i: 45,
                 },
               }),
             ],
@@ -2049,27 +2181,27 @@ var render = function () {
           ),
           _c(
             "uni-view",
-            { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+            { staticClass: _vm._$g(46, "sc"), attrs: { _i: 46 } },
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
+                { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
+                    { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
                     [
                       _c("v-uni-image", {
-                        staticClass: _vm._$g(38, "sc"),
+                        staticClass: _vm._$g(49, "sc"),
                         attrs: {
                           src: "/static/assets/icons/f_sd.svg",
                           mode: "aspectFit",
-                          _i: 38,
+                          _i: 49,
                         },
                       }),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
+                        { staticClass: _vm._$g(50, "sc"), attrs: { _i: 50 } },
                         [_vm._v("月经来了")]
                       ),
                     ],
@@ -2077,9 +2209,9 @@ var render = function () {
                   ),
                   _c("v-uni-switch", {
                     attrs: {
-                      checked: _vm._$g(40, "a-checked"),
+                      checked: _vm._$g(51, "a-checked"),
                       color: "#ff4d6d",
-                      _i: 40,
+                      _i: 51,
                     },
                     on: {
                       change: function ($event) {
@@ -2093,8 +2225,8 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g(41, "sc"),
-                  attrs: { _i: 41 },
+                  staticClass: _vm._$g(52, "sc"),
+                  attrs: { _i: 52 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event)
@@ -2104,19 +2236,19 @@ var render = function () {
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                    { staticClass: _vm._$g(53, "sc"), attrs: { _i: 53 } },
                     [
                       _c("v-uni-image", {
-                        staticClass: _vm._$g(43, "sc"),
+                        staticClass: _vm._$g(54, "sc"),
                         attrs: {
                           src: "/static/assets/icons/f_t.svg",
                           mode: "aspectFit",
-                          _i: 43,
+                          _i: 54,
                         },
                       }),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
+                        { staticClass: _vm._$g(55, "sc"), attrs: { _i: 55 } },
                         [_vm._v("痛经")]
                       ),
                     ],
@@ -2124,24 +2256,24 @@ var render = function () {
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
+                    { staticClass: _vm._$g(56, "sc"), attrs: { _i: 56 } },
                     [
-                      _vm._$g(46, "i")
+                      _vm._$g(57, "i")
                         ? _c(
                             "v-uni-text",
                             {
-                              staticClass: _vm._$g(46, "sc"),
-                              attrs: { _i: 46 },
+                              staticClass: _vm._$g(57, "sc"),
+                              attrs: { _i: 57 },
                             },
-                            [_vm._v(_vm._$g(46, "t0-0"))]
+                            [_vm._v(_vm._$g(57, "t0-0"))]
                           )
                         : _vm._e(),
                       _c("v-uni-image", {
-                        staticClass: _vm._$g(47, "sc"),
+                        staticClass: _vm._$g(58, "sc"),
                         attrs: {
-                          src: _vm._$g(47, "a-src"),
+                          src: _vm._$g(58, "a-src"),
                           mode: "aspectFit",
-                          _i: 47,
+                          _i: 58,
                         },
                       }),
                     ],
@@ -2153,8 +2285,8 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g(48, "sc"),
-                  attrs: { _i: 48 },
+                  staticClass: _vm._$g(59, "sc"),
+                  attrs: { _i: 59 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event)
@@ -2164,19 +2296,19 @@ var render = function () {
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(49, "sc"), attrs: { _i: 49 } },
+                    { staticClass: _vm._$g(60, "sc"), attrs: { _i: 60 } },
                     [
                       _c("v-uni-image", {
-                        staticClass: _vm._$g(50, "sc"),
+                        staticClass: _vm._$g(61, "sc"),
                         attrs: {
                           src: "/static/assets/icons/f_tzc.svg",
                           mode: "aspectFit",
-                          _i: 50,
+                          _i: 61,
                         },
                       }),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(51, "sc"), attrs: { _i: 51 } },
+                        { staticClass: _vm._$g(62, "sc"), attrs: { _i: 62 } },
                         [_vm._v("体重")]
                       ),
                     ],
@@ -2184,33 +2316,33 @@ var render = function () {
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(52, "sc"), attrs: { _i: 52 } },
+                    { staticClass: _vm._$g(63, "sc"), attrs: { _i: 63 } },
                     [
-                      _vm._$g(53, "i")
+                      _vm._$g(64, "i")
                         ? _c(
                             "v-uni-text",
                             {
-                              staticClass: _vm._$g(53, "sc"),
-                              attrs: { _i: 53 },
+                              staticClass: _vm._$g(64, "sc"),
+                              attrs: { _i: 64 },
                             },
-                            [_vm._v(_vm._$g(53, "t0-0"))]
+                            [_vm._v(_vm._$g(64, "t0-0"))]
                           )
                         : _vm._e(),
-                      _vm._$g(54, "i")
+                      _vm._$g(65, "i")
                         ? _c("v-uni-image", {
-                            staticClass: _vm._$g(54, "sc"),
+                            staticClass: _vm._$g(65, "sc"),
                             attrs: {
                               src: "/static/assets/icons/f_jh.svg",
                               mode: "aspectFit",
-                              _i: 54,
+                              _i: 65,
                             },
                           })
                         : _c("v-uni-image", {
-                            staticClass: _vm._$g(55, "sc"),
+                            staticClass: _vm._$g(66, "sc"),
                             attrs: {
                               src: "/static/assets/icons/f_xg.svg",
                               mode: "aspectFit",
-                              _i: 55,
+                              _i: 66,
                             },
                           }),
                     ],
@@ -2222,8 +2354,8 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g(56, "sc"),
-                  attrs: { _i: 56 },
+                  staticClass: _vm._$g(67, "sc"),
+                  attrs: { _i: 67 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event)
@@ -2233,19 +2365,19 @@ var render = function () {
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(57, "sc"), attrs: { _i: 57 } },
+                    { staticClass: _vm._$g(68, "sc"), attrs: { _i: 68 } },
                     [
                       _c("v-uni-image", {
-                        staticClass: _vm._$g(58, "sc"),
+                        staticClass: _vm._$g(69, "sc"),
                         attrs: {
                           src: "/static/assets/icons/f_sax.svg",
                           mode: "aspectFit",
-                          _i: 58,
+                          _i: 69,
                         },
                       }),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(59, "sc"), attrs: { _i: 59 } },
+                        { staticClass: _vm._$g(70, "sc"), attrs: { _i: 70 } },
                         [_vm._v("爱爱")]
                       ),
                     ],
@@ -2253,21 +2385,21 @@ var render = function () {
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(60, "sc"), attrs: { _i: 60 } },
+                    { staticClass: _vm._$g(71, "sc"), attrs: { _i: 71 } },
                     [
-                      _vm._$g(61, "i")
+                      _vm._$g(72, "i")
                         ? _c(
                             "v-uni-text",
                             {
-                              staticClass: _vm._$g(61, "sc"),
-                              attrs: { _i: 61 },
+                              staticClass: _vm._$g(72, "sc"),
+                              attrs: { _i: 72 },
                             },
-                            [_vm._v(_vm._$g(61, "t0-0"))]
+                            [_vm._v(_vm._$g(72, "t0-0"))]
                           )
                         : _vm._e(),
                       _c("v-uni-image", {
-                        staticClass: _vm._$g(62, "sc"),
-                        attrs: { src: _vm._$g(62, "a-src"), _i: 62 },
+                        staticClass: _vm._$g(73, "sc"),
+                        attrs: { src: _vm._$g(73, "a-src"), _i: 73 },
                       }),
                     ],
                     1
@@ -2278,18 +2410,18 @@ var render = function () {
             ],
             1
           ),
-          _c("uni-view", { staticClass: _vm._$g(63, "sc"), attrs: { _i: 63 } }),
+          _c("uni-view", { staticClass: _vm._$g(74, "sc"), attrs: { _i: 74 } }),
         ],
         1
       ),
-      _vm._$g(64, "i")
+      _vm._$g(75, "i")
         ? _c(
             "uni-view",
-            { attrs: { _i: 64 } },
+            { attrs: { _i: 75 } },
             [
               _c("uni-view", {
-                staticClass: _vm._$g(65, "sc"),
-                attrs: { _i: 65 },
+                staticClass: _vm._$g(76, "sc"),
+                attrs: { _i: 76 },
                 on: {
                   touchmove: function ($event) {
                     return _vm.$handleViewEvent($event, {
@@ -2305,8 +2437,8 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g(66, "sc"),
-                  attrs: { _i: 66 },
+                  staticClass: _vm._$g(77, "sc"),
+                  attrs: { _i: 77 },
                   on: {
                     touchmove: function ($event) {
                       return _vm.$handleViewEvent($event, {
@@ -2325,13 +2457,13 @@ var render = function () {
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(67, "sc"), attrs: { _i: 67 } },
+                    { staticClass: _vm._$g(78, "sc"), attrs: { _i: 78 } },
                     [
                       _c(
                         "v-uni-text",
                         {
-                          staticClass: _vm._$g(68, "sc"),
-                          attrs: { _i: 68 },
+                          staticClass: _vm._$g(79, "sc"),
+                          attrs: { _i: 79 },
                           on: {
                             click: function ($event) {
                               return _vm.$handleViewEvent($event)
@@ -2342,14 +2474,14 @@ var render = function () {
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(69, "sc"), attrs: { _i: 69 } },
+                        { staticClass: _vm._$g(80, "sc"), attrs: { _i: 80 } },
                         [_vm._v("体重")]
                       ),
                       _c(
                         "v-uni-text",
                         {
-                          staticClass: _vm._$g(70, "sc"),
-                          attrs: { _i: 70 },
+                          staticClass: _vm._$g(81, "sc"),
+                          attrs: { _i: 81 },
                           on: {
                             click: function ($event) {
                               return _vm.$handleViewEvent($event)
@@ -2363,34 +2495,34 @@ var render = function () {
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(71, "sc"), attrs: { _i: 71 } },
+                    { staticClass: _vm._$g(82, "sc"), attrs: { _i: 82 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(72, "sc"), attrs: { _i: 72 } },
-                        [_vm._v(_vm._$g(72, "t0-0"))]
+                        { staticClass: _vm._$g(83, "sc"), attrs: { _i: 83 } },
+                        [_vm._v(_vm._$g(83, "t0-0"))]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(73, "sc"), attrs: { _i: 73 } },
-                        [_vm._v(_vm._$g(73, "t0-0"))]
+                        { staticClass: _vm._$g(84, "sc"), attrs: { _i: 84 } },
+                        [_vm._v(_vm._$g(84, "t0-0"))]
                       ),
                     ],
                     1
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(74, "sc"), attrs: { _i: 74 } },
+                    { staticClass: _vm._$g(85, "sc"), attrs: { _i: 85 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(75, "sc"), attrs: { _i: 75 } },
+                        { staticClass: _vm._$g(86, "sc"), attrs: { _i: 86 } },
                         [
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(76, "sc"),
-                              attrs: { "data-k": "1", _i: 76 },
+                              staticClass: _vm._$g(87, "sc"),
+                              attrs: { "data-k": "1", _i: 87 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2402,8 +2534,8 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(77, "sc"),
-                              attrs: { "data-k": "2", _i: 77 },
+                              staticClass: _vm._$g(88, "sc"),
+                              attrs: { "data-k": "2", _i: 88 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2415,8 +2547,8 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(78, "sc"),
-                              attrs: { "data-k": "3", _i: 78 },
+                              staticClass: _vm._$g(89, "sc"),
+                              attrs: { "data-k": "3", _i: 89 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2430,13 +2562,13 @@ var render = function () {
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(79, "sc"), attrs: { _i: 79 } },
+                        { staticClass: _vm._$g(90, "sc"), attrs: { _i: 90 } },
                         [
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(80, "sc"),
-                              attrs: { "data-k": "4", _i: 80 },
+                              staticClass: _vm._$g(91, "sc"),
+                              attrs: { "data-k": "4", _i: 91 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2448,8 +2580,8 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(81, "sc"),
-                              attrs: { "data-k": "5", _i: 81 },
+                              staticClass: _vm._$g(92, "sc"),
+                              attrs: { "data-k": "5", _i: 92 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2461,8 +2593,8 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(82, "sc"),
-                              attrs: { "data-k": "6", _i: 82 },
+                              staticClass: _vm._$g(93, "sc"),
+                              attrs: { "data-k": "6", _i: 93 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2476,13 +2608,13 @@ var render = function () {
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(83, "sc"), attrs: { _i: 83 } },
+                        { staticClass: _vm._$g(94, "sc"), attrs: { _i: 94 } },
                         [
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(84, "sc"),
-                              attrs: { "data-k": "7", _i: 84 },
+                              staticClass: _vm._$g(95, "sc"),
+                              attrs: { "data-k": "7", _i: 95 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2494,8 +2626,8 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(85, "sc"),
-                              attrs: { "data-k": "8", _i: 85 },
+                              staticClass: _vm._$g(96, "sc"),
+                              attrs: { "data-k": "8", _i: 96 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2507,8 +2639,8 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(86, "sc"),
-                              attrs: { "data-k": "9", _i: 86 },
+                              staticClass: _vm._$g(97, "sc"),
+                              attrs: { "data-k": "9", _i: 97 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2522,13 +2654,13 @@ var render = function () {
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(87, "sc"), attrs: { _i: 87 } },
+                        { staticClass: _vm._$g(98, "sc"), attrs: { _i: 98 } },
                         [
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(88, "sc"),
-                              attrs: { "data-k": ".", _i: 88 },
+                              staticClass: _vm._$g(99, "sc"),
+                              attrs: { "data-k": ".", _i: 99 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2540,8 +2672,8 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(89, "sc"),
-                              attrs: { "data-k": "0", _i: 89 },
+                              staticClass: _vm._$g(100, "sc"),
+                              attrs: { "data-k": "0", _i: 100 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2553,8 +2685,8 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(90, "sc"),
-                              attrs: { _i: 90 },
+                              staticClass: _vm._$g(101, "sc"),
+                              attrs: { _i: 101 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -2563,11 +2695,11 @@ var render = function () {
                             },
                             [
                               _c("v-uni-image", {
-                                staticClass: _vm._$g(91, "sc"),
+                                staticClass: _vm._$g(102, "sc"),
                                 attrs: {
                                   src: "/static/assets/icons/jpsc.svg",
                                   mode: "aspectFit",
-                                  _i: 91,
+                                  _i: 102,
                                 },
                               }),
                             ],
@@ -2684,7 +2816,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../Programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/* =========================\n   ✅ 页面整体：scroll-view 容器\n   ========================= */\n.page {\n    height: 100vh;\n    padding: 20rpx; /* 页面内边距 */\n    box-sizing: border-box; /* 计算宽高包含 padding */\n    /* padding-bottom: calc(104rpx + env(safe-area-inset-bottom)); */ /* ✅ 104rpx(tabbar) + 20rpx余量 */\n}\n.content {\n    padding-bottom: calc(40rpx + env(safe-area-inset-bottom));\n}\n/* =========================\n     ✅ 顶部 Header：月份 + 翻月 + 回到今天\n     ========================= */\n.cal-header {\n    display: flex; /* 横向布局 */\n    align-items: center; /* 垂直居中 */\n    justify-content: space-between; /* 两边对齐 */\n    padding: 10rpx 0 16rpx; /* 上下内边距 */\n}\n/* 左右翻月按钮 */\n.nav-btn {\n    width: 70rpx; /* 按钮宽 */\n    height: 70rpx; /* 按钮高 */\n    border-radius: 20rpx; /* 圆角 */\n    background: #ffffff; /* 白底 */\n    display: flex; /* flex 居中 */\n    align-items: center; /* 垂直居中 */\n    justify-content: center; /* 水平居中 */\n    font-size: 44rpx; /* 箭头字号 */\n    color: #333; /* 字色 */\n    box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.06); /* 阴影 */\n}\n/* 中间：年月 + 回到今天 */\n.header-center {\n    display: flex; /* 横向排列 */\n    align-items: center; /* 垂直居中 */\n    justify-content: center; /* 居中 */\n    gap: 16rpx; /* 两元素间距 */\n}\n/* 年月文字 */\n.ym-text {\n    font-size: 34rpx; /* 字号 */\n    font-weight: 700; /* 加粗 */\n    color: #111; /* 深色 */\n}\n/* 回到今天按钮 */\n.today-btn {\n    padding: 10rpx 18rpx; /* 内边距 */\n    border-radius: 18rpx; /* 圆角 */\n    background: #ff96b9; /* 粉色背景 */\n    color: #ffffff; /* 白色文字 */\n    font-size: 24rpx; /* 字号 */\n}\n/* =========================\n     ✅ 星期栏\n     ========================= */\n.week-row {\n    display: grid; /* 使用 grid */\n    grid-template-columns: repeat(7, 1fr); /* 7列 */\n    gap: 10rpx; /* 间距 */\n    margin: 6rpx 0 10rpx; /* 外边距 */\n}\n/* 星期文字 */\n.week-item {\n    text-align: center; /* 居中 */\n    font-size: 24rpx; /* 字号 */\n    color: #888; /* 灰色 */\n}\n/* =========================\n     ✅ 日历网格\n     ========================= */\n.grid {\n    display: grid; /* grid 布局 */\n    grid-template-columns: repeat(7, 1fr); /* 7列 */\n    gap: 10rpx; /* cell 间距 */\n    background: #ffffff; /* 白底 */\n    border-radius: 26rpx; /* 大圆角 */\n    padding: 14rpx; /* 内边距 */\n    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06); /* 阴影 */\n}\n/* 每一个日期格子 */\n.cell {\n    height: 92rpx; /* 格子高度 */\n    border-radius: 18rpx; /* 圆角 */\n    position: relative; /* 方便绝对定位 top-mark */\n    display: flex; /* flex 垂直排列 */\n    flex-direction: column; /* 竖向 */\n    align-items: center; /* 水平居中 */\n    justify-content: center; /* 垂直居中 */\n    box-sizing: border-box; /* 包含 padding/border */\n}\n/* 顶部标记容器（爱心/排卵点） */\n.top-mark {\n    position: absolute; /* 绝对定位 */\n    top: 6rpx; /* 距离顶部 */\n    height: 24rpx; /* 高度 */\n    display: flex; /* 横向排列 */\n    align-items: center; /* 垂直居中 */\n    justify-content: center; /* 水平居中 */\n    gap: 8rpx; /* 间距 */\n}\n/* 爱心：描边心（中空效果） */\n.heart {\n    font-size: 22rpx; /* 字号 */\n    color: #ffffff; /* 填充白色（看起来接近透明） */\n    -webkit-text-stroke: 2rpx #ff4d6d; /* 红色描边 */\n    line-height: 1; /* 行高 */\n}\n/* ✅ 经期（红底）里：爱心改白色描边，保证可见 */\n.cell.period .heart {\n    color: transparent; /* 不填色 */\n    -webkit-text-stroke: 2rpx #ffffff; /* 白色描边 */\n}\n/* ✅ 只影响【今天】这一格里的爱心位置 */\n.cell.today .heart {\n    position: relative; /* 相对定位 */\n    top: -3rpx; /* 微调位置 */\n}\n/* ✅ 只让【今天】的数字往下挪一点 */\n.cell.today .num {\n    position: relative; /* 相对定位 */\n    top: 4rpx; /* 往下挪 */\n}\n/* 排卵日的小圆点 */\n.ovu-dot {\n    width: 14rpx; /* 宽 */\n    height: 14rpx; /* 高 */\n    border-radius: 50%; /* 圆形 */\n    background: #8b5cf6; /* 紫色 */\n}\n/* 日期数字 */\n.num {\n    font-size: 30rpx; /* 字号 */\n    color: #222; /* 深灰 */\n    font-weight: 600; /* 半粗 */\n}\n/* “今天”标签 */\n.today-tag {\n    margin-top: 2rpx; /* 顶部间距 */\n    font-size: 20rpx; /* 字号 */\n    color: #ff4d6d; /* 粉色 */\n}\n/* ✅ 选中日期蓝色边框 */\n.selected {\n    border: 4rpx solid #1e90ff; /* 蓝色描边 */\n}\n/* 非当月日期：变淡 */\n.other {\n    opacity: 0.28; /* 透明度 */\n}\n/* =========================\n     ✅ 业务展示：月经/预测/排卵期\n     ========================= */\n.period {\n    background: #ff4d6d; /* 背景 */\n}\n.period .num {\n    color: #fff;\n}\n/* 数字变白 */\n.period .today-tag {\n    color: #fff;\n}\n/* 今天标签变白 */\n.pred {\n    background: #ffd1dc; /* 背景 */\n}\n.pred .num {\n    color: #fff;\n}\n/* 数字白色 */\n.ovulation {\n    background: #efe7ff7f; /* 背景 */\n}\n.ovulation .num {\n    color: #8b5cf6;\n}\n/* 数字紫色 */\n.legend {\n    margin: 16rpx 6rpx 0; /* 外边距 */\n    display: flex; /* 横向 */\n    align-items: center; /* 垂直居中 */\n    gap: 18rpx; /* 间距 */\n    flex-wrap: wrap; /* 换行 */\n    color: #666; /* 字色 */\n    font-size: 22rpx; /* 字号 */\n}\n/* 单个图例项 */\n.leg-item {\n    display: flex; /* 横向 */\n    align-items: center; /* 垂直居中 */\n    gap: 8rpx; /* 间距 */\n}\n/* 方块 */\n.box {\n    width: 26rpx; /* 宽 */\n    height: 18rpx; /* 高 */\n    border-radius: 6rpx; /* 圆角 */\n}\n/* 月经期颜色 */\n.b-period {\n    background: #ff4d6d;\n}\n/* 预测经期颜色 */\n.b-pred {\n    background: #ffd1dc;\n}\n/* 排卵期颜色 */\n.b-ovu {\n    background: #e9e0fc;\n}\n/* 排卵日点 */\n.dot {\n    width: 14rpx; /* 宽 */\n    height: 14rpx; /* 高 */\n    border-radius: 50%; /* 圆 */\n    background: #8b5cf6; /* 紫色 */\n}\n/* =========================\n     ✅ 下方操作区 Panel（“月经来了/爱爱”那张白色卡片）\n     ========================= */\n.panel {\n    margin-top: 18rpx; /* 与上方间距 */\n    background: #ffffff; /* 白底 */\n    border-radius: 26rpx; /* 大圆角 */\n    overflow: hidden; /* 裁切圆角 */\n    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06); /* 阴影 */\n}\n/* 行：通用 row */\n.row {\n    display: flex; /* 横向 */\n    align-items: center; /* 垂直居中 */\n    justify-content: space-between; /* 左右两端 */\n    padding: 26rpx 22rpx; /* 内边距 */\n    border-bottom: 1rpx solid #f1f1f1; /* 分割线 */\n}\n/* 最后一行去分割线 */\n.row:last-child {\n    border-bottom: none; /* 去掉底边 */\n}\n/* 左侧容器 */\n.row-left {\n    display: flex; /* 横向 */\n    align-items: center; /* 垂直居中 */\n    flex-wrap: wrap; /* 允许换行 */\n}\n/* 行标题 */\n.row-title {\n    font-size: 34rpx; /* 字号 */\n    color: #111; /* 深色 */\n    font-weight: 650; /* 加粗 */\n}\n/* 体重行右侧：数值 + 图标 */\n.row-right {\n    display: flex;\n    align-items: center;\n}\n.row-value {\n    font-size: 32rpx;\n    color: #ff4d6d; /* 参考图的粉色 */\n    margin-right: 16rpx;\n    display: flex;\n    align-items: center;\n}\n/* 备注预览（你原来就有） */\n.note-preview {\n    font-size: 26rpx; /* 字号 */\n    color: #666; /* 灰色 */\n}\n/* 可点击行的点击态 */\n.tappable:active {\n    background: #fafafa; /* 变浅 */\n}\n/* ✅ 让 picker 成为块级（你原来就有） */\n.picker-wrap {\n    display: block; /* block */\n}\n/* 只影响【今天】这一格的数字（你原来就有） */\n.cell:has(.today-tag) .num {\n    font-size: 26rpx; /* 今天数字更小 */\n    position: relative; /* 相对定位 */\n    top: 6rpx; /* 往下挪 */\n}\n/* 只影响【今天】这两个字（你原来就有） */\n.cell .today-tag {\n    font-size: 20rpx; /* 今天文字大小 */\n    line-height: 1; /* 行高 */\n    position: relative; /* 相对定位 */\n    top: 5rpx; /* 位置微调 */\n}\n/* 自定义导航模式下，给页面补顶部安全区（你原来就有，虽然这里是 period 页也先保留） */\n.me-page {\n    padding-top: env(safe-area-inset-top); /* 安全区 */\n    box-sizing: border-box; /* 盒模型 */\n}\n/* 新增的爱爱图标（你原来就有） */\n.love-icon {\n    width: 32rpx; /* 宽 */\n    height: 32rpx; /* 高 */\n    margin-right: 12rpx; /* 右间距 */\n}\n/* 加号图标（你原来就有） */\n.plus-icon {\n    width: 54rpx; /* 宽 */\n    height: 54rpx; /* 高 */\n    margin-right: 8rpx; /* 右间距 */\n}\n/* 粉水滴图标容器（你原来就有） */\n.row-left-with-icon {\n    display: flex; /* 横向 */\n    align-items: center; /* 垂直居中 */\n}\n/* 粉水滴图标（你原来就有） */\n.period-icon {\n    width: 32rpx; /* 宽 */\n    height: 32rpx; /* 高 */\n    margin-right: 12rpx; /* 右间距 */\n}\n/* =========================\n     ✅ 新增：独立小卡片（经期健康分析）\n     目标：不是 row 插入 panel，而是 panel 下方单独一张卡\n     ========================= */\n.mini-card {\n    margin-top: 18rpx; /* 和 panel 拉开距离 */\n    background: #ffffff; /* 白底 */\n    border-radius: 26rpx; /* 与整体风格一致的圆角 */\n    padding: 26rpx 22rpx; /* 内边距（和 row 一致） */\n    display: flex; /* 横向布局 */\n    align-items: center; /* 垂直居中 */\n    justify-content: space-between; /* 左右两端 */\n    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06); /* 阴影（和 panel/日历一致） */\n}\n/* 小卡片左侧：图标 + 文字 */\n.mini-left {\n    display: flex; /* 横向 */\n    align-items: center; /* 垂直居中 */\n}\n/* 左侧“粉_分析”图标 */\n.mini-icon {\n    width: 38rpx; /* 图标大小 */\n    height: 38rpx; /* 图标大小 */\n    margin-right: 12rpx; /* 图标和文字间距 */\n}\n/* 卡片标题 */\n.mini-title {\n    font-size: 34rpx; /* 字号（跟 row-title 一致） */\n    color: #111; /* 深色 */\n    font-weight: 650; /* 加粗 */\n}\n/* 右侧“粉_跳转”图标 */\n.mini-go {\n    width: 28rpx; /* 稍小一点更像箭头 */\n    height: 28rpx; /* 稍小一点更像箭头 */\n    opacity: 0.65; /* 变淡，符合辅助图标风格 */\n    margin-right: 18rpx; /* 右间距 */\n}\n/* 左侧：图标+文字 */\n.row-left-with-icon {\n    display: flex;\n    align-items: center;\n}\n.row-icon {\n    width: 36rpx;\n    height: 36rpx;\n    margin-right: 16rpx;\n}\n/* 右侧：加号 */\n.plus-icon {\n    width: 72rpx;\n    height: 72rpx;\n}\n/* 底部留白：给最后卡片阴影“呼吸空间”，不改变 tabbar 预留逻辑 */\n.bottom-spacer {\n    height: 24rpx; /* 16~32rpx 都行，建议从 24rpx 开始 */\n}\n/* =====================================================\n   ✅ 体重弹窗（底部弹出 / 自定义键盘）\n   说明：\n   - 用 position: fixed 覆盖在页面最上层\n   - sheet-mask 点击关闭\n   ===================================================== */\n.page-wrap {\n    position: relative;\n}\n/* 遮罩层 */\n.sheet-mask {\n    position: fixed;\n    left: 0;\n    right: 0;\n    top: 0;\n    bottom: 0;\n    background: rgba(0, 0, 0, 0.25);\n    z-index: 999;\n}\n/* 底部弹窗主体 */\n.sheet {\n    position: fixed;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: #f6f6f7;\n    border-top-left-radius: 24rpx;\n    border-top-right-radius: 24rpx;\n    z-index: 1000;\n    padding-bottom: env(safe-area-inset-bottom);\n}\n/* 顶部栏：取消/标题/确定 */\n.sheet-header {\n    height: 96rpx;\n    padding: 0 24rpx;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    background: #f6f6f7;\n    border-top-left-radius: 24rpx;\n    border-top-right-radius: 24rpx;\n}\n.sheet-title {\n    font-size: 34rpx;\n    font-weight: 600;\n    color: #111;\n}\n.sheet-btn {\n    font-size: 30rpx;\n    color: #666;\n}\n.sheet-btn-primary {\n    color: #111;\n}\n/* 单位切换行（靠右） */\n.sheet-unit-row {\n    padding: 8rpx 24rpx 0;\n    display: flex;\n    align-items: center;\n}\n.sheet-unit-spacer {\n    flex: 1;\n}\n.unit-toggle {\n    padding: 10rpx 18rpx;\n    background: #ffffff;\n    border-radius: 999rpx;\n    font-size: 24rpx;\n    color: #666;\n    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.04);\n}\n/* 数值显示（中间大字） */\n.sheet-value {\n    height: 160rpx;\n    margin: 12rpx 24rpx 18rpx;\n    background: #fff;\n    border-radius: 20rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.value-num {\n    font-size: 80rpx;\n    font-weight: 600;\n    color: #111;\n}\n.value-unit {\n    font-size: 34rpx;\n    color: #999;\n    margin-left: 12rpx;\n}\n/* 键盘 */\n.sheet-keypad {\n    padding: 0 18rpx 18rpx;\n}\n.key-row {\n    display: flex;\n    gap: 18rpx;\n    margin-top: 18rpx;\n}\n.key {\n    flex: 1;\n    height: 120rpx;\n    background: #fff;\n    border-radius: 18rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 46rpx;\n    color: #111;\n    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.04);\n}\n/* 删除键里的图标 */\n.key-del-icon {\n    width: 56rpx;\n    height: 56rpx;\n}\n.key.key-del {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n", ""]);
+exports.push([module.i, "/* =========================\n   ✅ 页面整体：scroll-view 容器\n   ========================= */\n.page {\n    height: 100vh;\n    padding: 20rpx; /* 页面内边距 */\n    box-sizing: border-box; /* 计算宽高包含 padding */\n}\n.content {\n    padding-bottom: calc(40rpx + env(safe-area-inset-bottom));\n}\n/* =========================\n     ✅ 顶部 Header：月份 + 翻月 + 回到今天\n     ========================= */\n.cal-header {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 10rpx 0 16rpx;\n}\n.nav-btn {\n    width: 70rpx;\n    height: 70rpx;\n    border-radius: 20rpx;\n    background: #ffffff;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 44rpx;\n    color: #333;\n    box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.06);\n}\n.header-center {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 16rpx;\n}\n.ym-text {\n    font-size: 34rpx;\n    font-weight: 700;\n    color: #111;\n}\n.today-btn {\n    padding: 10rpx 18rpx;\n    border-radius: 18rpx;\n    background: #ff96b9;\n    color: #ffffff;\n    font-size: 24rpx;\n}\n/* =========================\n     ✅ 星期栏\n     ========================= */\n.week-row {\n    display: grid;\n    grid-template-columns: repeat(7, 1fr);\n    gap: 10rpx;\n    margin: 6rpx 0 10rpx;\n}\n.week-item {\n    text-align: center;\n    font-size: 24rpx;\n    color: #888;\n}\n/* =========================\n   ✅ 日历翻页动画容器\n   说明：\n   - cal-track 宽度 200%，包含两屏（当前月 + 目标月）\n   - translateX 0% 显示第一屏；translateX -50% 显示第二屏\n   ========================= */\n.cal-swipe {\n    overflow: hidden; /* 裁切滑动过程 */\n}\n.cal-track {\n    width: 200%;\n    display: flex;\n    will-change: transform;\n}\n.cal-pane {\n    width: 50%; /* 200% 里的半屏 = 1 屏 */\n    padding: 0;\n    box-sizing: border-box;\n}\n/* =========================\n     ✅ 日历网格\n     ========================= */\n.grid {\n    display: grid;\n    grid-template-columns: repeat(7, 1fr);\n    gap: 10rpx;\n    background: #ffffff;\n    border-radius: 26rpx;\n    padding: 14rpx;\n    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);\n}\n.cell {\n    height: 92rpx;\n    border-radius: 18rpx;\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    box-sizing: border-box;\n}\n.top-mark {\n    position: absolute;\n    top: 6rpx;\n    height: 24rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 8rpx;\n}\n.heart {\n    font-size: 22rpx;\n    color: #ffffff;\n    -webkit-text-stroke: 2rpx #ff4d6d;\n    line-height: 1;\n}\n.cell.period .heart {\n    color: transparent;\n    -webkit-text-stroke: 2rpx #ffffff;\n}\n.cell.today .heart {\n    position: relative;\n    top: -3rpx;\n}\n.cell.today .num {\n    position: relative;\n    top: 4rpx;\n}\n.ovu-dot {\n    width: 14rpx;\n    height: 14rpx;\n    border-radius: 50%;\n    background: #8b5cf6;\n}\n.num {\n    font-size: 30rpx;\n    color: #222;\n    font-weight: 600;\n}\n.today-tag {\n    margin-top: 2rpx;\n    font-size: 20rpx;\n    color: #ff4d6d;\n}\n.selected {\n    border: 4rpx solid #1e90ff;\n}\n.other {\n    opacity: 0.28;\n}\n/* =========================\n     ✅ 业务展示：月经/预测/排卵期\n     ========================= */\n.period {\n    background: #ff4d6d;\n}\n.period .num {\n    color: #fff;\n}\n.period .today-tag {\n    color: #fff;\n}\n.pred {\n    background: #ffd1dc;\n}\n.pred .num {\n    color: #fff;\n}\n.ovulation {\n    background: #efe7ff7f;\n}\n.ovulation .num {\n    color: #8b5cf6;\n}\n.legend {\n    margin: 16rpx 6rpx 0;\n    display: flex;\n    align-items: center;\n    gap: 18rpx;\n    flex-wrap: wrap;\n    color: #666;\n    font-size: 22rpx;\n}\n.leg-item {\n    display: flex;\n    align-items: center;\n    gap: 8rpx;\n}\n.box {\n    width: 26rpx;\n    height: 18rpx;\n    border-radius: 6rpx;\n}\n.b-period {\n    background: #ff4d6d;\n}\n.b-pred {\n    background: #ffd1dc;\n}\n.b-ovu {\n    background: #e9e0fc;\n}\n.dot {\n    width: 14rpx;\n    height: 14rpx;\n    border-radius: 50%;\n    background: #8b5cf6;\n}\n/* =========================\n     ✅ 下方操作区 Panel\n     ========================= */\n.panel {\n    margin-top: 18rpx;\n    background: #ffffff;\n    border-radius: 26rpx;\n    overflow: hidden;\n    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);\n}\n.row {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 26rpx 22rpx;\n    border-bottom: 1rpx solid #f1f1f1;\n}\n.row:last-child {\n    border-bottom: none;\n}\n.row-left {\n    display: flex;\n    align-items: center;\n    flex-wrap: wrap;\n}\n.row-title {\n    font-size: 34rpx;\n    color: #111;\n    font-weight: 650;\n}\n.row-right {\n    display: flex;\n    align-items: center;\n}\n.row-value {\n    font-size: 32rpx;\n    color: #ff4d6d;\n    margin-right: 16rpx;\n    display: flex;\n    align-items: center;\n}\n.note-preview {\n    font-size: 26rpx;\n    color: #666;\n}\n.tappable:active {\n    background: #fafafa;\n}\n.picker-wrap {\n    display: block;\n}\n.cell:has(.today-tag) .num {\n    font-size: 26rpx;\n    position: relative;\n    top: 6rpx;\n}\n.cell .today-tag {\n    font-size: 20rpx;\n    line-height: 1;\n    position: relative;\n    top: 5rpx;\n}\n.me-page {\n    padding-top: env(safe-area-inset-top);\n    box-sizing: border-box;\n}\n.love-icon {\n    width: 32rpx;\n    height: 32rpx;\n    margin-right: 12rpx;\n}\n.plus-icon {\n    width: 72rpx;\n    height: 72rpx;\n}\n.row-left-with-icon {\n    display: flex;\n    align-items: center;\n}\n.row-icon {\n    width: 36rpx;\n    height: 36rpx;\n    margin-right: 16rpx;\n}\n.bottom-spacer {\n    height: 24rpx;\n}\n/* =========================\n     ✅ 独立小卡片（经期健康分析）\n     ========================= */\n.mini-card {\n    margin-top: 18rpx;\n    background: #ffffff;\n    border-radius: 26rpx;\n    padding: 26rpx 22rpx;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);\n}\n.mini-left {\n    display: flex;\n    align-items: center;\n}\n.mini-icon {\n    width: 38rpx;\n    height: 38rpx;\n    margin-right: 12rpx;\n}\n.mini-title {\n    font-size: 34rpx;\n    color: #111;\n    font-weight: 650;\n}\n.mini-go {\n    width: 28rpx;\n    height: 28rpx;\n    opacity: 0.65;\n    margin-right: 18rpx;\n}\n/* =========================\n     ✅ 体重弹窗（底部弹出 / 自定义键盘）\n     ========================= */\n.page-wrap {\n    position: relative;\n}\n.sheet-mask {\n    position: fixed;\n    left: 0;\n    right: 0;\n    top: 0;\n    bottom: 0;\n    background: rgba(0, 0, 0, 0.25);\n    z-index: 999;\n}\n.sheet {\n    position: fixed;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background: #f6f6f7;\n    border-top-left-radius: 24rpx;\n    border-top-right-radius: 24rpx;\n    z-index: 1000;\n    padding-bottom: env(safe-area-inset-bottom);\n}\n.sheet-header {\n    height: 96rpx;\n    padding: 0 24rpx;\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    background: #f6f6f7;\n    border-top-left-radius: 24rpx;\n    border-top-right-radius: 24rpx;\n}\n.sheet-title {\n    font-size: 34rpx;\n    font-weight: 600;\n    color: #111;\n}\n.sheet-btn {\n    font-size: 30rpx;\n    color: #666;\n}\n.sheet-btn-primary {\n    color: #111;\n}\n.sheet-value {\n    height: 160rpx;\n    margin: 12rpx 24rpx 18rpx;\n    background: #fff;\n    border-radius: 20rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n.value-num {\n    font-size: 80rpx;\n    font-weight: 600;\n    color: #111;\n}\n.value-unit {\n    font-size: 34rpx;\n    color: #999;\n    margin-left: 12rpx;\n}\n.sheet-keypad {\n    padding: 0 18rpx 18rpx;\n}\n.key-row {\n    display: flex;\n    gap: 18rpx;\n    margin-top: 18rpx;\n}\n.key {\n    flex: 1;\n    height: 120rpx;\n    background: #fff;\n    border-radius: 18rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 46rpx;\n    color: #111;\n    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.04);\n}\n.key-del-icon {\n    width: 56rpx;\n    height: 56rpx;\n}\n.key.key-del {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

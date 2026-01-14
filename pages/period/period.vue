@@ -18,27 +18,48 @@
                 <view class="week-item" v-for="(item, index) in weekNames" :key="index">{{ item }}</view>
             </view>
 
-            <!-- 日历网格（支持左右滑动翻月） -->
-            <view class="grid" @touchstart="onTouchStart" @touchend="onTouchEnd">
-                <view :class="'cell ' + item.cls" @tap="onTapDate" :data-date="item.dateStr" v-for="(item, index) in cells" :key="index">
-                    <!-- 顶部标记（爱心/排卵日点） -->
-
-                    <view class="top-mark">
-                        <text class="heart" v-if="item.hasHeart">♡</text>
-                        <view class="ovu-dot" v-if="item.isOvulationDay"></view>
+            <!-- 日历网格（支持左右滑动翻月 + 翻页动画） -->
+            <view class="cal-swipe" @touchstart="onTouchStart" @touchend="onTouchEnd">
+                <view class="cal-track" :class="{ 'is-anim': isMonthAnimating }" :style="calTrackStyle" @transitionend="onMonthAnimEnd">
+                    <!-- 第一屏：next 时=当前月；prev 时=上一月 -->
+                    <view class="cal-pane">
+                        <view class="grid">
+                            <view
+                                :class="'cell ' + item.cls"
+                                @tap="onTapDate"
+                                :data-date="item.dateStr"
+                                v-for="(item, index) in (monthAnimDir === 'prev' ? nextCells : cells)"
+                                :key="index"
+                            >
+                                <view class="top-mark">
+                                    <text class="heart" v-if="item.hasHeart">♡</text>
+                                    <view class="ovu-dot" v-if="item.isOvulationDay"></view>
+                                </view>
+                                <text class="num">{{ item.day }}</text>
+                                <text class="today-tag" v-if="item.isToday">今天</text>
+                            </view>
+                        </view>
                     </view>
 
-                    <!-- 日期数字 -->
-
-                    <text class="num">{{ item.day }}</text>
-
-                    <!-- ✅ 备注小点（数字下方蓝点） -->
-
-                    <!-- <view class="note-dot" wx:if="{{item.hasNote}}"></view> -->
-
-                    <!-- ✅ 今天小字（缩小 + 底部定位） -->
-
-                    <text class="today-tag" v-if="item.isToday">今天</text>
+                    <!-- 第二屏：next 时=下一月；prev 时=当前月 -->
+                    <view class="cal-pane">
+                        <view class="grid">
+                            <view
+                                :class="'cell ' + item.cls"
+                                @tap="onTapDate"
+                                :data-date="item.dateStr"
+                                v-for="(item, index) in (monthAnimDir === 'prev' ? cells : nextCells)"
+                                :key="'n' + index"
+                            >
+                                <view class="top-mark">
+                                    <text class="heart" v-if="item.hasHeart">♡</text>
+                                    <view class="ovu-dot" v-if="item.isOvulationDay"></view>
+                                </view>
+                                <text class="num">{{ item.day }}</text>
+                                <text class="today-tag" v-if="item.isToday">今天</text>
+                            </view>
+                        </view>
+                    </view>
                 </view>
             </view>
 
@@ -63,7 +84,6 @@
             </view>
 
             <!-- ✅ 新增：独立小卡片（不放进上面 panel 里） -->
-            <!-- 说明：这里先只做UI，不绑定跳转函数，避免你 period.js 里没写函数导致报错 -->
             <view class="mini-card tappable" @tap="goPeriodAnalysis">
                 <view class="mini-left">
                     <image class="mini-icon" src="/static/assets/icons/f_fx.svg" mode="aspectFit" />
@@ -92,10 +112,7 @@
                     </view>
 
                     <view class="row-right">
-                        <!-- 次数：痛经 -->
                         <text class="row-value" v-if="selectedPainText">{{ selectedPainText }}</text>
-
-                        <!-- 图标：加号 / 修改 -->
                         <image class="plus-icon" :src="'/static/assets/icons/' + (hasPain ? 'f_xg.svg' : 'f_jh.svg')" mode="aspectFit" />
                     </view>
                 </view>
@@ -109,7 +126,6 @@
 
                     <view class="row-right">
                         <text class="row-value" v-if="hasWeight">{{ selectedWeightText }}</text>
-
                         <image class="plus-icon" v-if="!hasWeight" src="/static/assets/icons/f_jh.svg" mode="aspectFit" />
                         <image class="plus-icon" v-else src="/static/assets/icons/f_xg.svg" mode="aspectFit" />
                     </view>
@@ -123,40 +139,31 @@
                     </view>
 
                     <view class="row-right">
-                        <!-- 次数 -->
                         <text class="row-value" v-if="selectedSexText">{{ selectedSexText }}</text>
-
-                        <!-- 图标：加号 / 修改 -->
                         <image class="plus-icon" :src="'/static/assets/icons/' + (hasSex ? 'f_xg.svg' : 'f_jh.svg')" />
                     </view>
                 </view>
             </view>
 
-            <!-- 底部留白：只用于让最后一张卡片阴影可见 -->
             <view class="bottom-spacer"></view>
         </scroll-view>
 
         <!-- =====体重输入：底部弹窗===== -->
         <view v-if="showWeightPopup">
-            <!-- 半透明遮罩：点遮罩=取消 -->
             <view class="sheet-mask" @tap="onWeightCancel" @touchmove.stop.prevent="noop"></view>
 
-            <!-- 底部弹窗主体：阻止冒泡 -->
             <view class="sheet" @tap.stop.prevent="noop" @touchmove.stop.prevent="noop">
-                <!-- 顶部栏：取消 / 标题 / 确定 -->
                 <view class="sheet-header">
                     <text class="sheet-btn" @tap="onWeightCancel">取消</text>
                     <text class="sheet-title">体重</text>
                     <text class="sheet-btn sheet-btn-primary" @tap="onWeightConfirm">确定</text>
                 </view>
 
-                <!-- 数值显示 -->
                 <view class="sheet-value">
                     <text class="value-num">{{ weightDisplay }}</text>
                     <text class="value-unit">{{ weightUnit === 'kg' ? '公斤' : '斤' }}</text>
                 </view>
 
-                <!-- 自定义键盘 -->
                 <view class="sheet-keypad">
                     <view class="key-row">
                         <view class="key" data-k="1" @tap="onWeightKey">1</view>
@@ -176,7 +183,6 @@
                     <view class="key-row">
                         <view class="key" data-k="." @tap="onWeightKey">.</view>
                         <view class="key" data-k="0" @tap="onWeightKey">0</view>
-                        <!-- <view class="key key-del" bindtap="onWeightDel">⌫</view> -->
                         <view class="key key-del" @tap="onWeightDel">
                             <image class="key-del-icon" src="/static/assets/icons/jpsc.svg" mode="aspectFit" />
                         </view>
@@ -189,7 +195,6 @@
 
 <script>
 const STORE_KEY = 'period_record_v1';
-// const STORE_KEY = 'sex_record_v1';
 
 const DEFAULTS = {
     cycleLength: 28,
@@ -211,9 +216,6 @@ function addDays(dateObj, days) {
     d.setDate(d.getDate() + days);
     return d;
 }
-// 斤不再需要：保留旧函数不再使用（避免其它地方引用报错）
-// function kgToJin(kg){ return kg * 2; }
-// function jinToKg(jin){ return jin / 2; }
 
 function loadStore() {
     const v = uni.getStorageSync(STORE_KEY);
@@ -223,30 +225,24 @@ function loadStore() {
     return {
         periodStarts: [],
         periodRecords: [],
-        // ✅ 新结构：[{start:'YYYY-MM-DD', end:'YYYY-MM-DD'}] end 始终存在（至少=start）
         sexDates: [],
         sexRecords: {},
         // ✅ 新增：爱爱详细记录：{ 'YYYY-MM-DD': [{ time:'HH:mm', method:'...' }, ...] }
         settings: {
             ...DEFAULTS
         },
-        weightRecords: {} // ✅ 体重记录：{ 'YYYY-MM-DD': { kg: number } }
+        weightRecords: {}
     };
 }
 function saveStore(store) {
     uni.setStorageSync(STORE_KEY, store);
 }
 
-/** ✅ 迁移旧数据：periodStarts -> periodRecords
- * 旧数据无法表达结束日，这里迁移成 “只记录开始当天” (start=end=start)
- * （不会把后5天当成真实记录，只会在界面上作为预测显示）
- */
 function migrateIfNeeded(store) {
     store.periodStarts = store.periodStarts || [];
     store.periodRecords = store.periodRecords || [];
     store.weightRecords = store.weightRecords || {};
 
-    // ✅ 新增：爱爱记录结构兜底（兼容旧数据没有 sexRecords 的情况）
     store.sexDates = store.sexDates || [];
     store.sexRecords = store.sexRecords || {};
     if (store.periodRecords.length === 0 && store.periodStarts.length > 0) {
@@ -257,7 +253,6 @@ function migrateIfNeeded(store) {
         }));
     }
 
-    // 防御 & 规范化
     store.periodRecords = (store.periodRecords || [])
         .filter((r) => r && r.start)
         .map((r) => ({
@@ -266,7 +261,6 @@ function migrateIfNeeded(store) {
         }));
 }
 
-/** ✅ 判断某天是否落在“真实经期记录”内（深色 period） */
 function findActualRecordCoveringDate(store, dateStr) {
     const d = parseDateStr(dateStr);
     const records = store.periodRecords || [];
@@ -275,19 +269,12 @@ function findActualRecordCoveringDate(store, dateStr) {
         const s = parseDateStr(r.start);
         const e = parseDateStr(r.end);
         if (d >= s && d <= e) {
-            return {
-                record: r,
-                index: i
-            };
+            return { record: r, index: i };
         }
     }
     return null;
 }
 
-/** ✅ 找到“同一次经期的预测尾巴”所对应的记录
- * 预测尾巴：start+1 ~ start+periodLength-1 （不含已真实记录的部分）
- * 用于：用户点“月经来了”去确认/延长那一天（仅默认长度范围内）
- */
 function findPredTailOwner(store, dateStr, periodLength) {
     const d = parseDateStr(dateStr);
     const records = store.periodRecords || [];
@@ -296,21 +283,14 @@ function findPredTailOwner(store, dateStr, periodLength) {
         const s = parseDateStr(r.start);
         const defaultEnd = addDays(s, periodLength - 1);
 
-        // 在默认区间内，但又不在真实记录内（即 d > r.end），才算“预测尾巴”
         const actualEnd = parseDateStr(r.end);
         if (d > actualEnd && d >= s && d <= defaultEnd) {
-            return {
-                record: r,
-                index: i
-            };
+            return { record: r, index: i };
         }
     }
     return null;
 }
 
-/** ✅ 新增：找到“可连续延长”的记录（date == end + 1）
- * 解决：经期超过默认长度后，继续延长时误新建记录 -> 产生新尾巴预测
- */
 function findAdjacentEndOwner(store, dateStr) {
     const records = store.periodRecords || [];
     let best = null;
@@ -318,27 +298,21 @@ function findAdjacentEndOwner(store, dateStr) {
         const r = records[i];
         const nextDay = toDateStr(addDays(parseDateStr(r.end), 1));
         if (nextDay === dateStr) {
-            // 若有多条符合（极少），取 end 最晚的那条
             if (!best || parseDateStr(r.end) > parseDateStr(best.record.end)) {
-                best = {
-                    record: r,
-                    index: i
-                };
+                best = { record: r, index: i };
             }
         }
     }
     return best;
 }
 
-/** ✅ 获得“用于预测未来周期”的最后一次 start（取最新 start） */
 function getLatestStart(store) {
     const records = (store.periodRecords || []).slice();
-    if (records.length === 0) {
-        return null;
-    }
+    if (records.length === 0) return null;
     records.sort((a, b) => parseDateStr(a.start) - parseDateStr(b.start));
     return records[records.length - 1].start;
 }
+
 export default {
     data() {
         return {
@@ -351,18 +325,24 @@ export default {
             touchStartX: 0,
             touchStartY: 0,
             showWeightPopup: false,
-            // 不再需要斤：固定为 kg（保留字段避免你 wxml 里引用报错）
             weightUnit: 'kg',
             weightInput: '',
             weightDisplay: '0',
             hasWeight: false,
             selectedWeightText: '',
-            // 爱爱记录
             hasSex: false,
             selectedSexText: '',
-            // 痛经记录
             hasPain: false,
-            selectedPainText: ''
+            selectedPainText: '',
+            // ===== 月份翻页动画 =====
+            isMonthAnimating: false,
+            monthAnimDir: 'next', // 'next' | 'prev'
+            calOffsetPct: 0, // 0 或 -50（单位：% 相对 cal-track 宽度）
+            nextCells: [],
+            nextYear: 0,
+            nextMonth: 0,
+            animTimer: null, // ✅ 兜底定时器：防止 transitionend 丢失导致卡死
+            pendingTarget: null // ✅ 连续翻页合并：动画中记录最后一次目标
         };
     },
     onLoad() {
@@ -374,49 +354,148 @@ export default {
         });
         this.refreshAll();
     },
-	
     onShow() {
-		this.refreshAll();
+        this.refreshAll();
     },
-	
+
+    onUnload() {
+        // ✅ 防止页面卸载时遗留定时器
+        if (this.animTimer) {
+            clearTimeout(this.animTimer);
+            this.animTimer = null;
+        }
+    },
+
+    computed: {
+        // cal-track 宽度为 200%，所以要移动一个屏幕宽度= -50%
+        calTrackStyle() {
+            const transition = this.isMonthAnimating ? 'transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1)' : 'none';
+            return {
+                transform: `translateX(${this.calOffsetPct}%)`,
+                transition
+            };
+        }
+    },
+
     methods: {
         noop() {},
+
+        // 生成指定年月的 cells（不改变 this.year / this.month）
+        buildCalendarCellsFor(year, month) {
+            const store = loadStore();
+            migrateIfNeeded(store);
+            const hasAnyRecord = store.periodRecords && store.periodRecords.length > 0;
+            const maps = hasAnyRecord
+                ? this.computeMaps(store)
+                : { periodDays: new Set(), predPeriodDays: new Set(), ovulationDays: new Set(), ovulationDay: new Set() };
+            return this.buildCalendarCells(store, maps, year, month);
+        },
+
+        // 开始翻月动画（direction: 'next' | 'prev'）
+        startMonthAnim(direction, targetYear, targetMonth) {
+            // ✅ 如果动画进行中：不要直接 return，记录“最后一次”翻页目标，避免连续翻页卡死
+            if (this.isMonthAnimating) {
+                this.setData({
+                    pendingTarget: { direction, targetYear, targetMonth }
+                });
+                return;
+            }
+
+            const nextCells = this.buildCalendarCellsFor(targetYear, targetMonth);
+
+            this.setData({
+                isMonthAnimating: true,
+                monthAnimDir: direction,
+                nextYear: targetYear,
+                nextMonth: targetMonth,
+                nextCells,
+                pendingTarget: null
+            });
+
+            // ✅ 兜底：部分机型/极端连点会导致 transitionend 不触发，从而“卡死”
+            if (this.animTimer) clearTimeout(this.animTimer);
+            this.animTimer = setTimeout(() => {
+                // forced=true：强制结束动画并落地月份
+                this.onMonthAnimEnd(true);
+            }, 320);
+
+            // cal-track 宽度 200%，移动一个“屏幕宽度”= -50%
+            if (direction === 'next') {
+                this.setData({ calOffsetPct: 0 });
+                this.$nextTick(() => {
+                    this.setData({ calOffsetPct: -50 });
+                });
+            } else {
+                this.setData({ calOffsetPct: -50 });
+                this.$nextTick(() => {
+                    this.setData({ calOffsetPct: 0 });
+                });
+            }
+        },
+
+        // 动画结束：落地到目标月份，并刷新
+        onMonthAnimEnd(arg) {
+            // arg 可能是：true(兜底强制结束) / transitionend 事件对象
+            const forced = arg === true;
+
+            if (!this.isMonthAnimating) return;
+
+            // ✅ 避免 transitionend 多次触发 / 或兜底定时器重复触发
+            if (this.animTimer) {
+                clearTimeout(this.animTimer);
+                this.animTimer = null;
+            }
+
+            const targetY = this.nextYear;
+            const targetM = this.nextMonth;
+
+            this.setData({
+                year: targetY,
+                month: targetM,
+                isMonthAnimating: false,
+                calOffsetPct: 0
+            });
+
+            this.refreshAll();
+
+            // ✅ 如果用户在动画期间又点了翻页：自动接着翻到“最后一次目标”
+            const pending = this.pendingTarget;
+            if (pending && pending.targetYear && pending.targetMonth) {
+                this.setData({ pendingTarget: null });
+                this.$nextTick(() => {
+                    this.startMonthAnim(pending.direction, pending.targetYear, pending.targetMonth);
+                });
+            }
+        },
 
         refreshAll() {
             const store = loadStore();
             migrateIfNeeded(store);
             const selectedDate = this.selectedDate;
+
             const hasAnyRecord = store.periodRecords && store.periodRecords.length > 0;
             const maps = hasAnyRecord
                 ? this.computeMaps(store)
-                : {
-                      periodDays: new Set(),
-                      predPeriodDays: new Set(),
-                      ovulationDays: new Set(),
-                      ovulationDay: new Set()
-                  };
-            const periodSwitchOn = maps.periodDays.has(selectedDate); // ✅ 只看“真实记录”（深色）
+                : { periodDays: new Set(), predPeriodDays: new Set(), ovulationDays: new Set(), ovulationDay: new Set() };
 
+            const periodSwitchOn = maps.periodDays.has(selectedDate);
             const cells = this.buildCalendarCells(store, maps);
 
-            // ✅ 选中日体重显示（用于“体重”这一行）
             const rec = store.weightRecords && store.weightRecords[selectedDate];
             const hasWeight = !!(rec && typeof rec.kg === 'number' && rec.kg > 0);
             const selectedWeightText = hasWeight ? rec.kg.toFixed(2) + '公斤' : '';
 
-            // ✅ 选中日爱爱显示（用于“爱爱”这一行）
-            // 规则：优先 sexRecords（当天可多次）；兼容旧 sexDates（有则按 1 次）
             const sexList = store.sexRecords && store.sexRecords[selectedDate] ? store.sexRecords[selectedDate] : [];
             const sexCount = sexList.length || ((store.sexDates || []).includes(selectedDate) ? 1 : 0);
             const hasSex = sexCount > 0;
             const selectedSexText = hasSex ? `${sexCount}次` : '';
 
-            // ✅ 选中日痛经显示
             store.painRecords = store.painRecords || {};
             const painList = store.painRecords[selectedDate] || [];
             const painCount = painList.length;
             const hasPain = painCount > 0;
             const selectedPainText = hasPain ? `${painCount}次` : '';
+
             this.setData({
                 cells,
                 periodSwitchOn,
@@ -430,55 +509,48 @@ export default {
             saveStore(store);
         },
 
-        buildCalendarCells(store, mapsFromRefresh) {
-            const { year, month, selectedDate } = this;
-            const maps = mapsFromRefresh || {
-                periodDays: new Set(),
-                predPeriodDays: new Set(),
-                ovulationDays: new Set(),
-                ovulationDay: new Set()
-            };
+        // ✅ 增加 forceYear/forceMonth：支持动画预渲染目标月份
+        buildCalendarCells(store, mapsFromRefresh, forceYear, forceMonth) {
+            const year = forceYear || this.year;
+            const month = forceMonth || this.month;
+            const selectedDate = this.selectedDate;
 
-            // ✅ 爱爱：兼容旧 sexDates + 新 sexRecords
+            const maps = mapsFromRefresh || { periodDays: new Set(), predPeriodDays: new Set(), ovulationDays: new Set(), ovulationDay: new Set() };
+
             const sexDatesSet = new Set(store.sexDates || []);
             const sexRecords = store.sexRecords || {};
             function hasSexOnDay(ds) {
                 const list = sexRecords[ds];
                 return (Array.isArray(list) && list.length > 0) || sexDatesSet.has(ds);
             }
+
             const firstDay = new Date(year, month - 1, 1);
             const startWeekday = firstDay.getDay();
             const startDate = addDays(firstDay, -startWeekday);
             const todayStr = toDateStr(new Date());
+
             const cells = [];
             for (let i = 0; i < 42; i++) {
                 const d = addDays(startDate, i);
                 const dStr = toDateStr(d);
                 const inThisMonth = d.getMonth() === month - 1;
-                let cls = '';
-                if (!inThisMonth) {
-                    cls += ' other';
-                }
 
-                // ✅ 优先级：真实经期 > 预测经期 > 排卵期
+                let cls = '';
+                if (!inThisMonth) cls += ' other';
+
                 if (maps.periodDays.has(dStr)) cls += ' period';
                 else if (maps.predPeriodDays.has(dStr)) cls += ' pred';
-                else if (maps.ovulationDays.has(dStr)) {
-                    cls += ' ovulation';
-                }
-                if (dStr === selectedDate) {
-                    cls += ' selected';
-                }
-                if (dStr === todayStr) {
-                    cls += ' today';
-                }
+                else if (maps.ovulationDays.has(dStr)) cls += ' ovulation';
+
+                if (dStr === selectedDate) cls += ' selected';
+                if (dStr === todayStr) cls += ' today';
+
                 cells.push({
                     dateStr: dStr,
                     day: d.getDate(),
                     cls: cls.trim(),
                     isToday: dStr === todayStr,
                     hasHeart: hasSexOnDay(dStr),
-                    // ✅ 改为：sexRecords 或 sexDates 任一存在就显示心
                     isOvulationDay: maps.ovulationDay.has(dStr)
                 });
             }
@@ -490,28 +562,26 @@ export default {
             const cycleLength = settings.cycleLength || DEFAULTS.cycleLength;
             const periodLength = settings.periodLength || DEFAULTS.periodLength;
             const lutealDays = settings.lutealDays || DEFAULTS.lutealDays;
+
             migrateIfNeeded(store);
-            const periodDays = new Set(); // ✅ 真实记录（深色）
-            const predPeriodDays = new Set(); // ✅ 预测（浅色）
+
+            const periodDays = new Set();
+            const predPeriodDays = new Set();
             const ovulationDays = new Set();
             const ovulationDay = new Set();
+
             const records = (store.periodRecords || []).slice().sort((a, b) => parseDateStr(a.start) - parseDateStr(b.start));
 
-            // 1) 真实经期：start..end（深色）
             records.forEach((r) => {
                 const s = parseDateStr(r.start);
                 const e = parseDateStr(r.end);
-                if (e < s) {
-                    return;
-                }
+                if (e < s) return;
+
                 const days = Math.floor((e - s) / 86400000);
                 for (let i = 0; i <= days; i++) {
                     periodDays.add(toDateStr(addDays(s, i)));
                 }
 
-                // ✅ 2) 同一次经期的“默认预测尾巴”
-                // 规则：只要真实 end 还没到默认结束日(defaultEnd)，就把剩余天数显示为浅粉预测
-                //      若 end >= defaultEnd（确认够了/或已超出默认长度），尾巴不显示
                 const defaultEnd = addDays(s, periodLength - 1);
                 const actualEnd = e;
                 if (actualEnd < defaultEnd) {
@@ -523,7 +593,6 @@ export default {
                 }
             });
 
-            // 3) 未来预测：从最后一次 start 往后推若干周期（保守预测 6 个周期）
             const latestStart = getLatestStart(store);
             if (latestStart) {
                 const base = parseDateStr(latestStart);
@@ -534,7 +603,6 @@ export default {
                         if (!periodDays.has(ds)) predPeriodDays.add(ds);
                     }
 
-                    // 排卵日/排卵期（不强求非常精准，只做大概）
                     const ovu = addDays(start, -lutealDays);
                     ovulationDay.add(toDateStr(ovu));
                     for (let j = -2; j <= 2; j++) {
@@ -558,7 +626,7 @@ export default {
                 m = 12;
                 y--;
             }
-            this.buildMonth(y, m);
+            this.startMonthAnim('prev', y, m);
         },
 
         goNextMonth() {
@@ -568,7 +636,7 @@ export default {
                 m = 1;
                 y++;
             }
-            this.buildMonth(y, m);
+            this.startMonthAnim('next', y, m);
         },
 
         goToday() {
@@ -596,16 +664,13 @@ export default {
             const settings = store.settings || DEFAULTS;
             const periodLength = settings.periodLength || DEFAULTS.periodLength;
 
-            // 如果开启：尝试延长/确认；否则：删除当天对应的真实记录
             if (checked) {
-                // 1) 若当天已在真实记录中：无需处理（避免重复）
                 const cover = findActualRecordCoveringDate(store, dateStr);
                 if (cover) {
                     this.refreshAll();
                     return;
                 }
 
-                // 2) 若是某条记录的预测尾巴：把该条记录 end 延长到当天
                 const owner = findPredTailOwner(store, dateStr, periodLength);
                 if (owner) {
                     owner.record.end = dateStr;
@@ -614,7 +679,6 @@ export default {
                     return;
                 }
 
-                // 3) ✅ 若是某条记录 end 的下一天：连续延长（解决超过默认长度）
                 const adj = findAdjacentEndOwner(store, dateStr);
                 if (adj) {
                     adj.record.end = dateStr;
@@ -623,13 +687,11 @@ export default {
                     return;
                 }
 
-                // 4) 否则：新建一条真实记录 start=end=当天
                 store.periodRecords = store.periodRecords || [];
                 store.periodRecords.push({ start: dateStr, end: dateStr });
                 saveStore(store);
                 this.refreshAll();
             } else {
-                // 关闭：删除当天所在的真实记录中的那一天
                 const cover = findActualRecordCoveringDate(store, dateStr);
                 if (cover) {
                     const r = cover.record;
@@ -637,17 +699,13 @@ export default {
                     const eDate = parseDateStr(r.end);
                     const d = parseDateStr(dateStr);
 
-                    // 只有一天：直接删记录
                     if (r.start === r.end) {
                         store.periodRecords.splice(cover.index, 1);
                     } else if (d.getTime() === s.getTime()) {
-                        // 删除 start：start+1
                         r.start = toDateStr(addDays(s, 1));
                     } else if (d.getTime() === eDate.getTime()) {
-                        // 删除 end：end-1
                         r.end = toDateStr(addDays(eDate, -1));
                     } else {
-                        // 删除中间：拆成两段
                         const left = { start: r.start, end: toDateStr(addDays(d, -1)) };
                         const right = { start: toDateStr(addDays(d, 1)), end: r.end };
                         store.periodRecords.splice(cover.index, 1, left, right);
@@ -659,9 +717,7 @@ export default {
         },
 
         onTouchStart(e) {
-            if (!e.touches || !e.touches.length) {
-                return;
-            }
+            if (!e.touches || !e.touches.length) return;
             this.setData({
                 touchStartX: e.touches[0].clientX,
                 touchStartY: e.touches[0].clientY
@@ -669,24 +725,17 @@ export default {
         },
 
         onTouchEnd(e) {
-            if (!e.changedTouches || !e.changedTouches.length) {
-                return;
-            }
+            if (!e.changedTouches || !e.changedTouches.length) return;
             const endX = e.changedTouches[0].clientX;
             const endY = e.changedTouches[0].clientY;
             const dx = endX - this.touchStartX;
             const dy = endY - this.touchStartY;
-            if (Math.abs(dx) < 60) {
-                return;
-            }
-            if (Math.abs(dx) < Math.abs(dy) * 1.2) {
-                return;
-            }
-            if (dx < 0) {
-                this.goNextMonth();
-            } else {
-                this.goPrevMonth();
-            }
+
+            if (Math.abs(dx) < 60) return;
+            if (Math.abs(dx) < Math.abs(dy) * 1.2) return;
+
+            if (dx < 0) this.goNextMonth();
+            else this.goPrevMonth();
         },
 
         goPeriodAnalysis() {
@@ -695,7 +744,6 @@ export default {
             });
         },
 
-        // 痛经记录页面
         onGoPain() {
             const date = this.selectedDate;
             uni.navigateTo({
@@ -703,26 +751,18 @@ export default {
             });
         },
 
-        // 新增：体重（弹窗）
         onAddWeight() {
-            // 打开弹窗时隐藏 tabbar（避免 getTabBar().setHidden 不存在导致报错）
-            uni.hideTabBar({
-                animation: true
-            });
+            uni.hideTabBar({ animation: true });
 
-            // 打开弹窗时：优先回显当天已存的体重（如果有）
             const store = loadStore();
             migrateIfNeeded(store);
             const dateStr = this.selectedDate;
             const rec = store.weightRecords && store.weightRecords[dateStr];
             const kg = rec && typeof rec.kg === 'number' ? rec.kg : 0;
 
-            // ✅ 固定 kg 展示，保留 2 位小数（不再四舍五入到 1 位）
             let showVal = '';
-            if (kg > 0) {
-                showVal = kg.toFixed(2);
-                // 如果你不想显示末尾 0，可以改成：showVal = String(Number(kg.toFixed(2)));
-            }
+            if (kg > 0) showVal = kg.toFixed(2);
+
             this.setData({
                 showWeightPopup: true,
                 weightInput: showVal,
@@ -730,41 +770,24 @@ export default {
             });
         },
 
-        // 点击遮罩 / 取消
         onWeightCancel() {
-            this.setData({
-                showWeightPopup: false
-            });
-            uni.showTabBar({
-                animation: true
-            });
+            this.setData({ showWeightPopup: false });
+            uni.showTabBar({ animation: true });
         },
 
-        // 键盘输入（0-9 和 .）
         onWeightKey(e) {
             const k = e.currentTarget.dataset.k;
             let s = this.weightInput || '';
 
-            // 只允许一个小数点
             if (k === '.') {
-                if (s.includes('.')) {
-                    return;
-                }
-                if (s === '') {
-                    s = '0';
-                }
+                if (s.includes('.')) return;
+                if (s === '') s = '0';
                 s = s + '.';
             } else {
-                // 数字
-                if (s === '0') {
-                    // 0 开头，输入数字则替换（但 0. 不替换）
-                    s = k;
-                } else {
-                    s = s + k;
-                }
+                if (s === '0') s = k;
+                else s = s + k;
             }
 
-            // 限制：最多 3 位整数 + 2 位小数
             const m = s.match(/^(\d{0,3})(?:\.(\d{0,2}))?/);
             if (m) {
                 const intPart = m[1] || '';
@@ -772,19 +795,17 @@ export default {
                 const decPart = (s.split('.')[1] || '').slice(0, 2);
                 s = intPart + (dot ? dot + decPart : '');
             }
+
             this.setData({
                 weightInput: s,
                 weightDisplay: s === '' ? '0' : s
             });
         },
 
-        // 删除（退格）
         onWeightDel() {
             let s = this.weightInput || '';
             if (!s) {
-                this.setData({
-                    weightDisplay: '0'
-                });
+                this.setData({ weightDisplay: '0' });
                 return;
             }
             s = s.slice(0, -1);
@@ -794,85 +815,51 @@ export default {
             });
         },
 
-        // ✅ 确定：保存到本地（固定用 kg 存）
-        // ✅ 约定：输入 0 表示删除当天体重记录
         onWeightConfirm() {
             let s = (this.weightInput || '').trim();
-            if (s === '') {
-                s = (this.weightDisplay || '').trim();
-            }
-            if (s === '') {
-                s = '0';
-            }
-            const num = parseFloat(s);
+            if (s === '') s = (this.weightDisplay || '').trim();
+            if (s === '') s = '0';
 
-            // 1) 非数字：提示
+            const num = parseFloat(s);
             if (isNaN(num)) {
-                uni.showToast({
-                    title: '请输入有效体重',
-                    icon: 'none'
-                });
+                uni.showToast({ title: '请输入有效体重', icon: 'none' });
                 return;
             }
+
             const store = loadStore();
             migrateIfNeeded(store);
             const dateStr = this.selectedDate;
             store.weightRecords = store.weightRecords || {};
 
-            // 2) 输入 0：删除当天体重记录
             if (num === 0) {
                 if (store.weightRecords[dateStr]) {
                     delete store.weightRecords[dateStr];
                     saveStore(store);
-                    uni.showToast({
-                        title: '已删除体重记录',
-                        icon: 'none'
-                    });
+                    uni.showToast({ title: '已删除体重记录', icon: 'none' });
                 } else {
-                    uni.showToast({
-                        title: '当天未记录体重',
-                        icon: 'none'
-                    });
+                    uni.showToast({ title: '当天未记录体重', icon: 'none' });
                 }
-                this.setData({
-                    showWeightPopup: false
-                });
-                uni.showTabBar({
-                    animation: true
-                });
+                this.setData({ showWeightPopup: false });
+                uni.showTabBar({ animation: true });
                 this.refreshAll();
                 return;
             }
 
-            // 3) 负数：无效
             if (num < 0) {
-                uni.showToast({
-                    title: '请输入有效体重',
-                    icon: 'none'
-                });
+                uni.showToast({ title: '请输入有效体重', icon: 'none' });
                 return;
             }
 
-            // 4) 正数：正常保存（✅ 保留 2 位小数，不再变成 1 位）
             const kg = num;
-            store.weightRecords[dateStr] = {
-                kg: Number(kg.toFixed(2))
-            };
+            store.weightRecords[dateStr] = { kg: Number(kg.toFixed(2)) };
             saveStore(store);
-            this.setData({
-                showWeightPopup: false
-            });
-            uni.showTabBar({
-                animation: true
-            });
-            uni.showToast({
-                title: '已记录体重',
-                icon: 'none'
-            });
+
+            this.setData({ showWeightPopup: false });
+            uni.showTabBar({ animation: true });
+            uni.showToast({ title: '已记录体重', icon: 'none' });
             this.refreshAll();
         },
 
-        // ✅ 爱爱：跳转到 love 页（你的实际路径）
         onGoLove() {
             const date = this.selectedDate;
             uni.navigateTo({
@@ -882,6 +869,7 @@ export default {
     }
 };
 </script>
+
 <style>
 @import './period.css';
 </style>

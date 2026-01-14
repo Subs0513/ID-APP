@@ -5,6 +5,117 @@
  * - 不定义按钮配色（btn/btn-danger/btn-secondary 等），避免覆盖你全局的按钮样式
  */
 
+/* ====== 重新设计：只动布局和视觉，不动按钮样式 ====== */
+.detail-page {
+  background: #fff0f5;
+  min-height: 100vh;
+  padding: 32rpx 0;
+  box-sizing: border-box;
+}
+
+.detail-big-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景图可读性遮罩（无论是否有背景图都生效，强度很轻） */
+.card-bg-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* 内容在遮罩之上 */
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 顶部信息更紧凑 */
+.top-info .title {
+  font-size: 56rpx;
+  font-weight: 800;
+  color: #222;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.meta-label {
+  color: #9aa0a6;
+  font-size: 30rpx;
+  width: 120rpx;
+  flex: 0 0 120rpx;
+}
+
+.meta-value {
+  color: #222;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+/* 倒计时：数字主角 */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8rpx 0;
+}
+
+.hero-left {
+  flex: 1;
+  padding-right: 16rpx;
+}
+
+.hero-label {
+  font-size: 48rpx;
+  font-weight: 800;
+  color: #222;
+  display: block;
+  margin-bottom: 6rpx;
+}
+
+.hero-sub {
+  font-size: 30rpx;
+  color: #9aa0a6;
+}
+
+.hero-right {
+  flex: 0 0 auto;
+}
+
+.hero-inline {
+  display: flex;
+  align-items: baseline; /* 基线对齐，确保“0 days”真正在一行 */
+  justify-content: flex-end;
+  gap: 12rpx;
+}
+
+.hero-number {
+  font-size: 120rpx; /* 主题数字 */
+  line-height: 1;
+  font-weight: 900;
+  color: #222;
+}
+
+.hero-unit {
+  font-size: 34rpx;
+  color: #9aa0a6;
+  font-weight: 600;
+}
+
+/* 让底部按钮更贴合卡片内边距（不改按钮样式本身） */
+.in-card-actions {
+  margin-top: 8rpx;
+}
+
 /* ========== 页面背景与居中布局 ========== */
 .container {
   min-height: 100vh;

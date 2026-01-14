@@ -38,9 +38,16 @@ export default {
         return {
             logs: [
 				{
-				    version: '0.0.2',
+				    version: '0.0.3',
 				    desc: '功能更新',
 				    isLatest: true,
+				    items: ['全新健康分析页面']
+					// items: ['改进导航栏']
+				},
+				{
+				    version: '0.0.2',
+				    desc: '功能更新',
+				    // isLatest: true,
 				    items: ['改进导航栏','改进“详情”页面']
 					// items: ['改进导航栏']
 				},

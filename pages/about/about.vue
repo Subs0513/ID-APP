@@ -55,7 +55,7 @@
                 <text>ICP 备案号：苏ICP备2025153648号-2X</text>
             </view>
             <view class="footer-text">
-                <text></text>
+                <text>  </text>
             </view>
 
             <!-- iPhone 底部安全区撑一下（可选） -->
@@ -68,7 +68,7 @@
 export default {
     data() {
         return {
-            version: '0.0.2'
+            version: '0.0.3'
         };
     },
     onLoad() {

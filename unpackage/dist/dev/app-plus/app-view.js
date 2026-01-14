@@ -5870,7 +5870,7 @@ var render = function () {
           _c(
             "v-uni-text",
             { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
-            [_vm._v("功能介绍")]
+            [_vm._v("高小雅个人定制版")]
           ),
           _c(
             "v-uni-text",
@@ -6682,15 +6682,22 @@ var render = function () {
                 { staticClass: _vm._$g(3, "sc"), attrs: { _i: 3 } },
                 [_vm._v("经期健康分析")]
               ),
-              _vm._$g(4, "i")
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+            [
+              _vm._$g(5, "i")
                 ? _c(
                     "v-uni-text",
-                    { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
+                    { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
                     [_vm._v("基于已有记录生成（仅供参考）")]
                   )
                 : _c(
                     "v-uni-text",
-                    { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
+                    { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
                     [_vm._v("暂无经期记录，先在日历里记录“月经来了”再回来看看")]
                   ),
             ],
@@ -6699,35 +6706,35 @@ var render = function () {
         ],
         1
       ),
-      _vm._$g(6, "i")
+      _vm._$g(7, "i")
         ? _c(
             "uni-view",
-            { attrs: { _i: 6 } },
+            { attrs: { _i: 7 } },
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
+                { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(8, "sc"), attrs: { _i: 8 } },
+                    { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
                     [_vm._v("本周期概览")]
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
+                    { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
+                        { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
                         [_vm._v("最近经期")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
+                        { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
                         [
                           _vm._v(
-                            _vm._$g(11, "t0-0") + " ~ " + _vm._$g(11, "t0-1")
+                            _vm._$g(12, "t0-0") + " ~ " + _vm._$g(12, "t0-1")
                           ),
                         ]
                       ),
@@ -6736,68 +6743,68 @@ var render = function () {
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
+                    { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(13, "sc"), attrs: { _i: 13 } },
+                        { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
                         [_vm._v("经期长度")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
-                        [_vm._v(_vm._$g(14, "t0-0") + " 天")]
+                        { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                        [_vm._v(_vm._$g(15, "t0-0") + " 天")]
                       ),
                     ],
                     1
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
+                    { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+                        { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
                         [_vm._v("周期长度")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
-                        [_vm._v(_vm._$g(17, "t0-0") + " 天")]
+                        { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                        [_vm._v(_vm._$g(18, "t0-0") + " 天")]
                       ),
                     ],
                     1
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                    { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                        { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
                         [_vm._v("周期稳定性")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
-                        [_vm._v(_vm._$g(20, "t0-0"))]
+                        { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                        [_vm._v(_vm._$g(21, "t0-0"))]
                       ),
                     ],
                     1
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+                    { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+                        { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
                         [_vm._v("可信度")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
-                        [_vm._v(_vm._$g(23, "t0-0"))]
+                        { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                        [_vm._v(_vm._$g(24, "t0-0"))]
                       ),
                     ],
                     1
@@ -6807,60 +6814,60 @@ var render = function () {
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
                     [_vm._v("预测与排卵期")]
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
+                    { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
+                        { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
                         [_vm._v("下次预计开始")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
-                        [_vm._v(_vm._$g(28, "t0-0"))]
+                        { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                        [_vm._v(_vm._$g(29, "t0-0"))]
                       ),
                     ],
                     1
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                    { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
+                        { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
                         [_vm._v("排卵日（推算）")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
-                        [_vm._v(_vm._$g(31, "t0-0"))]
+                        { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
+                        [_vm._v(_vm._$g(32, "t0-0"))]
                       ),
                     ],
                     1
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
+                    { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
+                        { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
                         [_vm._v("排卵期范围")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
-                        [_vm._v(_vm._$g(34, "t0-0"))]
+                        { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+                        [_vm._v(_vm._$g(35, "t0-0"))]
                       ),
                     ],
                     1
@@ -6868,35 +6875,35 @@ var render = function () {
                 ],
                 1
               ),
-              _vm._$g(35, "i")
+              _vm._$g(36, "i")
                 ? _c(
                     "uni-view",
-                    { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+                    { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
+                        { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
                         [
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(37, "sc"),
-                              attrs: { _i: 37 },
+                              staticClass: _vm._$g(38, "sc"),
+                              attrs: { _i: 38 },
                             },
                             [
                               _c("v-uni-image", {
-                                staticClass: _vm._$g(38, "sc"),
+                                staticClass: _vm._$g(39, "sc"),
                                 attrs: {
                                   src: "/static/assets/icons/f_rq.svg",
                                   mode: "aspectFit",
-                                  _i: 38,
+                                  _i: 39,
                                 },
                               }),
                               _c(
                                 "v-uni-text",
                                 {
-                                  staticClass: _vm._$g(39, "sc"),
-                                  attrs: { _i: 39 },
+                                  staticClass: _vm._$g(40, "sc"),
+                                  attrs: { _i: 40 },
                                 },
                                 [_vm._v("周期变化")]
                               ),
@@ -6904,11 +6911,11 @@ var render = function () {
                             1
                           ),
                           _c("v-uni-image", {
-                            staticClass: _vm._$g(40, "sc"),
+                            staticClass: _vm._$g(41, "sc"),
                             attrs: {
                               src: "/static/assets/icons/f_tz.svg",
                               mode: "aspectFit",
-                              _i: 40,
+                              _i: 41,
                             },
                           }),
                         ],
@@ -6916,43 +6923,35 @@ var render = function () {
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(41, "sc"), attrs: { _i: 41 } },
-                        [_vm._v(_vm._$g(41, "t0-0"))]
+                        { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                        [_vm._v(_vm._$g(42, "t0-0"))]
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                        { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
                         [
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(43, "sc"),
-                              attrs: { _i: 43 },
+                              staticClass: _vm._$g(44, "sc"),
+                              attrs: { _i: 44 },
                             },
                             [
-                              _c(
-                                "uni-view",
-                                {
-                                  staticClass: _vm._$g(44, "sc"),
-                                  attrs: { _i: 44 },
-                                },
-                                [_vm._v("周期天数")]
-                              ),
                               _c(
                                 "uni-view",
                                 {
                                   staticClass: _vm._$g(45, "sc"),
                                   attrs: { _i: 45 },
                                 },
+                                [_vm._v("周期天数")]
+                              ),
+                              _c(
+                                "uni-view",
+                                {
+                                  staticClass: _vm._$g(46, "sc"),
+                                  attrs: { _i: 46 },
+                                },
                                 [
-                                  _c(
-                                    "v-uni-text",
-                                    {
-                                      staticClass: _vm._$g(46, "sc"),
-                                      attrs: { _i: 46 },
-                                    },
-                                    [_vm._v(_vm._$g(46, "t0-0"))]
-                                  ),
                                   _c(
                                     "v-uni-text",
                                     {
@@ -6960,6 +6959,14 @@ var render = function () {
                                       attrs: { _i: 47 },
                                     },
                                     [_vm._v(_vm._$g(47, "t0-0"))]
+                                  ),
+                                  _c(
+                                    "v-uni-text",
+                                    {
+                                      staticClass: _vm._$g(48, "sc"),
+                                      attrs: { _i: 48 },
+                                    },
+                                    [_vm._v(_vm._$g(48, "t0-0"))]
                                   ),
                                 ],
                                 1
@@ -6970,25 +6977,25 @@ var render = function () {
                           _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(48, "sc"),
-                              attrs: { _i: 48 },
+                              staticClass: _vm._$g(49, "sc"),
+                              attrs: { _i: 49 },
                             },
                             [
-                              _c(
-                                "uni-view",
-                                {
-                                  staticClass: _vm._$g(49, "sc"),
-                                  attrs: { _i: 49 },
-                                },
-                                [_vm._v("比前 1 个周期")]
-                              ),
                               _c(
                                 "uni-view",
                                 {
                                   staticClass: _vm._$g(50, "sc"),
                                   attrs: { _i: 50 },
                                 },
-                                [_vm._v(_vm._$g(50, "t0-0"))]
+                                [_vm._v("比前 1 个周期")]
+                              ),
+                              _c(
+                                "uni-view",
+                                {
+                                  staticClass: _vm._$g(51, "sc"),
+                                  attrs: { _i: 51 },
+                                },
+                                [_vm._v(_vm._$g(51, "t0-0"))]
                               ),
                             ],
                             1
@@ -6998,38 +7005,30 @@ var render = function () {
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(51, "sc"), attrs: { _i: 51 } },
+                        { staticClass: _vm._$g(52, "sc"), attrs: { _i: 52 } },
                         [_vm._v("近期周期天数")]
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(52, "sc"), attrs: { _i: 52 } },
+                        { staticClass: _vm._$g(53, "sc"), attrs: { _i: 53 } },
                         _vm._l(
-                          _vm._$g(53, "f"),
+                          _vm._$g(54, "f"),
                           function (item, index, $20, $30) {
                             return _c(
                               "uni-view",
                               {
                                 key: item,
-                                staticClass: _vm._$g("53-" + $30, "sc"),
-                                attrs: { _i: "53-" + $30 },
+                                staticClass: _vm._$g("54-" + $30, "sc"),
+                                attrs: { _i: "54-" + $30 },
                               },
                               [
                                 _c(
                                   "uni-view",
                                   {
-                                    staticClass: _vm._$g("54-" + $30, "sc"),
-                                    attrs: { _i: "54-" + $30 },
+                                    staticClass: _vm._$g("55-" + $30, "sc"),
+                                    attrs: { _i: "55-" + $30 },
                                   },
                                   [
-                                    _c(
-                                      "v-uni-text",
-                                      {
-                                        staticClass: _vm._$g("55-" + $30, "sc"),
-                                        attrs: { _i: "55-" + $30 },
-                                      },
-                                      [_vm._v(_vm._$g("55-" + $30, "t0-0"))]
-                                    ),
                                     _c(
                                       "v-uni-text",
                                       {
@@ -7038,37 +7037,36 @@ var render = function () {
                                       },
                                       [_vm._v(_vm._$g("56-" + $30, "t0-0"))]
                                     ),
+                                    _c(
+                                      "v-uni-text",
+                                      {
+                                        staticClass: _vm._$g("57-" + $30, "sc"),
+                                        attrs: { _i: "57-" + $30 },
+                                      },
+                                      [_vm._v(_vm._$g("57-" + $30, "t0-0"))]
+                                    ),
                                   ],
                                   1
                                 ),
                                 _c(
                                   "uni-view",
                                   {
-                                    staticClass: _vm._$g("57-" + $30, "sc"),
-                                    attrs: { _i: "57-" + $30 },
+                                    staticClass: _vm._$g("58-" + $30, "sc"),
+                                    attrs: { _i: "58-" + $30 },
                                   },
                                   [
+                                    _c("uni-view", {
+                                      staticClass: _vm._$g("59-" + $30, "sc"),
+                                      style: _vm._$g("59-" + $30, "s"),
+                                      attrs: { _i: "59-" + $30 },
+                                    }),
                                     _c(
-                                      "uni-view",
+                                      "v-uni-text",
                                       {
-                                        staticClass: _vm._$g("58-" + $30, "sc"),
-                                        style: _vm._$g("58-" + $30, "s"),
-                                        attrs: { _i: "58-" + $30 },
+                                        staticClass: _vm._$g("60-" + $30, "sc"),
+                                        attrs: { _i: "60-" + $30 },
                                       },
-                                      [
-                                        _c(
-                                          "v-uni-text",
-                                          {
-                                            staticClass: _vm._$g(
-                                              "59-" + $30,
-                                              "sc"
-                                            ),
-                                            attrs: { _i: "59-" + $30 },
-                                          },
-                                          [_vm._v(_vm._$g("59-" + $30, "t0-0"))]
-                                        ),
-                                      ],
-                                      1
+                                      [_vm._v(_vm._$g("60-" + $30, "t0-0"))]
                                     ),
                                   ],
                                   1
@@ -7086,17 +7084,12 @@ var render = function () {
                 : _vm._e(),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(60, "sc"), attrs: { _i: 60 } },
+                { staticClass: _vm._$g(61, "sc"), attrs: { _i: 61 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(61, "sc"), attrs: { _i: 61 } },
-                    [_vm._v("痛经情况")]
-                  ),
-                  _c(
-                    "uni-view",
                     { staticClass: _vm._$g(62, "sc"), attrs: { _i: 62 } },
-                    [_vm._v(_vm._$g(62, "t0-0"))]
+                    [_vm._v("痛经情况")]
                   ),
                   _c(
                     "uni-view",
@@ -7108,22 +7101,22 @@ var render = function () {
                     { staticClass: _vm._$g(64, "sc"), attrs: { _i: 64 } },
                     [_vm._v(_vm._$g(64, "t0-0"))]
                   ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(65, "sc"), attrs: { _i: 65 } },
+                    [_vm._v(_vm._$g(65, "t0-0"))]
+                  ),
                 ],
                 1
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(65, "sc"), attrs: { _i: 65 } },
+                { staticClass: _vm._$g(66, "sc"), attrs: { _i: 66 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(66, "sc"), attrs: { _i: 66 } },
-                    [_vm._v("行为与风险提示")]
-                  ),
-                  _c(
-                    "uni-view",
                     { staticClass: _vm._$g(67, "sc"), attrs: { _i: 67 } },
-                    [_vm._v(_vm._$g(67, "t0-0"))]
+                    [_vm._v("行为与风险提示")]
                   ),
                   _c(
                     "uni-view",
@@ -7135,22 +7128,10 @@ var render = function () {
                     { staticClass: _vm._$g(69, "sc"), attrs: { _i: 69 } },
                     [_vm._v(_vm._$g(69, "t0-0"))]
                   ),
-                ],
-                1
-              ),
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(70, "sc"), attrs: { _i: 70 } },
-                [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(71, "sc"), attrs: { _i: 71 } },
-                    [_vm._v("体重变化（围绕最近经期）")]
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(72, "sc"), attrs: { _i: 72 } },
-                    [_vm._v(_vm._$g(72, "t0-0"))]
+                    { staticClass: _vm._$g(70, "sc"), attrs: { _i: 70 } },
+                    [_vm._v(_vm._$g(70, "t0-0"))]
                   ),
                 ],
                 1
@@ -7159,6 +7140,76 @@ var render = function () {
             1
           )
         : _vm._e(),
+      _c(
+        "uni-view",
+        { staticClass: _vm._$g(71, "sc"), attrs: { _i: 71 } },
+        [
+          _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(72, "sc"),
+              attrs: { _i: 72 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(73, "sc"), attrs: { _i: 73 } },
+                [
+                  _c("v-uni-image", {
+                    staticClass: _vm._$g(74, "sc"),
+                    attrs: {
+                      src: "/static/assets/icons/f_rq.svg",
+                      mode: "aspectFit",
+                      _i: 74,
+                    },
+                  }),
+                  _c(
+                    "v-uni-text",
+                    { staticClass: _vm._$g(75, "sc"), attrs: { _i: 75 } },
+                    [_vm._v("体重趋势（最近7天）")]
+                  ),
+                ],
+                1
+              ),
+              _c("v-uni-image", {
+                staticClass: _vm._$g(76, "sc"),
+                attrs: {
+                  src: "/static/assets/icons/f_tz.svg",
+                  mode: "aspectFit",
+                  _i: 76,
+                },
+              }),
+            ],
+            1
+          ),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(77, "sc"), attrs: { _i: 77 } },
+            [_vm._v(_vm._$g(77, "t0-0"))]
+          ),
+          _c("v-uni-canvas", {
+            staticClass: _vm._$g(78, "sc"),
+            attrs: {
+              id: "weight7Canvas",
+              "canvas-id": "weight7Canvas",
+              width: _vm._$g(78, "a-width"),
+              height: _vm._$g(78, "a-height"),
+              _i: 78,
+            },
+          }),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(79, "sc"), attrs: { _i: 79 } },
+            [_vm._v(_vm._$g(79, "t0-0"))]
+          ),
+        ],
+        1
+      ),
     ],
     1
   )
@@ -7257,7 +7308,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../Programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/* pages/subperiod/analysis/analysis.wxss */\n.page {\n    padding: 24rpx 24rpx 28rpx;\n    box-sizing: border-box;\n}\n.card {\n    background: #fff;\n    border-radius: 22rpx;\n    padding: 22rpx 22rpx;\n    margin-bottom: 18rpx;\n    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.06);\n}\n.header .title {\n    font-size: 40rpx;\n    font-weight: 700;\n    color: #222;\n}\n.header .sub {\n    margin-top: 10rpx;\n    font-size: 26rpx;\n    color: #888;\n}\n.card-title {\n    font-size: 34rpx;\n    font-weight: 700;\n    color: #222;\n    margin-bottom: 18rpx;\n}\n.kv {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 10rpx 0;\n    border-bottom: 1rpx solid #f2f2f2;\n}\n.kv:last-child {\n    border-bottom: none;\n}\n.k {\n    font-size: 28rpx;\n    color: #666;\n}\n.v {\n    font-size: 28rpx;\n    color: #222;\n    max-width: 420rpx;\n    text-align: right;\n    word-break: break-all;\n}\n.p {\n    font-size: 28rpx;\n    color: #333;\n    line-height: 1.7;\n    margin-top: 10rpx;\n}\n/* =========================\n   周期变化（新增卡片）\n   ========================= */\n.cycle-head {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-bottom: 14rpx;\n}\n.cycle-head-left {\n    display: flex;\n    align-items: center;\n    gap: 12rpx;\n}\n.cycle-icon {\n    width: 40rpx;\n    height: 40rpx;\n}\n.cycle-title {\n    font-size: 34rpx;\n    font-weight: 600;\n    color: #222;\n}\n.cycle-arrow {\n    width: 34rpx;\n    height: 34rpx;\n    opacity: 0.55;\n}\n.cycle-sub {\n    font-size: 26rpx;\n    color: #666;\n    margin-bottom: 18rpx;\n}\n.cycle-summary {\n    background: #fff5f7;\n    border-radius: 18rpx;\n    padding: 18rpx 18rpx;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-bottom: 22rpx;\n}\n.cycle-label {\n    font-size: 24rpx;\n    color: #666;\n    margin-bottom: 8rpx;\n}\n.cycle-big {\n    display: flex;\n    align-items: baseline;\n    gap: 10rpx;\n}\n.cycle-num {\n    font-size: 54rpx;\n    font-weight: 700;\n    color: #222;\n    line-height: 1;\n}\n.cycle-tag {\n    font-size: 22rpx;\n    color: #fff;\n    background: #2ecc71;\n    padding: 6rpx 12rpx;\n    border-radius: 999rpx;\n}\n.cycle-delta {\n    font-size: 38rpx;\n    font-weight: 700;\n    color: #222;\n}\n.cycle-list-title {\n    font-size: 30rpx;\n    font-weight: 600;\n    color: #222;\n    margin-bottom: 10rpx;\n}\n.cycle-item {\n    display: flex;\n    align-items: center;\n    gap: 18rpx;\n    margin-top: 14rpx;\n}\n.cycle-item-left {\n    width: 200rpx;\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    gap: 12rpx;\n}\n.cycle-date {\n    font-size: 26rpx;\n    color: #999;\n    white-space: nowrap;\n}\n.cycle-status {\n    font-size: 26rpx;\n    color: #333;\n    white-space: nowrap;\n}\n.cycle-bar-wrap {\n    flex: 1;\n    height: 64rpx;\n    border-radius: 20rpx;\n    background: #f2f2f2;\n    overflow: hidden;\n    display: flex;\n    align-items: center;\n}\n.cycle-bar {\n    height: 64rpx;\n    border-radius: 20rpx;\n    background: #ff6b9a;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    padding-right: 18rpx;\n    box-sizing: border-box;\n}\n.cycle-bar-text {\n    font-size: 28rpx;\n    color: #fff;\n    font-weight: 600;\n    white-space: nowrap;\n}\n", ""]);
+exports.push([module.i, "/* pages/subperiod/analysis/analysis.wxss */\n.page {\n  padding: 24rpx 24rpx 28rpx;\n  box-sizing: border-box;\n}\n.card {\n  background: #fff;\n  border-radius: 22rpx;\n  padding: 22rpx 22rpx;\n  margin-bottom: 18rpx;\n  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.06);\n}\n.header .title {\n  font-size: 40rpx;\n  font-weight: 700;\n  color: #222;\n}\n.header .sub {\n  margin-top: 10rpx;\n  font-size: 26rpx;\n  color: #888;\n}\n.card-title {\n  font-size: 34rpx;\n  font-weight: 700;\n  color: #222;\n  margin-bottom: 18rpx;\n}\n.kv {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 10rpx 0;\n  border-bottom: 1rpx solid #f2f2f2;\n}\n.kv:last-child { border-bottom: none;\n}\n.k {\n  font-size: 28rpx;\n  color: #666;\n}\n.v {\n  font-size: 28rpx;\n  color: #222;\n  max-width: 420rpx;\n  text-align: right;\n  word-break: break-all;\n}\n.p {\n  font-size: 28rpx;\n  color: #333;\n  line-height: 1.7;\n  margin-top: 10rpx;\n}\n/* =========================\n   周期变化\n   ========================= */\n.cycle-head {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 14rpx;\n}\n.cycle-head-left {\n  display: flex;\n  align-items: center;\n  gap: 12rpx;\n}\n.cycle-icon {\n  width: 40rpx;\n  height: 40rpx;\n}\n.cycle-title {\n  font-size: 34rpx;\n  font-weight: 600;\n  color: #222;\n}\n.cycle-arrow {\n  width: 34rpx;\n  height: 34rpx;\n  opacity: 0.55;\n}\n.cycle-sub {\n  font-size: 26rpx;\n  color: #666;\n  margin-bottom: 18rpx;\n}\n.cycle-summary {\n  background: #fff5f7;\n  border-radius: 18rpx;\n  padding: 18rpx 18rpx;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 22rpx;\n}\n.cycle-label {\n  font-size: 24rpx;\n  color: #666;\n  margin-bottom: 8rpx;\n}\n.cycle-big {\n  display: flex;\n  align-items: baseline;\n  gap: 10rpx;\n}\n.cycle-num {\n  font-size: 54rpx;\n  font-weight: 700;\n  color: #222;\n  line-height: 1;\n}\n.cycle-tag {\n  font-size: 22rpx;\n  color: #fff;\n  background: #2ecc71;\n  padding: 6rpx 12rpx;\n  border-radius: 999rpx;\n}\n.cycle-delta {\n  font-size: 38rpx;\n  font-weight: 700;\n  color: #222;\n}\n.cycle-list-title {\n  font-size: 30rpx;\n  font-weight: 600;\n  color: #222;\n  margin-bottom: 10rpx;\n}\n.cycle-item {\n  display: flex;\n  align-items: center;\n  gap: 18rpx;\n  margin-top: 14rpx;\n}\n.cycle-item-left {\n  width: 200rpx;\n  display: flex;\n  flex-direction: row;\n  align-items: baseline;\n  gap: 12rpx;\n}\n.cycle-date {\n  font-size: 26rpx;\n  color: #999;\n  white-space: nowrap;\n}\n.cycle-status {\n  font-size: 26rpx;\n  color: #333;\n  white-space: nowrap;\n}\n.cycle-bar-wrap {\n  flex: 1;\n  height: 64rpx;\n  border-radius: 20rpx;\n  background: #f2f2f2;\n  overflow: hidden;\n  display: flex;\n  align-items: center;\n\n  /* ✅ 关键：让文字固定定位在容器内部 */\n  position: relative;\n}\n.cycle-bar {\n  height: 64rpx;\n  border-radius: 20rpx;\n  background: #ff6b9a;\n}\n.cycle-bar-text-fixed {\n  position: absolute;\n  right: 18rpx;\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  font-size: 26rpx;\n  font-weight: 600;\n  color: #666;\n  white-space: nowrap;\n  text-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.12);\n}\n/* =========================\n   体重趋势（基础样式，避免 canvas 塌陷）\n   ========================= */\n.weight-card { padding-bottom: 20rpx;\n}\n.weight-head {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 10rpx;\n}\n.weight-head-left {\n  display: flex;\n  align-items: center;\n  gap: 12rpx;\n}\n.weight-icon {\n  width: 40rpx;\n  height: 40rpx;\n}\n.weight-title {\n  font-size: 34rpx;\n  font-weight: 600;\n  color: #222;\n}\n.weight-arrow {\n  width: 34rpx;\n  height: 34rpx;\n  opacity: 0.55;\n}\n.weight-sub {\n  font-size: 26rpx;\n  color: #666;\n  margin-bottom: 14rpx;\n}\n.weight-canvas {\n  width: 100%;\n  height: 240rpx; /* 你后续要画日期/体重标签，这个高度更稳 */\n  display: block;\n}\n.weight-hint {\n  margin-top: 10rpx;\n  color: #888;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

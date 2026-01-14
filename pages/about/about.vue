@@ -44,7 +44,7 @@
             <!-- 如果你也想要“服务协议 | 隐私政策”这种蓝色链接 -->
             <view class="footer-links">
                 <text class="footer-link" @tap="onTapagreement">服务协议</text>
-                <text class="footer-sep">|</text>
+                <text class="footer-sep"> | </text>
                 <text class="footer-link" @tap="onTapPrivacy">隐私政策</text>
             </view>
 
@@ -68,7 +68,7 @@
 export default {
     data() {
         return {
-            version: '0.0.1'
+            version: '0.0.2'
         };
     },
     onLoad() {

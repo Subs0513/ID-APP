@@ -37,10 +37,17 @@ export default {
     data() {
         return {
             logs: [
+				{
+				    version: '0.0.2',
+				    desc: '功能更新',
+				    isLatest: true,
+				    items: ['改进导航栏','改进“详情”页面']
+					// items: ['改进导航栏']
+				},
                 {
-                    version: '1.0.0',
+                    version: '0.0.1',
                     desc: '功能更新',
-                    isLatest: true,
+                    // isLatest: true,
                     items: ['复写基本功能']
                 },
                 {

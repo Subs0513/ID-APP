@@ -194,16 +194,24 @@ export default {
     this.refresh();
   },
 
-  onShow() {
-    // 1) 同步 tabbar 选中态（如果你自定义 tabbar 有 selected）
-    // const tb = this.getTabBar && this.getTabBar();
-    // if (tb && tb.setData) {
-    //   tb.setData({ selected: 0 });
-    // }
-  
-    // 2) 回到 home 时刷新列表/置顶卡
-    this.refresh();
-  },
+
+	// onShow() {
+	// 	this.$nextTick(() => {
+	// 		const tb = this.getTabBar && this.getTabBar();
+	// 		if (tb && typeof tb.setSelected === "function") {
+	// 			tb.setSelected(0);
+	// 		}
+	// 	  });
+
+	// 	  // 你原来的刷新保留
+	// 	  this.refresh && this.refresh();
+	// 	},
+
+	onShow() {
+	  // 你原来的 refresh 保留
+	  this.refresh && this.refresh();
+	},
+
 
 
   onTabItemTap() {

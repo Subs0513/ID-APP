@@ -176,9 +176,8 @@ export default {
         };
     },
     onShow() {
-        // if (this.getTabBar && this.getTabBar()) {
-        //     this.getTabBar().setSelected(3);
-        // }
+		
+		
         const profile = storage.getUserProfile ? storage.getUserProfile() : null;
         const isLoggedIn = !!(profile && profile.nickName);
 

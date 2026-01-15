@@ -231,7 +231,7 @@
 
 /* ✅ 白框高度变低（更紧凑） */
 .time-picker {
-    height: 280rpx;
+    height: 180rpx;
 }
 
 /* ✅ 每行更矮，配合 indicator-style 36px */
@@ -294,7 +294,7 @@
 
 .method-text {
     margin-top: 10rpx;
-    font-size: 24rpx;
+    font-size: 22rpx;
     color: #333;
     text-align: center;
     line-height: 1.2;

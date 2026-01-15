@@ -64,12 +64,13 @@
                     <text class="section-value">{{ time }}</text>
                 </view>
 
-                <view class="time-wheel">
+                <!-- ✅ 行高更矮 -->
+				<view class="time-wheel">
                     <picker-view
                         class="time-picker"
                         :value="timeWheelValue"
                         @change="onTimeWheelChange"
-                        indicator-style="height: 36px;"  <!-- ✅ 行高更矮 -->
+                        indicator-style="height: 36px;"  
                     >
                         <picker-view-column>
                             <view class="time-item" v-for="(h, idx) in hours" :key="'h' + idx">{{ h }}</view>

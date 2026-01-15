@@ -7626,42 +7626,66 @@ var render = function () {
                     "uni-view",
                     { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
                     [
-                      _vm._v(" > "),
                       _c(
-                        "v-uni-picker-view-column",
-                        { attrs: { _i: 25 } },
-                        _vm._l(_vm._$g(26, "f"), function (h, idx, $21, $31) {
-                          return _c(
-                            "uni-view",
-                            {
-                              key: h,
-                              staticClass: _vm._$g("26-" + $31, "sc"),
-                              attrs: { _i: "26-" + $31 },
+                        "v-uni-picker-view",
+                        {
+                          staticClass: _vm._$g(25, "sc"),
+                          attrs: {
+                            value: _vm._$g(25, "a-value"),
+                            "indicator-style": "height: 36px;",
+                            _i: 25,
+                          },
+                          on: {
+                            change: function ($event) {
+                              return _vm.$handleViewEvent($event)
                             },
-                            [_vm._v(_vm._$g("26-" + $31, "t0-0"))]
-                          )
-                        }),
-                        1
-                      ),
-                      _c(
-                        "v-uni-picker-view-column",
-                        { attrs: { _i: 27 } },
-                        _vm._l(_vm._$g(28, "f"), function (m, idx, $22, $32) {
-                          return _c(
-                            "uni-view",
-                            {
-                              key: m,
-                              staticClass: _vm._$g("28-" + $32, "sc"),
-                              attrs: { _i: "28-" + $32 },
-                            },
-                            [_vm._v(_vm._$g("28-" + $32, "t0-0"))]
-                          )
-                        }),
+                          },
+                        },
+                        [
+                          _c(
+                            "v-uni-picker-view-column",
+                            { attrs: { _i: 26 } },
+                            _vm._l(
+                              _vm._$g(27, "f"),
+                              function (h, idx, $21, $31) {
+                                return _c(
+                                  "uni-view",
+                                  {
+                                    key: h,
+                                    staticClass: _vm._$g("27-" + $31, "sc"),
+                                    attrs: { _i: "27-" + $31 },
+                                  },
+                                  [_vm._v(_vm._$g("27-" + $31, "t0-0"))]
+                                )
+                              }
+                            ),
+                            1
+                          ),
+                          _c(
+                            "v-uni-picker-view-column",
+                            { attrs: { _i: 28 } },
+                            _vm._l(
+                              _vm._$g(29, "f"),
+                              function (m, idx, $22, $32) {
+                                return _c(
+                                  "uni-view",
+                                  {
+                                    key: m,
+                                    staticClass: _vm._$g("29-" + $32, "sc"),
+                                    attrs: { _i: "29-" + $32 },
+                                  },
+                                  [_vm._v(_vm._$g("29-" + $32, "t0-0"))]
+                                )
+                              }
+                            ),
+                            1
+                          ),
+                        ],
                         1
                       ),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+                        { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
                         [_vm._v(":")]
                       ),
                     ],
@@ -7672,29 +7696,29 @@ var render = function () {
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
+                { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
+                    { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
+                        { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
                         [
                           _c("v-uni-image", {
-                            staticClass: _vm._$g(33, "sc"),
+                            staticClass: _vm._$g(34, "sc"),
                             attrs: {
                               src: "/static/assets/icons/f_dp.svg",
                               mode: "aspectFit",
-                              _i: 33,
+                              _i: 34,
                             },
                           }),
                           _c(
                             "v-uni-text",
                             {
-                              staticClass: _vm._$g(34, "sc"),
-                              attrs: { _i: 34 },
+                              staticClass: _vm._$g(35, "sc"),
+                              attrs: { _i: 35 },
                             },
                             [_vm._v("措施")]
                           ),
@@ -7706,19 +7730,19 @@ var render = function () {
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+                    { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
-                        _vm._l(_vm._$g(37, "f"), function (opt, $13, $23, $33) {
+                        { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
+                        _vm._l(_vm._$g(38, "f"), function (opt, $13, $23, $33) {
                           return _c(
                             "uni-view",
                             {
                               key: opt,
-                              staticClass: _vm._$g("37-" + $33, "sc"),
-                              class: _vm._$g("37-" + $33, "c"),
-                              attrs: { _i: "37-" + $33 },
+                              staticClass: _vm._$g("38-" + $33, "sc"),
+                              class: _vm._$g("38-" + $33, "c"),
+                              attrs: { _i: "38-" + $33 },
                               on: {
                                 click: function ($event) {
                                   return _vm.$handleViewEvent($event)
@@ -7729,27 +7753,27 @@ var render = function () {
                               _c(
                                 "uni-view",
                                 {
-                                  staticClass: _vm._$g("38-" + $33, "sc"),
-                                  attrs: { _i: "38-" + $33 },
+                                  staticClass: _vm._$g("39-" + $33, "sc"),
+                                  attrs: { _i: "39-" + $33 },
                                 },
                                 [
                                   _c("v-uni-image", {
-                                    staticClass: _vm._$g("39-" + $33, "sc"),
+                                    staticClass: _vm._$g("40-" + $33, "sc"),
                                     attrs: {
-                                      src: _vm._$g("39-" + $33, "a-src"),
+                                      src: _vm._$g("40-" + $33, "a-src"),
                                       mode: "aspectFit",
-                                      _i: "39-" + $33,
+                                      _i: "40-" + $33,
                                     },
                                   }),
-                                  _vm._$g("40-" + $33, "i")
+                                  _vm._$g("41-" + $33, "i")
                                     ? _c(
                                         "uni-view",
                                         {
                                           staticClass: _vm._$g(
-                                            "40-" + $33,
+                                            "41-" + $33,
                                             "sc"
                                           ),
-                                          attrs: { _i: "40-" + $33 },
+                                          attrs: { _i: "41-" + $33 },
                                         },
                                         [_vm._v("✓")]
                                       )
@@ -7760,10 +7784,10 @@ var render = function () {
                               _c(
                                 "v-uni-text",
                                 {
-                                  staticClass: _vm._$g("41-" + $33, "sc"),
-                                  attrs: { _i: "41-" + $33 },
+                                  staticClass: _vm._$g("42-" + $33, "sc"),
+                                  attrs: { _i: "42-" + $33 },
                                 },
-                                [_vm._v(_vm._$g("41-" + $33, "t0-0"))]
+                                [_vm._v(_vm._$g("42-" + $33, "t0-0"))]
                               ),
                             ],
                             1
@@ -7779,13 +7803,13 @@ var render = function () {
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
                 [
                   _c(
                     "uni-view",
                     {
-                      staticClass: _vm._$g(43, "sc"),
-                      attrs: { _i: 43 },
+                      staticClass: _vm._$g(44, "sc"),
+                      attrs: { _i: 44 },
                       on: {
                         click: function ($event) {
                           return _vm.$handleViewEvent($event)
@@ -7797,8 +7821,8 @@ var render = function () {
                   _c(
                     "uni-view",
                     {
-                      staticClass: _vm._$g(44, "sc"),
-                      attrs: { _i: 44 },
+                      staticClass: _vm._$g(45, "sc"),
+                      attrs: { _i: 45 },
                       on: {
                         click: function ($event) {
                           return _vm.$handleViewEvent($event)
@@ -7912,7 +7936,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../Programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/* 页面整体 */\n.page {\n    padding: 24rpx;\n    box-sizing: border-box;\n}\n/* 列表容器 */\n.list {\n    box-sizing: border-box;\n}\n/* 顶部按钮 */\n.add-btn {\n    background: #fff;\n    border-radius: 20rpx;\n    padding: 28rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #ff6b9d;\n    box-sizing: border-box;\n}\n.btn-active {\n    background: #f3f3f3;\n}\n.icon {\n    width: 36rpx;\n    height: 36rpx;\n    margin-right: 12rpx;\n}\n/* ====== 左滑删除卡片 ====== */\n.swipe-item {\n    position: relative;\n    margin-top: 20rpx;\n    border-radius: 20rpx;\n    overflow: hidden;\n}\n.swipe-actions {\n    position: absolute;\n    right: 0;\n    top: 0;\n    bottom: 0;\n    width: 160rpx;\n    background: #ff4d4f;\n    color: #fff;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 30rpx;\n}\n/* 内容层（卡片本体） */\n.swipe-content {\n    background: #fff;\n    border-radius: 20rpx;\n    box-sizing: border-box;\n    transition: -webkit-transform 180ms ease;\n    transition: transform 180ms ease;\n    transition: transform 180ms ease, -webkit-transform 180ms ease;\n\n    /* ✅ 关键：固定卡片高度（你想更高/更矮就改这里） */\n    height: 90rpx;\n\n    /* ✅ 关键：只保留左右 padding，上下不要 padding（否则视觉会偏） */\n    padding: 0 24rpx;\n}\n.no-anim {\n    transition: none !important;\n}\n/* 这一行负责“左右排布 + 上下居中” */\n.card-row {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n    /* ✅ 关键：让这一行占满卡片高度，从而真正垂直居中 */\n    height: 100%;\n    width: 100%;\n}\n.left {\n    display: flex;\n    align-items: center;\n    min-width: 0;\n}\n.heart {\n    width: 40rpx;\n    height: 40rpx;\n    margin-right: 14rpx;\n}\n.count {\n  color: #111;\n  font-size: 32rpx;\n  margin-right: 16rpx;\n  white-space: nowrap;\n  line-height: 32rpx;   /* ✅ 关键：锁定行高 */\n}\n.time {\n  color: #999;\n  font-size: 30rpx;\n  white-space: nowrap;\n  line-height: 30rpx;   /* ✅ 关键：锁定行高 */\n}\n.method {\n  color: #999;\n  font-size: 30rpx;\n  white-space: nowrap;\n  line-height: 30rpx;   /* ✅ 关键：锁定行高 */\n}\n/* 遮罩 */\n.mask {\n    position: fixed;\n    inset: 0;\n    background: rgba(0, 0, 0, 0.4);\n    z-index: 999;\n}\n/* 居中弹窗 */\n.popup {\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    bottom: auto;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n\n    width: 92vw;\n    max-width: 680rpx;\n    box-sizing: border-box;\n\n    background: #fff;\n    border-radius: 24rpx;\n\n    padding: 24rpx;\n    z-index: 1000;\n\n    max-height: 80vh;\n    overflow-y: auto;\n}\n.popup-title {\n    margin-top: 12rpx;\n    text-align: center;\n    font-weight: bold;\n    margin-bottom: 24rpx;\n    font-size: 34rpx;\n    color: #111;\n}\n.card {\n    background: #f7f7f7;\n    border-radius: 16rpx;\n    padding: 20rpx;\n    margin-bottom: 20rpx;\n    box-sizing: border-box;\n}\n/* 按钮 */\n.popup-actions {\n    display: flex;\n    gap: 20rpx;\n\n    padding-bottom: constant(safe-area-inset-bottom);\n    padding-bottom: env(safe-area-inset-bottom);\n}\n.btn {\n    flex: 1;\n    text-align: center;\n    padding: 24rpx;\n    border-radius: 16rpx;\n    box-sizing: border-box;\n}\n.cancel {\n    color: #ff6b9d;\n    background: #eee;\n}\n.ok {\n    background: #ff6b9d;\n    color: #fff;\n}\n/* ====== 新弹窗：时间（滚轮）/ 措施（图标） ====== */\n.section-head {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-bottom: 16rpx;\n}\n.section-left {\n    display: flex;\n    align-items: center;\n    gap: 12rpx;\n}\n.section-icon {\n    width: 34rpx;\n    height: 34rpx;\n}\n.section-title {\n    font-size: 28rpx;\n    color: #111;\n    font-weight: 600;\n}\n.section-value {\n    font-size: 28rpx;\n    color: #666;\n}\n/* 时间滚轮区域 */\n.time-wheel {\n    position: relative;\n    background: #fff;\n    border-radius: 16rpx;\n    overflow: hidden;\n}\n/* ✅ 白框高度变低（更紧凑） */\n.time-picker {\n    height: 280rpx;\n}\n/* ✅ 每行更矮，配合 indicator-style 36px */\n.time-item {\n    height: 36px;\n    line-height: 36px;\n    text-align: center;\n    font-size: 36rpx;\n    color: #111;\n}\n.time-colon {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    font-size: 40rpx;\n    color: #111;\n    pointer-events: none;\n}\n/* ✅ 措施：白色卡片打底 */\n.method-card {\n    background: #fff;\n    border-radius: 20rpx;\n    padding: 12rpx 0 8rpx;\n}\n/* 措施：图标网格 */\n.method-grid {\n    display: flex;\n    flex-wrap: wrap;\n    margin-top: 8rpx;\n}\n.method-item {\n    width: 20%;\n    padding: 16rpx 8rpx 8rpx;\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.method-icon-wrap {\n    width: 96rpx;\n    height: 96rpx;\n    border-radius: 999rpx;\n    background: #ffe6ef;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n}\n.method-icon {\n    width: 56rpx;\n    height: 56rpx;\n}\n.method-text {\n    margin-top: 10rpx;\n    font-size: 24rpx;\n    color: #333;\n    text-align: center;\n    line-height: 1.2;\n}\n/* 选中态 */\n.method-item.active .method-icon-wrap {\n    background: #ffd3e2;\n}\n.method-badge {\n    position: absolute;\n    right: -6rpx;\n    top: -6rpx;\n    width: 34rpx;\n    height: 34rpx;\n    border-radius: 999rpx;\n    background: #ff6b9d;\n    color: #fff;\n    font-size: 22rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 6rpx 14rpx rgba(0, 0, 0, 0.12);\n}\n", ""]);
+exports.push([module.i, "/* 页面整体 */\n.page {\n    padding: 24rpx;\n    box-sizing: border-box;\n}\n/* 列表容器 */\n.list {\n    box-sizing: border-box;\n}\n/* 顶部按钮 */\n.add-btn {\n    background: #fff;\n    border-radius: 20rpx;\n    padding: 28rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #ff6b9d;\n    box-sizing: border-box;\n}\n.btn-active {\n    background: #f3f3f3;\n}\n.icon {\n    width: 36rpx;\n    height: 36rpx;\n    margin-right: 12rpx;\n}\n/* ====== 左滑删除卡片 ====== */\n.swipe-item {\n    position: relative;\n    margin-top: 20rpx;\n    border-radius: 20rpx;\n    overflow: hidden;\n}\n.swipe-actions {\n    position: absolute;\n    right: 0;\n    top: 0;\n    bottom: 0;\n    width: 160rpx;\n    background: #ff4d4f;\n    color: #fff;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 30rpx;\n}\n/* 内容层（卡片本体） */\n.swipe-content {\n    background: #fff;\n    border-radius: 20rpx;\n    box-sizing: border-box;\n    transition: -webkit-transform 180ms ease;\n    transition: transform 180ms ease;\n    transition: transform 180ms ease, -webkit-transform 180ms ease;\n\n    /* ✅ 关键：固定卡片高度（你想更高/更矮就改这里） */\n    height: 90rpx;\n\n    /* ✅ 关键：只保留左右 padding，上下不要 padding（否则视觉会偏） */\n    padding: 0 24rpx;\n}\n.no-anim {\n    transition: none !important;\n}\n/* 这一行负责“左右排布 + 上下居中” */\n.card-row {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n    /* ✅ 关键：让这一行占满卡片高度，从而真正垂直居中 */\n    height: 100%;\n    width: 100%;\n}\n.left {\n    display: flex;\n    align-items: center;\n    min-width: 0;\n}\n.heart {\n    width: 40rpx;\n    height: 40rpx;\n    margin-right: 14rpx;\n}\n.count {\n  color: #111;\n  font-size: 32rpx;\n  margin-right: 16rpx;\n  white-space: nowrap;\n  line-height: 32rpx;   /* ✅ 关键：锁定行高 */\n}\n.time {\n  color: #999;\n  font-size: 30rpx;\n  white-space: nowrap;\n  line-height: 30rpx;   /* ✅ 关键：锁定行高 */\n}\n.method {\n  color: #999;\n  font-size: 30rpx;\n  white-space: nowrap;\n  line-height: 30rpx;   /* ✅ 关键：锁定行高 */\n}\n/* 遮罩 */\n.mask {\n    position: fixed;\n    inset: 0;\n    background: rgba(0, 0, 0, 0.4);\n    z-index: 999;\n}\n/* 居中弹窗 */\n.popup {\n    position: fixed;\n    left: 50%;\n    top: 50%;\n    bottom: auto;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n\n    width: 92vw;\n    max-width: 680rpx;\n    box-sizing: border-box;\n\n    background: #fff;\n    border-radius: 24rpx;\n\n    padding: 24rpx;\n    z-index: 1000;\n\n    max-height: 80vh;\n    overflow-y: auto;\n}\n.popup-title {\n    margin-top: 12rpx;\n    text-align: center;\n    font-weight: bold;\n    margin-bottom: 24rpx;\n    font-size: 34rpx;\n    color: #111;\n}\n.card {\n    background: #f7f7f7;\n    border-radius: 16rpx;\n    padding: 20rpx;\n    margin-bottom: 20rpx;\n    box-sizing: border-box;\n}\n/* 按钮 */\n.popup-actions {\n    display: flex;\n    gap: 20rpx;\n\n    padding-bottom: constant(safe-area-inset-bottom);\n    padding-bottom: env(safe-area-inset-bottom);\n}\n.btn {\n    flex: 1;\n    text-align: center;\n    padding: 24rpx;\n    border-radius: 16rpx;\n    box-sizing: border-box;\n}\n.cancel {\n    color: #ff6b9d;\n    background: #eee;\n}\n.ok {\n    background: #ff6b9d;\n    color: #fff;\n}\n/* ====== 新弹窗：时间（滚轮）/ 措施（图标） ====== */\n.section-head {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-bottom: 16rpx;\n}\n.section-left {\n    display: flex;\n    align-items: center;\n    gap: 12rpx;\n}\n.section-icon {\n    width: 34rpx;\n    height: 34rpx;\n}\n.section-title {\n    font-size: 28rpx;\n    color: #111;\n    font-weight: 600;\n}\n.section-value {\n    font-size: 28rpx;\n    color: #666;\n}\n/* 时间滚轮区域 */\n.time-wheel {\n    position: relative;\n    background: #fff;\n    border-radius: 16rpx;\n    overflow: hidden;\n}\n/* ✅ 白框高度变低（更紧凑） */\n.time-picker {\n    height: 180rpx;\n}\n/* ✅ 每行更矮，配合 indicator-style 36px */\n.time-item {\n    height: 36px;\n    line-height: 36px;\n    text-align: center;\n    font-size: 36rpx;\n    color: #111;\n}\n.time-colon {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    font-size: 40rpx;\n    color: #111;\n    pointer-events: none;\n}\n/* ✅ 措施：白色卡片打底 */\n.method-card {\n    background: #fff;\n    border-radius: 20rpx;\n    padding: 12rpx 0 8rpx;\n}\n/* 措施：图标网格 */\n.method-grid {\n    display: flex;\n    flex-wrap: wrap;\n    margin-top: 8rpx;\n}\n.method-item {\n    width: 20%;\n    padding: 16rpx 8rpx 8rpx;\n    box-sizing: border-box;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.method-icon-wrap {\n    width: 96rpx;\n    height: 96rpx;\n    border-radius: 999rpx;\n    background: #ffe6ef;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n}\n.method-icon {\n    width: 56rpx;\n    height: 56rpx;\n}\n.method-text {\n    margin-top: 10rpx;\n    font-size: 22rpx;\n    color: #333;\n    text-align: center;\n    line-height: 1.2;\n}\n/* 选中态 */\n.method-item.active .method-icon-wrap {\n    background: #ffd3e2;\n}\n.method-badge {\n    position: absolute;\n    right: -6rpx;\n    top: -6rpx;\n    width: 34rpx;\n    height: 34rpx;\n    border-radius: 999rpx;\n    background: #ff6b9d;\n    color: #fff;\n    font-size: 22rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    box-shadow: 0 6rpx 14rpx rgba(0, 0, 0, 0.12);\n}\n", ""]);
 // Exports
 module.exports = exports;
 

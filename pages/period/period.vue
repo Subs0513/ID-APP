@@ -427,11 +427,6 @@ export default {
                     this.setData({ calOffsetPct: -50 });
                 });
             } else {
-                // this.setData({ calOffsetPct: -50 });
-                // this.$nextTick(() => {
-                //     this.setData({ calOffsetPct: 0 });
-                // });
-				
 				// ✅ 先无动画“定位”到 -50（第二屏）
 				this.setData({ calNoAnim: true, calOffsetPct: -50 });
 				

@@ -8093,7 +8093,7 @@ var render = function () {
                       },
                       on: {
                         click: function ($event) {
-                          return _vm.$handleViewEvent($event)
+                          return _vm.$handleViewEvent($event, { stop: true })
                         },
                       },
                     },
@@ -8102,12 +8102,10 @@ var render = function () {
                   _c(
                     "uni-view",
                     {
+                      staticClass: _vm._$g("7-" + $30, "sc"),
                       class: _vm._$g("7-" + $30, "c"),
                       style: _vm._$g("7-" + $30, "s"),
-                      attrs: {
-                        "data-index": _vm._$g("7-" + $30, "a-data-index"),
-                        _i: "7-" + $30,
-                      },
+                      attrs: { _i: "7-" + $30 },
                       on: {
                         click: function ($event) {
                           return _vm.$handleViewEvent($event)
@@ -8171,32 +8169,30 @@ var render = function () {
                         ],
                         1
                       ),
-                      _c(
-                        "uni-view",
-                        {
-                          staticClass: _vm._$g("14-" + $30, "sc"),
-                          attrs: { _i: "14-" + $30 },
-                        },
-                        [
-                          _c(
-                            "v-uni-text",
+                      _vm._$g("14-" + $30, "i")
+                        ? _c(
+                            "uni-view",
                             {
-                              staticClass: _vm._$g("15-" + $30, "sc"),
-                              attrs: { _i: "15-" + $30 },
+                              staticClass: _vm._$g("14-" + $30, "sc"),
+                              attrs: { _i: "14-" + $30 },
                             },
-                            [_vm._v("程度：" + _vm._$g("15-" + $30, "t0-0"))]
-                          ),
-                          _c(
-                            "v-uni-text",
-                            {
-                              staticClass: _vm._$g("16-" + $30, "sc"),
-                              attrs: { _i: "16-" + $30 },
-                            },
-                            [_vm._v("用药：" + _vm._$g("16-" + $30, "t0-0"))]
-                          ),
-                        ],
-                        1
-                      ),
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("15-" + $30, "sc"),
+                                  attrs: { _i: "15-" + $30 },
+                                },
+                                [
+                                  _vm._v(
+                                    "用药：" + _vm._$g("15-" + $30, "t0-0")
+                                  ),
+                                ]
+                              ),
+                            ],
+                            1
+                          )
+                        : _vm._e(),
                     ],
                     1
                   ),
@@ -8206,7 +8202,11 @@ var render = function () {
             }),
             1
           )
-        : _vm._e(),
+        : _c(
+            "uni-view",
+            { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
+            [_vm._v("暂无痛经记录")]
+          ),
       _vm._$g(17, "i")
         ? _c("uni-view", {
             staticClass: _vm._$g(17, "sc"),
@@ -8221,12 +8221,20 @@ var render = function () {
       _vm._$g(18, "i")
         ? _c(
             "uni-view",
-            { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+            {
+              staticClass: _vm._$g(18, "sc"),
+              attrs: { _i: 18 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event, { stop: true })
+                },
+              },
+            },
             [
               _c(
                 "uni-view",
                 { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                [_vm._v("添加痛经记录")]
+                [_vm._v(_vm._$g(19, "t0-0"))]
               ),
               _c(
                 "uni-view",
@@ -8235,27 +8243,97 @@ var render = function () {
                   _c(
                     "uni-view",
                     { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
-                    [_vm._v("痛经时间")]
-                  ),
-                  _c(
-                    "v-uni-picker",
-                    {
-                      attrs: {
-                        mode: "time",
-                        value: _vm._$g(22, "a-value"),
-                        _i: 22,
-                      },
-                      on: {
-                        change: function ($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                      },
-                    },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
-                        [_vm._v(_vm._$g(23, "t0-0"))]
+                        { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+                        [
+                          _c("v-uni-image", {
+                            staticClass: _vm._$g(23, "sc"),
+                            attrs: {
+                              src: "/static/assets/icons/f_sj.svg",
+                              mode: "aspectFit",
+                              _i: 23,
+                            },
+                          }),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(24, "sc"),
+                              attrs: { _i: 24 },
+                            },
+                            [_vm._v("时间")]
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                        [_vm._v(_vm._$g(25, "t0-0"))]
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
+                    [
+                      _c(
+                        "v-uni-picker-view",
+                        {
+                          staticClass: _vm._$g(27, "sc"),
+                          attrs: {
+                            value: _vm._$g(27, "a-value"),
+                            "indicator-style": "height: 36px;",
+                            _i: 27,
+                          },
+                          on: {
+                            change: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
+                        },
+                        [
+                          _c(
+                            "v-uni-picker-view-column",
+                            { attrs: { _i: 28 } },
+                            _vm._l(_vm._$g(29, "f"), function (h, i, $21, $31) {
+                              return _c(
+                                "uni-view",
+                                {
+                                  key: h,
+                                  staticClass: _vm._$g("29-" + $31, "sc"),
+                                  attrs: { _i: "29-" + $31 },
+                                },
+                                [_vm._v(_vm._$g("29-" + $31, "t0-0"))]
+                              )
+                            }),
+                            1
+                          ),
+                          _c(
+                            "v-uni-picker-view-column",
+                            { attrs: { _i: 30 } },
+                            _vm._l(_vm._$g(31, "f"), function (m, i, $22, $32) {
+                              return _c(
+                                "uni-view",
+                                {
+                                  key: m,
+                                  staticClass: _vm._$g("31-" + $32, "sc"),
+                                  attrs: { _i: "31-" + $32 },
+                                },
+                                [_vm._v(_vm._$g("31-" + $32, "t0-0"))]
+                              )
+                            }),
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
+                        [_vm._v(":")]
                       ),
                     ],
                     1
@@ -8265,32 +8343,78 @@ var render = function () {
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
-                    [_vm._v("痛经程度")]
-                  ),
-                  _c(
-                    "v-uni-picker",
-                    {
-                      attrs: {
-                        mode: "selector",
-                        range: _vm._$g(26, "a-range"),
-                        _i: 26,
-                      },
-                      on: {
-                        change: function ($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                      },
-                    },
+                    { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
-                        [_vm._v(_vm._$g(27, "t0-0"))]
+                        { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+                        [
+                          _c("v-uni-image", {
+                            staticClass: _vm._$g(36, "sc"),
+                            attrs: {
+                              src: "/static/assets/icons/f_dp.svg",
+                              mode: "aspectFit",
+                              _i: 36,
+                            },
+                          }),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(37, "sc"),
+                              attrs: { _i: 37 },
+                            },
+                            [_vm._v("程度")]
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
+                        [_vm._v(_vm._$g(38, "t0-0"))]
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(40, "sc"), attrs: { _i: 40 } },
+                        _vm._l(_vm._$g(41, "f"), function (lv, idx, $23, $33) {
+                          return _c(
+                            "uni-view",
+                            {
+                              key: lv,
+                              staticClass: _vm._$g("41-" + $33, "sc"),
+                              class: _vm._$g("41-" + $33, "c"),
+                              attrs: { _i: "41-" + $33 },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$handleViewEvent($event)
+                                },
+                              },
+                            },
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("42-" + $33, "sc"),
+                                  attrs: { _i: "42-" + $33 },
+                                },
+                                [_vm._v(_vm._$g("42-" + $33, "t0-0"))]
+                              ),
+                            ],
+                            1
+                          )
+                        }),
+                        1
                       ),
                     ],
                     1
@@ -8300,32 +8424,78 @@ var render = function () {
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
+                { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
-                    [_vm._v("用药情况")]
-                  ),
-                  _c(
-                    "v-uni-picker",
-                    {
-                      attrs: {
-                        mode: "selector",
-                        range: _vm._$g(30, "a-range"),
-                        _i: 30,
-                      },
-                      on: {
-                        change: function ($event) {
-                          return _vm.$handleViewEvent($event)
-                        },
-                      },
-                    },
+                    { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
                     [
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
-                        [_vm._v(_vm._$g(31, "t0-0"))]
+                        { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
+                        [
+                          _c("v-uni-image", {
+                            staticClass: _vm._$g(46, "sc"),
+                            attrs: {
+                              src: "/static/assets/icons/f_dp.svg",
+                              mode: "aspectFit",
+                              _i: 46,
+                            },
+                          }),
+                          _c(
+                            "v-uni-text",
+                            {
+                              staticClass: _vm._$g(47, "sc"),
+                              attrs: { _i: 47 },
+                            },
+                            [_vm._v("用药")]
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-text",
+                        { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
+                        [_vm._v(_vm._$g(48, "t0-0"))]
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(49, "sc"), attrs: { _i: 49 } },
+                    [
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(50, "sc"), attrs: { _i: 50 } },
+                        _vm._l(_vm._$g(51, "f"), function (md, idx, $24, $34) {
+                          return _c(
+                            "uni-view",
+                            {
+                              key: md,
+                              staticClass: _vm._$g("51-" + $34, "sc"),
+                              class: _vm._$g("51-" + $34, "c"),
+                              attrs: { _i: "51-" + $34 },
+                              on: {
+                                click: function ($event) {
+                                  return _vm.$handleViewEvent($event)
+                                },
+                              },
+                            },
+                            [
+                              _c(
+                                "v-uni-text",
+                                {
+                                  staticClass: _vm._$g("52-" + $34, "sc"),
+                                  attrs: { _i: "52-" + $34 },
+                                },
+                                [_vm._v(_vm._$g("52-" + $34, "t0-0"))]
+                              ),
+                            ],
+                            1
+                          )
+                        }),
+                        1
                       ),
                     ],
                     1
@@ -8335,13 +8505,13 @@ var render = function () {
               ),
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
+                { staticClass: _vm._$g(53, "sc"), attrs: { _i: 53 } },
                 [
                   _c(
                     "uni-view",
                     {
-                      staticClass: _vm._$g(33, "sc"),
-                      attrs: { _i: 33 },
+                      staticClass: _vm._$g(54, "sc"),
+                      attrs: { _i: 54 },
                       on: {
                         click: function ($event) {
                           return _vm.$handleViewEvent($event)
@@ -8353,8 +8523,8 @@ var render = function () {
                   _c(
                     "uni-view",
                     {
-                      staticClass: _vm._$g(34, "sc"),
-                      attrs: { _i: 34 },
+                      staticClass: _vm._$g(55, "sc"),
+                      attrs: { _i: 55 },
                       on: {
                         click: function ($event) {
                           return _vm.$handleViewEvent($event)
@@ -8468,7 +8638,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../Programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "/* 页面整体 */\n.page {\n    padding: 24rpx;\n    box-sizing: border-box;\n}\n/* 列表容器 */\n.list {\n    box-sizing: border-box;\n}\n/* 顶部按钮 */\n.add-btn {\n    background: #fff;\n    border-radius: 20rpx;\n    padding: 28rpx;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #ff6b9d;\n    box-sizing: border-box;\n}\n/* 按钮点击态 */\n.btn-active {\n    background: #f3f3f3;\n}\n/* 顶部按钮图标 */\n.icon {\n    width: 36rpx;\n    height: 36rpx;\n    margin-right: 12rpx;\n}\n/* ====== 左滑删除卡片 ====== */\n.swipe-item {\n    position: relative;\n    margin-top: 20rpx;\n    border-radius: 20rpx;\n    overflow: hidden;\n}\n/* 删除按钮区（宽度要和 JS 一致） */\n.swipe-actions {\n    position: absolute;\n    right: 0;\n    top: 0;\n    bottom: 0;\n    width: 160rpx;\n    background: #ff4d4f;\n    color: #fff;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 30rpx;\n}\n/* 内容层（卡片本体） */\n.swipe-content {\n    background: #fff;\n    border-radius: 20rpx;\n    padding: 24rpx;\n    box-sizing: border-box;\n    transition: -webkit-transform 180ms ease;\n    transition: transform 180ms ease;\n    transition: transform 180ms ease, -webkit-transform 180ms ease;\n}\n/* 手指拖动中：跟手更顺 */\n.no-anim {\n    transition: none !important;\n}\n/* 第一行：左（徽章+次数+时间）右（程度） */\n.row1 {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n}\n/* 第二行：元信息（程度/用药） */\n.row2 {\n    margin-top: 10rpx;\n    display: flex;\n    gap: 18rpx;\n    flex-wrap: wrap;\n}\n.left {\n    display: flex;\n    align-items: center;\n    min-width: 0;\n}\n/* “痛”徽章（仿你截图的粉色圆） */\n.pain-badge {\n    width: 44rpx;\n    height: 44rpx;\n    border-radius: 999rpx;\n    background: rgba(255, 107, 157, 0.18);\n    color: #ff6b9d;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 26rpx;\n    font-weight: 700;\n    margin-right: 14rpx;\n}\n.count {\n    color: #111;\n    font-size: 32rpx;\n    margin-right: 16rpx;\n    white-space: nowrap;\n}\n.time {\n    color: #999;\n    font-size: 30rpx;\n    white-space: nowrap;\n}\n.right-muted {\n    color: #999;\n    font-size: 30rpx;\n    white-space: nowrap;\n}\n.meta {\n    color: #999;\n    font-size: 28rpx;\n    white-space: nowrap;\n}\n/* 遮罩 */\n.mask {\n    position: fixed;\n    inset: 0;\n    background: rgba(0, 0, 0, 0.4);\n    z-index: 999;\n}\n/* 弹窗：安全区底部适配（防止 iPhone 横条遮挡） */\n.popup {\n    position: fixed;\n    left: 0;\n    bottom: 0;\n\n    width: 100vw;\n    box-sizing: border-box;\n\n    background: #fff;\n    border-radius: 24rpx 24rpx 0 0;\n\n    padding: 24rpx;\n    padding-bottom: calc(24rpx + constant(safe-area-inset-bottom));\n    padding-bottom: calc(24rpx + env(safe-area-inset-bottom));\n\n    z-index: 1000;\n}\n.popup-title {\n    margin-top: 12rpx;\n    text-align: center;\n    font-weight: bold;\n    margin-bottom: 24rpx;\n}\n.card {\n    background: #f7f7f7;\n    border-radius: 16rpx;\n    padding: 20rpx;\n    margin-bottom: 20rpx;\n    box-sizing: border-box;\n    align-items: center;\n}\n.label {\n    font-size: 24rpx;\n    color: #666;\n    margin-bottom: 12rpx;\n}\n.picker {\n    background: #fff;\n    padding: 20rpx;\n    border-radius: 12rpx;\n    box-sizing: border-box;\n}\n.popup-actions {\n    display: flex;\n    gap: 20rpx;\n    padding-bottom: constant(safe-area-inset-bottom);\n    padding-bottom: env(safe-area-inset-bottom);\n}\n.btn {\n    flex: 1;\n    text-align: center;\n    padding: 24rpx;\n    border-radius: 16rpx;\n    box-sizing: border-box;\n}\n.cancel {\n    color: #ff6b9d;\n    background: #eee;\n}\n.ok {\n    background: #ff6b9d;\n    color: #fff;\n}\n", ""]);
+exports.push([module.i, "/* 页面整体 */\n.page {\n  padding: 24rpx;\n  box-sizing: border-box;\n}\n/* 顶部按钮 */\n.add-btn {\n  background: #fff;\n  border-radius: 20rpx;\n  padding: 28rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  color: #ff6b9d;\n  box-sizing: border-box;\n}\n.btn-active {\n  background: #f3f3f3;\n}\n.icon {\n  width: 36rpx;\n  height: 36rpx;\n  margin-right: 12rpx;\n}\n/* 列表容器 */\n.list {\n  box-sizing: border-box;\n}\n/* 空态 */\n.empty {\n  margin-top: 24rpx;\n  color: #999;\n  font-size: 28rpx;\n  text-align: center;\n}\n/* ====== 左滑删除卡片 ====== */\n.swipe-item {\n  position: relative;\n  margin-top: 20rpx;\n  border-radius: 20rpx;\n  overflow: hidden;\n}\n/* 删除按钮区（宽度要和 JS 一致） */\n.swipe-actions {\n  position: absolute;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  width: 160rpx;\n  background: #ff4d4f;\n  color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 30rpx;\n}\n/* 内容层（卡片本体） */\n.swipe-content {\n  background: #fff;\n  border-radius: 20rpx;\n  padding: 24rpx;\n  box-sizing: border-box;\n  transition: -webkit-transform 180ms ease;\n  transition: transform 180ms ease;\n  transition: transform 180ms ease, -webkit-transform 180ms ease;\n}\n/* 手指拖动中：跟手更顺 */\n.no-anim {\n  transition: none !important;\n}\n/* 第一行：左（徽章+次数+时间）右（程度） */\n.row1 {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n.row2 {\n  margin-top: 10rpx;\n  display: flex;\n  gap: 18rpx;\n  flex-wrap: wrap;\n}\n.left {\n  display: flex;\n  align-items: center;\n  min-width: 0;\n}\n/* “痛”徽章 */\n.pain-badge {\n  width: 44rpx;\n  height: 44rpx;\n  border-radius: 999rpx;\n  background: rgba(255, 107, 157, 0.18);\n  color: #ff6b9d;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 26rpx;\n  font-weight: 700;\n  margin-right: 14rpx;\n}\n.count {\n  color: #111;\n  font-size: 32rpx;\n  margin-right: 16rpx;\n  white-space: nowrap;\n  line-height: 32rpx;\n}\n.time {\n  color: #999;\n  font-size: 30rpx;\n  white-space: nowrap;\n  line-height: 30rpx;\n}\n.right-muted {\n  color: #999;\n  font-size: 30rpx;\n  white-space: nowrap;\n}\n.meta {\n  color: #999;\n  font-size: 28rpx;\n  white-space: nowrap;\n}\n/* =======================\n   弹窗（仿 love.css 结构）\n   ======================= */\n/* 遮罩 */\n.mask {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.4);\n  z-index: 999;\n}\n/* 居中弹窗 */\n.popup {\n  position: fixed;\n  left: 50%;\n  top: 50%;\n  bottom: auto;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  width: 92vw;\n  max-width: 680rpx;\n  box-sizing: border-box;\n  background: #fff;\n  border-radius: 24rpx;\n  padding: 24rpx;\n  z-index: 1000;\n  max-height: 80vh;\n  overflow-y: auto;\n}\n.popup-title {\n  margin-top: 12rpx;\n  text-align: center;\n  font-weight: bold;\n  margin-bottom: 24rpx;\n  font-size: 34rpx;\n  color: #111;\n}\n.card {\n  background: #f7f7f7;\n  border-radius: 16rpx;\n  padding: 20rpx;\n  margin-bottom: 20rpx;\n  box-sizing: border-box;\n}\n/* 按钮 */\n.popup-actions {\n  display: flex;\n  gap: 20rpx;\n  padding-bottom: constant(safe-area-inset-bottom);\n  padding-bottom: env(safe-area-inset-bottom);\n}\n.btn {\n  flex: 1;\n  text-align: center;\n  padding: 24rpx;\n  border-radius: 16rpx;\n  box-sizing: border-box;\n}\n.cancel {\n  color: #ff6b9d;\n  background: #f4f4f4;\n}\n.ok {\n  background: #ff6b9d;\n  color: #fff;\n}\n/* 区块头（图标+标题+右侧值） */\n.section-head {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: 16rpx;\n}\n.section-left {\n  display: flex;\n  align-items: center;\n  gap: 12rpx;\n}\n.section-icon {\n  width: 34rpx;\n  height: 34rpx;\n}\n.section-title {\n  font-size: 28rpx;\n  color: #111;\n  font-weight: 600;\n}\n.section-value {\n  font-size: 28rpx;\n  color: #666;\n}\n/* 时间滚轮 */\n.time-wheel {\n  position: relative;\n  background: #fff;\n  border-radius: 16rpx;\n  overflow: hidden;\n}\n.time-picker {\n  height: 150rpx; /* 白框更低一点 */\n}\n.time-item {\n  height: 36px;\n  line-height: 36px;\n  text-align: center;\n  font-size: 36rpx;\n  color: #111;\n}\n.time-colon {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  font-size: 40rpx;\n  color: #111;\n  pointer-events: none;\n}\n/* 选项白卡打底 */\n.option-card {\n  background: #fff;\n  border-radius: 20rpx;\n  padding: 16rpx;\n}\n/* 选项 chip */\n.option-wrap {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 14rpx;\n}\n.option-item {\n  padding: 16rpx 18rpx;\n  border-radius: 999rpx;\n  background: #f4f4f4;\n}\n.option-item.active {\n  background: #ffd3e2;\n}\n.option-text {\n  font-size: 26rpx;\n  color: #333;\n  line-height: 26rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

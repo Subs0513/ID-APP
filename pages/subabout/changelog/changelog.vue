@@ -38,9 +38,23 @@ export default {
         return {
             logs: [
 				{
+				    version: '0.0.5',
+				    desc: '页面调整',
+				    isLatest: true,
+				    items: ['改进“我”页面']
+				},
+				{
+				    version: '0.0.4',
+				    desc: '功能修复',
+				    // isLatest: true,
+				    items: ['改进“爱爱”弹窗布局'],
+					items: ['解决“滑动删除”失灵问题'],
+					items: ['修复翻页动画问题']
+				},
+				{
 				    version: '0.0.3',
 				    desc: '功能更新',
-				    isLatest: true,
+				    // isLatest: true,
 				    items: ['全新健康分析页面']
 					// items: ['改进导航栏']
 				},

@@ -143,15 +143,15 @@ const MINUTES = Array.from({ length: 60 }, (_, i) => String(i).padStart(2, '0'))
 
 // ====== 避孕措施（图标 + 文案）======
 const METHOD_OPTIONS = [
-    { key: 'cs_01', label: '无措施', icon: '/static/assets/icons/cs_01.svg' },
-    { key: 'cs_02', label: '避孕套', icon: '/static/assets/icons/cs_02.svg' },
-    { key: 'cs_03', label: '体外排精', icon: '/static/assets/icons/cs_03.svg' },
-    { key: 'cs_04', label: '未射精', icon: '/static/assets/icons/cs_04.svg' },
-    { key: 'cs_05', label: '紧急避孕药', icon: '/static/assets/icons/cs_05.svg' },
-    { key: 'cs_06', label: '短效避孕药', icon: '/static/assets/icons/cs_06.svg' },
-    { key: 'cs_07', label: '长效避孕药', icon: '/static/assets/icons/cs_07.svg' },
-    { key: 'cs_08', label: '节育环', icon: '/static/assets/icons/cs_08.svg' },
-    { key: 'cs_09', label: '其他措施', icon: '/static/assets/icons/cs_09.svg' }
+    { key: 'cs_01', label: '无措施', icon: '/static/assets/icons/cs/cs_01.svg' },
+    { key: 'cs_02', label: '避孕套', icon: '/static/assets/icons/cs/cs_02.svg' },
+    { key: 'cs_03', label: '体外排精', icon: '/static/assets/icons/cs/cs_03.svg' },
+    { key: 'cs_04', label: '未射精', icon: '/static/assets/icons/cs/cs_04.svg' },
+    { key: 'cs_05', label: '紧急避孕药', icon: '/static/assets/icons/cs/cs_05.svg' },
+    { key: 'cs_06', label: '短效避孕药', icon: '/static/assets/icons/cs/cs_06.svg' },
+    { key: 'cs_07', label: '长效避孕药', icon: '/static/assets/icons/cs/cs_07.svg' },
+    // { key: 'cs_08', label: '节育环', icon: '/static/assets/icons/cs/cs_08.svg' },
+    { key: 'cs_09', label: '其他措施', icon: '/static/assets/icons/cs/cs_09.svg' }
 ];
 
 export default {

@@ -1,419 +1,530 @@
 <template>
-    <view class="page">
-        <!-- 顶部：用户信息卡 -->
-        <view class="card user-card">
-            <image class="avatar" :src="userProfile && userProfile.avatarUrl ? userProfile.avatarUrl : defaultAvatar" mode="aspectFill" />
+  <view class="page">
+    <!-- 顶部：账号卡 -->
+    <view class="card user-card">
+      <image class="avatar" :src="displayAvatar" mode="aspectFill" />
 
-            <view class="user-info">
-                <view class="nickname">
-                    {{ userProfile && userProfile.nickName ? userProfile.nickName : '未登录' }}
-                </view>
-                <view class="desc">
-                    {{ isLoggedIn ? '已使用本地存储' : '登录后可使用头像与昵称' }}
-                </view>
-            </view>
-
-            <button class="wx-login-btn" @tap="openLoginSheet">
-                {{ isLoggedIn ? '切换/登出' : '登录' }}
-            </button>
+      <view class="user-info">
+        <view class="nickname">{{ displayName }}</view>
+        <view class="desc">
+          <text v-if="isAuthed">手机号：{{ maskedPhone }}</text>
+          <text v-else>未登录（本地数据可用）</text>
         </view>
+      </view>
 
-        <!-- 功能列表卡 -->
-        <view class="card list-card">
-            <view class="row">
-                <view class="row-left">
-                    <view class="row-title">我们在一起的日期</view>
-                    <view class="row-sub">起始日：{{ coupleStartDate ? coupleStartDate : '未设置' }}</view>
-                </view>
-
-                <picker mode="date" :value="coupleStartDate" @change="onPickDate">
-                    <button class="row-action">修改</button>
-                </picker>
-            </view>
-
-            <view class="divider"></view>
-
-            <!-- 新增：经期长度 -->
-            <view class="row">
-                <view class="row-left">
-                    <view class="row-title">经期长度：{{ periodLength }}天</view>
-                    <view class="row-sub">您的月经大概几天</view>
-                </view>
-
-                <picker mode="selector" :range="periodOptions" :value="periodIndex" @change="onPickPeriodLength">
-                    <button class="row-action">修改</button>
-                </picker>
-            </view>
-
-            <view class="divider"></view>
-
-            <!-- 新增：周期长度 -->
-            <view class="row">
-                <view class="row-left">
-                    <view class="row-title">周期长度：{{ cycleLength }}天</view>
-                    <view class="row-sub">两次月经开始日大概间隔多久</view>
-                </view>
-
-                <picker mode="selector" :range="cycleOptions" :value="cycleIndex" @change="onPickCycleLength">
-                    <button class="row-action">修改</button>
-                </picker>
-            </view>
-
-            <view class="divider"></view>
-
-            <view class="row">
-                <view class="row-left">
-                    <view class="row-title">分享“我和你的重要时光”</view>
-                    <view class="row-sub">发给 TA 一起用</view>
-                </view>
-
-                <button class="row-action" open-type="share">分享</button>
-            </view>
-
-            <view class="divider"></view>
-
-            <view class="row" @tap="goAbout">
-                <view class="row-left">
-                    <view class="row-title">关于</view>
-                    <view class="row-sub">版本信息与说明</view>
-                </view>
-
-                <button class="row-action">查看</button>
-            </view>
-        </view>
-
-        <!-- 遮罩：用 catchtap，避免抢弹窗内部点击 -->
-        <view v-if="showSheet" class="mask" @touchmove.stop.prevent="noop" @tap.stop.prevent="closeSheet">
-            <!-- 弹窗本体：catchtap 阻止事件冒泡到遮罩 -->
-            <view class="sheet" @tap.stop.prevent="noop">
-                <view class="sheet-header">
-                    <view class="sheet-handle"></view>
-                    <view class="sheet-title">登录</view>
-                </view>
-
-                <view class="sheet-body">
-                    <!-- 头像行 -->
-                    <view class="field avatar-field">
-                        <view v-if="!draftAvatarUrl" class="field-main">
-                            <view class="field-label">头像</view>
-                            <view class="field-value placeholder">点击选择</view>
-                        </view>
-
-                        <view v-else class="avatar-only-wrap">
-                            <image class="avatar-only" :src="draftAvatarUrl" mode="aspectFill"></image>
-                        </view>
-
-                        <button class="cover-btn" open-type="chooseAvatar" @chooseavatar="onChooseAvatar"></button>
-                    </view>
-
-                    <!-- 昵称行：没选昵称显示输入；选了后只显示昵称并居中 -->
-                    <view class="field nickname-field">
-                        <view v-if="!draftNickName" class="field-main">
-                            <view class="field-label">昵称</view>
-                            <input class="field-input" type="nickname" placeholder="使用微信昵称（或手动输入）" :value="draftNickName" @input="onNickInput" />
-                        </view>
-
-                        <view v-else class="nickname-only">
-                            {{ draftNickName }}
-                        </view>
-                    </view>
-
-                    <!-- 确定 -->
-                    <button class="action primary" @tap="confirmLogin">确定</button>
-
-                    <!-- 退出登录：样式同“确定”，白底红字；用 bindtap 更稳 -->
-                    <button v-if="isLoggedIn" class="action danger" @tap="logout">退出登录</button>
-                </view>
-            </view>
-        </view>
+      <button class="primary-pill" @tap="openLoginSheet">
+        {{ isAuthed ? '账号' : '登录' }}
+      </button>
     </view>
+
+    <!-- 设置卡 -->
+    <view class="card list-card">
+      <!-- 在一起日期 -->
+      <view class="row">
+        <view class="row-left">
+          <view class="row-title">我们在一起的日期</view>
+          <view class="row-sub">起始日：{{ coupleStartDate ? coupleStartDate : '未设置' }}</view>
+        </view>
+
+        <picker mode="date" :value="coupleStartDate" @change="onPickDate">
+          <button class="row-action">修改</button>
+        </picker>
+      </view>
+
+      <view class="divider"></view>
+
+      <!-- 经期长度（改成自写滚轮） -->
+      <view class="row">
+        <view class="row-left">
+          <view class="row-title">经期长度：{{ periodLength }}天</view>
+          <view class="row-sub">您的月经大概几天</view>
+        </view>
+
+        <button class="row-action" @tap="openPeriodWheel">修改</button>
+      </view>
+
+      <view class="divider"></view>
+
+      <!-- 周期长度（改成自写滚轮） -->
+      <view class="row">
+        <view class="row-left">
+          <view class="row-title">周期长度：{{ cycleLength }}天</view>
+          <view class="row-sub">两次月经开始日大概间隔多久</view>
+        </view>
+
+        <button class="row-action" @tap="openCycleWheel">修改</button>
+      </view>
+    </view>
+
+    <!-- 账号与数据 -->
+    <view class="card list-card">
+      <view class="row" @tap="onShare">
+        <view class="row-left">
+          <view class="row-title">分享“我和你的重要时光”</view>
+          <view class="row-sub">发给 TA 一起用</view>
+        </view>
+        <button class="row-action" open-type="share">分享</button>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="row" @tap="goAbout">
+        <view class="row-left">
+          <view class="row-title">关于</view>
+          <view class="row-sub">版本信息与说明</view>
+        </view>
+        <button class="row-action">查看</button>
+      </view>
+
+      <view class="divider"></view>
+
+      <view class="row" @tap="confirmClear">
+        <view class="row-left">
+          <view class="row-title danger-title">清空本地数据</view>
+          <view class="row-sub">退出并删除本机缓存（不可恢复）</view>
+        </view>
+        <button class="row-action danger-btn">清空</button>
+      </view>
+    </view>
+
+    <!-- 登录弹层：手机号验证码（保留原样） -->
+    <view v-if="showSheet" class="mask" @tap="closeLoginSheet">
+      <view class="sheet" @tap.stop="noop">
+        <view class="sheet-header">
+          <view class="sheet-handle"></view>
+          <view class="sheet-title">{{ isAuthed ? '账号管理' : '手机号登录' }}</view>
+        </view>
+
+        <view class="sheet-body">
+          <!-- 已登录：显示手机号 + 退出 -->
+          <view v-if="isAuthed" class="authed-box">
+            <view class="authed-line">当前账号：{{ maskedPhone }}</view>
+
+            <view class="field">
+              <view class="field-label">昵称（本地）</view>
+              <input class="field-input" placeholder="给自己取个昵称" :value="draftNickName" @input="onNickInput" />
+            </view>
+
+            <view class="field">
+              <view class="field-label">头像（本地）</view>
+              <view class="avatar-pick">
+                <image class="avatar-only" :src="draftAvatarUrl || defaultAvatar" mode="aspectFill" />
+                <button class="small-btn" @tap="pickAvatar">更换</button>
+              </view>
+            </view>
+
+            <button class="action primary" @tap="saveLocalProfile">保存</button>
+            <button class="action danger" @tap="logoutOnly">退出登录</button>
+          </view>
+
+          <!-- 未登录：手机号 + 验证码 -->
+          <view v-else>
+            <view class="field">
+              <view class="field-label">手机号</view>
+              <input
+                class="field-input"
+                type="number"
+                maxlength="11"
+                placeholder="请输入手机号"
+                :value="phone"
+                @input="onPhoneInput"
+              />
+            </view>
+
+            <view class="field code-field">
+              <view class="field-label">验证码</view>
+              <view class="code-row">
+                <input
+                  class="field-input code-input"
+                  type="number"
+                  maxlength="6"
+                  placeholder="6位验证码"
+                  :value="code"
+                  @input="onCodeInput"
+                />
+                <button class="send-btn" :disabled="sendDisabled" @tap="sendCode">
+                  {{ sendBtnText }}
+                </button>
+              </view>
+            </view>
+
+            <button class="action primary" :disabled="loginDisabled" @tap="loginWithPhone">登录</button>
+
+            <view class="tip">
+              说明：目前仅本地登录态演示；接入短信接口与服务端 token 后将开启云同步。
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- ✅ 自写滚轮弹层：单列 picker-view（经期 / 周期共用） -->
+    <view v-if="showWheel" class="w-mask" @tap="closeWheel">
+      <view class="w-sheet" @tap.stop="noop">
+        <view class="w-top">
+          <text class="w-btn" @tap="closeWheel">取消</text>
+          <text class="w-title">{{ wheelTitle }}</text>
+          <text class="w-btn w-ok" @tap="confirmWheel">完成</text>
+        </view>
+
+        <view class="w-body">
+          <picker-view
+            class="w-picker"
+            :value="[wheelIndex]"
+            indicator-style="height: 88rpx;"
+            mask-style="background: linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.35)), linear-gradient(to top, rgba(255,255,255,0.92), rgba(255,255,255,0.35));"
+            @change="onWheelChange"
+          >
+            <picker-view-column>
+              <view v-for="(it, i) in wheelOptions" :key="'w-'+i" class="w-item">
+                {{ it }}天
+              </view>
+            </picker-view-column>
+          </picker-view>
+
+          <!-- 中间高亮框（更“自家风格”） -->
+          <view class="w-indicator"></view>
+        </view>
+      </view>
+    </view>
+  </view>
 </template>
 
 <script>
 const storage = require('../../utils/storage');
+
 const PERIOD_STORE_KEY = 'period_record_v1';
+const AUTH_KEY = 'phone_auth_v1';
+
 const DEFAULTS = {
-    cycleLength: 28,
-    periodLength: 5,
-    lutealDays: 14
+  cycleLength: 28,
+  periodLength: 5,
+  lutealDays: 14
 };
+
 function loadPeriodSettings() {
-    const v = uni.getStorageSync(PERIOD_STORE_KEY);
-    const settings = v && v.settings ? v.settings : {};
-    return {
-        cycleLength: Number(settings.cycleLength || DEFAULTS.cycleLength),
-        periodLength: Number(settings.periodLength || DEFAULTS.periodLength)
-    };
+  const v = uni.getStorageSync(PERIOD_STORE_KEY);
+  const settings = v && v.settings ? v.settings : {};
+  return {
+    cycleLength: Number(settings.cycleLength || DEFAULTS.cycleLength),
+    periodLength: Number(settings.periodLength || DEFAULTS.periodLength)
+  };
 }
 function savePeriodSettings(next) {
-    const v = uni.getStorageSync(PERIOD_STORE_KEY) || {};
-    const oldSettings = v && v.settings ? v.settings : {};
-    v.settings = {
-        ...DEFAULTS,
-        ...oldSettings,
-        ...next
-    };
-    uni.setStorageSync(PERIOD_STORE_KEY, v);
+  const v = uni.getStorageSync(PERIOD_STORE_KEY) || {};
+  const oldSettings = v && v.settings ? v.settings : {};
+  v.settings = {
+    ...DEFAULTS,
+    ...oldSettings,
+    ...next
+  };
+  uni.setStorageSync(PERIOD_STORE_KEY, v);
 }
+function maskPhone(p) {
+  const s = String(p || '');
+  if (s.length < 7) return s;
+  return s.slice(0, 3) + '****' + s.slice(-4);
+}
+
 export default {
-    data() {
-        return {
-            draftAvatarUrl: '',
-            defaultAvatar: '/static/assets/icons/tx.svg',
-            userProfile: null,
-            isLoggedIn: false,
-            coupleStartDate: '',
-            showSheet: false,
-            draftAvatarUrl: '',
-            draftNickName: '',
-            // 经期/周期设置（只新增，不动原逻辑）
-            periodLength: DEFAULTS.periodLength,
-            cycleLength: DEFAULTS.cycleLength,
-            periodOptions: [],
-            cycleOptions: [],
-            periodIndex: 0,
-            cycleIndex: 0
-        };
+  data() {
+    return {
+      defaultAvatar: '/assets/icons/default_avatar.png',
+      coupleStartDate: '',
+
+      // 本地资料
+      userProfile: null,
+      draftAvatarUrl: '',
+      draftNickName: '',
+
+      // 手机号登录
+      showSheet: false,
+      phone: '',
+      code: '',
+      countdown: 0,
+      timer: null,
+
+      // auth
+      auth: null,
+      isAuthed: false,
+
+      // 经期/周期
+      periodLength: DEFAULTS.periodLength,
+      cycleLength: DEFAULTS.cycleLength,
+
+      // ✅ 自写滚轮相关
+      showWheel: false,
+      wheelType: '', // 'period' | 'cycle'
+      wheelTitle: '',
+      wheelOptions: [],
+      wheelIndex: 0,       // picker-view 用 index
+      wheelDraftIndex: 0   // change 时暂存，点完成才提交
+    };
+  },
+
+  computed: {
+    displayName() {
+      const p = this.userProfile;
+      if (p && p.nickName) return p.nickName;
+      return this.isAuthed ? '已登录用户' : '未登录';
     },
-    onShow() {
-		
-		
-        const profile = storage.getUserProfile ? storage.getUserProfile() : null;
-        const isLoggedIn = !!(profile && profile.nickName);
-
-        // 读取经期/周期设置（来自 period_record_v1.settings）
-        const s = loadPeriodSettings();
-        const periodOptions = [];
-        for (let i = 2; i <= 20; i++) {
-            periodOptions.push(i);
-        }
-        const cycleOptions = [];
-        for (let i = 16; i <= 60; i++) {
-            cycleOptions.push(i);
-        }
-        const periodIndex = Math.max(0, periodOptions.indexOf(s.periodLength));
-        const cycleIndex = Math.max(0, cycleOptions.indexOf(s.cycleLength));
-        this.setData({
-            userProfile: isLoggedIn ? profile : null,
-            isLoggedIn,
-            coupleStartDate: storage.getCoupleStartDate ? storage.getCoupleStartDate() || '' : '',
-            periodLength: s.periodLength,
-            cycleLength: s.cycleLength,
-            periodOptions,
-            cycleOptions,
-            periodIndex,
-            cycleIndex
-        });
+    displayAvatar() {
+      const p = this.userProfile;
+      if (p && p.avatarUrl) return p.avatarUrl;
+      return this.defaultAvatar;
     },
-    onShareAppMessage() {
-        return {
-            title: '重要日子：记录我们在一起的每一天',
-            path: '/pages/home/home'
-        };
+    maskedPhone() {
+      return maskPhone(this.auth && this.auth.phone);
     },
-    methods: {
-        openLoginSheet() {
-            const p = this.userProfile || {};
-            this.setData({
-                showSheet: true,
-                draftAvatarUrl: p.avatarUrl || '',
-                draftNickName: p.nickName || ''
-            });
-        },
-
-        closeSheet() {
-            this.setData({
-                showSheet: false
-            });
-        },
-
-        onChooseAvatar(e) {
-            const avatarUrl = e.detail && e.detail.avatarUrl ? e.detail.avatarUrl : '';
-            if (!avatarUrl) {
-                return;
-            }
-            this.setData({
-                draftAvatarUrl: avatarUrl
-            });
-        },
-
-        onNickInput(e) {
-            this.setData({
-                draftNickName: e.detail.value || ''
-            });
-        },
-
-        confirmLogin() {
-            const nickName = (this.draftNickName || '').trim();
-            const avatarUrl = this.draftAvatarUrl || '';
-            if (!nickName) {
-                uni.showToast({
-                    title: '请先填写昵称',
-                    icon: 'none'
-                });
-                return;
-            }
-            const profile = {
-                nickName,
-                avatarUrl
-            };
-            storage.setUserProfile(profile);
-            this.setData({
-                userProfile: profile,
-                isLoggedIn: true,
-                showSheet: false
-            });
-            uni.showToast({
-                title: '已保存',
-                icon: 'success'
-            });
-        },
-
-        // 退出登录：清空如下
-        // 头像昵称   在一起日期   重要日子列表
-        // “经期记录”缓存 period_record_v1（只加清理，不改原逻辑）
-        logout() {
-            console.log('logout tapped');
-            uni.showModal({
-                title: '退出登录',
-                content: '退出后将清空所有本地数据：在一起日期、重要日子列表、经期记录等。',
-                confirmText: '退出',
-                confirmColor: '#e5484d',
-                success: (res) => {
-                    console.log('showModal success:', res);
-                    if (!res.confirm) {
-                        return;
-                    }
-                    try {
-                        if (storage && typeof storage.clearAllLocalData === 'function') {
-                            storage.clearAllLocalData();
-                            // 兜底再删一次：确保“经期记录”一定被清掉（即使 storage.js 版本不同）
-                            try {
-                                uni.removeStorageSync(PERIOD_STORE_KEY);
-                            } catch (e) {
-                                console.log('CatchClause', e);
-                                console.log('CatchClause', e);
-                            }
-                            console.log('clearAllLocalData ok');
-                        } else {
-                            console.log('clearAllLocalData not found, fallback remove keys');
-                            uni.removeStorageSync('USER_PROFILE');
-                            uni.removeStorageSync('COUPLE_START_DATE');
-                            uni.removeStorageSync('IMPORTANT_DAYS_LIST');
-                            uni.removeStorageSync('userProfile');
-                            // fallback 也清掉“经期记录”
-                            try {
-                                uni.removeStorageSync(PERIOD_STORE_KEY);
-                            } catch (e) {
-                                console.log('CatchClause', e);
-                                console.log('CatchClause', e);
-                            }
-                        }
-                    } catch (err) {
-                        console.log('CatchClause', err);
-                        console.log('CatchClause', err);
-                        console.error('clear local data error:', err);
-                        try {
-                            uni.clearStorageSync();
-                            console.log('wx.clearStorageSync ok');
-                        } catch (e2) {
-                            console.log('CatchClause', e2);
-                            console.log('CatchClause', e2);
-                            console.error('wx.clearStorageSync failed:', e2);
-                        }
-                    }
-                    this.setData({
-                        userProfile: null,
-                        isLoggedIn: false,
-                        coupleStartDate: '',
-                        draftAvatarUrl: '',
-                        draftNickName: '',
-                        showSheet: false
-                    });
-                    uni.showToast({
-                        title: '已清空',
-                        icon: 'success'
-                    });
-                    uni.switchTab({
-                        url: '/pages/home/home',
-                        success: () => console.log('switchTab ok'),
-                        fail: (e) => {
-                            console.error('switchTab failed:', e);
-                            uni.reLaunch({
-                                url: '/pages/home/home'
-                            });
-                        }
-                    });
-                },
-                fail: (err) => {
-                    console.error('showModal failed:', err);
-                    uni.showToast({
-                        title: '弹窗调用失败',
-                        icon: 'none'
-                    });
-                },
-                complete: () => {
-                    console.log('showModal complete');
-                }
-            });
-        },
-
-        onPickDate(e) {
-            const dateStr = e.detail.value;
-            storage.setCoupleStartDate(dateStr);
-            this.setData({
-                coupleStartDate: dateStr
-            });
-            uni.showToast({
-                title: '已保存',
-                icon: 'success'
-            });
-        },
-
-        // 新增：经期长度修改
-        onPickPeriodLength(e) {
-            const idx = Number(e.detail.value);
-            const val = this.periodOptions[idx];
-            savePeriodSettings({
-                periodLength: val
-            });
-            this.setData({
-                periodLength: val,
-                periodIndex: idx
-            });
-            uni.showToast({
-                title: '已保存',
-                icon: 'success'
-            });
-        },
-
-        // 新增：周期长度修改
-        onPickCycleLength(e) {
-            const idx = Number(e.detail.value);
-            const val = this.cycleOptions[idx];
-            savePeriodSettings({
-                cycleLength: val
-            });
-            this.setData({
-                cycleLength: val,
-                cycleIndex: idx
-            });
-            uni.showToast({
-                title: '已保存',
-                icon: 'success'
-            });
-        },
-
-        goAbout() {
-            uni.navigateTo({
-                url: '/pages/about/about'
-            });
-        },
-
-        noop() {}
+    sendDisabled() {
+      return this.countdown > 0 || !this.isValidPhone(this.phone);
+    },
+    sendBtnText() {
+      return this.countdown > 0 ? `${this.countdown}s` : '发送';
+    },
+    loginDisabled() {
+      return !this.isValidPhone(this.phone) || String(this.code || '').length < 4;
     }
+  },
+
+  onShow() {
+    // 本地资料
+    const profile = storage.getUserProfile ? storage.getUserProfile() : null;
+    this.setData({
+      userProfile: profile || null,
+      draftAvatarUrl: (profile && profile.avatarUrl) || '',
+      draftNickName: (profile && profile.nickName) || ''
+    });
+
+    // 在一起日期
+    const date = storage.getCoupleStartDate ? storage.getCoupleStartDate() : '';
+    this.setData({ coupleStartDate: date || '' });
+
+    // auth
+    const a = uni.getStorageSync(AUTH_KEY) || null;
+    const isAuthed = !!(a && a.phone && a.token);
+    this.setData({ auth: a, isAuthed });
+
+    // 经期/周期设置
+    const s = loadPeriodSettings();
+    this.setData({
+      periodLength: s.periodLength,
+      cycleLength: s.cycleLength
+    });
+  },
+
+  onHide() {
+    this.clearTimer();
+  },
+
+  methods: {
+    // ----------------- 登录弹层 -----------------
+    openLoginSheet() {
+      const p = this.userProfile || {};
+      this.setData({
+        showSheet: true,
+        draftAvatarUrl: p.avatarUrl || '',
+        draftNickName: p.nickName || ''
+      });
+    },
+    closeLoginSheet() {
+      this.setData({ showSheet: false });
+    },
+    noop() {},
+
+    onPhoneInput(e) {
+      const v = (e.detail && e.detail.value) || '';
+      this.setData({ phone: v.replace(/\s/g, '') });
+    },
+    onCodeInput(e) {
+      const v = (e.detail && e.detail.value) || '';
+      this.setData({ code: v.replace(/\s/g, '') });
+    },
+    isValidPhone(p) {
+      const s = String(p || '').trim();
+      return /^1\d{10}$/.test(s);
+    },
+    sendCode() {
+      if (this.sendDisabled) return;
+      uni.showToast({ title: '验证码已发送（演示）', icon: 'none' });
+
+      this.setData({ countdown: 60 });
+      this.clearTimer();
+      this.timer = setInterval(() => {
+        const next = Math.max(0, (this.countdown || 0) - 1);
+        this.setData({ countdown: next });
+        if (next <= 0) this.clearTimer();
+      }, 1000);
+    },
+    loginWithPhone() {
+      if (this.loginDisabled) return;
+      const token = 'mock_' + Date.now();
+      const a = { phone: String(this.phone), token, at: Date.now() };
+      uni.setStorageSync(AUTH_KEY, a);
+      this.setData({
+        auth: a,
+        isAuthed: true,
+        showSheet: false,
+        code: ''
+      });
+      uni.showToast({ title: '登录成功', icon: 'success' });
+    },
+    logoutOnly() {
+      uni.removeStorageSync(AUTH_KEY);
+      this.setData({
+        auth: null,
+        isAuthed: false,
+        showSheet: false
+      });
+      uni.showToast({ title: '已退出', icon: 'success' });
+    },
+    clearTimer() {
+      if (this.timer) {
+        clearInterval(this.timer);
+        this.timer = null;
+      }
+    },
+
+    onNickInput(e) {
+      const v = (e.detail && e.detail.value) || '';
+      this.setData({ draftNickName: v });
+    },
+    pickAvatar() {
+      uni.chooseImage({
+        count: 1,
+        sizeType: ['compressed'],
+        success: (res) => {
+          const url = (res.tempFilePaths && res.tempFilePaths[0]) || '';
+          this.setData({ draftAvatarUrl: url });
+        }
+      });
+    },
+    saveLocalProfile() {
+      const nickName = String(this.draftNickName || '').trim();
+      if (!nickName) {
+        uni.showToast({ title: '请先填写昵称', icon: 'none' });
+        return;
+      }
+      const profile = {
+        nickName,
+        avatarUrl: this.draftAvatarUrl || ''
+      };
+      storage.setUserProfile && storage.setUserProfile(profile);
+      this.setData({ userProfile: profile });
+      uni.showToast({ title: '已保存', icon: 'success' });
+      this.closeLoginSheet();
+    },
+
+    // ----------------- 在一起日期 -----------------
+    onPickDate(e) {
+      const v = e && e.detail ? e.detail.value : '';
+      storage.setCoupleStartDate && storage.setCoupleStartDate(v);
+      this.setData({ coupleStartDate: v });
+      uni.showToast({ title: '已保存', icon: 'success' });
+    },
+
+    // ----------------- ✅ 自写滚轮：经期/周期 -----------------
+    openPeriodWheel() {
+      const opts = [];
+      for (let i = 2; i <= 20; i++) opts.push(i);
+      const idx = Math.max(0, opts.indexOf(Number(this.periodLength)));
+
+      this.setData({
+        showWheel: true,
+        wheelType: 'period',
+        wheelTitle: '经期长度',
+        wheelOptions: opts,
+        wheelIndex: idx,
+        wheelDraftIndex: idx
+      });
+    },
+    openCycleWheel() {
+      const opts = [];
+      for (let i = 16; i <= 60; i++) opts.push(i);
+      const idx = Math.max(0, opts.indexOf(Number(this.cycleLength)));
+
+      this.setData({
+        showWheel: true,
+        wheelType: 'cycle',
+        wheelTitle: '周期长度',
+        wheelOptions: opts,
+        wheelIndex: idx,
+        wheelDraftIndex: idx
+      });
+    },
+    closeWheel() {
+      this.setData({ showWheel: false });
+    },
+    onWheelChange(e) {
+      const v = e && e.detail && e.detail.value ? e.detail.value : [0];
+      const idx = Number(v[0] || 0);
+      this.setData({ wheelDraftIndex: idx });
+    },
+    confirmWheel() {
+      const idx = Number(this.wheelDraftIndex || 0);
+      const val = this.wheelOptions[idx];
+
+      if (this.wheelType === 'period') {
+        savePeriodSettings({ periodLength: Number(val) });
+        this.setData({ periodLength: Number(val) });
+      } else if (this.wheelType === 'cycle') {
+        savePeriodSettings({ cycleLength: Number(val) });
+        this.setData({ cycleLength: Number(val) });
+      }
+
+      this.setData({ showWheel: false });
+      uni.showToast({ title: '已保存', icon: 'success' });
+    },
+
+    // ----------------- 清空 -----------------
+    confirmClear() {
+      uni.showModal({
+        title: '确认清空？',
+        content: '将删除本机所有缓存数据（包括重要日子、经期记录等），不可恢复。',
+        confirmText: '清空',
+        confirmColor: '#e5484d',
+        success: (res) => {
+          if (res.confirm) {
+            try {
+              uni.clearStorageSync();
+            } catch (e) {
+              try {
+                uni.removeStorageSync(AUTH_KEY);
+                uni.removeStorageSync(PERIOD_STORE_KEY);
+              } catch (e2) {}
+            }
+
+            this.setData({
+              userProfile: null,
+              draftAvatarUrl: '',
+              draftNickName: '',
+              auth: null,
+              isAuthed: false,
+              phone: '',
+              code: '',
+              coupleStartDate: '',
+              showSheet: false,
+              showWheel: false
+            });
+
+            uni.showToast({ title: '已清空', icon: 'success' });
+            uni.switchTab({ url: '/pages/home/home' });
+          }
+        }
+      });
+    },
+
+    goAbout() {
+      uni.navigateTo({ url: '/pages/about/about' });
+    },
+
+    onShare() {
+      // open-type="share" 处理
+    }
+  }
 };
 </script>
+
 <style>
 @import './me.css';
 </style>

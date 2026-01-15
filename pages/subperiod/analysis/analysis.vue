@@ -64,7 +64,7 @@
             <image class="cycle-icon" src="/static/assets/icons/f_rq.svg" mode="aspectFit" />
             <text class="cycle-title">周期变化</text>
           </view>
-          <image class="cycle-arrow" src="/static/assets/icons/f_tz.svg" mode="aspectFit" />
+          <!-- <image class="cycle-arrow" src="/static/assets/icons/f_tz.svg" mode="aspectFit" /> -->
         </view>
 
         <view class="cycle-sub">{{ cycleChange.rangeText }}</view>

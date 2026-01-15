@@ -20,7 +20,7 @@
 
             <!-- 日历网格（支持左右滑动翻月 + 翻页动画） -->
             <view class="cal-swipe" @touchstart="onTouchStart" @touchend="onTouchEnd">
-                <view class="cal-track" :class="{ 'is-anim': isMonthAnimating }" :style="calTrackStyle" @transitionend="onMonthAnimEnd">
+                <view class="cal-track" :class="{ 'is-anim': isMonthAnimating , 'no-anim': calNoAnim}" :style="calTrackStyle" @transitionend="onMonthAnimEnd">
                     <!-- 第一屏：next 时=当前月；prev 时=上一月 -->
                     <view class="cal-pane">
                         <view class="grid">
@@ -342,7 +342,8 @@ export default {
             nextYear: 0,
             nextMonth: 0,
             animTimer: null, // ✅ 兜底定时器：防止 transitionend 丢失导致卡死
-            pendingTarget: null // ✅ 连续翻页合并：动画中记录最后一次目标
+            pendingTarget: null ,// ✅ 连续翻页合并：动画中记录最后一次目标
+			calNoAnim: false,//修复翻页问题
         };
     },
     onLoad() {
@@ -426,10 +427,22 @@ export default {
                     this.setData({ calOffsetPct: -50 });
                 });
             } else {
-                this.setData({ calOffsetPct: -50 });
-                this.$nextTick(() => {
-                    this.setData({ calOffsetPct: 0 });
-                });
+                // this.setData({ calOffsetPct: -50 });
+                // this.$nextTick(() => {
+                //     this.setData({ calOffsetPct: 0 });
+                // });
+				
+				// ✅ 先无动画“定位”到 -50（第二屏）
+				this.setData({ calNoAnim: true, calOffsetPct: -50 });
+				
+				this.$nextTick(() => {
+				  // 下一帧恢复 transition，再开始真正动画（-50 -> 0）
+				  setTimeout(() => {
+				    this.setData({ calNoAnim: false });
+				    this.setData({ calOffsetPct: 0 });
+				  }, 16);
+				});
+				
             }
         },
 
@@ -453,7 +466,10 @@ export default {
                 year: targetY,
                 month: targetM,
                 isMonthAnimating: false,
-                calOffsetPct: 0
+                calOffsetPct: 0,
+				
+				monthAnimDir: 'next',
+				nextCells: []
             });
 
             this.refreshAll();

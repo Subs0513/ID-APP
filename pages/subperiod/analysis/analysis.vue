@@ -123,7 +123,7 @@
     <view class="card weight-card">
       <view class="weight-head" @tap="onGoWeight">
         <view class="weight-head-left">
-          <image class="weight-icon" src="/static/assets/icons/f_rq.svg" mode="aspectFit" />
+          <image class="weight-icon" src="/static/assets/icons/f_tzc.svg" mode="aspectFit" />
           <text class="weight-title">体重趋势（最近7天）</text>
         </view>
         <image class="weight-arrow" src="/static/assets/icons/f_tz.svg" mode="aspectFit" />

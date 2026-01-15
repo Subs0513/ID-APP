@@ -86,6 +86,11 @@
     will-change: transform;
 }
 
+.cal-track.no-anim {
+  transition: none !important;
+}
+
+
 .cal-pane {
     width: 50%; /* 200% 里的半屏 = 1 屏 */
     padding: 0;

@@ -38,9 +38,15 @@ export default {
         return {
             logs: [
 				{
-				    version: '0.0.6',
+				    version: '0.0.7',
 				    desc: '页面调整',
 				    isLatest: true,
+				    items: ['新版本“我们在一起的日期”选择滚轮']
+				},
+				{
+				    version: '0.0.6',
+				    desc: '页面调整',
+				    // isLatest: true,
 				    items: ['“经期记录”页面，点击未来日期隐藏操作按钮','对齐分析页爱爱记录数据']
 				},
 				{

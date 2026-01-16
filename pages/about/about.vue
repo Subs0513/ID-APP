@@ -58,7 +58,7 @@
                 <text>  </text>
             </view>
 
-            <!-- iPhone 底部安全区撑一下（可选） -->
+            <!-- 底部安全区撑一下（其实没有用） -->
             <view class="safe-spacer"></view>
         </view>
     </view>
@@ -68,7 +68,7 @@
 export default {
     data() {
         return {
-            version: '0.0.6'
+            version: '0.0.7'
         };
     },
     onLoad() {

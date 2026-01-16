@@ -26,9 +26,8 @@
           <view class="row-sub">起始日：{{ coupleStartDate ? coupleStartDate : '未设置' }}</view>
         </view>
 
-        <picker mode="date" :value="coupleStartDate" @change="onPickDate">
-          <button class="row-action">修改</button>
-        </picker>
+        <!-- ✅ 改成自写三列滚轮：不使用系统 date picker（避免安卓风格） -->
+        <button class="row-action" @tap="openCoupleDateWheel">修改</button>
       </view>
 
       <view class="divider"></view>
@@ -176,31 +175,75 @@
             :mask-style="'background: transparent;'"
           >
             <picker-view-column>
-              <!-- <view v-for="(it, i) in wheelOptions" :key="'w-'+i" class="w-item">
+              <view
+                v-for="(it, i) in wheelOptions"
+                :key="'w-'+i"
+                :class="['w-item', i === wheelDraftIndex ? 'w-item-active' : '']"
+              >
                 {{ it }}天
-              </view> -->
-			  <!-- <view
-			    v-for="(it, i) in wheelOptions"
-			    :key="'w-'+i"
-			    :class="['w-item', i === wheelIndex ? 'w-item-active' : '']"
-			  >
-			    {{ it }}天
-			  </view> -->
-			  
-			<view
-			  v-for="(it, i) in wheelOptions"
-			  :key="'w-'+i"
-			  :class="['w-item', i === wheelDraftIndex ? 'w-item-active' : '']"
-			>
-			  {{ it }}天
-			</view>
-
-
+              </view>
             </picker-view-column>
           </picker-view>
 
           <!-- 中间高亮框（更“自家风格”） -->
           <view class="w-indicator"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- ✅ 自写滚轮弹层：三列日期（我们在一起的日期） -->
+    <view v-if="showDateWheel" class="dw-mask" @tap="closeCoupleDateWheel">
+      <view class="dw-sheet" @tap.stop="noop">
+        <view class="dw-top">
+          <text class="dw-btn" @tap="closeCoupleDateWheel">取消</text>
+          <view class="dw-mid">
+            <view class="dw-subtitle">选择未来日期倒数，选择过去日期正数</view>
+            <view class="dw-title">我们在一起的日期</view>
+          </view>
+          <text class="dw-btn dw-ok" @tap="confirmCoupleDateWheel">完成</text>
+        </view>
+
+        <view class="dw-body">
+          <picker-view
+            class="dw-picker"
+            :value="dateWheelIndex"
+            @change="onCoupleDateWheelChange"
+            :indicator-style="'height: 96rpx;'"
+            :mask-style="'background: transparent;'"
+          >
+            <picker-view-column>
+              <view
+                v-for="(y, yi) in dateYears"
+                :key="'y-'+y"
+                :class="['dw-item', yi === dateWheelDraftIndex[0] ? 'dw-item-active' : '']"
+              >
+                {{ y }}年
+              </view>
+            </picker-view-column>
+
+            <picker-view-column>
+              <view
+                v-for="(m, mi) in dateMonths"
+                :key="'m-'+m"
+                :class="['dw-item', mi === dateWheelDraftIndex[1] ? 'dw-item-active' : '']"
+              >
+                {{ m }}月
+              </view>
+            </picker-view-column>
+
+            <picker-view-column>
+              <view
+                v-for="(d, di) in dateDays"
+                :key="'d-'+d"
+                :class="['dw-item', di === dateWheelDraftIndex[2] ? 'dw-item-active' : '']"
+              >
+                {{ d }}日
+              </view>
+            </picker-view-column>
+          </picker-view>
+
+          <!-- 中间高亮框（参考你已有滚轮样式，做成淡粉色强调） -->
+          <view class="dw-indicator"></view>
         </view>
       </view>
     </view>
@@ -275,7 +318,15 @@ export default {
       wheelTitle: '',
       wheelOptions: [],
       wheelIndex: 0,       // picker-view 用 index
-      wheelDraftIndex: 0   // change 时暂存，点完成才提交
+      wheelDraftIndex: 0,  // change 时暂存，点完成才提交
+
+      // ✅ 自写三列日期滚轮（我们在一起的日期）
+      showDateWheel: false,
+      dateYears: [],
+      dateMonths: [],
+      dateDays: [],
+      dateWheelIndex: [0, 0, 0],
+      dateWheelDraftIndex: [0, 0, 0]
     };
   },
 
@@ -335,6 +386,110 @@ export default {
   },
 
   methods: {
+    // ================= 三列日期滚轮：我们在一起的日期（不使用系统 date picker） =================
+    pad2(n) {
+      const s = String(n);
+      return s.length >= 2 ? s : '0' + s;
+    },
+    daysInMonth(year, month) {
+      // month: 1-12
+      const y = Number(year);
+      const m = Number(month);
+      return new Date(y, m, 0).getDate();
+    },
+    buildYearRange() {
+      const now = new Date();
+      const cur = now.getFullYear();
+      const start = cur - 50;
+      const end = cur + 50;
+      const arr = [];
+      for (let y = start; y <= end; y++) arr.push(y);
+      return arr;
+    },
+    ensureDateWheelData(dateStr) {
+      // dateStr: YYYY-MM-DD
+      const now = new Date();
+      let y = now.getFullYear();
+      let m = now.getMonth() + 1;
+      let d = now.getDate();
+
+      if (dateStr && /^\d{4}-\d{2}-\d{2}$/.test(dateStr)) {
+        const parts = dateStr.split('-').map((x) => Number(x));
+        y = parts[0] || y;
+        m = parts[1] || m;
+        d = parts[2] || d;
+      }
+
+      const years = this.buildYearRange();
+      const months = [];
+      for (let i = 1; i <= 12; i++) months.push(i);
+
+      const maxD = this.daysInMonth(y, m);
+      const days = [];
+      for (let i = 1; i <= maxD; i++) days.push(i);
+
+      const yi = Math.max(0, years.indexOf(Number(y)));
+      const mi = Math.max(0, months.indexOf(Number(m)));
+      const di = Math.max(0, Math.min(days.length - 1, days.indexOf(Number(d))));
+
+      this.setData({
+        dateYears: years,
+        dateMonths: months,
+        dateDays: days,
+        dateWheelIndex: [yi, mi, di],
+        dateWheelDraftIndex: [yi, mi, di]
+      });
+    },
+    openCoupleDateWheel() {
+      this.ensureDateWheelData(this.coupleStartDate);
+      this.setData({ showDateWheel: true });
+    },
+    closeCoupleDateWheel() {
+      this.setData({ showDateWheel: false });
+    },
+    onCoupleDateWheelChange(e) {
+      const v = (e && e.detail && e.detail.value) || [0, 0, 0];
+      const nextIdx = [Number(v[0] || 0), Number(v[1] || 0), Number(v[2] || 0)];
+
+      const prev = this.dateWheelDraftIndex || [0, 0, 0];
+      const yearChanged = nextIdx[0] !== prev[0];
+      const monthChanged = nextIdx[1] !== prev[1];
+
+      // 先更新 draft
+      this.setData({ dateWheelDraftIndex: nextIdx });
+
+      // 年/月变化时：重新计算日列表，避免 2/30 这种越界
+      if (yearChanged || monthChanged) {
+        const y = this.dateYears[nextIdx[0]];
+        const m = this.dateMonths[nextIdx[1]];
+        const maxD = this.daysInMonth(y, m);
+        const days = [];
+        for (let i = 1; i <= maxD; i++) days.push(i);
+
+        const safeDi = Math.max(0, Math.min(days.length - 1, nextIdx[2]));
+        const fixed = [nextIdx[0], nextIdx[1], safeDi];
+        this.setData({
+          dateDays: days,
+          dateWheelIndex: fixed,
+          dateWheelDraftIndex: fixed
+        });
+      } else {
+        // 只动日：同步 picker 的 value（否则某些机型回弹）
+        this.setData({ dateWheelIndex: nextIdx });
+      }
+    },
+    confirmCoupleDateWheel() {
+      const idx = this.dateWheelDraftIndex || [0, 0, 0];
+      const y = this.dateYears[idx[0]];
+      const m = this.dateMonths[idx[1]];
+      const d = this.dateDays[idx[2]];
+      const dateStr = `${y}-${this.pad2(m)}-${this.pad2(d)}`;
+
+      storage.setCoupleStartDate && storage.setCoupleStartDate(dateStr);
+      this.setData({ coupleStartDate: dateStr, showDateWheel: false });
+      uni.showToast({ title: '已保存', icon: 'success' });
+    },
+
     // ----------------- 登录弹层 -----------------
     openLoginSheet() {
       const p = this.userProfile || {};
@@ -432,14 +587,6 @@ export default {
       this.closeLoginSheet();
     },
 
-    // ----------------- 在一起日期 -----------------
-    onPickDate(e) {
-      const v = e && e.detail ? e.detail.value : '';
-      storage.setCoupleStartDate && storage.setCoupleStartDate(v);
-      this.setData({ coupleStartDate: v });
-      uni.showToast({ title: '已保存', icon: 'success' });
-    },
-
     // ----------------- ✅ 自写滚轮：经期/周期 -----------------
     openPeriodWheel() {
       const opts = [];
@@ -521,7 +668,8 @@ export default {
               code: '',
               coupleStartDate: '',
               showSheet: false,
-              showWheel: false
+              showWheel: false,
+              showDateWheel: false
             });
 
             uni.showToast({ title: '已清空', icon: 'success' });

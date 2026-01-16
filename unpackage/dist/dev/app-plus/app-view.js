@@ -2995,58 +2995,10 @@ var render = function () {
                 1
               ),
               _c(
-                "v-uni-picker",
-                {
-                  attrs: {
-                    mode: "date",
-                    value: _vm._$g(14, "a-value"),
-                    _i: 14,
-                  },
-                  on: {
-                    change: function ($event) {
-                      return _vm.$handleViewEvent($event)
-                    },
-                  },
-                },
-                [
-                  _c(
-                    "v-uni-button",
-                    { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } },
-                    [_vm._v("修改")]
-                  ),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _c("uni-view", { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } }),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
-            [
-              _c(
-                "uni-view",
-                { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
-                [
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-                    [_vm._v("经期长度：" + _vm._$g(19, "t0-0") + "天")]
-                  ),
-                  _c(
-                    "uni-view",
-                    { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
-                    [_vm._v("您的月经大概几天")]
-                  ),
-                ],
-                1
-              ),
-              _c(
                 "v-uni-button",
                 {
-                  staticClass: _vm._$g(21, "sc"),
-                  attrs: { _i: 21 },
+                  staticClass: _vm._$g(14, "sc"),
+                  attrs: { _i: 14 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event)
@@ -3058,23 +3010,61 @@ var render = function () {
             ],
             1
           ),
-          _c("uni-view", { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } }),
+          _c("uni-view", { staticClass: _vm._$g(15, "sc"), attrs: { _i: 15 } }),
           _c(
             "uni-view",
-            { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+            { staticClass: _vm._$g(16, "sc"), attrs: { _i: 16 } },
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                { staticClass: _vm._$g(17, "sc"), attrs: { _i: 17 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
-                    [_vm._v("周期长度：" + _vm._$g(25, "t0-0") + "天")]
+                    { staticClass: _vm._$g(18, "sc"), attrs: { _i: 18 } },
+                    [_vm._v("经期长度：" + _vm._$g(18, "t0-0") + "天")]
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
+                    { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
+                    [_vm._v("您的月经大概几天")]
+                  ),
+                ],
+                1
+              ),
+              _c(
+                "v-uni-button",
+                {
+                  staticClass: _vm._$g(20, "sc"),
+                  attrs: { _i: 20 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event)
+                    },
+                  },
+                },
+                [_vm._v("修改")]
+              ),
+            ],
+            1
+          ),
+          _c("uni-view", { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } }),
+          _c(
+            "uni-view",
+            { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
+            [
+              _c(
+                "uni-view",
+                { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+                [
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
+                    [_vm._v("周期长度：" + _vm._$g(24, "t0-0") + "天")]
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
                     [_vm._v("两次月经开始日大概间隔多久")]
                   ),
                 ],
@@ -3083,8 +3073,8 @@ var render = function () {
               _c(
                 "v-uni-button",
                 {
-                  staticClass: _vm._$g(27, "sc"),
-                  attrs: { _i: 27 },
+                  staticClass: _vm._$g(26, "sc"),
+                  attrs: { _i: 26 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event)
@@ -3101,13 +3091,13 @@ var render = function () {
       ),
       _c(
         "uni-view",
-        { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
+        { staticClass: _vm._$g(27, "sc"), attrs: { _i: 27 } },
         [
           _c(
             "uni-view",
             {
-              staticClass: _vm._$g(29, "sc"),
-              attrs: { _i: 29 },
+              staticClass: _vm._$g(28, "sc"),
+              attrs: { _i: 28 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -3117,16 +3107,16 @@ var render = function () {
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
+                { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
+                    { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
                     [_vm._v("分享“我和你的重要时光”")]
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(32, "sc"), attrs: { _i: 32 } },
+                    { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
                     [_vm._v("发给 TA 一起用")]
                   ),
                 ],
@@ -3135,20 +3125,20 @@ var render = function () {
               _c(
                 "v-uni-button",
                 {
-                  staticClass: _vm._$g(33, "sc"),
-                  attrs: { "open-type": "share", _i: 33 },
+                  staticClass: _vm._$g(32, "sc"),
+                  attrs: { "open-type": "share", _i: 32 },
                 },
                 [_vm._v("分享")]
               ),
             ],
             1
           ),
-          _c("uni-view", { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } }),
+          _c("uni-view", { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } }),
           _c(
             "uni-view",
             {
-              staticClass: _vm._$g(35, "sc"),
-              attrs: { _i: 35 },
+              staticClass: _vm._$g(34, "sc"),
+              attrs: { _i: 34 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -3158,16 +3148,16 @@ var render = function () {
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
+                { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
+                    { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
                     [_vm._v("关于")]
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
+                    { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
                     [_vm._v("版本信息与说明")]
                   ),
                 ],
@@ -3175,18 +3165,18 @@ var render = function () {
               ),
               _c(
                 "v-uni-button",
-                { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
+                { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
                 [_vm._v("查看")]
               ),
             ],
             1
           ),
-          _c("uni-view", { staticClass: _vm._$g(40, "sc"), attrs: { _i: 40 } }),
+          _c("uni-view", { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } }),
           _c(
             "uni-view",
             {
-              staticClass: _vm._$g(41, "sc"),
-              attrs: { _i: 41 },
+              staticClass: _vm._$g(40, "sc"),
+              attrs: { _i: 40 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -3196,16 +3186,16 @@ var render = function () {
             [
               _c(
                 "uni-view",
-                { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                { staticClass: _vm._$g(41, "sc"), attrs: { _i: 41 } },
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
+                    { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
                     [_vm._v("清空本地数据")]
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
+                    { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
                     [_vm._v("退出并删除本机缓存（不可恢复）")]
                   ),
                 ],
@@ -3213,7 +3203,7 @@ var render = function () {
               ),
               _c(
                 "v-uni-button",
-                { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
+                { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
                 [_vm._v("清空")]
               ),
             ],
@@ -3222,12 +3212,12 @@ var render = function () {
         ],
         1
       ),
-      _vm._$g(46, "i")
+      _vm._$g(45, "i")
         ? _c(
             "uni-view",
             {
-              staticClass: _vm._$g(46, "sc"),
-              attrs: { _i: 46 },
+              staticClass: _vm._$g(45, "sc"),
+              attrs: { _i: 45 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -3238,8 +3228,8 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g(47, "sc"),
-                  attrs: { _i: 47 },
+                  staticClass: _vm._$g(46, "sc"),
+                  attrs: { _i: 46 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event, { stop: true })
@@ -3249,61 +3239,61 @@ var render = function () {
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
+                    { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
                     [
                       _c("uni-view", {
-                        staticClass: _vm._$g(49, "sc"),
-                        attrs: { _i: 49 },
+                        staticClass: _vm._$g(48, "sc"),
+                        attrs: { _i: 48 },
                       }),
                       _c(
                         "uni-view",
-                        { staticClass: _vm._$g(50, "sc"), attrs: { _i: 50 } },
-                        [_vm._v(_vm._$g(50, "t0-0"))]
+                        { staticClass: _vm._$g(49, "sc"), attrs: { _i: 49 } },
+                        [_vm._v(_vm._$g(49, "t0-0"))]
                       ),
                     ],
                     1
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(51, "sc"), attrs: { _i: 51 } },
+                    { staticClass: _vm._$g(50, "sc"), attrs: { _i: 50 } },
                     [
-                      _vm._$g(52, "i")
+                      _vm._$g(51, "i")
                         ? _c(
                             "uni-view",
                             {
-                              staticClass: _vm._$g(52, "sc"),
-                              attrs: { _i: 52 },
+                              staticClass: _vm._$g(51, "sc"),
+                              attrs: { _i: 51 },
                             },
                             [
+                              _c(
+                                "uni-view",
+                                {
+                                  staticClass: _vm._$g(52, "sc"),
+                                  attrs: { _i: 52 },
+                                },
+                                [_vm._v("当前账号：" + _vm._$g(52, "t0-0"))]
+                              ),
                               _c(
                                 "uni-view",
                                 {
                                   staticClass: _vm._$g(53, "sc"),
                                   attrs: { _i: 53 },
                                 },
-                                [_vm._v("当前账号：" + _vm._$g(53, "t0-0"))]
-                              ),
-                              _c(
-                                "uni-view",
-                                {
-                                  staticClass: _vm._$g(54, "sc"),
-                                  attrs: { _i: 54 },
-                                },
                                 [
                                   _c(
                                     "uni-view",
                                     {
-                                      staticClass: _vm._$g(55, "sc"),
-                                      attrs: { _i: 55 },
+                                      staticClass: _vm._$g(54, "sc"),
+                                      attrs: { _i: 54 },
                                     },
                                     [_vm._v("昵称（本地）")]
                                   ),
                                   _c("v-uni-input", {
-                                    staticClass: _vm._$g(56, "sc"),
+                                    staticClass: _vm._$g(55, "sc"),
                                     attrs: {
                                       placeholder: "给自己取个昵称",
-                                      value: _vm._$g(56, "a-value"),
-                                      _i: 56,
+                                      value: _vm._$g(55, "a-value"),
+                                      _i: 55,
                                     },
                                     on: {
                                       input: function ($event) {
@@ -3317,38 +3307,38 @@ var render = function () {
                               _c(
                                 "uni-view",
                                 {
-                                  staticClass: _vm._$g(57, "sc"),
-                                  attrs: { _i: 57 },
+                                  staticClass: _vm._$g(56, "sc"),
+                                  attrs: { _i: 56 },
                                 },
                                 [
                                   _c(
                                     "uni-view",
                                     {
-                                      staticClass: _vm._$g(58, "sc"),
-                                      attrs: { _i: 58 },
+                                      staticClass: _vm._$g(57, "sc"),
+                                      attrs: { _i: 57 },
                                     },
                                     [_vm._v("头像（本地）")]
                                   ),
                                   _c(
                                     "uni-view",
                                     {
-                                      staticClass: _vm._$g(59, "sc"),
-                                      attrs: { _i: 59 },
+                                      staticClass: _vm._$g(58, "sc"),
+                                      attrs: { _i: 58 },
                                     },
                                     [
                                       _c("v-uni-image", {
-                                        staticClass: _vm._$g(60, "sc"),
+                                        staticClass: _vm._$g(59, "sc"),
                                         attrs: {
-                                          src: _vm._$g(60, "a-src"),
+                                          src: _vm._$g(59, "a-src"),
                                           mode: "aspectFill",
-                                          _i: 60,
+                                          _i: 59,
                                         },
                                       }),
                                       _c(
                                         "v-uni-button",
                                         {
-                                          staticClass: _vm._$g(61, "sc"),
-                                          attrs: { _i: 61 },
+                                          staticClass: _vm._$g(60, "sc"),
+                                          attrs: { _i: 60 },
                                           on: {
                                             click: function ($event) {
                                               return _vm.$handleViewEvent(
@@ -3368,8 +3358,8 @@ var render = function () {
                               _c(
                                 "v-uni-button",
                                 {
-                                  staticClass: _vm._$g(62, "sc"),
-                                  attrs: { _i: 62 },
+                                  staticClass: _vm._$g(61, "sc"),
+                                  attrs: { _i: 61 },
                                   on: {
                                     click: function ($event) {
                                       return _vm.$handleViewEvent($event)
@@ -3381,8 +3371,8 @@ var render = function () {
                               _c(
                                 "v-uni-button",
                                 {
-                                  staticClass: _vm._$g(63, "sc"),
-                                  attrs: { _i: 63 },
+                                  staticClass: _vm._$g(62, "sc"),
+                                  attrs: { _i: 62 },
                                   on: {
                                     click: function ($event) {
                                       return _vm.$handleViewEvent($event)
@@ -3396,31 +3386,31 @@ var render = function () {
                           )
                         : _c(
                             "uni-view",
-                            { attrs: { _i: 64 } },
+                            { attrs: { _i: 63 } },
                             [
                               _c(
                                 "uni-view",
                                 {
-                                  staticClass: _vm._$g(65, "sc"),
-                                  attrs: { _i: 65 },
+                                  staticClass: _vm._$g(64, "sc"),
+                                  attrs: { _i: 64 },
                                 },
                                 [
                                   _c(
                                     "uni-view",
                                     {
-                                      staticClass: _vm._$g(66, "sc"),
-                                      attrs: { _i: 66 },
+                                      staticClass: _vm._$g(65, "sc"),
+                                      attrs: { _i: 65 },
                                     },
                                     [_vm._v("手机号")]
                                   ),
                                   _c("v-uni-input", {
-                                    staticClass: _vm._$g(67, "sc"),
+                                    staticClass: _vm._$g(66, "sc"),
                                     attrs: {
                                       type: "number",
                                       maxlength: "11",
                                       placeholder: "请输入手机号",
-                                      value: _vm._$g(67, "a-value"),
-                                      _i: 67,
+                                      value: _vm._$g(66, "a-value"),
+                                      _i: 66,
                                     },
                                     on: {
                                       input: function ($event) {
@@ -3434,33 +3424,33 @@ var render = function () {
                               _c(
                                 "uni-view",
                                 {
-                                  staticClass: _vm._$g(68, "sc"),
-                                  attrs: { _i: 68 },
+                                  staticClass: _vm._$g(67, "sc"),
+                                  attrs: { _i: 67 },
                                 },
                                 [
                                   _c(
                                     "uni-view",
                                     {
-                                      staticClass: _vm._$g(69, "sc"),
-                                      attrs: { _i: 69 },
+                                      staticClass: _vm._$g(68, "sc"),
+                                      attrs: { _i: 68 },
                                     },
                                     [_vm._v("验证码")]
                                   ),
                                   _c(
                                     "uni-view",
                                     {
-                                      staticClass: _vm._$g(70, "sc"),
-                                      attrs: { _i: 70 },
+                                      staticClass: _vm._$g(69, "sc"),
+                                      attrs: { _i: 69 },
                                     },
                                     [
                                       _c("v-uni-input", {
-                                        staticClass: _vm._$g(71, "sc"),
+                                        staticClass: _vm._$g(70, "sc"),
                                         attrs: {
                                           type: "number",
                                           maxlength: "6",
                                           placeholder: "6位验证码",
-                                          value: _vm._$g(71, "a-value"),
-                                          _i: 71,
+                                          value: _vm._$g(70, "a-value"),
+                                          _i: 70,
                                         },
                                         on: {
                                           input: function ($event) {
@@ -3471,10 +3461,10 @@ var render = function () {
                                       _c(
                                         "v-uni-button",
                                         {
-                                          staticClass: _vm._$g(72, "sc"),
+                                          staticClass: _vm._$g(71, "sc"),
                                           attrs: {
-                                            disabled: _vm._$g(72, "a-disabled"),
-                                            _i: 72,
+                                            disabled: _vm._$g(71, "a-disabled"),
+                                            _i: 71,
                                           },
                                           on: {
                                             click: function ($event) {
@@ -3486,7 +3476,7 @@ var render = function () {
                                         },
                                         [
                                           _vm._v(
-                                            " " + _vm._$g(72, "t0-0") + " "
+                                            " " + _vm._$g(71, "t0-0") + " "
                                           ),
                                         ]
                                       ),
@@ -3499,10 +3489,10 @@ var render = function () {
                               _c(
                                 "v-uni-button",
                                 {
-                                  staticClass: _vm._$g(73, "sc"),
+                                  staticClass: _vm._$g(72, "sc"),
                                   attrs: {
-                                    disabled: _vm._$g(73, "a-disabled"),
-                                    _i: 73,
+                                    disabled: _vm._$g(72, "a-disabled"),
+                                    _i: 72,
                                   },
                                   on: {
                                     click: function ($event) {
@@ -3515,8 +3505,8 @@ var render = function () {
                               _c(
                                 "uni-view",
                                 {
-                                  staticClass: _vm._$g(74, "sc"),
-                                  attrs: { _i: 74 },
+                                  staticClass: _vm._$g(73, "sc"),
+                                  attrs: { _i: 73 },
                                 },
                                 [
                                   _vm._v(
@@ -3537,12 +3527,12 @@ var render = function () {
             1
           )
         : _vm._e(),
-      _vm._$g(75, "i")
+      _vm._$g(74, "i")
         ? _c(
             "uni-view",
             {
-              staticClass: _vm._$g(75, "sc"),
-              attrs: { _i: 75 },
+              staticClass: _vm._$g(74, "sc"),
+              attrs: { _i: 74 },
               on: {
                 click: function ($event) {
                   return _vm.$handleViewEvent($event)
@@ -3553,8 +3543,8 @@ var render = function () {
               _c(
                 "uni-view",
                 {
-                  staticClass: _vm._$g(76, "sc"),
-                  attrs: { _i: 76 },
+                  staticClass: _vm._$g(75, "sc"),
+                  attrs: { _i: 75 },
                   on: {
                     click: function ($event) {
                       return _vm.$handleViewEvent($event, { stop: true })
@@ -3564,13 +3554,13 @@ var render = function () {
                 [
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(77, "sc"), attrs: { _i: 77 } },
+                    { staticClass: _vm._$g(76, "sc"), attrs: { _i: 76 } },
                     [
                       _c(
                         "v-uni-text",
                         {
-                          staticClass: _vm._$g(78, "sc"),
-                          attrs: { _i: 78 },
+                          staticClass: _vm._$g(77, "sc"),
+                          attrs: { _i: 77 },
                           on: {
                             click: function ($event) {
                               return _vm.$handleViewEvent($event)
@@ -3581,14 +3571,14 @@ var render = function () {
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(79, "sc"), attrs: { _i: 79 } },
-                        [_vm._v(_vm._$g(79, "t0-0"))]
+                        { staticClass: _vm._$g(78, "sc"), attrs: { _i: 78 } },
+                        [_vm._v(_vm._$g(78, "t0-0"))]
                       ),
                       _c(
                         "v-uni-text",
                         {
-                          staticClass: _vm._$g(80, "sc"),
-                          attrs: { _i: 80 },
+                          staticClass: _vm._$g(79, "sc"),
+                          attrs: { _i: 79 },
                           on: {
                             click: function ($event) {
                               return _vm.$handleViewEvent($event)
@@ -3602,17 +3592,17 @@ var render = function () {
                   ),
                   _c(
                     "uni-view",
-                    { staticClass: _vm._$g(81, "sc"), attrs: { _i: 81 } },
+                    { staticClass: _vm._$g(80, "sc"), attrs: { _i: 80 } },
                     [
                       _c(
                         "v-uni-picker-view",
                         {
-                          staticClass: _vm._$g(82, "sc"),
+                          staticClass: _vm._$g(81, "sc"),
                           attrs: {
-                            value: _vm._$g(82, "a-value"),
+                            value: _vm._$g(81, "a-value"),
                             "indicator-style": "height: 88rpx;",
                             "mask-style": "background: transparent;",
-                            _i: 82,
+                            _i: 81,
                           },
                           on: {
                             change: function ($event) {
@@ -3623,20 +3613,20 @@ var render = function () {
                         [
                           _c(
                             "v-uni-picker-view-column",
-                            { attrs: { _i: 83 } },
+                            { attrs: { _i: 82 } },
                             _vm._l(
-                              _vm._$g(84, "f"),
+                              _vm._$g(83, "f"),
                               function (it, i, $20, $30) {
                                 return _c(
                                   "uni-view",
                                   {
                                     key: it,
-                                    class: _vm._$g("84-" + $30, "c"),
-                                    attrs: { _i: "84-" + $30 },
+                                    class: _vm._$g("83-" + $30, "c"),
+                                    attrs: { _i: "83-" + $30 },
                                   },
                                   [
                                     _vm._v(
-                                      " " + _vm._$g("84-" + $30, "t0-0") + "天 "
+                                      " " + _vm._$g("83-" + $30, "t0-0") + "天 "
                                     ),
                                   ]
                                 )
@@ -3648,8 +3638,198 @@ var render = function () {
                         1
                       ),
                       _c("uni-view", {
-                        staticClass: _vm._$g(85, "sc"),
-                        attrs: { _i: 85 },
+                        staticClass: _vm._$g(84, "sc"),
+                        attrs: { _i: 84 },
+                      }),
+                    ],
+                    1
+                  ),
+                ],
+                1
+              ),
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._$g(85, "i")
+        ? _c(
+            "uni-view",
+            {
+              staticClass: _vm._$g(85, "sc"),
+              attrs: { _i: 85 },
+              on: {
+                click: function ($event) {
+                  return _vm.$handleViewEvent($event)
+                },
+              },
+            },
+            [
+              _c(
+                "uni-view",
+                {
+                  staticClass: _vm._$g(86, "sc"),
+                  attrs: { _i: 86 },
+                  on: {
+                    click: function ($event) {
+                      return _vm.$handleViewEvent($event, { stop: true })
+                    },
+                  },
+                },
+                [
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(87, "sc"), attrs: { _i: 87 } },
+                    [
+                      _c(
+                        "v-uni-text",
+                        {
+                          staticClass: _vm._$g(88, "sc"),
+                          attrs: { _i: 88 },
+                          on: {
+                            click: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
+                        },
+                        [_vm._v("取消")]
+                      ),
+                      _c(
+                        "uni-view",
+                        { staticClass: _vm._$g(89, "sc"), attrs: { _i: 89 } },
+                        [
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(90, "sc"),
+                              attrs: { _i: 90 },
+                            },
+                            [_vm._v("选择未来日期倒数，选择过去日期正数")]
+                          ),
+                          _c(
+                            "uni-view",
+                            {
+                              staticClass: _vm._$g(91, "sc"),
+                              attrs: { _i: 91 },
+                            },
+                            [_vm._v("我们在一起的日期")]
+                          ),
+                        ],
+                        1
+                      ),
+                      _c(
+                        "v-uni-text",
+                        {
+                          staticClass: _vm._$g(92, "sc"),
+                          attrs: { _i: 92 },
+                          on: {
+                            click: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
+                        },
+                        [_vm._v("完成")]
+                      ),
+                    ],
+                    1
+                  ),
+                  _c(
+                    "uni-view",
+                    { staticClass: _vm._$g(93, "sc"), attrs: { _i: 93 } },
+                    [
+                      _c(
+                        "v-uni-picker-view",
+                        {
+                          staticClass: _vm._$g(94, "sc"),
+                          attrs: {
+                            value: _vm._$g(94, "a-value"),
+                            "indicator-style": "height: 96rpx;",
+                            "mask-style": "background: transparent;",
+                            _i: 94,
+                          },
+                          on: {
+                            change: function ($event) {
+                              return _vm.$handleViewEvent($event)
+                            },
+                          },
+                        },
+                        [
+                          _c(
+                            "v-uni-picker-view-column",
+                            { attrs: { _i: 95 } },
+                            _vm._l(
+                              _vm._$g(96, "f"),
+                              function (y, yi, $21, $31) {
+                                return _c(
+                                  "uni-view",
+                                  {
+                                    key: y,
+                                    class: _vm._$g("96-" + $31, "c"),
+                                    attrs: { _i: "96-" + $31 },
+                                  },
+                                  [
+                                    _vm._v(
+                                      " " + _vm._$g("96-" + $31, "t0-0") + "年 "
+                                    ),
+                                  ]
+                                )
+                              }
+                            ),
+                            1
+                          ),
+                          _c(
+                            "v-uni-picker-view-column",
+                            { attrs: { _i: 97 } },
+                            _vm._l(
+                              _vm._$g(98, "f"),
+                              function (m, mi, $22, $32) {
+                                return _c(
+                                  "uni-view",
+                                  {
+                                    key: m,
+                                    class: _vm._$g("98-" + $32, "c"),
+                                    attrs: { _i: "98-" + $32 },
+                                  },
+                                  [
+                                    _vm._v(
+                                      " " + _vm._$g("98-" + $32, "t0-0") + "月 "
+                                    ),
+                                  ]
+                                )
+                              }
+                            ),
+                            1
+                          ),
+                          _c(
+                            "v-uni-picker-view-column",
+                            { attrs: { _i: 99 } },
+                            _vm._l(
+                              _vm._$g(100, "f"),
+                              function (d, di, $23, $33) {
+                                return _c(
+                                  "uni-view",
+                                  {
+                                    key: d,
+                                    class: _vm._$g("100-" + $33, "c"),
+                                    attrs: { _i: "100-" + $33 },
+                                  },
+                                  [
+                                    _vm._v(
+                                      " " +
+                                        _vm._$g("100-" + $33, "t0-0") +
+                                        "日 "
+                                    ),
+                                  ]
+                                )
+                              }
+                            ),
+                            1
+                          ),
+                        ],
+                        1
+                      ),
+                      _c("uni-view", {
+                        staticClass: _vm._$g(101, "sc"),
+                        attrs: { _i: 101 },
                       }),
                     ],
                     1
@@ -3759,7 +3939,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../Programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 10);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".page {\n  padding: 24rpx;\n  box-sizing: border-box;\n  background: #fff0f5;\n  min-height: 100vh;\n}\n\n/* 通用卡片 */\n.card {\n  background: #fff;\n  border-radius: 24rpx;\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.04);\n  overflow: hidden;\n}\n\n/* 顶部用户卡 */\n.user-card {\n  display: flex;\n  align-items: center;\n  padding: 24rpx;\n}\n.avatar {\n  width: 96rpx;\n  height: 96rpx;\n  border-radius: 48rpx;\n  background: #eee;\n  flex-shrink: 0;\n}\n.user-info {\n  flex: 1;\n  margin-left: 20rpx;\n  min-width: 0;\n}\n.nickname {\n  font-size: 34rpx;\n  font-weight: 800;\n  color: #111;\n  line-height: 44rpx;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.desc {\n  margin-top: 8rpx;\n  font-size: 24rpx;\n  color: #9aa0a6;\n  line-height: 32rpx;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n/* 顶部按钮 */\n.primary-pill {\n  height: 68rpx;\n  line-height: 68rpx;\n  padding: 0 28rpx;\n  border-radius: 999rpx;\n  font-size: 30rpx;\n  font-weight: 800;\n  background: #ff92b5;\n  color: #fff;\n}\nuni-button::after {\n  border: none;\n}\n\n/* 列表卡 */\n.list-card {\n  margin-top: 18rpx;\n}\n.row {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 26rpx 24rpx;\n  box-sizing: border-box;\n}\n.row-left {\n  flex: 1;\n  min-width: 0;\n  padding-right: 16rpx;\n}\n.row-title {\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #111;\n  line-height: 42rpx;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.row-sub {\n  margin-top: 8rpx;\n  font-size: 24rpx;\n  color: #9aa0a6;\n  line-height: 32rpx;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.divider {\n  height: 1rpx;\n  background: #f0f1f4;\n  margin-left: 24rpx;\n}\n\n/* 右侧按钮 */\n.row-action {\n  height: 68rpx;\n  padding: 0 26rpx;\n  min-width: 120rpx;\n  background: #f5f6f7;\n  border-radius: 999rpx;\n  font-size: 30rpx;\n  font-weight: 800;\n  color: #e8849f;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-sizing: border-box;\n  flex-shrink: 0;\n}\n.danger-title {\n  color: #e5484d;\n}\n.danger-btn {\n  color: #e5484d;\n  background: rgba(229, 72, 77, 0.08);\n}\n\n/* ===== 弹层 ===== */\n.mask {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.45);\n  z-index: 999;\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  -webkit-animation: maskFadeIn 160ms ease-out;\n          animation: maskFadeIn 160ms ease-out;\n}\n@-webkit-keyframes maskFadeIn {\nfrom { opacity: 0;\n}\nto { opacity: 1;\n}\n}\n@keyframes maskFadeIn {\nfrom { opacity: 0;\n}\nto { opacity: 1;\n}\n}\n.sheet {\n  width: 100%;\n  background: #fff;\n  border-top-left-radius: 28rpx;\n  border-top-right-radius: 28rpx;\n  box-shadow: 0 -10rpx 40rpx rgba(0, 0, 0, 0.18);\n  padding-bottom: env(safe-area-inset-bottom);\n  -webkit-animation: sheetUp 180ms ease-out;\n          animation: sheetUp 180ms ease-out;\n}\n@-webkit-keyframes sheetUp {\nfrom { -webkit-transform: translateY(28rpx); transform: translateY(28rpx); opacity: 0.92;\n}\nto { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1;\n}\n}\n@keyframes sheetUp {\nfrom { -webkit-transform: translateY(28rpx); transform: translateY(28rpx); opacity: 0.92;\n}\nto { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1;\n}\n}\n.sheet-header {\n  padding: 18rpx 24rpx 8rpx;\n}\n.sheet-handle {\n  width: 88rpx;\n  height: 10rpx;\n  border-radius: 999rpx;\n  background: rgba(0, 0, 0, 0.12);\n  margin: 0 auto 14rpx;\n}\n.sheet-title {\n  text-align: center;\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #111;\n  line-height: 44rpx;\n}\n.sheet-body {\n  padding: 18rpx 24rpx 28rpx;\n}\n\n/* 表单块 */\n.field {\n  background: #f7f8fa;\n  border-radius: 18rpx;\n  padding: 22rpx 24rpx;\n  margin-bottom: 16rpx;\n  box-sizing: border-box;\n}\n.field-label {\n  font-size: 26rpx;\n  color: #666;\n  line-height: 36rpx;\n}\n.field-input {\n  width: 100%;\n  margin-top: 10rpx;\n  font-size: 28rpx;\n  line-height: 40rpx;\n  color: #111;\n}\n\n/* 验证码行 */\n.code-row {\n  display: flex;\n  align-items: center;\n  margin-top: 10rpx;\n}\n.code-input {\n  flex: 1;\n  margin-top: 0;\n}\n.send-btn {\n  margin-left: 16rpx;\n  height: 72rpx;\n  line-height: 72rpx;\n  padding: 0 22rpx;\n  border-radius: 14rpx;\n  font-size: 26rpx;\n  font-weight: 800;\n  background: #ff92b5;\n  color: #fff;\n}\n.send-btn[disabled] {\n  opacity: 0.55;\n}\n\n/* 按钮 */\n.action {\n  width: 100%;\n  height: 92rpx;\n  border-radius: 18rpx;\n  font-size: 32rpx;\n  font-weight: 800;\n  line-height: 92rpx;\n  margin-top: 14rpx;\n}\n.action.primary {\n  background: #ff92b5;\n  color: #fff;\n}\n.action.danger {\n  background: #fff;\n  color: #e5484d;\n  border: 2rpx solid rgba(229, 72, 77, 0.28);\n}\n.action:active {\n  -webkit-transform: scale(0.985);\n          transform: scale(0.985);\n  opacity: 0.92;\n}\n\n/* 已登录盒子 */\n.authed-box .authed-line {\n  font-size: 28rpx;\n  color: #111;\n  font-weight: 800;\n  margin-bottom: 16rpx;\n}\n\n/* 头像选择 */\n.avatar-pick {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-top: 10rpx;\n}\n.avatar-only {\n  width: 96rpx;\n  height: 96rpx;\n  border-radius: 50%;\n  background: #eee;\n}\n.small-btn {\n  height: 72rpx;\n  line-height: 72rpx;\n  padding: 0 20rpx;\n  border-radius: 14rpx;\n  font-size: 26rpx;\n  font-weight: 800;\n  background: #f5f6f7;\n  color: #e8849f;\n}\n\n/* 提示 */\n.tip {\n  margin-top: 14rpx;\n  font-size: 24rpx;\n  color: #9aa0a6;\n  line-height: 34rpx;\n}\n\n/* ===== 你原来的 me.css 内容保持不变（这里省略） ===== */\n\n/* 直接用你当前文件内容覆盖，然后在末尾追加下面这段即可 */\n\n/* =========================\n   ✅ 自写滚轮弹层（单列）\n   ========================= */\n.w-mask {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.45);\n  z-index: 1000;\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  -webkit-animation: maskFadeIn 160ms ease-out;\n          animation: maskFadeIn 160ms ease-out;\n}\n.w-sheet {\n  width: 100%;\n  background: #fff;\n  border-top-left-radius: 28rpx;\n  border-top-right-radius: 28rpx;\n  box-shadow: 0 -10rpx 40rpx rgba(0, 0, 0, 0.18);\n  padding-bottom: env(safe-area-inset-bottom);\n  -webkit-animation: sheetUp 180ms ease-out;\n          animation: sheetUp 180ms ease-out;\n}\n.w-top {\n  height: 104rpx;\n  padding: 0 24rpx;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  box-sizing: border-box;\n  border-bottom: 1rpx solid #f0f1f4;\n}\n.w-title {\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #111;\n}\n.w-btn {\n  font-size: 30rpx;\n  font-weight: 800;\n  color: #9aa0a6;\n  padding: 16rpx 12rpx;\n}\n.w-ok {\n  color: #e8849f; /* “完成”*/\n}\n.w-body {\n  position: relative;\n  height: 520rpx;\n}\n.w-picker {\n  height: 520rpx;\n  width: 100%;\n}\n.w-item {\n  height: 88rpx;\n  line-height: 88rpx;\n  text-align: center;\n  font-size: 36rpx;\n  font-weight: 800;\n  color: #111;\n}\n.w-indicator {\n  position: absolute;\n  left: 24rpx;\n  right: 24rpx;\n  top: 50%;\n  height: 88rpx;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  border-radius: 18rpx;\n  background: rgba(255, 146, 181, 0.10);\n  border: 2rpx solid rgba(255, 146, 181, 0.22);\n  pointer-events: none;\n}\n.w-item {\n  /* 你现在是 #111:contentReference[oaicite:1]{index=1} */\n  color: rgba(17, 17, 17, 0.35); /* 未选中：淡一点（可按你喜好改） */\n}\n.w-item-active {\n  color: #ff92b5;  /* 选中：粉色（你一贯的主色） */\n}\n", ""]);
+exports.push([module.i, "/* ====== 你原 me.css 全量内容（保持不变） ====== */\n.page {\n  padding: 24rpx;\n  box-sizing: border-box;\n  background: #fff0f5;\n  min-height: 100vh;\n}\n/* 通用卡片 */\n.card {\n  background: #fff;\n  border-radius: 24rpx;\n  box-shadow: 0 10rpx 30rpx rgba(0, 0, 0, 0.04);\n  overflow: hidden;\n}\n/* 顶部用户卡 */\n.user-card {\n  display: flex;\n  align-items: center;\n  padding: 24rpx;\n}\n.avatar {\n  width: 96rpx;\n  height: 96rpx;\n  border-radius: 48rpx;\n  background: #eee;\n  flex-shrink: 0;\n}\n.user-info {\n  flex: 1;\n  margin-left: 20rpx;\n  min-width: 0;\n}\n.nickname {\n  font-size: 34rpx;\n  font-weight: 800;\n  color: #111;\n  line-height: 44rpx;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.desc {\n  margin-top: 8rpx;\n  font-size: 24rpx;\n  color: #9aa0a6;\n  line-height: 32rpx;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n/* 顶部按钮 */\n.primary-pill {\n  height: 68rpx;\n  line-height: 68rpx;\n  padding: 0 28rpx;\n  border-radius: 999rpx;\n  font-size: 30rpx;\n  font-weight: 800;\n  background: #ff92b5;\n  color: #fff;\n}\nuni-button::after {\n  border: none;\n}\n/* 列表卡 */\n.list-card {\n  margin-top: 18rpx;\n}\n.row {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 26rpx 24rpx;\n  box-sizing: border-box;\n}\n.row-left {\n  flex: 1;\n  min-width: 0;\n  padding-right: 16rpx;\n}\n.row-title {\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #111;\n  line-height: 42rpx;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.row-sub {\n  margin-top: 8rpx;\n  font-size: 24rpx;\n  color: #9aa0a6;\n  line-height: 32rpx;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n.divider {\n  height: 1rpx;\n  background: #f0f1f4;\n  margin-left: 24rpx;\n}\n/* 右侧按钮 */\n.row-action {\n  height: 68rpx;\n  padding: 0 26rpx;\n  min-width: 120rpx;\n  background: #f5f6f7;\n  border-radius: 999rpx;\n  font-size: 30rpx;\n  font-weight: 800;\n  color: #e8849f;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  box-sizing: border-box;\n  flex-shrink: 0;\n}\n.danger-title {\n  color: #e5484d;\n}\n.danger-btn {\n  color: #e5484d;\n  background: rgba(229, 72, 77, 0.08);\n}\n/* ===== 弹层 ===== */\n.mask {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.45);\n  z-index: 999;\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  -webkit-animation: maskFadeIn 160ms ease-out;\n          animation: maskFadeIn 160ms ease-out;\n}\n@-webkit-keyframes maskFadeIn {\nfrom { opacity: 0;\n}\nto { opacity: 1;\n}\n}\n@keyframes maskFadeIn {\nfrom { opacity: 0;\n}\nto { opacity: 1;\n}\n}\n.sheet {\n  width: 100%;\n  background: #fff;\n  border-top-left-radius: 28rpx;\n  border-top-right-radius: 28rpx;\n  box-shadow: 0 -10rpx 40rpx rgba(0, 0, 0, 0.18);\n  padding-bottom: env(safe-area-inset-bottom);\n  -webkit-animation: sheetUp 180ms ease-out;\n          animation: sheetUp 180ms ease-out;\n}\n@-webkit-keyframes sheetUp {\nfrom { -webkit-transform: translateY(28rpx); transform: translateY(28rpx); opacity: 0.92;\n}\nto { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1;\n}\n}\n@keyframes sheetUp {\nfrom { -webkit-transform: translateY(28rpx); transform: translateY(28rpx); opacity: 0.92;\n}\nto { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1;\n}\n}\n.sheet-header {\n  padding: 18rpx 24rpx 8rpx;\n}\n.sheet-handle {\n  width: 88rpx;\n  height: 10rpx;\n  border-radius: 999rpx;\n  background: rgba(0, 0, 0, 0.12);\n  margin: 0 auto 14rpx;\n}\n.sheet-title {\n  text-align: center;\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #111;\n  line-height: 44rpx;\n}\n.sheet-body {\n  padding: 18rpx 24rpx 28rpx;\n}\n/* 表单块 */\n.field {\n  background: #f7f8fa;\n  border-radius: 18rpx;\n  padding: 22rpx 24rpx;\n  margin-bottom: 16rpx;\n  box-sizing: border-box;\n}\n.field-label {\n  font-size: 26rpx;\n  color: #666;\n  line-height: 36rpx;\n}\n.field-input {\n  width: 100%;\n  margin-top: 10rpx;\n  font-size: 28rpx;\n  line-height: 40rpx;\n  color: #111;\n}\n/* 验证码行 */\n.code-row {\n  display: flex;\n  align-items: center;\n  margin-top: 10rpx;\n}\n.code-input {\n  flex: 1;\n  margin-top: 0;\n}\n.send-btn {\n  margin-left: 16rpx;\n  height: 72rpx;\n  line-height: 72rpx;\n  padding: 0 22rpx;\n  border-radius: 14rpx;\n  font-size: 26rpx;\n  font-weight: 800;\n  background: #ff92b5;\n  color: #fff;\n}\n.send-btn[disabled] {\n  opacity: 0.55;\n}\n/* 按钮 */\n.action {\n  width: 100%;\n  height: 92rpx;\n  border-radius: 18rpx;\n  font-size: 32rpx;\n  font-weight: 800;\n  line-height: 92rpx;\n  margin-top: 14rpx;\n}\n.action.primary {\n  background: #ff92b5;\n  color: #fff;\n}\n.action.danger {\n  background: #fff;\n  color: #e5484d;\n  border: 2rpx solid rgba(229, 72, 77, 0.28);\n}\n.action:active {\n  -webkit-transform: scale(0.985);\n          transform: scale(0.985);\n  opacity: 0.92;\n}\n/* 已登录盒子 */\n.authed-box .authed-line {\n  font-size: 28rpx;\n  color: #111;\n  font-weight: 800;\n  margin-bottom: 16rpx;\n}\n/* 头像选择 */\n.avatar-pick {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-top: 10rpx;\n}\n.avatar-only {\n  width: 96rpx;\n  height: 96rpx;\n  border-radius: 50%;\n  background: #eee;\n}\n.small-btn {\n  height: 72rpx;\n  line-height: 72rpx;\n  padding: 0 20rpx;\n  border-radius: 14rpx;\n  font-size: 26rpx;\n  font-weight: 800;\n  background: #f5f6f7;\n  color: #e8849f;\n}\n/* 提示 */\n.tip {\n  margin-top: 14rpx;\n  font-size: 24rpx;\n  color: #9aa0a6;\n  line-height: 34rpx;\n}\n/* =========================\n   ✅ 自写滚轮弹层（单列）\n   ========================= */\n.w-mask {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.45);\n  z-index: 1000;\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  -webkit-animation: maskFadeIn 160ms ease-out;\n          animation: maskFadeIn 160ms ease-out;\n}\n.w-sheet {\n  width: 100%;\n  background: #fff;\n  border-top-left-radius: 28rpx;\n  border-top-right-radius: 28rpx;\n  box-shadow: 0 -10rpx 40rpx rgba(0, 0, 0, 0.18);\n  padding-bottom: env(safe-area-inset-bottom);\n  -webkit-animation: sheetUp 180ms ease-out;\n          animation: sheetUp 180ms ease-out;\n}\n.w-top {\n  height: 104rpx;\n  padding: 0 24rpx;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  box-sizing: border-box;\n  border-bottom: 1rpx solid #f0f1f4;\n}\n.w-title {\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #111;\n}\n.w-btn {\n  font-size: 30rpx;\n  font-weight: 800;\n  color: #9aa0a6;\n  padding: 16rpx 12rpx;\n}\n.w-ok {\n  color: #e8849f; /* “完成”*/\n}\n.w-body {\n  position: relative;\n  height: 520rpx;\n}\n.w-picker {\n  height: 520rpx;\n  width: 100%;\n}\n.w-item {\n  height: 88rpx;\n  line-height: 88rpx;\n  text-align: center;\n  font-size: 36rpx;\n  font-weight: 800;\n  color: rgba(17, 17, 17, 0.35);\n}\n.w-item-active {\n  color: #ff92b5;\n}\n.w-indicator {\n  position: absolute;\n  left: 24rpx;\n  right: 24rpx;\n  top: 50%;\n  height: 88rpx;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  border-radius: 18rpx;\n  background: rgba(255, 146, 181, 0.10);\n  border: 2rpx solid rgba(255, 146, 181, 0.22);\n  pointer-events: none;\n}\n/* =========================\n   ✅ 自写滚轮弹层（三列日期）\n   参考你已有的 w-mask/w-sheet 视觉\n   ========================= */\n.dw-mask {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.45);\n  z-index: 1001;\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  -webkit-animation: maskFadeIn 160ms ease-out;\n          animation: maskFadeIn 160ms ease-out;\n}\n.dw-sheet {\n  width: 100%;\n  background: #fff;\n  border-top-left-radius: 28rpx;\n  border-top-right-radius: 28rpx;\n  box-shadow: 0 -10rpx 40rpx rgba(0, 0, 0, 0.18);\n  padding-bottom: env(safe-area-inset-bottom);\n  -webkit-animation: sheetUp 180ms ease-out;\n          animation: sheetUp 180ms ease-out;\n}\n.dw-top {\n  min-height: 112rpx;\n  padding: 14rpx 24rpx;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  box-sizing: border-box;\n  border-bottom: 1rpx solid #f0f1f4;\n}\n.dw-mid {\n  flex: 1;\n  text-align: center;\n  padding: 0 20rpx;\n}\n.dw-subtitle {\n  font-size: 24rpx;\n  color: #9aa0a6;\n  line-height: 32rpx;\n}\n.dw-title {\n  margin-top: 4rpx;\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #111;\n  line-height: 42rpx;\n}\n.dw-btn {\n  font-size: 30rpx;\n  font-weight: 800;\n  color: #9aa0a6;\n  padding: 16rpx 12rpx;\n}\n.dw-ok {\n  color: #e8849f;\n}\n.dw-body {\n  position: relative;\n  height: 560rpx;\n}\n.dw-picker {\n  height: 560rpx;\n  width: 100%;\n}\n.dw-item {\n  height: 96rpx;\n  line-height: 96rpx;\n  text-align: center;\n  font-size: 38rpx;\n  font-weight: 800;\n  color: rgba(17, 17, 17, 0.32);\n}\n.dw-item-active {\n  color: #ff92b5; /* 选中的日期 */\n}\n.dw-indicator {\n  position: absolute;\n  left: 24rpx;\n  right: 24rpx;\n  top: 50%;\n  height: 96rpx;\n  -webkit-transform: translateY(-50%);\n          transform: translateY(-50%);\n  border-radius: 20rpx;\n  background: rgba(255, 146, 181, 0.10);\n  border: 2rpx solid rgba(255, 146, 181, 0.22);\n  pointer-events: none;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

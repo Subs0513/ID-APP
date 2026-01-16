@@ -171,14 +171,31 @@
           <picker-view
             class="w-picker"
             :value="[wheelIndex]"
-            indicator-style="height: 88rpx;"
-            mask-style="background: linear-gradient(to bottom, rgba(255,255,255,0.92), rgba(255,255,255,0.35)), linear-gradient(to top, rgba(255,255,255,0.92), rgba(255,255,255,0.35));"
             @change="onWheelChange"
+            :indicator-style="'height: 88rpx;'"
+            :mask-style="'background: transparent;'"
           >
             <picker-view-column>
-              <view v-for="(it, i) in wheelOptions" :key="'w-'+i" class="w-item">
+              <!-- <view v-for="(it, i) in wheelOptions" :key="'w-'+i" class="w-item">
                 {{ it }}天
-              </view>
+              </view> -->
+			  <!-- <view
+			    v-for="(it, i) in wheelOptions"
+			    :key="'w-'+i"
+			    :class="['w-item', i === wheelIndex ? 'w-item-active' : '']"
+			  >
+			    {{ it }}天
+			  </view> -->
+			  
+			<view
+			  v-for="(it, i) in wheelOptions"
+			  :key="'w-'+i"
+			  :class="['w-item', i === wheelDraftIndex ? 'w-item-active' : '']"
+			>
+			  {{ it }}天
+			</view>
+
+
             </picker-view-column>
           </picker-view>
 

@@ -38,32 +38,34 @@ export default {
         return {
             logs: [
 				{
-				    version: '0.0.5',
+				    version: '0.0.6',
 				    desc: '页面调整',
 				    isLatest: true,
-				    items: ['改进“我”页面']
+				    items: ['“经期记录”页面，点击未来日期隐藏操作按钮','对齐分析页爱爱记录数据']
+				},
+				{
+				    version: '0.0.5',
+				    desc: '页面调整',
+				    // isLatest: true,
+				    items: ['改进“我”页面','重写“爱爱记录“和”痛经记录“的页面'],
 				},
 				{
 				    version: '0.0.4',
 				    desc: '功能修复',
 				    // isLatest: true,
-				    items: ['改进“爱爱”弹窗布局'],
-					items: ['解决“滑动删除”失灵问题'],
-					items: ['修复翻页动画问题']
+				    items: ['改进“爱爱”弹窗布局','解决“滑动删除”失灵问题','修复翻页动画问题']
 				},
 				{
 				    version: '0.0.3',
 				    desc: '功能更新',
 				    // isLatest: true,
 				    items: ['全新健康分析页面']
-					// items: ['改进导航栏']
 				},
 				{
 				    version: '0.0.2',
 				    desc: '功能更新',
 				    // isLatest: true,
 				    items: ['改进导航栏','改进“详情”页面']
-					// items: ['改进导航栏']
 				},
                 {
                     version: '0.0.1',

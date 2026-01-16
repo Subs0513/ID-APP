@@ -375,7 +375,7 @@ button::after {
 }
 
 .w-ok {
-  color: #e8849f; /* “完成”蓝色，和系统感一致，但仍在你自己的弹层里 */
+  color: #e8849f; /* “完成”*/
 }
 
 .w-body {
@@ -408,4 +408,13 @@ button::after {
   background: rgba(255, 146, 181, 0.10);
   border: 2rpx solid rgba(255, 146, 181, 0.22);
   pointer-events: none;
+}
+
+.w-item {
+  /* 你现在是 #111:contentReference[oaicite:1]{index=1} */
+  color: rgba(17, 17, 17, 0.35); /* 未选中：淡一点（可按你喜好改） */
+}
+
+.w-item-active {
+  color: #ff92b5;  /* 选中：粉色（你一贯的主色） */
 }

@@ -81,7 +81,8 @@
     {
       "path": "pages/subabout/changelog/changelog",
       "style": {
-        "usingComponents": {}
+        "usingComponents": {},
+		"navigationBarTitleText": "更新日志"
       }
     },
     {

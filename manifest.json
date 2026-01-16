@@ -2,7 +2,7 @@
     "name" : "我和你的重要时光",
     "appid" : "__UNI__75B0F0F",
     "description" : "",
-    "versionName" : "0.0.3",
+    "versionName" : "0.0.6",
     "versionCode" : 1,
     "transformPx" : false,
     "app-plus" : {
@@ -37,7 +37,8 @@
                 ]
             },
             "ios" : {
-                "dSYMs" : false
+                "dSYMs" : false,
+                "idfa" : true
             },
             "sdkConfigs" : {
                 "oauth" : {}
@@ -86,16 +87,12 @@
     },
     "quickapp" : {},
     "mp-weixin" : {
-        "appid" : "wxb18886a51334a655",
+        "appid" : "",
         "setting" : {
             "urlCheck" : false
         },
         "usingComponents" : true,
-        "permission" : {
-            "scope.userLocation" : {
-                "desc" : "你的位置信息将用于小程序位置接口的效果展示"
-            }
-        },
+        "permission" : {},
         "plugins" : {}
     },
     "mp-alipay" : {

@@ -92,8 +92,9 @@
                 <image class="mini-go" src="/static/assets/icons/f_tz.svg" mode="aspectFit" />
             </view>
 
-            <!-- 下方操作区 -->
-            <view class="panel">
+            <!-- 下方操作区：未来日期隐藏操作按钮 -->
+            <!-- <view class="panel"> -->
+			<view class="panel" v-if="!isFutureSelected">
                 <!-- 1）月经来了（开关） -->
                 <view class="row">
                     <view class="row-left row-left-with-icon">
@@ -330,6 +331,8 @@ export default {
             weightDisplay: '0',
             hasWeight: false,
             selectedWeightText: '',
+			// 记录爱爱
+			isFutureSelected: false,
             hasSex: false,
             selectedSexText: '',
             hasPain: false,
@@ -483,6 +486,10 @@ export default {
             const store = loadStore();
             migrateIfNeeded(store);
             const selectedDate = this.selectedDate;
+			//新增：在未来日期隐藏操作按钮
+			const todayStr = toDateStr(new Date());
+			const isFutureSelected = selectedDate > todayStr;
+
 
             const hasAnyRecord = store.periodRecords && store.periodRecords.length > 0;
             const maps = hasAnyRecord
@@ -507,16 +514,28 @@ export default {
             const hasPain = painCount > 0;
             const selectedPainText = hasPain ? `${painCount}次` : '';
 
-            this.setData({
-                cells,
-                periodSwitchOn,
-                hasWeight,
-                selectedWeightText,
-                hasSex,
-                selectedSexText,
-                hasPain,
-                selectedPainText
-            });
+            // this.setData({
+            //     cells,
+            //     periodSwitchOn,
+            //     hasWeight,
+            //     selectedWeightText,
+            //     hasSex,
+            //     selectedSexText,
+            //     hasPain,
+            //     selectedPainText
+            // });
+			this.setData({
+				cells,
+				periodSwitchOn,
+				hasWeight,
+				selectedWeightText,
+				hasSex,
+				selectedSexText,
+				hasPain,
+				selectedPainText,
+				isFutureSelected
+			});
+
             saveStore(store);
         },
 

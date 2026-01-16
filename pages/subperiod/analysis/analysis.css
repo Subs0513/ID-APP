@@ -60,6 +60,27 @@
   margin-top: 10rpx;
 }
 
+/* 通用：卡片标题（图标 + 文本） */
+.card-title {
+  display: flex;
+  align-items: center;      /* 垂直居中 */
+  gap: 12rpx;               /* 图标与文字间距 */
+  margin-bottom: 16rpx;     /* 标题与内容间距 */
+}
+
+.card-title-icon {
+  width: 34rpx;
+  height: 34rpx;
+  flex: 0 0 auto;
+}
+
+.card-title-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+
 /* =========================
    周期变化
    ========================= */

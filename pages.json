@@ -104,7 +104,25 @@
       "style": {
         "usingComponents": {}
       }
-    }
+	},
+	{
+		"path": "components/privacy-popup/privacy-popup",
+		"style": {
+			"navigationBarTitleText": ""
+		}
+	},
+	{
+		"path": "pages/subabout/info-list/info-list",
+		"style": {
+			"navigationBarTitleText": "收集个人信息清单"
+		}
+	},
+	{
+		"path": "components/YMD-Wheel/YMD-Wheel",
+		"style": {
+			"navigationBarTitleText": ""
+		}
+	}
   ],
 
   "lazyCodeLoading": "requiredComponents",

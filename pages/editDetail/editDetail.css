@@ -85,3 +85,31 @@
 .container .field--multi {
     padding: 0; /* 如果你外层本来就有 padding，这行可以删 */
 }
+
+/* ====== 补充：与 add 页面一致的图标样式（避免 editDetail.css 没有定义） ====== */
+.label.row-left-with-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10rpx;
+}
+
+.label-icon {
+    width: 32rpx;
+    height: 32rpx;
+    flex: 0 0 auto;
+}
+
+.row-left-with-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10rpx;
+}
+
+.top-icon,
+.include-icon {
+    width: 32rpx;
+    height: 32rpx;
+    flex: 0 0 auto;
+}

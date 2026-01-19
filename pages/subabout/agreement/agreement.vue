@@ -1,108 +1,110 @@
 <template>
-    <!-- pages/about/agreement/agreement.wxml -->
-    <view class="page">
-        <view class="container">
-            <!-- 白色悬浮卡片 -->
-            <view class="card">
-                <view class="title">服务协议</view>
+  <view class="page">
+    <view class="container">
+      <view class="card">
+        <view class="title">用户协议</view>
 
-                <view class="paragraph">
-                    欢迎你使用《我和你的重要时光》小程序。 在使用本小程序服务前，请你仔细阅读并充分理解本《服务协议》。
-                    你一旦开始使用本小程序服务，即视为你已阅读、理解并同意本协议的全部内容。
-                </view>
-
-                <view class="section">
-                    <view class="section-title">一、服务内容</view>
-                    <view class="item">1. 本小程序为用户提供重要日期记录、提醒及相关辅助功能，具体功能以小程序实际提供为准。</view>
-                    <view class="item">2. 开发者有权根据实际情况对服务内容进行调整、更新或优化，并不保证所有功能永久可用。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">二、用户行为规范</view>
-                    <view class="item">1. 用户在使用本小程序过程中，应遵守国家相关法律法规，不得利用本小程序从事违法违规行为。</view>
-                    <view class="item">2. 用户不得通过任何方式干扰或破坏本小程序的正常运行。</view>
-                    <view class="item">3. 用户应对其在小程序中填写和操作的内容真实性负责。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">三、账号与数据</view>
-                    <view class="item">1. 用户应妥善保管自己的账号信息，因用户自身原因造成的损失由用户自行承担。</view>
-                    <view class="item">2. 用户理解并同意，开发者可能因系统维护、升级或其他原因暂时中断服务。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">四、知识产权</view>
-                    <view class="item">1. 本小程序及其相关内容（包括但不限于界面设计、文字、图标等）的知识产权归开发者所有或依法享有。</view>
-                    <view class="item">2. 未经开发者书面许可，用户不得擅自使用、复制或传播。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">五、责任限制</view>
-                    <view class="item">1. 在法律允许的范围内，开发者不对因不可抗力、网络原因或第三方原因导致的服务中断或数据异常承担责任。</view>
-                    <view class="item">2. 本小程序提供的内容仅供参考，不构成任何形式的保证或承诺。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">六、协议变更</view>
-                    <view class="paragraph">开发者有权根据法律法规或业务调整需要对本协议进行修改。 协议更新后将在小程序内进行公示，用户继续使用服务即视为接受修改后的协议。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">七、联系我们</view>
-                    <view class="paragraph">如你对本协议内容有任何疑问、意见或建议，可通过以下方式与开发者联系：</view>
-                    <view class="contact">联系电话：13776913405</view>
-                </view>
-
-                <view class="footer">
-                    <view>更新日期：2025年12月31日</view>
-                    <view>生效日期：2025年12月31日</view>
-                </view>
-            </view>
+        <view class="paragraph">
+          欢迎你使用“我和你的重要时光”（以下简称“本应用”）。本《用户协议》（以下简称“本协议”）由你与本应用开发者（以下简称“我们”）共同订立。
+          你在使用本应用前应当仔细阅读并充分理解本协议全部条款。你点击“同意并继续”或实际使用本应用，即表示你已阅读并同意接受本协议的约束。
         </view>
+
+        <view class="section">
+          <view class="section-title">一、协议范围与接受</view>
+          <view class="item">1.1 本协议适用于你下载、安装、注册（如有）、登录（如有）及使用本应用提供的所有功能与服务。</view>
+          <view class="item">1.2 若你不同意本协议任何内容，请立即停止使用本应用；否则视为你已同意本协议。</view>
+          <view class="item">1.3 本协议内容可能包括本应用发布的相关规则、说明、公告等，均为本协议不可分割的组成部分。</view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">二、服务内容</view>
+          <view class="paragraph">
+            本应用主要提供重要日子记录与展示、天数计算、经期与体重等健康记录与统计展示（以实际提供的功能为准）。
+            我们有权根据产品运营情况对服务内容进行变更、中断或终止，并将尽可能以合理方式告知你。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">三、账号与设备（如适用）</view>
+          <view class="item">3.1 本应用当前版本可能不提供账号体系；如未来提供账号登录/云同步等功能，我们将另行提供相应规则。</view>
+          <view class="item">3.2 你应妥善保管你的设备与相关信息。因你个人原因导致的信息泄露、设备丢失等风险由你自行承担。</view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">四、用户行为规范</view>
+          <view class="item">4.1 你承诺在使用本应用时遵守法律法规、社会公德，不得利用本应用从事违法违规活动。</view>
+          <view class="item">4.2 你不得实施以下行为（包括但不限于）：</view>
+          <view class="item">• 破坏、干扰本应用正常运行，或进行反向工程、反编译、反汇编、篡改程序；</view>
+          <view class="item">• 利用漏洞、外挂、脚本等方式影响服务稳定性或获取不正当利益；</view>
+          <view class="item">• 传播违法信息，侵犯他人合法权益（如隐私权、著作权等）。</view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">五、个人信息与隐私保护</view>
+          <view class="paragraph">
+            我们非常重视你的个人信息与隐私保护。你在使用本应用过程中产生的个人信息处理规则以《隐私政策》为准。
+            本协议未尽事宜，均以《隐私政策》为准。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">六、知识产权</view>
+          <view class="item">6.1 本应用及其相关内容（包括但不限于文字、图片、界面设计、程序代码等）的知识产权归我们或相关权利人所有。</view>
+          <view class="item">6.2 未经我们书面许可，你不得以任何形式复制、修改、传播、出租、出借、出售本应用及相关内容。</view>
+          <view class="item">6.3 你在本应用内录入的个人数据（如记录内容）归你所有；你应确保你录入内容不侵害任何第三方权益。</view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">七、免责声明与责任限制</view>
+          <view class="item">7.1 本应用以“现状”提供服务，我们将尽力保障服务的稳定性与安全性，但不对服务绝对不间断、无错误作出保证。</view>
+          <view class="item">
+            7.2 本应用提供的统计/分析结果仅供参考，不构成医疗诊断或治疗建议。涉及健康问题，请以专业医疗机构意见为准。
+          </view>
+          <view class="item">
+            7.3 因不可抗力、系统故障、通信线路、第三方原因等导致的服务中断或数据丢失，我们将在合理范围内协助处理，但法律法规另有规定的除外。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">八、服务变更、中断与终止</view>
+          <view class="item">8.1 我们有权根据运营需要对服务内容进行更新或调整。</view>
+          <view class="item">8.2 如你违反本协议或相关法律法规，我们有权采取限制功能、暂停或终止提供服务等措施。</view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">九、协议的修改</view>
+          <view class="paragraph">
+            我们可能适时修改本协议条款。若修改导致你的权利义务发生重大变化，我们会通过应用内弹窗/公告等方式提示你，
+            并在必要时再次征得你的同意。若你不同意修改内容，应停止使用本应用；若你继续使用，则视为你已接受修改后的协议。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">十、如何联系我们</view>
+          <view class="paragraph">
+            如你对本协议有任何疑问、意见或投诉建议，可通过以下方式联系我们：
+          </view>
+          <view class="contact">联系电话：13776913405</view>
+          <!-- <view class="contact">电子邮箱：your_email@example.com</view> -->
+        </view>
+
+        <view class="footer">
+          <view>更新日期：2026年01月16日</view>
+          <view>生效日期：2026年01月16日</view>
+        </view>
+      </view>
     </view>
+  </view>
 </template>
 
 <script>
-// pages/about/agreement/agreement.js
 export default {
-    data() {
-        return {};
-    }
-    /**
-     * 生命周期函数--监听页面加载
-     */,
-    onLoad(options) {},
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {},
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {},
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {},
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {},
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {},
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {},
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {},
-    methods: {}
+  data() {
+    return {};
+  }
 };
 </script>
+
 <style>
 @import './agreement.css';
 </style>

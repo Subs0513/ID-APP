@@ -16,13 +16,15 @@
                 <image class="label-icon" src="/static/assets/icons/f_rq.svg" mode="aspectFit" />
                 <text>日期</text>
             </view>
-            <picker mode="date" :value="form.date" @change="onDate">
+
+            <!-- ✅ 用自定义 YMD-Wheel 替换原生日期选择器 -->
+            <view @tap="openDateWheel">
                 <view class="field field--single">
                     <view :class="'field__value ' + (!form.date ? 'field__placeholder' : '')">
                         {{ form.date || '请选择日期' }}
                     </view>
                 </view>
-            </picker>
+            </view>
 
             <!-- 类型 -->
             <view class="label row-left-with-icon">
@@ -86,14 +88,29 @@
       <button class="btn btn-danger" bindtap="remove">删除</button>
     </view> -->
         </view>
+
+        <!-- ✅ 自定义日期滚轮（遮罩 + 底部弹层） -->
+        <YMDWheel
+            :show="showDateWheel"
+            :value="dateWheelTemp"
+            title="选择日期"
+            subtitle=""
+            @cancel="onDateWheelCancel"
+            @confirm="onDateWheelConfirm"
+            @update:show="onDateWheelUpdateShow"
+        />
     </view>
 </template>
 
 <script>
 const storage = require('../../utils/storage');
 
+import YMDWheel from '../../components/YMD-Wheel/YMD-Wheel.vue';
 
 export default {
+    components: {
+        YMDWheel
+    },
     data() {
         return {
             id: '',
@@ -128,13 +145,17 @@ export default {
                 includeStart: false
             },
 
+            // ✅ 自定义日期滚轮
+            showDateWheel: false,
+            dateWheelTemp: '',
+
             text: ''
         };
     },
     onLoad(options) {
-		uni.setNavigationBarTitle({
-		  title: '编辑重要日子'
-		});
+        uni.setNavigationBarTitle({
+            title: '编辑重要日子'
+        });
 
         const id = options && options.id ? options.id : '';
         if (!id) {
@@ -146,7 +167,7 @@ export default {
             return;
         }
 
-		const list = storage.getList();
+        const list = storage.getList();
         const item = list.find((x) => x.id === id);
 
         if (!item) {
@@ -172,7 +193,11 @@ export default {
                 note: item.note || '',
                 isTop: !!item.isTop,
                 includeStart: !!item.includeStart
-            }
+            },
+
+            // ✅ 同步自定义滚轮的初始值
+            showDateWheel: false,
+            dateWheelTemp: item.date || ''
         });
     },
     methods: {
@@ -192,12 +217,49 @@ export default {
             });
         },
 
+        // 保留：兼容旧逻辑（现在不再由原生 picker 触发）
         onDate(e) {
             this.setData({
                 form: {
                     ...this.form,
                     date: e.detail.value
                 }
+            });
+        },
+
+        // =======================
+        // ✅ 自定义日期滚轮
+        // =======================
+        openDateWheel() {
+            const v = this.form && this.form.date ? this.form.date : this.dateWheelTemp || '';
+            this.setData({
+                showDateWheel: true,
+                dateWheelTemp: v
+            });
+        },
+
+        onDateWheelCancel() {
+            this.setData({
+                showDateWheel: false
+            });
+        },
+
+        onDateWheelConfirm(dateStr) {
+            // dateStr: YYYY-MM-DD
+            this.setData({
+                showDateWheel: false,
+                dateWheelTemp: dateStr,
+                form: {
+                    ...this.form,
+                    date: dateStr
+                }
+            });
+        },
+
+        onDateWheelUpdateShow(v) {
+            // 兼容组件内部 emit('update:show', false)
+            this.setData({
+                showDateWheel: !!v
             });
         },
 
@@ -258,8 +320,7 @@ export default {
                 return;
             }
 
-
-			const list = storage.getList();
+            const list = storage.getList();
             const idx = list.findIndex((x) => x.id === this.id);
             if (idx < 0) {
                 uni.showToast({
@@ -279,9 +340,7 @@ export default {
                 includeStart: !!this.form.includeStart
             };
 
-
-			storage.setList(list);
-
+            storage.setList(list);
 
             uni.showToast({
                 title: '已保存',
@@ -300,31 +359,4 @@ export default {
 <style>
 @import './editDetail.css';
 
-/* ====== 补充：与 add 页面一致的图标样式（避免 editDetail.css 没有定义） ====== */
-.label.row-left-with-icon {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10rpx;
-}
-
-.label-icon {
-    width: 32rpx;
-    height: 32rpx;
-    flex: 0 0 auto;
-}
-
-.row-left-with-icon {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10rpx;
-}
-
-.top-icon,
-.include-icon {
-    width: 32rpx;
-    height: 32rpx;
-    flex: 0 0 auto;
-}
 </style>

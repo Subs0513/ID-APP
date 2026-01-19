@@ -38,10 +38,16 @@ export default {
         return {
             logs: [
 				{
-				    version: '0.0.7',
+				    version: '0.0.8',
 				    desc: '页面调整',
 				    isLatest: true,
-				    items: ['新版本“我们在一起的日期”选择滚轮']
+				    items: ['添加/编辑“重要日子”引入新日期选择滚轮','小幅调整“我”页面排序']
+				},
+				{
+				    version: '0.0.7',
+				    desc: '页面调整',
+				    // isLatest: true,
+				    items: ['新版本“我们在一起的日期”选择滚轮','新增使用弹窗','更新“隐私政策”、“用户协议”，新增“个人信息收集清单”']
 				},
 				{
 				    version: '0.0.6',

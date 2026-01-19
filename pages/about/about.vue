@@ -42,6 +42,9 @@
         <!-- 底部版权区 -->
         <view class="about-footer">
             <!-- 如果你也想要“服务协议 | 隐私政策”这种蓝色链接 -->
+			<view class="footer-links">
+			    <text class="footer-link" @tap="onTaplist">收集个人信息清单</text>
+			</view>
             <view class="footer-links">
                 <text class="footer-link" @tap="onTapagreement">服务协议</text>
                 <text class="footer-sep"> | </text>
@@ -68,7 +71,7 @@
 export default {
     data() {
         return {
-            version: '0.0.7'
+            version: '0.0.8'
         };
     },
     onLoad() {
@@ -97,6 +100,13 @@ export default {
             });
         },
 
+		// 收集个人信息清单
+		onTaplist() {
+		    uni.navigateTo({
+		        url: '/pages/subabout/info-list/info-list'
+		    });
+		},
+		
         // 服务协议
         onTapagreement() {
             uni.navigateTo({

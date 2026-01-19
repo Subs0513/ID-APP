@@ -17,13 +17,14 @@
                 <text>日期</text>
             </view>
 
-            <picker mode="date" :value="form.date" @change="onDate">
+            <!-- ✅ 用自定义 YMD-Wheel 替换原生日期选择器 -->
+            <view @tap="openDateWheel">
                 <view class="field field--single">
                     <view :class="'field__value ' + (!form.date ? 'field__placeholder' : '')">
                         {{ form.date || '请选择日期' }}
                     </view>
                 </view>
-            </picker>
+            </view>
 
             <!-- <view class="label">类型</view> -->
             <view class="label row-left-with-icon">
@@ -82,16 +83,34 @@
                 <button class="btn" @tap="save" style="width: 520rpx; height: 92rpx; line-height: 92rpx; border-radius: 16rpx">保存</button>
             </view>
         </view>
+
+        <!-- ✅ 自定义日期滚轮（遮罩 + 底部弹层） -->
+        <YMDWheel
+            :show="showDateWheel"
+            :value="dateWheelTemp"
+            title="选择日期"
+            subtitle=""
+            @cancel="onDateWheelCancel"
+            @confirm="onDateWheelConfirm"
+            @update:show="onDateWheelUpdateShow"
+        />
     </view>
 </template>
 
 <script>
 const storage = require('../../utils/storage');
 const dateUtil = require('../../utils/date');
+
+// ⚠️ 如果你的组件放在别的路径，只需要改这一行 import 路径即可
+import YMDWheel from '../../components/YMD-Wheel/YMD-Wheel.vue';
+
 function uuid() {
     return 'id_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
 }
 export default {
+    components: {
+        YMDWheel
+    },
     data() {
         return {
             isEdit: false,
@@ -123,12 +142,14 @@ export default {
                 includeStart: false
             },
 
+            // ✅ 自定义日期滚轮
+            showDateWheel: false,
+            dateWheelTemp: '',
+
             text: ''
         };
     },
     onShow() {
-		
-
         // ✅ 从 detail 通过 storage 传递 editingId 进入编辑态
         const editingId = uni.getStorageSync('editingId');
         if (editingId) {
@@ -175,7 +196,11 @@ export default {
                     note: '',
                     isTop: false,
                     includeStart: false
-                }
+                },
+
+                // 每次重置时，滚轮默认对齐到当前 form.date
+                showDateWheel: false,
+                dateWheelTemp: dateUtil.todayStr()
             });
         },
 
@@ -204,7 +229,11 @@ export default {
                     note: found.note || '',
                     isTop: !!found.isTop,
                     includeStart: !!found.includeStart
-                }
+                },
+
+                // ✅ 同步自定义滚轮的初始值
+                showDateWheel: false,
+                dateWheelTemp: found.date || dateUtil.todayStr()
             });
             uni.setNavigationBarTitle({
                 title: '修改重要日子'
@@ -220,12 +249,49 @@ export default {
             });
         },
 
+        // 保留：兼容旧逻辑（现在不再由原生 picker 触发）
         onDate(e) {
             this.setData({
                 form: {
                     ...this.form,
                     date: e.detail.value
                 }
+            });
+        },
+
+        // =======================
+        // ✅ 自定义日期滚轮
+        // =======================
+        openDateWheel() {
+            const v = this.form && this.form.date ? this.form.date : dateUtil.todayStr();
+            this.setData({
+                showDateWheel: true,
+                dateWheelTemp: v
+            });
+        },
+
+        onDateWheelCancel() {
+            this.setData({
+                showDateWheel: false
+            });
+        },
+
+        onDateWheelConfirm(dateStr) {
+            // dateStr: YYYY-MM-DD
+            this.setData({
+                showDateWheel: false,
+                dateWheelTemp: dateStr,
+                form: {
+                    ...this.form,
+                    date: dateStr
+                }
+            });
+        },
+
+        onDateWheelUpdateShow(v) {
+            // 兼容组件内部 emit('update:show', false)
+            this.setData({
+                showDateWheel: !!v
             });
         },
 
@@ -355,6 +421,7 @@ export default {
     }
 };
 </script>
+
 <style>
 @import './add.css';
 </style>

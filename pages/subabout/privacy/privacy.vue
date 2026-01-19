@@ -1,111 +1,157 @@
 <template>
-    <view class="page">
-        <view class="container">
-            <!-- ✅ 白色悬浮卡片 -->
-            <view class="card">
-                <view class="title">隐私保护指引</view>
+  <view class="page">
+    <view class="container">
+      <view class="card">
+        <view class="title">隐私政策</view>
 
-                <view class="paragraph">本指引是《我和你的重要时光》小程序开发者（以下简称“开发者”）为处理你的个人信息而制定。</view>
-
-                <view class="section">
-                    <view class="section-title">1. 开发者处理的信息</view>
-                    <view class="item">• 开发者收集你选中的文件，用于登录账号。</view>
-                    <view class="item">• 开发者收集你选中的照片或视频信息，用于登录账号、作为用户个人头像/背景。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">2. 未成年人保护</view>
-                    <view class="paragraph">
-                        根据相关法律法规的规定，若你是14周岁以下的未成年人，你需要和你的监护人共同阅读并同意本指引，并在征得监护人同意后继续使用小程序服务。开发者将根据法律法规的规定及本指引内容，
-                        处理经监护人同意而收集的未成年人用户信息，并通过【本指引你的权益部分】披露的内容保障未成年人在个人信息处理活动中的各项权利。
-                    </view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">3. 你的权益</view>
-                    <view class="item">3.1 关于你的个人信息，你可以通过以下方式与开发者联系，行使查询、复制、更正、删除等法定权利。</view>
-                    <view class="item">
-                        3.2
-                        若你在小程序中注册了账号，你可以通过以下方式与开发者联系，申请注销你在小程序中使用的账号。在受理你的申请后，开发者承诺在十五个工作日内完成核查和处理，并按照法律法规要求处理你的相关信息。
-                    </view>
-                    <view class="contact">联系电话：13776913405</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">4. 开发者对信息的存储</view>
-                    <view class="paragraph">开发者承诺，除法律法规另有规定外，对你的信息的保存期限应当为实现处理目的所必需的最短时间。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">5. 信息的使用规则</view>
-                    <view class="item">5.1 开发者将会在本指引所明示的用途内使用收集的信息。</view>
-                    <view class="item">5.2 如开发者使用你的信息超出本指引目的或合理范围，开发者必须在变更使用目的或范围前，再次以电子邮件方式告知并征得你的明示同意。</view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">6. 信息对外提供</view>
-                    <view class="item">6.1 开发者承诺，不会主动共享或转让你的信息至任何第三方，如存在确需共享或转让时，开发者应当直接征得或确认第三方征得你的单独同意。</view>
-                    <view class="item">
-                        6.2 开发者承诺，不会对外公开披露你的信息，如必须公开披露时，开发者应当向你告知公开披露的目的、披露信息的类型及可能涉及的信息，并征得你的单独同意。
-                    </view>
-                </view>
-
-                <view class="section">
-                    <view class="section-title">7. 投诉与反馈</view>
-                    <view class="paragraph">若你认为开发者未遵守上述约定，或有其他的投诉建议、或未成年人个人信息保护相关问题，可通过以下方式与开发者联系;或者向微信进行投诉。</view>
-                    <view class="contact">联系电话：13776913405</view>
-                </view>
-
-                <view class="footer">
-                    <view>更新日期：2025年12月31日</view>
-                    <view>生效日期：2025年12月31日</view>
-                </view>
-            </view>
+        <view class="paragraph">
+          本《隐私政策》适用于“我和你的重要时光”（以下简称“本应用”）。本应用由开发者（以下简称“我们”）提供与运营。
+          我们非常重视用户个人信息与隐私保护，并将依据现行法律法规及行业通行安全标准，采取相应安全保护措施。
         </view>
+
+        <view class="paragraph">
+          在你开始使用本应用前，请你务必认真阅读并充分理解本政策的全部内容。你点击“同意并继续”，即表示你已阅读并理解本政策内容，
+          同意我们按照本政策处理你的个人信息。若你不同意本政策，将可能无法使用本应用的部分或全部功能。
+        </view>
+
+        <view class="section">
+          <view class="section-title">一、我们如何收集和使用你的个人信息</view>
+
+          <view class="item-title">1.1 你主动提供的信息（用于实现核心功能）</view>
+          <view class="item">• 重要日子/纪念日信息：你输入的标题、日期、备注（如有）等，用于展示与计算“还有/已经”天数。</view>
+          <view class="item">• 经期健康记录：你输入或选择的经期开始/结束日期、周期长度设置、痛经情况、相关记录（如你使用相关功能）。</view>
+          <view class="item">• 体重记录：你输入的体重数值与记录日期，用于趋势展示与统计分析。</view>
+          <view class="item">• 个性化图片（如你启用相关功能）：当你主动选择图片作为背景/封面等时，我们仅在本地使用该图片以完成展示效果。</view>
+
+          <view class="item-title">1.2 为保障安全与稳定运行可能收集的信息（最小必要）</view>
+          <view class="item">• 设备信息：设备型号、操作系统版本、应用版本、屏幕分辨率等，用于适配与兼容性优化。</view>
+          <view class="item">• 日志信息：必要的崩溃日志、错误日志、性能信息（不包含你输入的敏感内容原文），用于定位问题与提升稳定性。</view>
+
+          <view class="item-title">1.3 我们不会收集的内容</view>
+          <view class="item">• 在不需要的情况下，我们不会读取你的通讯录、短信、通话记录、精确定位等信息。</view>
+          <view class="item">• 未经你主动操作与授权，我们不会访问你的相册内容或调用相机。</view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">二、我们如何使用系统权限</view>
+          <view class="paragraph">
+            本应用可能会在你使用特定功能时申请系统权限。权限不会默认开启，仅在你主动触发相关功能且明确同意授权后才会启用。
+            你可以在系统设置中随时关闭权限，关闭后可能导致对应功能无法使用，但不影响其他功能的正常使用。
+          </view>
+
+          <view class="item">• 网络权限：用于加载必要资源（如在线说明页面、检查必要更新提示等）。</view>
+          <view class="item">• 相机权限（可选）：当你选择拍摄图片并用于背景/封面等时使用。</view>
+          <view class="item">• 相册/存储权限（可选）：当你从相册选择图片用于背景/封面等时使用。</view>
+
+          <view class="paragraph">
+            我们不会在后台私自调用相机/相册，也不会在你未授权的情况下访问你的相册内容。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">三、我们如何存储、保护你的个人信息</view>
+
+          <view class="item-title">3.1 存储方式</view>
+          <view class="paragraph">
+            本应用当前版本以本地存储为主：你在本应用中录入的“重要日子、经期记录、体重记录”等数据通常保存在你的设备本地。
+            在你未主动开启或使用“账号/云同步”等功能前，我们不会主动将上述内容上传至服务器。
+          </view>
+
+          <view class="item-title">3.2 存储地点与期限</view>
+          <view class="item">• 存储地点：默认存储于你的本地设备中。</view>
+          <view class="item">• 存储期限：我们仅在实现功能所必需的期间保存；当你删除记录、清除应用数据或卸载应用时，相应本地数据将被删除或不可恢复。</view>
+
+          <view class="item-title">3.3 安全措施</view>
+          <view class="item">• 我们会采取合理可行的安全措施保护信息安全（如最小化访问、权限控制、必要的异常审计等）。</view>
+          <view class="item">• 若发生个人信息安全事件，我们将依法采取补救措施，并按法律法规要求向你告知相关情况与建议。</view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">四、我们如何共享、转让、公开披露你的个人信息</view>
+
+          <view class="item-title">4.1 共享与转让</view>
+          <view class="paragraph">
+            我们不会向任何公司、组织和个人共享或转让你的个人信息，除非：
+          </view>
+          <view class="item">• 获得你的明确同意；</view>
+          <view class="item">• 法律法规规定或行政、司法机关依法要求；</view>
+          <view class="item">• 为实现本政策所述目的确需向合作方提供，且已采取必要的去标识化/安全保护措施（例如未来引入云同步服务时）。</view>
+
+          <view class="item-title">4.2 公开披露</view>
+          <view class="paragraph">
+            我们不会公开披露你的个人信息。仅在获得你的明确同意或法律法规规定必须披露的情况下才会披露，并采取符合要求的安全保护措施。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">五、第三方服务与 SDK 说明</view>
+          <view class="paragraph">
+            本应用当前版本未接入任何第三方 SDK 或第三方服务组件，包括但不限于统计分析、广告投放、推送服务、地图服务、支付服务、社交分享服务等。
+          </view>
+          <view class="paragraph">
+            在你使用本应用过程中，我们不会通过第三方 SDK 向任何第三方提供、共享或委托处理你的个人信息，
+            也不会通过第三方 SDK 收集你的设备信息、行为信息或其他个人信息。
+          </view>
+          <view class="paragraph">
+            如未来版本因功能需要确需接入第三方 SDK 或第三方服务，我们将进行合规评估，并通过本政策或应用内显著方式向你说明
+            第三方名称、所属公司、使用目的、可能收集的信息类型及其隐私政策链接；在法律法规要求的情形下，另行征得你的单独同意。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">六、你的权利</view>
+          <view class="paragraph">
+            你对你的个人信息依法享有查询、更正、删除、撤回同意等权利。由于本应用当前以本地存储为主，你可通过以下方式实现相关权利：
+          </view>
+          <view class="item">• 删除信息：你可在应用内删除重要日子/经期/体重等记录。</view>
+          <view class="item">• 撤回同意：你可在系统设置中关闭相机/相册等权限，撤回相应授权。</view>
+          <view class="item">• 清除本地数据：你可通过系统“清除应用数据”或卸载应用删除本地存储内容。</view>
+          <view class="item">• 账号/注销：如未来提供账号体系/云同步，我们将提供相应的注销入口与处理机制。</view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">七、未成年人保护</view>
+          <view class="paragraph">
+            若你为未成年人，尤其是未满14周岁的未成年人，请在监护人陪同下阅读本政策，并在取得监护人同意后使用本应用。
+            我们将依法对未成年人个人信息采取更严格的保护措施。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">八、本政策如何更新</view>
+          <view class="paragraph">
+            我们可能适时对本政策进行更新。若更新导致你的权利义务发生重大变化，我们会通过应用内弹窗/公告等显著方式提示你，
+            并在必要时再次征得你的同意。
+          </view>
+        </view>
+
+        <view class="section">
+          <view class="section-title">九、如何联系我们</view>
+          <view class="paragraph">
+            如你对本政策有任何疑问、意见或投诉建议，可通过以下方式联系我们，我们将在合理期限内予以回复与处理：
+          </view>
+          <view class="contact">联系电话：13776913405</view>
+          <!-- 你也可以加邮箱，审核更稳 -->
+          <view class="contact">电子邮箱：subs0513@outlook.com</view>
+        </view>
+
+        <view class="footer">
+          <view>更新日期：2026年01月16日</view>
+          <view>生效日期：2026年01月16日</view>
+        </view>
+      </view>
     </view>
+  </view>
 </template>
 
 <script>
-// pages/about/privacy/privacy.js
 export default {
-    data() {
-        return {};
-    }
-    /**
-     * 生命周期函数--监听页面加载
-     */,
-    onLoad(options) {},
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {},
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {},
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {},
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {},
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {},
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {},
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {},
-    methods: {}
+  data() {
+    return {};
+  }
 };
 </script>
+
 <style>
 @import './privacy.css';
 </style>

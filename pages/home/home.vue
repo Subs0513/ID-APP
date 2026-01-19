@@ -85,10 +85,22 @@
         </view>
       </view>
     </view>
+
+    <!-- ✅ 隐私协议弹窗（覆盖在 home 页最上层） -->
+    <privacy-popup
+      v-if="showPrivacy"
+      @agree="onAgreePrivacy"
+      @reject="onRejectPrivacy"
+      @open="onOpenDoc"
+    />
   </view>
 </template>
 
 <script>
+	
+// 弹窗组件
+import PrivacyPopup from '@/components/privacy-popup/privacy-popup.vue';
+
 const storage = require('../../utils/storage');
 const dateUtil = require('../../utils/date');
 
@@ -162,6 +174,9 @@ function sortList(rawList) {
 }
 
 export default {
+  // ✅ 注册组件（否则 template 里 <privacy-popup> 不会生效）
+  components: { PrivacyPopup },
+
   data() {
     return {
       statusBarHeight: 0,
@@ -171,6 +186,9 @@ export default {
       coupleStartDate: '',
       daysTogether: 0,
       list: [],
+
+      // ✅ 隐私弹窗开关
+      showPrivacy: false,
 
       // ✅ 拖拽排序
       isDragging: false,
@@ -194,23 +212,36 @@ export default {
     this.refresh();
   },
 
-
 	// onShow() {
-	// 	this.$nextTick(() => {
-	// 		const tb = this.getTabBar && this.getTabBar();
-	// 		if (tb && typeof tb.setSelected === "function") {
-	// 			tb.setSelected(0);
-	// 		}
-	// 	  });
+	//   // 你原来的 refresh 保留
+	//   this.refresh && this.refresh();
 
-	// 	  // 你原来的刷新保留
-	// 	  this.refresh && this.refresh();
-	// 	},
-
+	//   // ✅ 隐私协议：未同意则弹
+	//   const KEY = 'privacy_agreed_v1';
+	//   const agreed = !!uni.getStorageSync(KEY);
+	//   this.setData({
+	//     showPrivacy: !agreed
+	//   });
+	// },
+	
 	onShow() {
-	  // 你原来的 refresh 保留
+	  // 原有逻辑
 	  this.refresh && this.refresh();
+	
+	  const KEY = 'privacy_agreed_v1';
+	  const show = !uni.getStorageSync(KEY);
+	
+	  this.setData({ showPrivacy: show });
+	
+	  // ✅ 原生 tabBar：弹窗出现时隐藏
+	  if (show) {
+	    uni.hideTabBar({ animation: false });
+	  } else {
+	    uni.showTabBar({ animation: false });
+	  }
 	},
+
+
 
 
 
@@ -328,6 +359,38 @@ export default {
         dragOffsetY: 0,
         lastY: 0
       });
+    },
+
+    // ====== ✅ 隐私弹窗事件 ======
+	onAgreePrivacy() {
+	  const KEY = 'privacy_agreed_v1';
+	  try {
+	    uni.setStorageSync(KEY, true);
+	  } catch (e) {}
+	
+	  this.setData({ showPrivacy: false });
+	
+	  // ✅ 恢复原生 tabBar
+	  uni.showTabBar({ animation: false });
+	},
+
+
+
+    onRejectPrivacy() {
+      // 不同意：退出 App（仅 App 端有效）
+      // #ifdef APP-PLUS
+      plus.runtime.quit();
+      // #endif
+    },
+
+    onOpenDoc(type) {
+      // type: 'privacy' | 'agreement'
+      const page =
+        type === 'privacy'
+          ? '/pages/subabout/privacy/privacy'
+          : '/pages/subabout/agreement/agreement';
+
+      uni.navigateTo({ url: page });
     }
   }
 };

@@ -121,11 +121,19 @@
 
       <!-- 5) 行为 -->
       <view class="card">
-        <!-- <view class="card-title">行为与风险提示</view> -->
-		<view class="card-title">
+		<!-- <view class="card-title" @tap="onGoLove()">
 		  <image class="card-title-icon" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
 		  <text class="card-title-text">行为与风险提示</text>
+		</view> -->
+		<view class="card-title card-title--with-right" @tap="onGoLove()">
+		  <view class="card-title-left">
+		    <image class="card-title-icon" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
+		    <text class="card-title-text">行为与风险提示</text>
+		  </view>
+		
+		  <image class="card-title-right-icon" src="/static/assets/icons/f_tz.svg" mode="aspectFit" />
 		</view>
+
 		
 		<!-- 本周期"爱爱次数"记录 -->
         <view class="p">{{ sexSummaryText }}</view>
@@ -186,9 +194,6 @@ function normalizeStore(store) {
   store.settings = store.settings || { ...DEFAULTS };
   store.periodRecords = Array.isArray(store.periodRecords) ? store.periodRecords : [];
   store.periodStarts = Array.isArray(store.periodStarts) ? store.periodStarts : [];
-  // store.painRecords = Array.isArray(store.painRecords) ? store.painRecords : [];
-  // store.sexRecords = Array.isArray(store.sexRecords) ? store.sexRecords : [];
-  // ✅ period.vue 里 painRecords/sexRecords 都是 “按日期分组的对象”
   store.painRecords = (store.painRecords && typeof store.painRecords === 'object' && !Array.isArray(store.painRecords)) ? store.painRecords : {};
   store.sexRecords  = (store.sexRecords  && typeof store.sexRecords  === 'object' && !Array.isArray(store.sexRecords))  ? store.sexRecords  : {};
   store.sexDates = Array.isArray(store.sexDates) ? store.sexDates : [];
@@ -296,8 +301,8 @@ function buildCycleChangeCard(recordsAsc, settings) {
   }
 
   /**
-   * ✅ 关键修复：条形图标尺上限固定为「用户设定周期 + 22」
-   * 例如：设定 28 天 => 右侧上限 50 天（不会再“太满”）
+   * 条形图标尺上限固定为「用户设定周期 + 22」
+   * 例如：设定 28 天 => 右侧上限 50 天
    */
   const fixedMaxLen = Math.max(1, expected + 22);
 
@@ -314,7 +319,7 @@ function buildCycleChangeCard(recordsAsc, settings) {
 
 function analyzeStability(recordsAsc) {
   const recent = getRecentRecords(recordsAsc, 4);
-  if (recent.length < 4) return { stdev: null, text: '数据不足（建议至少记录4次经期）' };
+  if (recent.length < 4) return { stdev: null, text: '数据不足（经期记录少于4次）' };
   const lens = [];
   for (let i = 1; i < recent.length; i++) lens.push(diffDays(recent[i - 1].start, recent[i].start));
   const mean = lens.reduce((a, b) => a + b, 0) / lens.length;
@@ -344,6 +349,75 @@ function predictNext(recentStart, recentCycleLen, settings) {
   const fertileEnd = addDaysStr(ovulationDay, 1);
   return { nextStart, ovulationDay, fertileRangeText: formatRangeCN(fertileStart, fertileEnd) };
 }
+
+// 痛经记录
+function inRangeDateStr(ds, start, end) {
+  if (!ds || !start || !end) return false;
+  return ds >= start && ds <= end; // YYYY-MM-DD 字符串可直接比较
+}
+
+function buildPainTexts(painRecords, cycleStart, cycleEnd) {
+  const pr = painRecords && typeof painRecords === 'object' ? painRecords : {};
+  const levelOrder = ['轻微', '一般', '严重', '非常严重'];
+  const levelRank = {};
+  levelOrder.forEach((lv, i) => (levelRank[lv] = i));
+
+  const entries = [];
+  Object.keys(pr).forEach((ds) => {
+    if (!inRangeDateStr(ds, cycleStart, cycleEnd)) return;
+    const list = Array.isArray(pr[ds]) ? pr[ds] : [];
+    list.forEach((it) => entries.push({ ...it, _date: ds }));
+  });
+
+  const total = entries.length;
+  if (!total) {
+    return {
+      painSummaryText: '本周期未记录痛经',
+      painLevelText: '',
+      painPeakText: ''
+    };
+  }
+
+  // 统计程度
+  const counts = {};
+  let peakLv = '';
+  let peakRank = -1;
+
+  entries.forEach((it) => {
+    const lv = (it && it.level) ? it.level : '未选择程度';
+    counts[lv] = (counts[lv] || 0) + 1;
+
+    const r = (lv in levelRank) ? levelRank[lv] : -1;
+    if (r > peakRank) {
+      peakRank = r;
+      peakLv = lv;
+    }
+  });
+
+  // 最常见程度
+  let commonLv = '';
+  let commonCnt = 0;
+  Object.keys(counts).forEach((lv) => {
+    if (counts[lv] > commonCnt) {
+      commonCnt = counts[lv];
+      commonLv = lv;
+    }
+  });
+
+  // 分布文案（只展示有数据的项）
+  const distParts = levelOrder
+    .filter((lv) => counts[lv])
+    .map((lv) => `${lv}${counts[lv]}次`);
+  if (counts['未选择程度']) distParts.push(`未选择${counts['未选择程度']}次`);
+
+  return {
+    painSummaryText: `本周期记录痛经 ${total} 次（${cycleStart} ~ ${cycleEnd}）`,
+    painLevelText: distParts.length ? `程度分布：${distParts.join('，')}` : '',
+    painPeakText: peakLv ? `最严重程度：${peakLv}；最常见：${commonLv}` : ''
+  };
+}
+
+
 // 爱爱记录
 function buildSexTexts(store, rangeStart, rangeEnd, ovulationDay) {
   const sexRecords = store.sexRecords || {};
@@ -452,10 +526,17 @@ export default {
   methods: {
     onGoWeight() {
       uni.navigateTo({
-        url: '/pages/subperiod/weight/weight',
-        fail: () => uni.showToast({ title: '体重页还没创建，先预留入口～', icon: 'none' })
+        // url: '/pages/subperiod/weight/weight',
+        fail: () => uni.showToast({ title: '“体重分析"页维护中，请等等待下一次更新', icon: 'none' })
       });
     },
+	
+	onGoLove() {
+	  uni.navigateTo({
+	    url: '/pages/subperiod/love/love',
+	    // fail: () => uni.showToast({ title: '“爱爱"页维护中', icon: 'none' })
+	  });
+	},
 
     refresh() {
       const store = normalizeStore(loadStore());
@@ -541,20 +622,18 @@ export default {
 	  }
 
 
-      const cycleChange = buildCycleChangeCard(recordsAsc, settings);
+      // const cycleChange = buildCycleChangeCard(recordsAsc, settings);
 
-      const painSummaryText = this.painSummaryText || '最近3个周期未记录痛经';
-      const painLevelText = this.painLevelText || '';
-      const painPeakText = this.painPeakText || '';
-      // const sexSummaryText = this.sexSummaryText || '最近一个周期记录爱爱 0 次';
-      // const sexFertileText = this.sexFertileText || '其中排卵期内 0 次';
-      // const sexUnprotectedText = this.sexUnprotectedText || '避孕方式记录较完整';
-
-	  // // ✅ 当前周期范围：从 latestStart 到（预计下次开始前一天），如果没有 nextStart 就到今天
-	  // const todayStr = getTodayStr();
-	  // const cycleEnd = pred.nextStart ? addDaysStr(pred.nextStart, -1) : todayStr;
+      // const painSummaryText = this.painSummaryText || '最近3个周期未记录痛经';
+      // const painLevelText = this.painLevelText || '';
+      // const painPeakText = this.painPeakText || '';
+	  const cycleChange = buildCycleChangeCard(recordsAsc, settings);
 	  
-	  // const sexTexts = buildSexTexts(store, latestStart, cycleEnd, pred.ovulationDay);
+	  // ✅ 痛经：从 store.painRecords 现算（本周期范围：latestStart ~ thisCycleEnd）
+	  const painTexts = buildPainTexts(store.painRecords, latestStart, thisCycleEnd);
+	  const painSummaryText = painTexts.painSummaryText;
+	  const painLevelText = painTexts.painLevelText;
+	  const painPeakText = painTexts.painPeakText;
 
       this.setData({
         hasData: true,

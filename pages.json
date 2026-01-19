@@ -93,14 +93,14 @@
       }
     },
     {
-      "path": "pages/subperiod/love/love",
+      "path": "pages/subperiod/addlove/addlove",
       "style": {
         "navigationBarTitleText": "爱爱记录",
         "usingComponents": {}
       }
     },
     {
-      "path": "pages/subperiod/pain/pain",
+      "path": "pages/subperiod/addpain/addpain",
       "style": {
         "usingComponents": {}
       }
@@ -119,6 +119,18 @@
 	},
 	{
 		"path": "components/YMD-Wheel/YMD-Wheel",
+		"style": {
+			"navigationBarTitleText": ""
+		}
+	},
+	{
+		"path": "pages/subperiod/love/love",
+		"style": {
+			"navigationBarTitleText": ""
+		}
+	},
+	{
+		"path": "pages/subperiod/weight/weight",
 		"style": {
 			"navigationBarTitleText": ""
 		}

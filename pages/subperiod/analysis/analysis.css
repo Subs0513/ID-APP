@@ -80,6 +80,27 @@
   line-height: 1.2;
 }
 
+/* 标题左侧一组（图标+文字） */
+.card-title-left{
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+/* 只有需要右侧图标的标题才用这个类，避免影响别的 card-title */
+.card-title--with-right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 右侧图标 */
+.card-title-right-icon{
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
 
 /* =========================
    周期变化

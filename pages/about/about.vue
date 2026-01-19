@@ -36,15 +36,22 @@
                     </view>
                     <text class="arrow">›</text>
                 </view>
+				
+				<view class="divider"></view>
+				
+				<view class="card-item" hover-class="card-item-active" @tap="onTaplist">
+				    <view class="left">
+				        <image class="item-icon" src="/static/assets/icons/f_infolist.svg" />
+				        <text class="item-text">个人信息收集清单</text>
+				    </view>
+				    <text class="arrow">›</text>
+				</view>
+				
             </view>
         </view>
 
         <!-- 底部版权区 -->
         <view class="about-footer">
-            <!-- 如果你也想要“服务协议 | 隐私政策”这种蓝色链接 -->
-			<view class="footer-links">
-			    <text class="footer-link" @tap="onTaplist">收集个人信息清单</text>
-			</view>
             <view class="footer-links">
                 <text class="footer-link" @tap="onTapagreement">服务协议</text>
                 <text class="footer-sep"> | </text>
@@ -55,7 +62,8 @@
                 <text>Copyright© 2025-2026 Sebastian. All Rights Reserved</text>
             </view>
             <view class="footer-text">
-                <text>ICP 备案号：苏ICP备2025153648号-2X</text>
+				<!-- 小程序备案号 ：苏ICP备2025153648号-2X -->
+				<text>ICP 备案号：还没下来</text>
             </view>
             <view class="footer-text">
                 <text>  </text>
@@ -71,7 +79,7 @@
 export default {
     data() {
         return {
-            version: '0.1.0'
+            version: '0.1.1'
         };
     },
     onLoad() {

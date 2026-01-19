@@ -106,7 +106,7 @@
                 </view>
 
                 <!-- 2）痛经（加号 / 修改） -->
-                <view class="row tappable" @tap="onGoPain">
+                <view class="row tappable" @tap="onGoAddPain">
                     <view class="row-left row-left-with-icon">
                         <image class="row-icon" src="/static/assets/icons/f_t.svg" mode="aspectFit" />
                         <text class="row-title">痛经</text>
@@ -133,7 +133,7 @@
                 </view>
 
                 <!-- 4）爱爱（加号） -->
-                <view class="row tappable" @tap="onGoLove">
+                <view class="row tappable" @tap="onGoAddLove">
                     <view class="row-left row-left-with-icon">
                         <image class="row-icon" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
                         <text class="row-title">爱爱</text>
@@ -774,10 +774,10 @@ export default {
             });
         },
 
-        onGoPain() {
+        onGoAddPain() {
             const date = this.selectedDate;
             uni.navigateTo({
-                url: `/pages/subperiod/pain/pain?date=${date}`
+                url: `/pages/subperiod/addpain/addpain?date=${date}`
             });
         },
 
@@ -890,10 +890,10 @@ export default {
             this.refreshAll();
         },
 
-        onGoLove() {
+        onGoAddLove() {
             const date = this.selectedDate;
             uni.navigateTo({
-                url: `/pages/subperiod/love/love?date=${date}`
+                url: `/pages/subperiod/addlove/addlove?date=${date}`
             });
         }
     }

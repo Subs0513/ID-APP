@@ -38,9 +38,15 @@ export default {
         return {
             logs: [
 				{
+				    version: '0.1.1',
+				    desc: '新增功能',
+				    isLatest: true,
+				    items: ['新增“爱爱分析”和“体重分析”页','解决“痛经记录”数据不同步问题','解决了一些已知问题']
+				},
+				{
 				    version: '0.1.0',
 				    desc: '整体调整',
-				    isLatest: true,
+				    // isLatest: true,
 				    items: ['程序更名为“时序·Chrona”','更新启动页']
 				},
 				{

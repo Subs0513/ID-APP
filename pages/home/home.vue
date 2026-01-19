@@ -16,7 +16,7 @@
     <!-- 内容区 -->
     <view class="container page-bottom-space">
       <!-- 卡片 1：在一起天数（保留） -->
-      <view class="card">
+      <view class="card" @tap="goDate">
         <view class="big-card">
           <view class="big-card-left">
             <text class="big-title">我们已经在一起了</text>
@@ -276,6 +276,13 @@ export default {
         url: '/pages/add/add'
       });
     },
+	
+	goDate(){
+		// 跳转到“我”页面
+		uni.switchTab({
+		  url: '/pages/me/me'
+		});
+	},
 
     onTapItem(e) {
       // 拖拽中不响应点击

@@ -1,0 +1,105 @@
+/* pages/about/intro/intro.wxss */
+.page {
+    min-height: 100vh;
+    /* background-color: #f7f7f7; */
+    padding: 32rpx 24rpx 0;
+}
+
+/* 头部白色卡片 */
+.header-card {
+    background-color: #fff;
+    border-radius: 24rpx;
+    padding: 28rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.title {
+    font-size: 40rpx;
+    font-weight: 700;
+    color: #222;
+}
+
+.subtitle {
+    display: block;
+    margin-top: 8rpx;
+    font-size: 26rpx;
+    color: #999;
+}
+
+/* 大卡片 */
+.card {
+    background-color: #fff;
+    border-radius: 24rpx;
+    padding: 8rpx 28rpx 12rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 每个功能块 */
+.section {
+    padding: 22rpx 0;
+}
+
+.section:not(:last-child) {
+    border-bottom: 1rpx solid #eee;
+}
+
+/* 功能标题 + NEW */
+.sec-title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14rpx;
+    margin-bottom: 10rpx;
+}
+
+.sec-title {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #333;
+}
+
+.new-tag {
+    font-size: 20rpx;
+    font-weight: 700;
+    padding: 4rpx 12rpx;
+    border-radius: 999rpx;
+    background-color: #ff4d6d;
+    color: #fff;
+    line-height: 1.2;
+    transform: translateY(-4rpx);
+}
+
+.sec-desc {
+    font-size: 26rpx;
+    color: #888;
+    line-height: 38rpx;
+}
+
+/* 列表 */
+.items {
+    margin-top: 10rpx;
+    padding-left: 8rpx;
+}
+
+.item {
+    display: flex;
+    align-items: flex-start;
+    margin: 6rpx 0;
+}
+
+.dot {
+    margin-right: 10rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #ff4d6d;
+}
+
+.text {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #444;
+}
+
+.footer-space {
+    height: 40rpx;
+}

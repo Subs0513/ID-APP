@@ -1,8 +1,8 @@
 {
-    "name" : "我和你的重要时光",
+    "name" : "岁序",
     "appid" : "__UNI__75B0F0F",
-    "description" : "",
-    "versionName" : "0.0.6",
+    "description" : "岁序（Chrona）是一款帮助你记录与回顾重要日子的应用，无论是相遇、纪念，还是人生中的关键时刻，都能在时间的顺序中，被温柔保存。",
+    "versionName" : "0.1.0",
     "versionCode" : 1,
     "transformPx" : false,
     "app-plus" : {
@@ -78,9 +78,9 @@
             "splashscreen" : {
                 "androidStyle" : "default",
                 "android" : {
-                    "xxhdpi" : "C:/Users/Sebastian/Desktop/kp.png",
-                    "xhdpi" : "C:/Users/Sebastian/Desktop/kp.png",
-                    "hdpi" : "C:/Users/Sebastian/Desktop/kp.png"
+                    "xxhdpi" : "static/assets/images/sx.png",
+                    "xhdpi" : "static/assets/images/sx.png",
+                    "hdpi" : "static/assets/images/sx.png"
                 }
             }
         }

@@ -70,7 +70,7 @@
 	  
 	  <view class="row" @tap="onShare">
         <view class="row-left">
-          <view class="row-title">分享“我和你的重要时光”</view>
+          <view class="row-title">分享“岁序”</view>
           <view class="row-sub">发给 TA 一起用</view>
         </view>
         <button class="row-action" open-type="share">分享</button>

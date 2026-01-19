@@ -38,9 +38,15 @@ export default {
         return {
             logs: [
 				{
+				    version: '0.1.0',
+				    desc: '整体调整',
+				    isLatest: true,
+				    items: ['程序更名为“时序·Chrona”','更新启动页']
+				},
+				{
 				    version: '0.0.8',
 				    desc: '页面调整',
-				    isLatest: true,
+				    // isLatest: true,
 				    items: ['添加/编辑“重要日子”引入新日期选择滚轮','小幅调整“我”页面排序']
 				},
 				{

@@ -6,7 +6,7 @@
         class="custom-nav__inner"
         :style="'padding-top:' + statusBarHeight + 'px;height:' + navBarHeight + 'px;'"
       >
-        <text class="custom-nav__title">我和你的重要时光</text>
+        <text class="custom-nav__title">岁序</text>
       </view>
     </view>
 

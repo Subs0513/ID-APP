@@ -4,7 +4,7 @@
             <!-- 顶部 App 信息 -->
             <view class="app-header">
                 <image class="app-logo" src="/static/assets/images/app.png" mode="aspectFit" />
-                <text class="app-version">Version: {{ version }}</text>
+                <text class="app-version">Mobile-Version: {{ version }}</text>
             </view>
 
             <!-- 功能卡片 -->
@@ -71,7 +71,7 @@
 export default {
     data() {
         return {
-            version: '0.0.8'
+            version: '0.1.0'
         };
     },
     onLoad() {

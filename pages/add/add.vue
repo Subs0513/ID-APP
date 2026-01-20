@@ -17,7 +17,7 @@
                 <text>日期</text>
             </view>
 
-            <!-- ✅ 用自定义 YMD-Wheel 替换原生日期选择器 -->
+            <!-- 用自定义 YMD-Wheel 替换原生日期选择器 -->
             <view @tap="openDateWheel">
                 <view class="field field--single">
                     <view :class="'field__value ' + (!form.date ? 'field__placeholder' : '')">
@@ -32,13 +32,14 @@
                 <text>类型</text>
             </view>
 
-            <picker mode="selector" :range="typeOptions" range-key="text" :value="typeIndex" @change="onType">
+            <!-- 用自定义 Type-Wheel 替换原生 picker -->
+            <view @tap="openTypeWheel">
                 <view class="field field--single">
                     <view class="field__value">
                         {{ typeOptions[typeIndex].text }}
                     </view>
                 </view>
-            </picker>
+            </view>
 
             <!-- <view class="label">备注（可选）</view> -->
             <view class="label row-left-with-icon">
@@ -63,7 +64,7 @@
                 <switch :checked="form.isTop" @change="onTop" color="#f6a5b5" />
             </view>
 
-            <!-- ✅ 新增：正数包含起始日 -->
+            <!-- 新增：正数包含起始日 -->
             <!-- 正数包含起始日（统一风格） -->
             <!-- <view class="row" style="margin-top: 18rpx;">
       <view class="muted">正数包含起始日</view>
@@ -78,13 +79,27 @@
                 <switch :checked="form.includeStart" @change="onIncludeStart" color="#f6a5b5" />
             </view>
 
-            <!-- ✅ 只保留保存：居中且拉长 -->
+            <!-- “保存”按钮：居中且拉长 -->
             <view style="margin-top: 28rpx; display: flex; justify-content: center">
-                <button class="btn" @tap="save" style="width: 520rpx; height: 92rpx; line-height: 92rpx; border-radius: 16rpx">保存</button>
+                <button class="btn" @tap="save" style="width: 520rpx; height: 92rpx; line-height: 92rpx; border-radius: 16rpx">
+                    保 存
+                </button>
             </view>
         </view>
 
-        <!-- ✅ 自定义日期滚轮（遮罩 + 底部弹层） -->
+        <!-- 自定义类型弹窗（Type-Wheel） -->
+        <TypeWheel
+            :show="showTypeWheel"
+            :options="typeOptions"
+            :activeIndex="typeIndex"
+            title="选择类型"
+            subtitle=""
+            @cancel="onTypeWheelCancel"
+            @confirm="onTypeWheelConfirm"
+            @update:show="onTypeWheelUpdateShow"
+        />
+
+        <!-- 自定义日期滚轮（遮罩 + 底部弹层） -->
         <YMDWheel
             :show="showDateWheel"
             :value="dateWheelTemp"
@@ -103,13 +118,15 @@ const dateUtil = require('../../utils/date');
 
 // ⚠️ 如果你的组件放在别的路径，只需要改这一行 import 路径即可
 import YMDWheel from '../../components/YMD-Wheel/YMD-Wheel.vue';
+import TypeWheel from '../../components/Type-Wheel/Type-Wheel.vue';
 
 function uuid() {
     return 'id_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
 }
 export default {
     components: {
-        YMDWheel
+        YMDWheel,
+        TypeWheel
     },
     data() {
         return {
@@ -142,15 +159,18 @@ export default {
                 includeStart: false
             },
 
-            // ✅ 自定义日期滚轮
+            // 自定义日期滚轮
             showDateWheel: false,
             dateWheelTemp: '',
+
+            // 自定义类型弹窗（Type-Wheel）
+            showTypeWheel: false,
 
             text: ''
         };
     },
     onShow() {
-        // ✅ 从 detail 通过 storage 传递 editingId 进入编辑态
+        // 从 detail 通过 storage 传递 editingId 进入编辑态
         const editingId = uni.getStorageSync('editingId');
         if (editingId) {
             uni.removeStorageSync('editingId');
@@ -162,7 +182,7 @@ export default {
             return;
         }
 
-        // ✅ 关键：如果不是从 detail 带着 editingId 进来，那就是“新增态”
+        // 关键：如果不是从 detail 带着 editingId 进来，那就是“新增态”
         // 每次展示 edit tab 都清空，避免残留上一次 detail 的内容
         if (this.isEdit || (this.form && (this.form.title || this.form.note))) {
             this.resetForm();
@@ -183,7 +203,7 @@ export default {
         }
     },
     methods: {
-        // ✅ 统一的“清空/初始化表单”
+        // 统一的“清空/初始化表单”
         resetForm() {
             this.setData({
                 isEdit: false,
@@ -200,7 +220,10 @@ export default {
 
                 // 每次重置时，滚轮默认对齐到当前 form.date
                 showDateWheel: false,
-                dateWheelTemp: dateUtil.todayStr()
+                dateWheelTemp: dateUtil.todayStr(),
+
+                // 类型弹窗关闭
+                showTypeWheel: false
             });
         },
 
@@ -231,9 +254,12 @@ export default {
                     includeStart: !!found.includeStart
                 },
 
-                // ✅ 同步自定义滚轮的初始值
+                // 同步自定义滚轮的初始值
                 showDateWheel: false,
-                dateWheelTemp: found.date || dateUtil.todayStr()
+                dateWheelTemp: found.date || dateUtil.todayStr(),
+
+                // 类型弹窗关闭
+                showTypeWheel: false
             });
             uni.setNavigationBarTitle({
                 title: '修改重要日子'
@@ -260,7 +286,7 @@ export default {
         },
 
         // =======================
-        // ✅ 自定义日期滚轮
+        // 自定义日期滚轮
         // =======================
         openDateWheel() {
             const v = this.form && this.form.date ? this.form.date : dateUtil.todayStr();
@@ -295,6 +321,44 @@ export default {
             });
         },
 
+        // =======================
+        // 自定义类型弹窗（Type-Wheel）
+        // =======================
+        openTypeWheel() {
+            this.setData({
+                showTypeWheel: true
+            });
+        },
+
+        onTypeWheelCancel() {
+            // TypeWheel 内部会先 emit cancel 再 update:show(false)
+            // 这里做一次兜底收口
+            this.setData({
+                showTypeWheel: false
+            });
+        },
+
+        onTypeWheelConfirm(index, option) {
+            const i = Number(index) || 0;
+            const type = option && option.value ? option.value : this.typeOptions[i].value;
+
+            this.setData({
+                showTypeWheel: false,
+                typeIndex: i,
+                form: {
+                    ...this.form,
+                    type
+                }
+            });
+        },
+
+        onTypeWheelUpdateShow(v) {
+            this.setData({
+                showTypeWheel: !!v
+            });
+        },
+
+        // 保留：兼容旧逻辑（如果未来别处还用 picker）
         onType(e) {
             const index = Number(e.detail.value) || 0;
             const type = this.typeOptions[index].value;
@@ -376,7 +440,7 @@ export default {
                     icon: 'success'
                 });
 
-                // ✅ TabBar 页进来的编辑，navigateBack 很可能退不回 detail
+                // TabBar 页进来的编辑，navigateBack 很可能退不回 detail
                 // 优先回到来源 detail
                 const backId = uni.getStorageSync('backDetailId');
                 if (backId) {

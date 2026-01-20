@@ -3,9 +3,8 @@
   <view class="page">
     <!-- 头部白色卡片 -->
     <view class="header-card">
-      <!-- <text class="title">功能介绍</text> -->
-	  <text class="title">时序</text>
-	  <!-- <text class="title">时序·小雅定制版</text> -->
+      <!-- <text class="title">时序</text> -->
+	  <text class="title">时序·小雅定制版</text>
       <text class="subtitle">把重要的日子，一页一页夹在时间里</text>
     </view>
 

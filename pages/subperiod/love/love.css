@@ -66,13 +66,13 @@
 
 /* 概览网格 */
 .grid{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 一行两个，定死 */
+  gap: 16rpx 24rpx;                      /* 行 / 列间距 */
 }
 
+
 .grid-item{
-  width: calc(50% - 7rpx);
   background: rgba(255,107,154,0.08);
   border-radius: 18rpx;
   padding: 16rpx 16rpx;

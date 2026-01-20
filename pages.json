@@ -104,13 +104,15 @@
     {
       "path": "pages/subperiod/addpain/addpain",
       "style": {
-        "usingComponents": {}
+        "usingComponents": {},
+		"navigationBarTitleText": "新增痛经记录"
+		
       }
 	},
 	{
 		"path": "pages/subabout/info-list/info-list",
 		"style": {
-			"navigationBarTitleText": "收集个人信息清单"
+			"navigationBarTitleText": "个人信息收集清单"
 		}
 	},
 	{
@@ -122,7 +124,7 @@
 	{
 		"path": "pages/subperiod/weight/weight",
 		"style": {
-			"navigationBarTitleText": ""
+			"navigationBarTitleText": "体重记录"
 		}
 	},
 	{

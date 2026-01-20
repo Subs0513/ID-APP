@@ -347,6 +347,38 @@
   line-height: 1.2;
 }
 
+/* 爱爱的图例 */
+.sex-legend {
+  margin-top: 16rpx;
+  display: flex;
+  justify-content: center;
+  gap: 32rpx;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.legend-dot {
+  width: 18rpx;
+  height: 18rpx;
+  border-radius: 6rpx;
+  margin-right: 8rpx;
+}
+
+.legend-dot--prev {
+  background: rgba(0, 0, 0, 0.25); /* 和 prev 柱一致 */
+}
+
+.legend-dot--cur {
+  background: #ff6b9a; /* 和 cur 柱一致 */
+}
+
+.legend-text {
+  font-size: 22rpx;
+  color: rgba(0, 0, 0, 0.6);
+}
 
 
 

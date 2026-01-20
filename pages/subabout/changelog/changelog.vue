@@ -38,9 +38,15 @@ export default {
         return {
             logs: [
 				{
-				    version: '0.1.2',
-				    desc: '新增功能',
+				    version: '0.1.3',
+				    desc: '局部优化',
 				    isLatest: true,
+				    items: ['“类型”弹窗优化']
+				},
+				{
+				    version: '0.1.2',
+				    desc: '局部优化',
+				    // isLatest: true,
 				    items: ['更新底部导航栏图片','优化健康分析中“爱爱”卡片显示问题','解决了一些已知问题']
 				},
 				{

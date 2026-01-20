@@ -17,7 +17,7 @@
           class="dw-picker"
           :value="dateWheelIndex"
           @change="onWheelChange"
-          :indicator-style="`height: ${indicatorHeightRpx}rpx;`"
+          :indicator-style="`height: ${indicatorHeightRpx}rpx; background-color: rgba(0,0,0,0);`"
           :mask-style="'background: transparent;'"
         >
           <picker-view-column>
@@ -53,6 +53,10 @@
 
         <!-- 中间高亮框 -->
         <view class="dw-indicator"></view>
+
+        <!-- ✅ 上下渐隐遮罩（新增） -->
+        <view class="dw-fade-top"></view>
+        <view class="dw-fade-bottom"></view>
       </view>
     </view>
   </view>
@@ -196,9 +200,7 @@ export default {
     },
 
     onCancel() {
-      // 交给父组件关
       this.$emit('cancel');
-      // 如果你想直接支持 .sync / v-model:show，也可以在父页面用 @cancel="show=false"
       this.$emit('update:show', false);
     },
 
@@ -209,19 +211,14 @@ export default {
       const d = this.dateDays[idx[2]];
       const dateStr = `${y}-${this.pad2(m)}-${this.pad2(d)}`;
 
-      // 输出：confirm(dateStr)
       this.$emit('confirm', dateStr);
-
-      // 如果父组件用 v-model 绑定 value，可顺便抛出 input
       this.$emit('input', dateStr);
-
-      // 关弹层（可选）
       this.$emit('update:show', false);
     }
   }
 };
 </script>
 
-<style>
-@import './YMD-Wheel.css';
+<style scoped>
+@import "./YMD-Wheel.css";
 </style>

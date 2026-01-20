@@ -133,28 +133,47 @@
             <text class="sex-topvalue">{{ sexCycleTotal }}</text>
             <text class="sex-topunit">次</text>
           </view>
-          <!-- <view class="sex-topitem">
-            <text class="sex-toplabel">怀孕几率</text>
-            <text class="sex-topvalue">{{ sexPregRateText }}</text>
-          </view> -->
         </view>
       
         <!-- 双柱状图：粉色=本周期，灰色=上周期 -->
         <view class="sex-chart">
           <view class="sex-group" v-for="(it, idx) in sexPhaseBars" :key="idx">
             <view class="sex-cols">
-              <view class="sex-col">
-                <text class="sex-num">{{ it.cur }}</text>
-                <view class="sex-bar sex-bar--cur" :style="'height:' + it.curPct + '%'"></view>
-              </view>
+              <!-- 左：上一周期 -->
               <view class="sex-col">
                 <text class="sex-num">{{ it.prev }}</text>
-                <view class="sex-bar sex-bar--prev" :style="'height:' + it.prevPct + '%'"></view>
+                <view
+                  class="sex-bar sex-bar--prev"
+                  :style="'height:' + it.prevPct + '%'"
+                ></view>
+              </view>
+            
+              <!-- 右：本周期 -->
+              <view class="sex-col">
+                <text class="sex-num">{{ it.cur }}</text>
+                <view
+                  class="sex-bar sex-bar--cur"
+                  :style="'height:' + it.curPct + '%'"
+                ></view>
               </view>
             </view>
+
             <text class="sex-xlabel">{{ it.label }}</text>
           </view>
         </view>
+		<!-- 给“爱爱”记录加上图例 -->
+		<view class="sex-legend">
+		  <view class="legend-item">
+		    <view class="legend-dot legend-dot--prev"></view>
+		    <text class="legend-text">上一周期</text>
+		  </view>
+		
+		  <view class="legend-item">
+		    <view class="legend-dot legend-dot--cur"></view>
+		    <text class="legend-text">本周期</text>
+		  </view>
+		</view>
+
       </view>
 
     </view>
@@ -616,7 +635,7 @@ export default {
     onGoWeight() {
       uni.navigateTo({
         // url: '/pages/subperiod/weight/weight',
-        fail: () => uni.showToast({ title: '“体重分析"页维护中，请等等待下一次更新', icon: 'none' })
+        fail: () => uni.showToast({ title: '“体重分析"页维护中，请等待更新', icon: 'none' })
       });
     },
 	

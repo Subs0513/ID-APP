@@ -31,13 +31,15 @@
                 <image class="label-icon" src="/static/assets/icons/f_lx.svg" mode="aspectFit" />
                 <text>类型</text>
             </view>
-            <picker mode="selector" :range="typeOptions" range-key="text" :value="typeIndex" @change="onType">
+
+            <!-- ✅ 用自定义 Type-Wheel 替换原生 picker -->
+            <view @tap="openTypeWheel">
                 <view class="field field--single">
                     <view class="field__value">
                         {{ typeOptions[typeIndex].text }}
                     </view>
                 </view>
-            </picker>
+            </view>
 
             <!-- 备注 -->
             <view class="label row-left-with-icon">
@@ -80,14 +82,22 @@
                     @tap="save"
                     style="width: 520rpx; height: 92rpx; line-height: 92rpx; border-radius: 16rpx"
                 >
-                    保存
+                    保    存
                 </button>
             </view>
-
-            <!-- <view wx:if="{{isEdit}}" style="margin-top: 18rpx;">
-      <button class="btn btn-danger" bindtap="remove">删除</button>
-    </view> -->
         </view>
+
+        <!-- ✅ 类型滚轮弹窗（Type-Wheel） -->
+        <TypeWheel
+            :show="showTypeWheel"
+            :options="typeOptions"
+            :activeIndex="typeIndex"
+            title="选择类型"
+            subtitle=""
+            @cancel="onTypeWheelCancel"
+            @confirm="onTypeWheelConfirm"
+            @update:show="onTypeWheelUpdateShow"
+        />
 
         <!-- ✅ 自定义日期滚轮（遮罩 + 底部弹层） -->
         <YMDWheel
@@ -106,32 +116,22 @@
 const storage = require('../../utils/storage');
 
 import YMDWheel from '../../components/YMD-Wheel/YMD-Wheel.vue';
+import TypeWheel from '../../components/Type-Wheel/Type-Wheel.vue';
 
 export default {
     components: {
-        YMDWheel
+        YMDWheel,
+        TypeWheel
     },
     data() {
         return {
             id: '',
             list: [],
             typeOptions: [
-                {
-                    value: 'anniversary',
-                    text: '纪念日'
-                },
-                {
-                    value: 'countdown',
-                    text: '倒计时'
-                },
-                {
-                    value: 'birthday',
-                    text: '生日'
-                },
-                {
-                    value: 'other',
-                    text: '其他'
-                }
+                { value: 'anniversary', text: '纪念日' },
+                { value: 'countdown', text: '倒计时' },
+                { value: 'birthday', text: '生日' },
+                { value: 'other', text: '其他' }
             ],
 
             typeIndex: 0,
@@ -149,20 +149,18 @@ export default {
             showDateWheel: false,
             dateWheelTemp: '',
 
+            // ✅ 自定义类型滚轮
+            showTypeWheel: false,
+
             text: ''
         };
     },
     onLoad(options) {
-        uni.setNavigationBarTitle({
-            title: '编辑重要日子'
-        });
+        uni.setNavigationBarTitle({ title: '编辑重要日子' });
 
         const id = options && options.id ? options.id : '';
         if (!id) {
-            uni.showToast({
-                title: '缺少参数',
-                icon: 'none'
-            });
+            uni.showToast({ title: '缺少参数', icon: 'none' });
             setTimeout(() => uni.navigateBack(), 600);
             return;
         }
@@ -171,10 +169,7 @@ export default {
         const item = list.find((x) => x.id === id);
 
         if (!item) {
-            uni.showToast({
-                title: '未找到该记录',
-                icon: 'none'
-            });
+            uni.showToast({ title: '未找到该记录', icon: 'none' });
             setTimeout(() => uni.navigateBack(), 600);
             return;
         }
@@ -197,12 +192,14 @@ export default {
 
             // ✅ 同步自定义滚轮的初始值
             showDateWheel: false,
-            dateWheelTemp: item.date || ''
+            dateWheelTemp: item.date || '',
+
+            // ✅ 类型弹窗默认关闭
+            showTypeWheel: false
         });
     },
     methods: {
         setData(obj) {
-            // 兼容：在 HBuilder/uni-app 中也可用 this.xxx = ...
             Object.keys(obj).forEach((k) => {
                 this[k] = obj[k];
             });
@@ -210,20 +207,14 @@ export default {
 
         onTitle(e) {
             this.setData({
-                form: {
-                    ...this.form,
-                    title: e.detail.value
-                }
+                form: { ...this.form, title: e.detail.value }
             });
         },
 
         // 保留：兼容旧逻辑（现在不再由原生 picker 触发）
         onDate(e) {
             this.setData({
-                form: {
-                    ...this.form,
-                    date: e.detail.value
-                }
+                form: { ...this.form, date: e.detail.value }
             });
         },
 
@@ -239,94 +230,91 @@ export default {
         },
 
         onDateWheelCancel() {
-            this.setData({
-                showDateWheel: false
-            });
+            this.setData({ showDateWheel: false });
         },
 
         onDateWheelConfirm(dateStr) {
-            // dateStr: YYYY-MM-DD
             this.setData({
                 showDateWheel: false,
                 dateWheelTemp: dateStr,
-                form: {
-                    ...this.form,
-                    date: dateStr
-                }
+                form: { ...this.form, date: dateStr }
             });
         },
 
         onDateWheelUpdateShow(v) {
-            // 兼容组件内部 emit('update:show', false)
+            this.setData({ showDateWheel: !!v });
+        },
+
+        // =======================
+        // ✅ 自定义类型滚轮（Type-Wheel）
+        // =======================
+        openTypeWheel() {
+            this.setData({ showTypeWheel: true });
+        },
+
+        onTypeWheelCancel() {
+            this.setData({ showTypeWheel: false });
+        },
+
+        onTypeWheelConfirm(index, option) {
+            const i = Number(index) || 0;
+            const type = option && option.value ? option.value : (this.typeOptions[i] ? this.typeOptions[i].value : 'anniversary');
+
             this.setData({
-                showDateWheel: !!v
+                showTypeWheel: false,
+                typeIndex: i,
+                form: { ...this.form, type }
             });
         },
 
+        onTypeWheelUpdateShow(v) {
+            this.setData({ showTypeWheel: !!v });
+        },
+
+        // ✅ 保留：兼容旧逻辑（如果未来别处还用 picker）
         onType(e) {
             const index = Number(e.detail.value) || 0;
             const type = this.typeOptions[index].value;
             this.setData({
                 typeIndex: index,
-                form: {
-                    ...this.form,
-                    type
-                }
+                form: { ...this.form, type }
             });
         },
 
         onNote(e) {
             this.setData({
-                form: {
-                    ...this.form,
-                    note: e.detail.value
-                }
+                form: { ...this.form, note: e.detail.value }
             });
         },
 
         onTop(e) {
             this.setData({
-                form: {
-                    ...this.form,
-                    isTop: e.detail.value
-                }
+                form: { ...this.form, isTop: e.detail.value }
             });
         },
 
         onIncludeStart(e) {
             this.setData({
-                form: {
-                    ...this.form,
-                    includeStart: e.detail.value
-                }
+                form: { ...this.form, includeStart: e.detail.value }
             });
         },
 
         save() {
             const title = (this.form.title || '').trim();
             if (!title) {
-                uni.showToast({
-                    title: '请输入标题',
-                    icon: 'none'
-                });
+                uni.showToast({ title: '请输入标题', icon: 'none' });
                 return;
             }
 
             if (!this.form.date) {
-                uni.showToast({
-                    title: '请选择日期',
-                    icon: 'none'
-                });
+                uni.showToast({ title: '请选择日期', icon: 'none' });
                 return;
             }
 
             const list = storage.getList();
             const idx = list.findIndex((x) => x.id === this.id);
             if (idx < 0) {
-                uni.showToast({
-                    title: '未找到该记录',
-                    icon: 'none'
-                });
+                uni.showToast({ title: '未找到该记录', icon: 'none' });
                 return;
             }
 
@@ -342,12 +330,8 @@ export default {
 
             storage.setList(list);
 
-            uni.showToast({
-                title: '已保存',
-                icon: 'success'
-            });
+            uni.showToast({ title: '已保存', icon: 'success' });
 
-            // 保存后返回上一页
             setTimeout(() => {
                 uni.navigateBack();
             }, 300);
@@ -358,5 +342,4 @@ export default {
 
 <style>
 @import './editDetail.css';
-
 </style>

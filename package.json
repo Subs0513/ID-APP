@@ -1,15 +1,13 @@
 {
-	"name": "miniprogram-1",
+	"name": "Chrona",
 	"version": "1.0.0",
 	"description": "",
 	"main": "app.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "",
-	"dependencies": {
-		"@vant/weapp": "^1.11.7"
-	},
+	"author": "ZHAOYANG GUO",
+	"dependencies": {},
 	"license": "ISC",
 	"keywords": []
 }

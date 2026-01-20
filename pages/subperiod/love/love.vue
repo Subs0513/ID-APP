@@ -121,7 +121,7 @@
     <view class="card">
       <view class="card-title">
         <image class="card-title-icon" src="/static/assets/icons/f_sj.svg" mode="aspectFit" />
-        <text class="card-title-text">最近记录（5条）</text>
+        <text class="card-title-text">最近记录</text>
       </view>
 
       <view v-if="recentList.length" class="recent">
@@ -229,7 +229,7 @@ export default {
       // 你 addlove.vue 是按 date 展示/新增的（options.date）
       // 这里默认跳到“今天”的记录页
       const today = getTodayStr();
-      uni.navigateTo({ url: `/pages/subperiod/love/addlove?date=${encodeURIComponent(today)}` });
+      uni.navigateTo({ url: `/pages/subperiod/addlove/addlove?date=${encodeURIComponent(today)}` });
     },
 
     refresh() {
@@ -285,11 +285,12 @@ export default {
         }));
 
       const cycleText = cycleStart
-        ? `本周期范围：${cycleStart} ~ ${cycleEnd}（周期长度按 ${cycleLen} 天估算）`
+        ? `本周期范围：${cycleStart} ~ ${cycleEnd}`
+		// ? `本周期范围：${cycleStart} ~ ${cycleEnd}（周期长度按 ${cycleLen} 天估算）`
         : '暂无经期记录：本页将以“近30天趋势”为主展示';
 
       const prevCycleText = ovulationDay
-        ? `排卵期（推算）：${fertileStart} ~ ${fertileEnd}`
+        ? `推算排卵期：${fertileStart} ~ ${fertileEnd}`
         : '';
 
       this.setData({
@@ -403,7 +404,7 @@ export default {
       }
 
       if (hasFertile) {
-        tips.push(`排卵期（推算）：${fertileRangeText}。排卵期内记录次数：${fertileTimes} 次。`);
+        tips.push(`推算排卵期：${fertileRangeText}。排卵期内记录次数：${fertileTimes} 次。`);
         if (fertileTimes > 0 && unprotectedThis > 0) {
           tips.push('若排卵期内存在未避孕情况，意外怀孕风险更高。');
         }
@@ -686,11 +687,11 @@ export default {
       ctx.fill();
 
       // 中间文字
-      ctx.setFillStyle('rgba(0,0,0,0.65)');
-      ctx.setFontSize(12);
-      ctx.fillText('本周期', cx - 16, cy - 2);
-      ctx.setFontSize(12);
-      ctx.fillText(`${total} 次`, cx - 14, cy + 16);
+      // ctx.setFillStyle('rgba(0,0,0,0.65)');
+      // ctx.setFontSize(12);
+      // ctx.fillText('本周期', cx - 16, cy - 2);
+      // ctx.setFontSize(12);
+      // ctx.fillText(`${total} 次`, cx - 14, cy + 16);
 
       ctx.draw();
     },

@@ -5790,24 +5790,8 @@ var render = function () {
             ],
             1
           ),
-          _c(
-            "uni-view",
-            { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
-            [
-              _c(
-                "v-uni-text",
-                { attrs: { _i: 39 } },
-                [
-                  _c("v-uni-text", { attrs: { _i: 40 } }, [
-                    _vm._v("ICP 应用备案号：还没下来"),
-                  ]),
-                ],
-                1
-              ),
-            ],
-            1
-          ),
-          _c("uni-view", { staticClass: _vm._$g(41, "sc"), attrs: { _i: 41 } }),
+          _c("uni-view", { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } }),
+          _c("uni-view", { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } }),
         ],
         1
       ),
@@ -6551,7 +6535,7 @@ var render = function () {
                     { staticClass: _vm._$g(9, "sc"), attrs: { _i: 9 } },
                     [
                       _vm._v(
-                        "• 重要日子/纪念日信息：你输入的标题、日期、备注（如有）等，用于展示与计算“还有/已经”天数。"
+                        "• 重要日子/纪念日信息：你输入的标题、日期、备注等，用于展示与计算“还有/已经”天数。"
                       ),
                     ]
                   ),
@@ -6667,7 +6651,7 @@ var render = function () {
                     { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
                     [
                       _vm._v(
-                        "• 相机权限（可选）：当你选择拍摄图片并用于背景/封面等时使用。"
+                        "• 相机权限：当你选择拍摄图片并用于背景/封面等时使用。"
                       ),
                     ]
                   ),
@@ -6676,7 +6660,7 @@ var render = function () {
                     { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
                     [
                       _vm._v(
-                        "• 相册/存储权限（可选）：当你从相册选择图片用于背景/封面等时使用。"
+                        "• 相册/存储权限：当你从相册选择图片用于背景/封面等时使用。"
                       ),
                     ]
                   ),
@@ -7212,7 +7196,7 @@ var render = function () {
                 { staticClass: _vm._$g(4, "sc"), attrs: { _i: 4 } },
                 [
                   _vm._v(
-                    " 欢迎你使用“岁序”（以下简称“本应用”）。本《用户协议》（以下简称“本协议”）由你与本应用开发者（以下简称“我们”）共同订立。 你在使用本应用前应当仔细阅读并充分理解本协议全部条款。你点击“同意并继续”或实际使用本应用，即表示你已阅读并同意接受本协议的约束。 "
+                    " 欢迎你使用“岁序·Chrona”（以下简称“本应用”）。本《用户协议》（以下简称“本协议”）由你与本应用开发者（以下简称“我们”）共同订立。 你在使用本应用前应当仔细阅读并充分理解本协议全部条款。你点击“同意并继续”或实际使用本应用，即表示你已阅读并同意接受本协议的约束。 "
                   ),
                 ]
               ),
@@ -7230,7 +7214,7 @@ var render = function () {
                     { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
                     [
                       _vm._v(
-                        "1.1 本协议适用于你下载、安装、注册（如有）、登录（如有）及使用本应用提供的所有功能与服务。"
+                        "1.1 本协议适用于你下载、安装、注册、登录及使用本应用提供的所有功能与服务。"
                       ),
                     ]
                   ),
@@ -7283,7 +7267,7 @@ var render = function () {
                   _c(
                     "uni-view",
                     { staticClass: _vm._$g(14, "sc"), attrs: { _i: 14 } },
-                    [_vm._v("三、账号与设备（如适用）")]
+                    [_vm._v("三、账号与设备")]
                   ),
                   _c(
                     "uni-view",
@@ -11538,7 +11522,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../../Programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".page {\n  background: #fff;\n  min-height: 100vh;\n}\n.container {\n  padding: 24rpx;\n  box-sizing: border-box;\n}\n.card {\n  background: #ffffff;\n  border-radius: 32rpx;\n  padding: 28rpx 26rpx;\n  box-sizing: border-box;\n  box-shadow: 0 12rpx 30rpx rgba(0, 0, 0, 0.06);\n}\n.title {\n  font-size: 40rpx;\n  font-weight: 800;\n  color: #222;\n  margin-bottom: 18rpx;\n}\n.desc,\n.desc2 {\n  font-size: 28rpx;\n  color: #444;\n  line-height: 46rpx;\n}\n.desc {\n  margin-bottom: 18rpx;\n}\n.section {\n  margin-top: 26rpx;\n}\n.section-title {\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #222;\n  margin-bottom: 14rpx;\n}\n.hint {\n  margin-top: 10rpx;\n  font-size: 24rpx;\n  color: #999;\n}\n\n/* 横向滚动容器 */\n.table-scroll {\n  width: 100%;\n  border-radius: 20rpx;\n  overflow: hidden;\n  border: 2rpx solid #f2f2f2;\n}\n\n/* 真表格：给一个最小宽度，手机上不会挤爆 */\n.table {\n  min-width: 980rpx; /* 关键：避免四列在窄屏硬挤 */\n  background: #fff;\n}\n\n/* 行 */\n.tr {\n  display: flex;\n  flex-direction: row;\n  border-bottom: 2rpx solid #f2f2f2;\n}\n\n/* 表头 */\n.tr.th {\n  background: rgba(255, 95, 146, 0.08);\n}\n.tr.th .td {\n  font-weight: 800;\n  color: #222;\n}\n\n/* 单元格 */\n.td {\n  padding: 18rpx 16rpx;\n  font-size: 26rpx;\n  line-height: 40rpx;\n  color: #333;\n  box-sizing: border-box;\n  border-right: 2rpx solid #f2f2f2;\n  word-break: break-all;\n}\n.tr .td:last-child {\n  border-right: none;\n}\n\n/* 列宽（固定，保证对齐） */\n.col1 { width: 220rpx;\n}\n.col2 { width: 260rpx;\n}\n.col3 { width: 220rpx;\n}\n.col4 { width: 280rpx;\n}\n\n/* 页脚 */\n.footer {\n  margin-top: 26rpx;\n  padding-top: 18rpx;\n  border-top: 2rpx solid #f2f2f2;\n  font-size: 24rpx;\n  color: #999;\n  line-height: 36rpx;\n}\n", ""]);
+exports.push([module.i, ".page {\n  /* background: #fff; */\n  min-height: 100vh;\n}\n.container {\n  padding: 24rpx;\n  box-sizing: border-box;\n}\n.card {\n  background: #ffffff;\n  border-radius: 32rpx;\n  padding: 28rpx 26rpx;\n  box-sizing: border-box;\n  box-shadow: 0 12rpx 30rpx rgba(0, 0, 0, 0.06);\n}\n.title {\n  font-size: 40rpx;\n  font-weight: 800;\n  color: #222;\n  margin-bottom: 18rpx;\n}\n.desc,\n.desc2 {\n  font-size: 28rpx;\n  color: #444;\n  line-height: 46rpx;\n}\n.desc {\n  margin-bottom: 18rpx;\n}\n.section {\n  margin-top: 26rpx;\n}\n.section-title {\n  font-size: 32rpx;\n  font-weight: 800;\n  color: #222;\n  margin-bottom: 14rpx;\n}\n.hint {\n  margin-top: 10rpx;\n  font-size: 24rpx;\n  color: #999;\n}\n\n/* 横向滚动容器 */\n.table-scroll {\n  width: 100%;\n  border-radius: 20rpx;\n  overflow: hidden;\n  border: 2rpx solid #f2f2f2;\n}\n\n/* 真表格：给一个最小宽度，手机上不会挤爆 */\n.table {\n  min-width: 980rpx; /* 关键：避免四列在窄屏硬挤 */\n  background: #fff;\n}\n\n/* 行 */\n.tr {\n  display: flex;\n  flex-direction: row;\n  border-bottom: 2rpx solid #f2f2f2;\n}\n\n/* 表头 */\n.tr.th {\n  background: rgba(255, 95, 146, 0.08);\n}\n.tr.th .td {\n  font-weight: 800;\n  color: #222;\n}\n\n/* 单元格 */\n.td {\n  padding: 18rpx 16rpx;\n  font-size: 26rpx;\n  line-height: 40rpx;\n  color: #333;\n  box-sizing: border-box;\n  border-right: 2rpx solid #f2f2f2;\n  word-break: break-all;\n}\n.tr .td:last-child {\n  border-right: none;\n}\n\n/* 列宽（固定，保证对齐） */\n.col1 { width: 220rpx;\n}\n.col2 { width: 260rpx;\n}\n.col3 { width: 220rpx;\n}\n.col4 { width: 280rpx;\n}\n\n/* 页脚 */\n.footer {\n  margin-top: 26rpx;\n  padding-top: 18rpx;\n  border-top: 2rpx solid #f2f2f2;\n  font-size: 24rpx;\n  color: #999;\n  line-height: 36rpx;\n}\n", ""]);
 // Exports
 module.exports = exports;
 

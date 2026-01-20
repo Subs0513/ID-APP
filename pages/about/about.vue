@@ -66,7 +66,7 @@
                 <text>ICP 小程序备案号 ：苏ICP备2025153648号-2X</text>
             </view>
             <view class="footer-text">
-                <text><text>ICP 应用备案号：还没下来</text></text>
+                <!-- <text><text>ICP 应用备案号：还没下来</text></text> -->
             </view>
 
             <!-- 底部安全区撑一下（用于全面屏底部） -->

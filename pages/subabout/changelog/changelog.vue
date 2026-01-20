@@ -41,7 +41,7 @@ export default {
 				    version: '0.1.3',
 				    desc: '局部优化',
 				    isLatest: true,
-				    items: ['“类型”弹窗优化']
+				    items: ['“类型”弹窗优化','解决了一些已知问题']
 				},
 				{
 				    version: '0.1.2',

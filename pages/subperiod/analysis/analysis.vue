@@ -1,17 +1,14 @@
 <template>
   <view class="page">
-   <view class="card">
+   <!-- <view class="card">
       <view class="header">
         <text class="title">经期健康分析</text>
-<!--        <text class="sub" v-if="hasData">基于已有记录生成（仅供参考）</text>
-        <text class="sub" v-else>暂无经期记录，先在日历里记录“月经来了”再回来看看</text> -->
       </view>
 	  <view class="header">
-	    <!-- <text class="title">经期健康分析</text> -->
 	    <text class="sub" v-if="hasData">基于已有记录生成（仅供参考）</text>
 	    <text class="sub" v-else>暂无经期记录，先在日历里记录“月经来了”再回来看看</text>
 	  </view>
-    </view>
+    </view> -->
 
     <view v-if="hasData">
       <!-- 1) 本周期概览 -->
@@ -121,30 +118,45 @@
 
       <!-- 5) 行为 -->
       <view class="card">
-		<!-- <view class="card-title" @tap="onGoLove()">
-		  <image class="card-title-icon" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
-		  <text class="card-title-text">行为与风险提示</text>
-		</view> -->
-		<view class="card-title card-title--with-right" @tap="onGoLove()">
-		  <view class="card-title-left">
-		    <image class="card-title-icon" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
-		    <text class="card-title-text">行为与风险提示</text>
-		  </view>
-		
-		  <image class="card-title-right-icon" src="/static/assets/icons/f_tz.svg" mode="aspectFit" />
-		</view>
-
-		
-		<!-- 本周期"爱爱次数"记录 -->
-        <view class="p">{{ sexSummaryText }}</view>
-        <view class="p">{{ sexFertileText }}</view>
-        <view class="p">{{ sexUnprotectedText }}</view>
-		<!-- 上一周期"爱爱次数"记录 -->
-		<view class="p">{{ sexPrevSummaryText }}</view>
-		<view class="p">{{ sexPrevFertileText }}</view>
-		<view class="p">{{ sexPrevUnprotectedText }}</view>
-
+        <view class="card-title card-title--with-right" @tap="onGoLove()">
+          <view class="card-title-left">
+            <image class="card-title-icon" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
+            <text class="card-title-text">行为与风险提示</text>
+          </view>
+          <image class="card-title-right-icon" src="/static/assets/icons/f_tz.svg" mode="aspectFit" />
+        </view>
+      
+        <!-- 顶部一行：本周期次数 + 怀孕几率 -->
+        <view class="sex-topline">
+          <view class="sex-topitem">
+            <text class="sex-toplabel">本周期爱爱</text>
+            <text class="sex-topvalue">{{ sexCycleTotal }}</text>
+            <text class="sex-topunit">次</text>
+          </view>
+          <!-- <view class="sex-topitem">
+            <text class="sex-toplabel">怀孕几率</text>
+            <text class="sex-topvalue">{{ sexPregRateText }}</text>
+          </view> -->
+        </view>
+      
+        <!-- 双柱状图：粉色=本周期，灰色=上周期 -->
+        <view class="sex-chart">
+          <view class="sex-group" v-for="(it, idx) in sexPhaseBars" :key="idx">
+            <view class="sex-cols">
+              <view class="sex-col">
+                <text class="sex-num">{{ it.cur }}</text>
+                <view class="sex-bar sex-bar--cur" :style="'height:' + it.curPct + '%'"></view>
+              </view>
+              <view class="sex-col">
+                <text class="sex-num">{{ it.prev }}</text>
+                <view class="sex-bar sex-bar--prev" :style="'height:' + it.prevPct + '%'"></view>
+              </view>
+            </view>
+            <text class="sex-xlabel">{{ it.label }}</text>
+          </view>
+        </view>
       </view>
+
     </view>
 
     <!-- 6) 体重趋势：无论是否记录月经，都显示；保留跳转 -->
@@ -347,7 +359,8 @@ function predictNext(recentStart, recentCycleLen, settings) {
   const ovulationDay = addDaysStr(nextStart, -lutealDays);
   const fertileStart = addDaysStr(ovulationDay, -5);
   const fertileEnd = addDaysStr(ovulationDay, 1);
-  return { nextStart, ovulationDay, fertileRangeText: formatRangeCN(fertileStart, fertileEnd) };
+  // return { nextStart, ovulationDay, fertileRangeText: formatRangeCN(fertileStart, fertileEnd) };
+  return { nextStart, ovulationDay, fertileStart, fertileEnd, fertileRangeText: formatRangeCN(fertileStart, fertileEnd) };
 }
 
 // 痛经记录
@@ -480,6 +493,77 @@ function buildSexTexts(store, rangeStart, rangeEnd, ovulationDay) {
   };
 }
 
+/**
+ * 统计爱爱次数：按「月经期 / 排卵期 / 其他时间」归类；同时统计“未记录/未避孕”次数，用于风险估算。
+ * 注意：为了和旧逻辑一致：
+ * - sexRecords[ds] 里每条算 1 次
+ * - sexDates 里若当天没有详细条目，则当天按 1 次（视为未记录避孕方式）
+ */
+function buildSexPhaseCounts(store, rangeStart, rangeEnd, periodStart, periodEnd, fertileStart, fertileEnd) {
+  const sexRecords = store.sexRecords || {};
+  const sexDates = Array.isArray(store.sexDates) ? store.sexDates : [];
+  const unprotectedRe = /(无|不避孕|未避孕|不使用|没用)/;
+
+  function inRange(ds, a, b) { return ds && a && b && ds >= a && ds <= b; }
+  function bucketOf(ds) {
+    if (periodStart && periodEnd && inRange(ds, periodStart, periodEnd)) return 'period';
+    if (fertileStart && fertileEnd && inRange(ds, fertileStart, fertileEnd)) return 'ovulation';
+    return 'other';
+  }
+
+  const out = {
+    period: { total: 0, unprotected: 0 },
+    ovulation: { total: 0, unprotected: 0 },
+    other: { total: 0, unprotected: 0 }
+  };
+
+  // 1) 详细记录
+  Object.keys(sexRecords).forEach((ds) => {
+    if (!inRange(ds, rangeStart, rangeEnd)) return;
+    const list = Array.isArray(sexRecords[ds]) ? sexRecords[ds] : [];
+    if (!list.length) return;
+
+    const key = bucketOf(ds);
+    out[key].total += list.length;
+
+    list.forEach((it) => {
+      const m = (it && it.method) ? String(it.method).trim() : '';
+      if (!m || unprotectedRe.test(m)) out[key].unprotected += 1;
+    });
+  });
+
+  // 2) 兜底：只有小心心日期但没详细条目时，当天按 1 次（并计为未记录避孕方式）
+  sexDates.forEach((ds) => {
+    if (!inRange(ds, rangeStart, rangeEnd)) return;
+    const list = Array.isArray(sexRecords[ds]) ? sexRecords[ds] : [];
+    if (list.length) return;
+    const key = bucketOf(ds);
+    out[key].total += 1;
+    out[key].unprotected += 1;
+  });
+
+  return out;
+}
+
+// 简单风险估算：只做“提示”，不做医学承诺；系数后续可调
+function estimatePregnancyRatePct(curPhaseCounts) {
+  if (!curPhaseCounts) return 0;
+  const p = curPhaseCounts.period || { total: 0, unprotected: 0 };
+  const o = curPhaseCounts.ovulation || { total: 0, unprotected: 0 };
+  const other = curPhaseCounts.other || { total: 0, unprotected: 0 };
+
+  const totalAll = (p.total || 0) + (o.total || 0) + (other.total || 0);
+  if (!totalAll) return 0;
+
+  let risk = 0;
+  risk += (o.unprotected || 0) * 8;
+  risk += (o.total || 0) * 2;
+  risk += (other.unprotected || 0) * 1;
+
+  return clamp(risk, 0, 45);
+}
+
+
 export default {
   data() {
     return {
@@ -506,6 +590,11 @@ export default {
 	  sexPrevSummaryText: '',
 	  sexPrevFertileText: '',
 	  sexPrevUnprotectedText: '',
+	  // 新UI：顶部汇总 + 柱状图
+	  sexCycleTotal: 0,
+	  sexPregRateText: '0.0%',
+	  // [{ label: '月经期', cur: 0, prev: 0, curPct: 0, prevPct: 0 }]
+	  sexPhaseBars: [],
 
 
       // 体重 7 天
@@ -575,6 +664,11 @@ export default {
 		  sexPrevSummaryText: '',
 		  sexPrevFertileText: '',
 		  sexPrevUnprotectedText: '',
+		  
+		  sexCycleTotal: 0,
+		  sexPregRateText: '0.0%',
+		  sexPhaseBars: [],
+
 
         });
         return;
@@ -603,23 +697,86 @@ export default {
 	  
 	  // 上一周期：start = 前一次经期开始；end = 本次开始前一天
 	  let prevSex = { summary: '上一周期数据不足', fertile: '', unprotected: '' };
+	  
+	  // === 新UI：按阶段统计（本周期 vs 上周期） ===
+	  // 本周期：月经期范围（latestStart ~ latestEnd），排卵期范围（pred.fertileStart ~ pred.fertileEnd）
+	  const curPhaseCounts = buildSexPhaseCounts(
+	    store,
+	    latestStart,
+	    thisCycleEnd,
+	    latestStart,
+	    latestEnd,
+	    pred.fertileStart,
+	    pred.fertileEnd
+	  );
+	  
+	  // 上一周期：需要上一条经期记录的「经期窗口」
+	  let prevPhaseCounts = {
+	    period: { total: 0, unprotected: 0 },
+	    ovulation: { total: 0, unprotected: 0 },
+	    other: { total: 0, unprotected: 0 }
+	  };
 	  const startsAsc = (recordsAsc || []).map(r => r.start).filter(Boolean).sort();
 	  if (startsAsc.length >= 2) {
-	    const prevStart = startsAsc[startsAsc.length - 2];
+	    const prevRecord = recordsAsc[recordsAsc.length - 2];
+	    const prevWindow = getLatestPeriodWindow(prevRecord, settings);
+	    const prevStart = prevWindow.start;
+	    const prevPeriodEnd = prevWindow.end;
 	    const prevEnd = addDaysStr(latestStart, -1);
 	    const prevCycleLen = diffDays(prevStart, latestStart);
 	    const prevPred = predictNext(prevStart, prevCycleLen, settings);
-	    prevSex = buildSexTexts(store, prevStart, prevEnd, prevPred.ovulationDay);
 	  
-	    // 给上一周期文案加前缀，避免和本周期混淆
-	    // prevSex.summary = `上一周期：${prevSex.summary.replace('本周期', '')}`.replace('记录爱爱', '记录爱爱');
-	    // prevSex.fertile = prevSex.fertile ? `上一周期：${prevSex.fertile}` : '';
-	    // prevSex.unprotected = prevSex.unprotected ? `上一周期：${prevSex.unprotected}` : '';
-		prevSex.summary = `上一周期：${prevSex.summary}`;
-		prevSex.fertile = prevSex.fertile ? `上一周期：${prevSex.fertile}` : '';
-		prevSex.unprotected = prevSex.unprotected ? `上一周期：${prevSex.unprotected}` : '';
-
+	    prevPhaseCounts = buildSexPhaseCounts(
+	      store,
+	      prevStart,
+	      prevEnd,
+	      prevStart,
+	      prevPeriodEnd,
+	      prevPred.fertileStart,
+	      prevPred.fertileEnd
+	    );
 	  }
+	  
+	  // 柱状图数据 + 百分比高度
+	  const chart = [
+	    { label: '月经期', cur: curPhaseCounts.period.total, prev: prevPhaseCounts.period.total },
+	    { label: '排卵期', cur: curPhaseCounts.ovulation.total, prev: prevPhaseCounts.ovulation.total },
+	    { label: '其他时间', cur: curPhaseCounts.other.total, prev: prevPhaseCounts.other.total }
+	  ];
+	  const maxVal = Math.max(0, ...chart.map(x => x.cur), ...chart.map(x => x.prev));
+	  const denom = maxVal > 0 ? maxVal : 1;
+	  
+	  const withPct = chart.map((it) => {
+	    const curPct0 = Math.round((it.cur / denom) * 100);
+	    const prevPct0 = Math.round((it.prev / denom) * 100);
+	    // 视觉：非 0 最低给一点高度，避免“1次”看不见
+	    const curPct = it.cur > 0 ? Math.max(10, curPct0) : 0;
+	    const prevPct = it.prev > 0 ? Math.max(10, prevPct0) : 0;
+	    return { ...it, curPct, prevPct };
+	  });
+	  
+	  const sexCycleTotal = chart.reduce((s, x) => s + (x.cur || 0), 0);
+	  const riskPct = estimatePregnancyRatePct(curPhaseCounts);
+	  const sexPregRateText = `${riskPct.toFixed(1)}%`;
+
+	  
+	 //  const startsAsc = (recordsAsc || []).map(r => r.start).filter(Boolean).sort();
+	 //  if (startsAsc.length >= 2) {
+	 //    const prevStart = startsAsc[startsAsc.length - 2];
+	 //    const prevEnd = addDaysStr(latestStart, -1);
+	 //    const prevCycleLen = diffDays(prevStart, latestStart);
+	 //    const prevPred = predictNext(prevStart, prevCycleLen, settings);
+	 //    prevSex = buildSexTexts(store, prevStart, prevEnd, prevPred.ovulationDay);
+	  
+	 //    // 给上一周期文案加前缀，避免和本周期混淆
+	 //    // prevSex.summary = `上一周期：${prevSex.summary.replace('本周期', '')}`.replace('记录爱爱', '记录爱爱');
+	 //    // prevSex.fertile = prevSex.fertile ? `上一周期：${prevSex.fertile}` : '';
+	 //    // prevSex.unprotected = prevSex.unprotected ? `上一周期：${prevSex.unprotected}` : '';
+		// prevSex.summary = `上一周期：${prevSex.summary}`;
+		// prevSex.fertile = prevSex.fertile ? `上一周期：${prevSex.fertile}` : '';
+		// prevSex.unprotected = prevSex.unprotected ? `上一周期：${prevSex.unprotected}` : '';
+
+	 //  }
 
 
       // const cycleChange = buildCycleChangeCard(recordsAsc, settings);
@@ -659,8 +816,11 @@ export default {
 
 		sexPrevSummaryText: prevSex.summary,
 		sexPrevFertileText: prevSex.fertile,
-		sexPrevUnprotectedText: prevSex.unprotected
+		sexPrevUnprotectedText: prevSex.unprotected,
 
+		sexCycleTotal,
+		sexPregRateText,
+		sexPhaseBars: withPct,
 
       });
     },

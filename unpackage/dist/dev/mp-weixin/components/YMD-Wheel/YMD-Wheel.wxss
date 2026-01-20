@@ -1,0 +1,98 @@
+/* 遮罩 */
+.dw-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 9999;
+}
+/* 底部弹层 */
+.dw-sheet {
+  width: 100%;
+  background: #ffffff;
+  border-top-left-radius: 28rpx;
+  border-top-right-radius: 28rpx;
+  overflow: hidden;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+/* 顶部栏 */
+.dw-top {
+  height: 112rpx;
+  padding: 0 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.dw-btn {
+  font-size: 30rpx;
+  color: #666;
+  padding: 16rpx 8rpx;
+}
+.dw-ok {
+  color: #ff4d8d; /* 你常用的粉色系，后面你要统一主题也方便改 */
+  font-weight: 600;
+}
+/* 中间标题区 */
+.dw-mid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}
+.dw-subtitle {
+  font-size: 22rpx;
+  color: #999;
+  margin-bottom: 6rpx;
+}
+.dw-title {
+  font-size: 30rpx;
+  color: #111;
+  font-weight: 600;
+}
+/* picker 区 */
+.dw-body {
+  position: relative;
+  height: 520rpx;
+  padding: 0;
+}
+.dw-picker {
+  height: 520rpx;
+  width: 100%;
+}
+/* 每一行 */
+.dw-item {
+  height: 96rpx; /* 和 indicatorHeightRpx 默认保持一致 */
+  line-height: 96rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #888;
+}
+/* 选中行文字更醒目 */
+.dw-item-active {
+  color: #222;
+  font-weight: 600;
+}
+/* 中间高亮框（不依赖系统 indicator 背景） */
+.dw-indicator {
+  position: absolute;
+  left: 32rpx;
+  right: 32rpx;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  height: 96rpx;          /* 这里要和 item / indicator-style 一致 */
+  border-radius: 18rpx;
+  background: rgba(255, 77, 141, 0.10);
+  border: 1px solid rgba(255, 77, 141, 0.18);
+  box-sizing: border-box; /* ✅ 加上它，底部凸出通常就没了 */
+  pointer-events: none;
+}
+

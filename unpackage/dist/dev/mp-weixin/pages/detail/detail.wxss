@@ -1,0 +1,266 @@
+/* pages/detail/detail.css
+ * 说明：
+ * - 这份样式只保留“当前 detail.vue 实际用到的 class”
+ * - 删除了旧版/重设计遗留（例如 .detail-page/.hero-inline 等未被使用的选择器）
+ * - 不定义按钮配色（btn/btn-danger/btn-secondary 等），避免覆盖你全局的按钮样式
+ */
+
+/* ====== 重新设计：只动布局和视觉，不动按钮样式 ====== */
+.detail-page {
+  background: #fff0f5;
+  min-height: 100vh;
+  padding: 32rpx 0;
+  box-sizing: border-box;
+}
+.detail-big-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景图可读性遮罩（无论是否有背景图都生效，强度很轻） */
+.card-bg-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* 内容在遮罩之上 */
+.card-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 顶部信息更紧凑 */
+.top-info .title {
+  font-size: 56rpx;
+  font-weight: 800;
+  color: #222;
+  display: block;
+  margin-bottom: 16rpx;
+}
+.meta-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.meta-label {
+  color: #9aa0a6;
+  font-size: 30rpx;
+  width: 120rpx;
+  flex: 0 0 120rpx;
+}
+.meta-value {
+  color: #222;
+  font-size: 36rpx;
+  font-weight: 600;
+}
+
+/* 倒计时：数字主角 */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8rpx 0;
+}
+.hero-left {
+  flex: 1;
+  padding-right: 16rpx;
+}
+.hero-label {
+  font-size: 48rpx;
+  font-weight: 800;
+  color: #222;
+  display: block;
+  margin-bottom: 6rpx;
+}
+.hero-sub {
+  font-size: 30rpx;
+  color: #9aa0a6;
+}
+.hero-right {
+  flex: 0 0 auto;
+}
+.hero-inline {
+  display: flex;
+  align-items: baseline; /* 基线对齐，确保“0 days”真正在一行 */
+  justify-content: flex-end;
+  gap: 12rpx;
+}
+.hero-number {
+  font-size: 120rpx; /* 主题数字 */
+  line-height: 1;
+  font-weight: 900;
+  color: #222;
+}
+.hero-unit {
+  font-size: 34rpx;
+  color: #9aa0a6;
+  font-weight: 600;
+}
+
+/* 让底部按钮更贴合卡片内边距（不改按钮样式本身） */
+.in-card-actions {
+  margin-top: 8rpx;
+}
+
+/* ========== 页面背景与居中布局 ========== */
+.container {
+  min-height: 100vh;
+  background: #fff0f5;           /* 页面淡粉背景 */
+  padding: 32rpx 0;              /* 上下留白，让大卡片不贴边 */
+  box-sizing: border-box;
+}
+.center-wrapper {
+  display: flex;
+  justify-content: center;       /* 水平居中大卡片 */
+}
+
+/* ========== 大卡片 ========== */
+.big-card {
+  width: 92%;
+  max-width: 680rpx;             /* 大屏不拉太宽 */
+  background: #fff;              /* 白色卡片 */
+  border-radius: 28rpx;
+  padding: 28rpx;
+  box-sizing: border-box;
+  box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.06); /* 轻阴影 */
+  overflow: hidden;              /* 防止内部元素溢出 */
+}
+
+/* ========== 模块分区 ========== */
+.section {
+  /* 预留：统一 section 的间距 */
+}
+.section-detail {
+  /* 顶部“标题/日期/类型”信息区 */
+}
+.section-hero {
+  /* 倒计时主视觉区域（数字为主题） */
+  margin-top: 22rpx;
+}
+
+/* 分隔线 */
+.divider {
+  height: 2rpx;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 22rpx 0;
+}
+
+/* ========== 顶部信息（标题 + 标签） ========== */
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+.detail-title {
+  font-size: 52rpx;
+  font-weight: 800;
+  color: #222;
+  line-height: 1.15;
+  flex: 1;
+  min-width: 0;                  /* 防止超长标题撑破布局 */
+  word-break: break-all;
+}
+.tag {
+  font-size: 26rpx;
+  padding: 10rpx 16rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 77, 109, 0.12);
+  color: #ff4d6d;
+  white-space: nowrap;
+}
+
+/* ========== 详情字段（日期/类型） ========== */
+.meta {
+  margin-top: 16rpx;
+}
+.meta-row {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.meta-label {
+  color: #9aa0a6;
+  font-size: 30rpx;
+  width: 120rpx;
+  flex: 0 0 120rpx;
+}
+.meta-value {
+  color: #222;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+/* ========== 提示文案（就是今天/别忘了...） ========== */
+.note {
+  margin-top: 10rpx;
+}
+.note-title {
+  font-size: 46rpx;
+  font-weight: 800;
+  color: #222;
+  line-height: 1.2;
+}
+.note-text {
+  margin-top: 8rpx;
+  font-size: 30rpx;
+  color: #9aa0a6;
+}
+
+/* ========== 倒计时主视觉：左文案 + 右数字 ========== */
+.hero-left {
+  margin-top: 10rpx;
+}
+.hero-label {
+  font-size: 28rpx;
+  color: #9aa0a6;
+}
+.hero-sub {
+  font-size: 28rpx;
+  color: #9aa0a6;
+  margin-top: 6rpx;
+}
+.hero-right {
+  /* 右侧数字靠右、居中对齐（配合容器 flex） */
+  display: flex;
+  align-items: baseline;         /* 数字与单位基线对齐 */
+  justify-content: flex-end;
+  gap: 10rpx;
+  margin-top: 10rpx;
+}
+.hero-number {
+  font-size: 120rpx;             /* 数字主角 */
+  font-weight: 900;
+  color: #222;
+  line-height: 1;
+}
+.hero-unit {
+  font-size: 40rpx;
+  color: #9aa0a6;
+  line-height: 1;
+}
+
+/* ========== 操作按钮区域（不改按钮本身颜色） ========== */
+.actions {
+  margin-top: 24rpx;
+}
+
+/* 让按钮区在大卡片里看起来更“贴合” */
+.in-card-actions {
+  display: flex;
+  gap: 20rpx;
+}
+
+/* 只控制按钮尺寸/布局，不控制颜色 */
+.action-btn {
+  flex: 1;
+  height: 96rpx;
+  border-radius: 18rpx;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+

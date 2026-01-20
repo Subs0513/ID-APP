@@ -1,0 +1,109 @@
+.page {
+  background: #fff;
+  min-height: 100vh;
+}
+.container {
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.card {
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 28rpx 26rpx;
+  box-sizing: border-box;
+  box-shadow: 0 12rpx 30rpx rgba(0, 0, 0, 0.06);
+}
+.title {
+  font-size: 40rpx;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 18rpx;
+}
+.desc,
+.desc2 {
+  font-size: 28rpx;
+  color: #444;
+  line-height: 46rpx;
+}
+.desc {
+  margin-bottom: 18rpx;
+}
+.section {
+  margin-top: 26rpx;
+}
+.section-title {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 14rpx;
+}
+.hint {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 横向滚动容器 */
+.table-scroll {
+  width: 100%;
+  border-radius: 20rpx;
+  overflow: hidden;
+  border: 2rpx solid #f2f2f2;
+}
+
+/* 真表格：给一个最小宽度，手机上不会挤爆 */
+.table {
+  min-width: 980rpx; /* 关键：避免四列在窄屏硬挤 */
+  background: #fff;
+}
+
+/* 行 */
+.tr {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+
+/* 表头 */
+.tr.th {
+  background: rgba(255, 95, 146, 0.08);
+}
+.tr.th .td {
+  font-weight: 800;
+  color: #222;
+}
+
+/* 单元格 */
+.td {
+  padding: 18rpx 16rpx;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: #333;
+  box-sizing: border-box;
+  border-right: 2rpx solid #f2f2f2;
+  word-break: break-all;
+}
+.tr .td:last-child {
+  border-right: none;
+}
+
+/* 列宽（固定，保证对齐） */
+.col1 { width: 220rpx;
+}
+.col2 { width: 260rpx;
+}
+.col3 { width: 220rpx;
+}
+.col4 { width: 280rpx;
+}
+
+/* 页脚 */
+.footer {
+  margin-top: 26rpx;
+  padding-top: 18rpx;
+  border-top: 2rpx solid #f2f2f2;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 36rpx;
+}
+

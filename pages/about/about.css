@@ -1,6 +1,21 @@
-.about-page {
-    min-height: 100vh;
+/*
+  方案A：用 flex 布局把 footer 放进文档流
+  - 页面不会被 padding-bottom 人为撑高
+  - 只有内容真正超过一屏才会滚动
+*/
+
+.about-root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
     /* background-color: #f7f7f7; */
+}
+
+/* 内容区占满剩余高度；内容过长才滚动 */
+.about-content {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding-top: 60rpx;
 }
 
@@ -77,24 +92,10 @@
     margin-right: 10rpx;
 }
 
-/* 让页面底部留出空间，避免内容被 footer 盖住 */
-.page,
-.container,
-.about-page {
-    padding-bottom: 180rpx; /* 你可以按实际高度微调：160~220rpx */
-}
-
-/* 底部版权区：固定到底部、居中、灰色小字 */
+/* 底部版权区：放在文档流里、居中、灰色小字 */
 .about-footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
     padding: 18rpx 24rpx 10rpx;
     text-align: center;
-
-    /* 贴近图二：白底 + 稍微透一点/可不加 */
 }
 
 /* 蓝色链接那一行 */

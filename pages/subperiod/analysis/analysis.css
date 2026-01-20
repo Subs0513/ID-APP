@@ -222,7 +222,7 @@
   display: flex;
   align-items: center;
 
-  /* ✅ 关键：让文字固定定位在容器内部 */
+  /* 关键：让文字固定定位在容器内部 */
   position: relative;
 }
 
@@ -243,6 +243,112 @@
   white-space: nowrap;
   text-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.12);
 }
+
+/* ====== 行为与风险提示（顶部汇总 + 双柱状图）====== */
+.sex-topline {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10rpx 4rpx 6rpx;
+  border-radius: 18rpx;
+  background: #fff6f9;
+}
+.sex-topitem {
+  display: flex;
+  align-items: baseline;
+}
+.sex-toplabel {
+  font-size: 24rpx;
+  color: #666;
+  margin-right: 10rpx;
+}
+.sex-topvalue {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: #222;
+  line-height: 1;
+}
+.sex-topunit {
+  font-size: 26rpx;
+  color: #666;
+  margin-left: 10rpx;
+}
+
+.sex-chart {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18rpx;
+  padding: 8rpx 0 2rpx;
+}
+.sex-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sex-cols {
+  width: 100%;
+  height: 220rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 18rpx;
+  position: relative;
+}
+.sex-chart {
+  position: relative; /* 关键：给伪元素定位 */
+  padding-bottom: 10rpx; /* 给横线留位置 */
+}
+
+/* 公共横线（贯穿三组） */
+.sex-chart::after {
+  content: '';
+  position: absolute;
+  left: 24rpx;
+  right: 24rpx;
+  /* 数字越大 → 线越往上
+  数字越小 → 线越往下 */
+  bottom: 50rpx;       /* 让线刚好在文字上方 */
+  height: 2rpx;
+  background: #cacaca; /* 比之前深一点，更清晰 */
+  border-radius: 2rpx;
+}
+
+
+.sex-col {
+  width: 62rpx;
+  height: 220rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.sex-num {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 1;
+  margin-bottom: 10rpx;
+}
+.sex-bar {
+  width: 100%;
+  border-radius: 18rpx;
+}
+.sex-bar--cur {
+  background: linear-gradient(180deg, #ff79a6 0%, #ff5e98 100%);
+}
+.sex-bar--prev {
+  background: #e9e9e9;
+}
+.sex-xlabel {
+  margin-top: 16rpx;   /* 让文字离线更远一点 */
+  font-size: 26rpx;    /* 稍微大一点 */
+  font-weight: 600;    /* 更清晰 */
+  color: #666;         /* 深一点，避免看不清 */
+  line-height: 1.2;
+}
+
+
+
 
 /* =========================
    体重趋势（基础样式，避免 canvas 塌陷）

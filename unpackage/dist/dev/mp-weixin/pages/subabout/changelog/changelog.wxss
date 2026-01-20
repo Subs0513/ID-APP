@@ -1,0 +1,99 @@
+.page {
+    min-height: 100vh;
+    /* background-color: #f7f7f7; */
+    padding: 32rpx 24rpx 0;
+}
+
+/* 头部白色卡片 */
+.header-card {
+    background-color: #fff;
+    border-radius: 24rpx;
+    padding: 28rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+.title {
+    font-size: 40rpx;
+    font-weight: 700;
+    color: #222;
+}
+.subtitle {
+    display: block;
+    margin-top: 8rpx;
+    font-size: 26rpx;
+    color: #999;
+}
+
+/* 大卡片 */
+.card {
+    background-color: #fff;
+    border-radius: 24rpx;
+    padding: 28rpx 28rpx 12rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 每个版本块 */
+.version-block {
+    padding: 20rpx 0;
+}
+.version-block:not(:last-child) {
+    border-bottom: 1rpx solid #eee;
+}
+
+/* 版本行 */
+.version-row {
+    display: flex;
+    align-items: baseline;
+    /* gap: 16rpx; */
+    margin-bottom: 12rpx;
+}
+.version {
+    font-size: 32rpx;
+    font-weight: 700;
+    color: #333;
+}
+.desc {
+    font-size: 26rpx;
+    color: #999;
+}
+.ver-left {
+    display: flex;
+    align-items: baseline;
+    gap: 16rpx;
+}
+.new-tag {
+    font-size: 20rpx;
+    font-weight: 700;
+    padding: 4rpx 12rpx;
+    border-radius: 999rpx;
+    background-color: #ff4d6d;
+    color: #fff;
+    line-height: 1.2;
+    -webkit-transform: translateY(-4rpx);
+            transform: translateY(-4rpx);
+}
+
+/* 更新项 */
+.items {
+    padding-left: 8rpx;
+}
+.item {
+    display: flex;
+    align-items: flex-start;
+    margin: 6rpx 0;
+}
+.dot {
+    margin-right: 10rpx;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #ff4d6d;
+}
+.text {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #444;
+}
+.footer-space {
+    height: 40rpx;
+}
+

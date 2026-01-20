@@ -1,0 +1,120 @@
+.about-page {
+    min-height: 100vh;
+    /* background-color: #f7f7f7; */
+    padding-top: 60rpx;
+}
+
+/* 顶部 App 信息 */
+.app-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40rpx;
+}
+.app-logo {
+    width: 160rpx;
+    height: 160rpx;
+    margin-bottom: 16rpx;
+}
+
+/* 版本号字体 */
+.app-version {
+    font-size: 26rpx;
+    color: #000000;
+}
+
+/* 卡片 */
+.card {
+    margin: 0 32rpx;
+    background-color: #fff;
+    border-radius: 24rpx;
+    overflow: hidden;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+.card-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32rpx;
+}
+
+/* 点击态（变浅） */
+.card-item-active {
+    background-color: #f3f3f3;
+    border-radius: 20rpx;
+}
+
+/* 左侧 */
+.left {
+    display: flex;
+    align-items: center;
+}
+.item-icon {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 24rpx;
+}
+.item-text {
+    font-size: 30rpx;
+    color: #333;
+}
+
+/* 右侧箭头 */
+.arrow {
+    font-size: 42rpx;
+    color: #ccc;
+}
+
+/* 分割线 */
+.divider {
+    height: 1rpx;
+    background-color: #eee;
+    margin-left: 10rpx;
+    margin-right: 10rpx;
+}
+
+/* 让页面底部留出空间，避免内容被 footer 盖住 */
+.page,
+.container,
+.about-page {
+    padding-bottom: 180rpx; /* 你可以按实际高度微调：160~220rpx */
+}
+
+/* 底部版权区：固定到底部、居中、灰色小字 */
+.about-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 18rpx 24rpx 10rpx;
+    text-align: center;
+
+    /* 贴近图二：白底 + 稍微透一点/可不加 */
+}
+
+/* 蓝色链接那一行 */
+.footer-links {
+    font-size: 26rpx;
+    line-height: 36rpx;
+    margin-bottom: 10rpx;
+}
+.footer-link {
+    color: #3b7cff; /* 微信常见蓝 */
+}
+.footer-sep {
+    color: #3b7cff;
+}
+
+/* 灰色版权/备案 */
+.footer-text {
+    font-size: 22rpx;
+    line-height: 32rpx;
+    color: #9aa0a6;
+}
+
+/* 安全区撑高（可选） */
+.safe-spacer {
+    height: env(safe-area-inset-bottom);
+}
+

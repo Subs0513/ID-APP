@@ -1,0 +1,432 @@
+/* =========================
+   ✅ 页面整体：scroll-view 容器
+   ========================= */
+.page {
+    height: 100vh;
+    padding: 20rpx; /* 页面内边距 */
+    box-sizing: border-box; /* 计算宽高包含 padding */
+}
+.content {
+    padding-bottom: calc(40rpx + env(safe-area-inset-bottom));
+}
+/* =========================
+     ✅ 顶部 Header：月份 + 翻月 + 回到今天
+     ========================= */
+.cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10rpx 0 16rpx;
+}
+.nav-btn {
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 20rpx;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44rpx;
+    color: #333;
+    box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.06);
+}
+.header-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16rpx;
+}
+.ym-text {
+    font-size: 34rpx;
+    font-weight: 700;
+    color: #111;
+}
+.today-btn {
+    padding: 10rpx 18rpx;
+    border-radius: 18rpx;
+    background: #ff96b9;
+    color: #ffffff;
+    font-size: 24rpx;
+}
+/* =========================
+     ✅ 星期栏
+     ========================= */
+.week-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10rpx;
+    margin: 6rpx 0 10rpx;
+}
+.week-item {
+    text-align: center;
+    font-size: 24rpx;
+    color: #888;
+}
+/* =========================
+   ✅ 日历翻页动画容器
+   说明：
+   - cal-track 宽度 200%，包含两屏（当前月 + 目标月）
+   - translateX 0% 显示第一屏；translateX -50% 显示第二屏
+   ========================= */
+.cal-swipe {
+    overflow: hidden; /* 裁切滑动过程 */
+}
+.cal-track {
+    width: 200%;
+    display: flex;
+    will-change: transform;
+}
+.cal-track.no-anim {
+  transition: none !important;
+}
+.cal-pane {
+    width: 50%; /* 200% 里的半屏 = 1 屏 */
+    padding: 0;
+    box-sizing: border-box;
+}
+/* =========================
+     ✅ 日历网格
+     ========================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10rpx;
+    background: #ffffff;
+    border-radius: 26rpx;
+    padding: 14rpx;
+    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);
+}
+.cell {
+    height: 92rpx;
+    border-radius: 18rpx;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.top-mark {
+    position: absolute;
+    top: 6rpx;
+    height: 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8rpx;
+}
+.heart {
+    font-size: 22rpx;
+    color: #ffffff;
+    -webkit-text-stroke: 2rpx #ff4d6d;
+    line-height: 1;
+}
+.cell.period .heart {
+    color: transparent;
+    -webkit-text-stroke: 2rpx #ffffff;
+}
+.cell.today .heart {
+    position: relative;
+    top: -3rpx;
+}
+.cell.today .num {
+    position: relative;
+    top: 4rpx;
+}
+.ovu-dot {
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 50%;
+    background: #8b5cf6;
+}
+.num {
+    font-size: 30rpx;
+    color: #222;
+    font-weight: 600;
+}
+.today-tag {
+    margin-top: 2rpx;
+    font-size: 20rpx;
+    color: #ff4d6d;
+}
+.selected {
+    border: 4rpx solid #1e90ff;
+}
+.other {
+    opacity: 0.28;
+}
+/* =========================
+     ✅ 业务展示：月经/预测/排卵期
+     ========================= */
+.period {
+    background: #ff4d6d;
+}
+.period .num {
+    color: #fff;
+}
+.period .today-tag {
+    color: #fff;
+}
+.pred {
+    background: #ffd1dc;
+}
+.pred .num {
+    color: #fff;
+}
+.ovulation {
+    background: #efe7ff7f;
+}
+.ovulation .num {
+    color: #8b5cf6;
+}
+.legend {
+    margin: 16rpx 6rpx 0;
+    display: flex;
+    align-items: center;
+    gap: 18rpx;
+    flex-wrap: wrap;
+    color: #666;
+    font-size: 22rpx;
+}
+.leg-item {
+    display: flex;
+    align-items: center;
+    gap: 8rpx;
+}
+.box {
+    width: 26rpx;
+    height: 18rpx;
+    border-radius: 6rpx;
+}
+.b-period {
+    background: #ff4d6d;
+}
+.b-pred {
+    background: #ffd1dc;
+}
+.b-ovu {
+    background: #e9e0fc;
+}
+.dot {
+    width: 14rpx;
+    height: 14rpx;
+    border-radius: 50%;
+    background: #8b5cf6;
+}
+/* =========================
+     ✅ 下方操作区 Panel
+     ========================= */
+.panel {
+    margin-top: 18rpx;
+    background: #ffffff;
+    border-radius: 26rpx;
+    overflow: hidden;
+    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 26rpx 22rpx;
+    border-bottom: 1rpx solid #f1f1f1;
+}
+.row:last-child {
+    border-bottom: none;
+}
+.row-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.row-title {
+    font-size: 34rpx;
+    color: #111;
+    font-weight: 650;
+}
+.row-right {
+    display: flex;
+    align-items: center;
+}
+.row-value {
+    font-size: 32rpx;
+    color: #ff4d6d;
+    margin-right: 16rpx;
+    display: flex;
+    align-items: center;
+}
+.note-preview {
+    font-size: 26rpx;
+    color: #666;
+}
+.tappable:active {
+    background: #fafafa;
+}
+.picker-wrap {
+    display: block;
+}
+.cell:has(.today-tag) .num {
+    font-size: 26rpx;
+    position: relative;
+    top: 6rpx;
+}
+.cell .today-tag {
+    font-size: 20rpx;
+    line-height: 1;
+    position: relative;
+    top: 5rpx;
+}
+.me-page {
+    padding-top: env(safe-area-inset-top);
+    box-sizing: border-box;
+}
+.love-icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 12rpx;
+}
+.plus-icon {
+    width: 72rpx;
+    height: 72rpx;
+}
+.row-left-with-icon {
+    display: flex;
+    align-items: center;
+}
+.row-icon {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 16rpx;
+}
+.bottom-spacer {
+    height: 24rpx;
+}
+/* =========================
+     ✅ 独立小卡片（经期健康分析）
+     ========================= */
+.mini-card {
+    margin-top: 18rpx;
+    background: #ffffff;
+    border-radius: 26rpx;
+    padding: 26rpx 22rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8rpx 20rpx rgba(0, 0, 0, 0.06);
+}
+.mini-left {
+    display: flex;
+    align-items: center;
+}
+.mini-icon {
+    width: 38rpx;
+    height: 38rpx;
+    margin-right: 12rpx;
+}
+.mini-title {
+    font-size: 34rpx;
+    color: #111;
+    font-weight: 650;
+}
+.mini-go {
+    width: 28rpx;
+    height: 28rpx;
+    opacity: 0.65;
+    margin-right: 18rpx;
+}
+/* =========================
+     ✅ 体重弹窗（底部弹出 / 自定义键盘）
+     ========================= */
+.page-wrap {
+    position: relative;
+}
+.sheet-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 999;
+}
+.sheet {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f6f6f7;
+    border-top-left-radius: 24rpx;
+    border-top-right-radius: 24rpx;
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.sheet-header {
+    height: 96rpx;
+    padding: 0 24rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f6f6f7;
+    border-top-left-radius: 24rpx;
+    border-top-right-radius: 24rpx;
+}
+.sheet-title {
+    font-size: 34rpx;
+    font-weight: 600;
+    color: #111;
+}
+.sheet-btn {
+    font-size: 30rpx;
+    color: #666;
+}
+.sheet-btn-primary {
+    color: #111;
+}
+.sheet-value {
+    height: 160rpx;
+    margin: 12rpx 24rpx 18rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.value-num {
+    font-size: 80rpx;
+    font-weight: 600;
+    color: #111;
+}
+.value-unit {
+    font-size: 34rpx;
+    color: #999;
+    margin-left: 12rpx;
+}
+.sheet-keypad {
+    padding: 0 18rpx 18rpx;
+}
+.key-row {
+    display: flex;
+    gap: 18rpx;
+    margin-top: 18rpx;
+}
+.key {
+    flex: 1;
+    height: 120rpx;
+    background: #fff;
+    border-radius: 18rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 46rpx;
+    color: #111;
+    box-shadow: 0 6rpx 18rpx rgba(0, 0, 0, 0.04);
+}
+.key-del-icon {
+    width: 56rpx;
+    height: 56rpx;
+}
+.key.key-del {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

@@ -2,12 +2,12 @@
   <view class="page">
 
     <!-- 顶部标题 -->
-    <view class="card header-card">
+    <!-- <view class="card header-card">
       <view class="header">
         <text class="title">行为与风险提示</text>
         <text class="sub">基于你已记录的爱爱数据生成（仅供参考）</text>
       </view>
-    </view>
+    </view> -->
 
     <!-- 概览 -->
     <view class="card">
@@ -30,7 +30,7 @@
           <text class="gi-v">{{ metrics.avgText }}</text>
         </view>
         <view class="grid-item">
-          <text class="gi-k">最长间隔</text>
+          <text class="gi-k">本周期最长间隔</text>
           <text class="gi-v">{{ metrics.maxGapText }}</text>
         </view>
       </view>
@@ -43,10 +43,9 @@
     <view class="card">
       <view class="card-title card-title--with-right">
         <view class="card-title-left">
-          <image class="card-title-icon" src="/static/assets/icons/f_sax.svg" mode="aspectFit" />
+          <image class="card-title-icon" src="/static/assets/icons/f_fxts.svg" mode="aspectFit" />
           <text class="card-title-text">风险提示</text>
         </view>
-        <image class="card-title-right-icon" src="/static/assets/icons/f_tzc.svg" mode="aspectFit" />
       </view>
 
       <view class="risk-list">
@@ -728,7 +727,7 @@ export default {
   width: 92px;
   padding: 6px 8px;
   border-radius: 10px;
-  background: rgba(0,0,0,0.72);
+  background: rgba(168, 168, 168, 0.7);
   box-sizing: border-box;
 }
 .bar-tip-date{

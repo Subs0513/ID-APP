@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我",
+  "usingComponents": {
+    "y-m-d-wheel": "/components/YMD-Wheel/YMD-Wheel"
+  }
+}

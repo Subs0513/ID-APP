@@ -255,7 +255,7 @@ export default {
       const fertileStart = ovulationDay ? addDaysStr(ovulationDay, -5) : '';
       const fertileEnd = ovulationDay ? addDaysStr(ovulationDay, 1) : '';
 
-      // ✅ 不再使用 sexDates 兜底：只从 sexRecords 统计
+      // 不再使用 sexDates 兜底：只从 sexRecords 统计
       const { entriesThis, totalThis, daysWith, unprotectedThis, fertileTimes } =
         this.collectSexEntries(store.sexRecords, cycleStart, cycleEnd, fertileStart, fertileEnd);
 

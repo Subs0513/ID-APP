@@ -83,7 +83,7 @@
                 </view>
             </view>
 
-            <!-- ✅ 新增：独立小卡片（不放进上面 panel 里） -->
+            <!-- 新增：独立小卡片（不放进上面 panel 里） -->
             <view class="mini-card tappable" @tap="goPeriodAnalysis">
                 <view class="mini-left">
                     <image class="mini-icon" src="/static/assets/icons/f_fx.svg" mode="aspectFit" />
@@ -228,7 +228,7 @@ function loadStore() {
         periodRecords: [],
         sexDates: [],
         sexRecords: {},
-        // ✅ 新增：爱爱详细记录：{ 'YYYY-MM-DD': [{ time:'HH:mm', method:'...' }, ...] }
+        // 新增：爱爱详细记录：{ 'YYYY-MM-DD': [{ time:'HH:mm', method:'...' }, ...] }
         settings: {
             ...DEFAULTS
         },
@@ -344,8 +344,8 @@ export default {
             nextCells: [],
             nextYear: 0,
             nextMonth: 0,
-            animTimer: null, // ✅ 兜底定时器：防止 transitionend 丢失导致卡死
-            pendingTarget: null ,// ✅ 连续翻页合并：动画中记录最后一次目标
+            animTimer: null, // 兜底定时器：防止 transitionend 丢失导致卡死
+            pendingTarget: null ,// 连续翻页合并：动画中记录最后一次目标
 			calNoAnim: false,//修复翻页问题
         };
     },
@@ -363,7 +363,7 @@ export default {
     },
 
     onUnload() {
-        // ✅ 防止页面卸载时遗留定时器
+        // 防止页面卸载时遗留定时器
         if (this.animTimer) {
             clearTimeout(this.animTimer);
             this.animTimer = null;
@@ -397,7 +397,7 @@ export default {
 
         // 开始翻月动画（direction: 'next' | 'prev'）
         startMonthAnim(direction, targetYear, targetMonth) {
-            // ✅ 如果动画进行中：不要直接 return，记录“最后一次”翻页目标，避免连续翻页卡死
+            // 如果动画进行中：不要直接 return，记录“最后一次”翻页目标，避免连续翻页卡死
             if (this.isMonthAnimating) {
                 this.setData({
                     pendingTarget: { direction, targetYear, targetMonth }
@@ -416,7 +416,7 @@ export default {
                 pendingTarget: null
             });
 
-            // ✅ 兜底：部分机型/极端连点会导致 transitionend 不触发，从而“卡死”
+            // 兜底：部分机型/极端连点会导致 transitionend 不触发，从而“卡死”
             if (this.animTimer) clearTimeout(this.animTimer);
             this.animTimer = setTimeout(() => {
                 // forced=true：强制结束动画并落地月份
@@ -430,7 +430,7 @@ export default {
                     this.setData({ calOffsetPct: -50 });
                 });
             } else {
-				// ✅ 先无动画“定位”到 -50（第二屏）
+				// 先无动画“定位”到 -50（第二屏）
 				this.setData({ calNoAnim: true, calOffsetPct: -50 });
 				
 				this.$nextTick(() => {
@@ -451,7 +451,7 @@ export default {
 
             if (!this.isMonthAnimating) return;
 
-            // ✅ 避免 transitionend 多次触发 / 或兜底定时器重复触发
+            // 避免 transitionend 多次触发 / 或兜底定时器重复触发
             if (this.animTimer) {
                 clearTimeout(this.animTimer);
                 this.animTimer = null;
@@ -472,7 +472,7 @@ export default {
 
             this.refreshAll();
 
-            // ✅ 如果用户在动画期间又点了翻页：自动接着翻到“最后一次目标”
+            // 如果用户在动画期间又点了翻页：自动接着翻到“最后一次目标”
             const pending = this.pendingTarget;
             if (pending && pending.targetYear && pending.targetMonth) {
                 this.setData({ pendingTarget: null });
@@ -539,7 +539,7 @@ export default {
             saveStore(store);
         },
 
-        // ✅ 增加 forceYear/forceMonth：支持动画预渲染目标月份
+        // 增加 forceYear/forceMonth：支持动画预渲染目标月份
         buildCalendarCells(store, mapsFromRefresh, forceYear, forceMonth) {
             const year = forceYear || this.year;
             const month = forceMonth || this.month;

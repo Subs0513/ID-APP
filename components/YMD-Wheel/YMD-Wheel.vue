@@ -54,7 +54,7 @@
         <!-- 中间高亮框 -->
         <view class="dw-indicator"></view>
 
-        <!-- ✅ 上下渐隐遮罩（新增） -->
+        <!-- 上下渐隐遮罩（新增） -->
         <view class="dw-fade-top"></view>
         <view class="dw-fade-bottom"></view>
       </view>

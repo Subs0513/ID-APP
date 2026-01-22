@@ -54,7 +54,7 @@ export default {
   data() {
     return {
       tempIndex: 0,
-      // ✅ 关键：系统 indicator 高度必须 96rpx，并且背景透明（不然会叠一层灰）
+      // 关键：系统 indicator 高度必须 96rpx，并且背景透明（不然会叠一层灰）
       indicatorStyle: 'height: 96rpx; background-color: rgba(0,0,0,0);'
     };
   },

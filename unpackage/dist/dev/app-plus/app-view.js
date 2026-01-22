@@ -809,7 +809,7 @@ var render = function () {
                 { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
                 [
                   _vm._v(
-                    " 为向您提供记录、统计等功能，我们可能会在您授权的情况下申请访问网络、相机、相册等系统权限。 这些权限不会默认开启，仅在您主动使用相关功能时才会请求。 "
+                    " 为向您提供记录、统计等功能，我们可能会在您授权的情况下申请访问网络等系统权限。 这些权限不会默认开启，仅在您主动使用相关功能时才会请求。 "
                   ),
                 ]
               ),
@@ -977,7 +977,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../Programming/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/* 全屏遮罩 */\n.privacy-mask[data-v-7bc190d4] {\n  position: fixed;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.38);\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  padding: 26rpx;\n  z-index: 9999;\n}\n/* 白色卡片（大圆角） */\n.privacy-card[data-v-7bc190d4] {\n  width: 100%;\n  background: #ffffff;\n  border-radius: 36rpx;\n  padding: 34rpx 28rpx 28rpx;\n  box-sizing: border-box;\n  box-shadow: 0 18rpx 60rpx rgba(0, 0, 0, 0.12);\n}\n/* 标题 */\n.privacy-title[data-v-7bc190d4] {\n  text-align: center;\n  font-size: 34rpx;\n  font-weight: 800;\n  color: #222;\n  letter-spacing: 1rpx;\n  margin-bottom: 22rpx;\n}\n/* 内容滚动区 */\n.privacy-content[data-v-7bc190d4] {\n  max-height: 560rpx;\n  padding: 0 6rpx;\n  box-sizing: border-box;\n}\n/* 段落 */\n.p[data-v-7bc190d4] {\n  font-size: 28rpx;\n  color: #3a3a3a;\n  line-height: 46rpx;\n}\n/* 链接（粉色风格） */\n.link[data-v-7bc190d4] {\n  font-size: 28rpx;\n  color: #ff5f92;\n  line-height: 46rpx;\n  font-weight: 700;\n}\n/* 段落间距（避免 text 里不好控制） */\n.gap[data-v-7bc190d4] {\n  height: 14rpx;\n}\n/* 按钮行 */\n.btn-row[data-v-7bc190d4] {\n  display: flex;\n  gap: 18rpx;\n  margin-top: 26rpx;\n}\n/* 通用按钮 */\n.btn[data-v-7bc190d4] {\n  flex: 1;\n  height: 90rpx;\n  border-radius: 48rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 30rpx;\n  font-weight: 700;\n}\n/* 不同意：描边按钮 */\n.btn.ghost[data-v-7bc190d4] {\n  background: #ffffff;\n  border: 2rpx solid #e2e2e2;\n  color: #555;\n}\n/* 同意：粉色渐变按钮 */\n.btn.primary[data-v-7bc190d4] {\n  background: linear-gradient(135deg, #ff86b2, #ff5f92);\n  color: #ffffff;\n}\n", ""]);
+exports.push([module.i, "/* 全屏遮罩 */\n.privacy-mask[data-v-7bc190d4] {\n  position: fixed;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.38);\n  display: flex;\n  align-items: flex-end;\n  justify-content: center;\n  padding: 26rpx;\n  z-index: 9999;\n}\n/* 白色卡片（大圆角） */\n.privacy-card[data-v-7bc190d4] {\n  width: 100%;\n  background: #ffffff;\n  border-radius: 36rpx;\n  padding: 34rpx 28rpx 28rpx;\n  box-sizing: border-box;\n  box-shadow: 0 18rpx 60rpx rgba(0, 0, 0, 0.12);\n}\n/* 标题 */\n.privacy-title[data-v-7bc190d4] {\n  text-align: center;\n  font-size: 34rpx;\n  font-weight: 800;\n  color: #222;\n  letter-spacing: 1rpx;\n  margin-bottom: 22rpx;\n}\n/* 内容滚动区 */\n.privacy-content[data-v-7bc190d4] {\n  max-height: 560rpx;\n  padding: 0 6rpx;\n  box-sizing: border-box;\n}\n/* 段落 */\n.p[data-v-7bc190d4] {\n  font-size: 28rpx;\n  color: #3a3a3a;\n  line-height: 46rpx;\n}\n/* 链接（粉色风格） */\n.link[data-v-7bc190d4] {\n  font-size: 28rpx;\n  color: #ff5f92;\n  line-height: 46rpx;\n  font-weight: 700;\n}\n/* 段落间距（避免 text 里不好控制） */\n.gap[data-v-7bc190d4] {\n  height: 14rpx;\n}\n/* 按钮行 */\n.btn-row[data-v-7bc190d4] {\n  display: flex;\n  gap: 18rpx;\n  margin-top: 26rpx;\n}\n/* 通用按钮 */\n.btn[data-v-7bc190d4] {\n  flex: 1;\n  height: 90rpx;\n  border-radius: 48rpx;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 30rpx;\n  font-weight: 700;\n}\n/* 不同意：描边按钮 */\n.btn.ghost[data-v-7bc190d4] {\n  background: #ffffff;\n  border: 2rpx solid #e2e2e2;\n  color: #555;\n}\n/* 同意：粉色渐变按钮 */\n.btn.primary[data-v-7bc190d4] {\n  background: linear-gradient(135deg, #ff86b2, #ff5f92);\n  color: #ffffff;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -7732,7 +7732,7 @@ var render = function () {
           _c(
             "v-uni-text",
             { staticClass: _vm._$g(2, "sc"), attrs: { _i: 2 } },
-            [_vm._v("时序·小雅定制版")]
+            [_vm._v("时序·Chrona")]
           ),
           _c(
             "v-uni-text",

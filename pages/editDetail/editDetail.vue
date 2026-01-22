@@ -17,7 +17,7 @@
                 <text>日期</text>
             </view>
 
-            <!-- ✅ 用自定义 YMD-Wheel 替换原生日期选择器 -->
+            <!-- 用自定义 YMD-Wheel 替换原生日期选择器 -->
             <view @tap="openDateWheel">
                 <view class="field field--single">
                     <view :class="'field__value ' + (!form.date ? 'field__placeholder' : '')">
@@ -32,7 +32,7 @@
                 <text>类型</text>
             </view>
 
-            <!-- ✅ 用自定义 Type-Wheel 替换原生 picker -->
+            <!-- 用自定义 Type-Wheel 替换原生 picker -->
             <view @tap="openTypeWheel">
                 <view class="field field--single">
                     <view class="field__value">
@@ -75,7 +75,7 @@
                 <switch :checked="form.includeStart" @change="onIncludeStart" color="#f6a5b5" />
             </view>
 
-            <!-- ✅ 只保留保存：居中且拉长 -->
+            <!-- 只保留保存：居中且拉长 -->
             <view style="margin-top: 28rpx; display: flex; justify-content: center">
                 <button
                     class="btn"
@@ -87,7 +87,7 @@
             </view>
         </view>
 
-        <!-- ✅ 类型滚轮弹窗（Type-Wheel） -->
+        <!-- 类型滚轮弹窗（Type-Wheel） -->
         <TypeWheel
             :show="showTypeWheel"
             :options="typeOptions"
@@ -99,7 +99,7 @@
             @update:show="onTypeWheelUpdateShow"
         />
 
-        <!-- ✅ 自定义日期滚轮（遮罩 + 底部弹层） -->
+        <!-- 自定义日期滚轮（遮罩 + 底部弹层） -->
         <YMDWheel
             :show="showDateWheel"
             :value="dateWheelTemp"
@@ -145,11 +145,11 @@ export default {
                 includeStart: false
             },
 
-            // ✅ 自定义日期滚轮
+            // 自定义日期滚轮
             showDateWheel: false,
             dateWheelTemp: '',
 
-            // ✅ 自定义类型滚轮
+            // 自定义类型滚轮
             showTypeWheel: false,
 
             text: ''
@@ -190,11 +190,11 @@ export default {
                 includeStart: !!item.includeStart
             },
 
-            // ✅ 同步自定义滚轮的初始值
+            // 同步自定义滚轮的初始值
             showDateWheel: false,
             dateWheelTemp: item.date || '',
 
-            // ✅ 类型弹窗默认关闭
+            // 类型弹窗默认关闭
             showTypeWheel: false
         });
     },
@@ -219,7 +219,7 @@ export default {
         },
 
         // =======================
-        // ✅ 自定义日期滚轮
+        // 自定义日期滚轮
         // =======================
         openDateWheel() {
             const v = this.form && this.form.date ? this.form.date : this.dateWheelTemp || '';
@@ -246,7 +246,7 @@ export default {
         },
 
         // =======================
-        // ✅ 自定义类型滚轮（Type-Wheel）
+        // 自定义类型滚轮（Type-Wheel）
         // =======================
         openTypeWheel() {
             this.setData({ showTypeWheel: true });
@@ -271,7 +271,7 @@ export default {
             this.setData({ showTypeWheel: !!v });
         },
 
-        // ✅ 保留：兼容旧逻辑（如果未来别处还用 picker）
+        // 保留：兼容旧逻辑（如果未来别处还用 picker）
         onType(e) {
             const index = Number(e.detail.value) || 0;
             const type = this.typeOptions[index].value;

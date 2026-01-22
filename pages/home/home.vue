@@ -58,7 +58,7 @@
           @touchend.stop="onDragEnd"
           @touchcancel.stop="onDragEnd"
         >
-          <!-- ✅ 长按整张卡片即可拖动（不需要三横杠） -->
+          <!-- 长按整张卡片即可拖动（不需要三横杠） -->
           <view
             class="item-main"
             @click="onTapItem"
@@ -67,7 +67,7 @@
             :data-id="item.id"
           >
             <view class="item-left">
-              <!-- ✅ 只保留标题（日期列已删除） -->
+              <!-- 只保留标题（日期列已删除） -->
               <text class="item-title">{{ item.title }}</text>
             </view>
 
@@ -86,7 +86,7 @@
       </view>
     </view>
 
-    <!-- ✅ 隐私协议弹窗（覆盖在 home 页最上层） -->
+    <!-- 隐私协议弹窗（覆盖在 home 页最上层） -->
     <privacy-popup
       v-if="showPrivacy"
       @agree="onAgreePrivacy"
@@ -104,7 +104,7 @@ import PrivacyPopup from '@/components/privacy-popup/privacy-popup.vue';
 const storage = require('../../utils/storage');
 const dateUtil = require('../../utils/date');
 
-// ✅ 用单独的 key 保存拖拽顺序（只存 id 列表）
+// 用单独的 key 保存拖拽顺序（只存 id 列表）
 const ORDER_KEY = 'importantDaysOrderIds';
 
 function makeBadge(dateStr, includeStart) {
@@ -174,7 +174,7 @@ function sortList(rawList) {
 }
 
 export default {
-  // ✅ 注册组件（否则 template 里 <privacy-popup> 不会生效）
+  // 注册组件（否则 template 里 <privacy-popup> 不会生效）
   components: { PrivacyPopup },
 
   data() {
@@ -187,10 +187,10 @@ export default {
       daysTogether: 0,
       list: [],
 
-      // ✅ 隐私弹窗开关
+      // 隐私弹窗开关
       showPrivacy: false,
 
-      // ✅ 拖拽排序
+      // 拖拽排序
       isDragging: false,
       dragIndex: -1,
       dragOffsetY: 0,
@@ -211,18 +211,6 @@ export default {
 
     this.refresh();
   },
-
-	// onShow() {
-	//   // 你原来的 refresh 保留
-	//   this.refresh && this.refresh();
-
-	//   // ✅ 隐私协议：未同意则弹
-	//   const KEY = 'privacy_agreed_v1';
-	//   const agreed = !!uni.getStorageSync(KEY);
-	//   this.setData({
-	//     showPrivacy: !agreed
-	//   });
-	// },
 	
 	onShow() {
 	  // 原有逻辑
@@ -233,7 +221,7 @@ export default {
 	
 	  this.setData({ showPrivacy: show });
 	
-	  // ✅ 原生 tabBar：弹窗出现时隐藏
+	  // 原生 tabBar：弹窗出现时隐藏
 	  if (show) {
 	    uni.hideTabBar({ animation: false });
 	  } else {
@@ -296,7 +284,7 @@ export default {
       });
     },
 
-    // ====== ✅ 长按拖拽排序（无三横杠） ======
+    // ====== 长按拖拽排序（无三横杠） ======
     onDragStart(e) {
       const index = Number(e.currentTarget.dataset.index);
       if (Number.isNaN(index)) return;
@@ -368,7 +356,7 @@ export default {
       });
     },
 
-    // ====== ✅ 隐私弹窗事件 ======
+    // ====== 隐私弹窗事件 ======
 	onAgreePrivacy() {
 	  const KEY = 'privacy_agreed_v1';
 	  try {
@@ -377,7 +365,7 @@ export default {
 	
 	  this.setData({ showPrivacy: false });
 	
-	  // ✅ 恢复原生 tabBar
+	  // 恢复原生 tabBar
 	  uni.showTabBar({ animation: false });
 	},
 

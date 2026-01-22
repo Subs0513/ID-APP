@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "编辑",
+  "usingComponents": {
+    "y-m-d-wheel": "/components/YMD-Wheel/YMD-Wheel",
+    "type-wheel": "/components/Type-Wheel/Type-Wheel"
+  }
+}

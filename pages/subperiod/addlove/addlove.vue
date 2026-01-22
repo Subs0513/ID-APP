@@ -57,14 +57,14 @@
             <view class="card">
                 <view class="section-head">
                     <view class="section-left">
-                        <!-- ✅ 时间左侧图标：f_sj.svg -->
+                        <!-- 时间左侧图标：f_sj.svg -->
                         <image src="/static/assets/icons/f_sj.svg" class="section-icon" mode="aspectFit" />
                         <text class="section-title">时间</text>
                     </view>
                     <text class="section-value">{{ time }}</text>
                 </view>
 
-                <!-- ✅ 行高更矮 -->
+                <!-- 行高更矮 -->
 				<view class="time-wheel">
                     <picker-view
                         class="time-picker"
@@ -95,7 +95,7 @@
                     </view>
                 </view>
 
-                <!-- ✅ 措施下面增加白色卡片打底 -->
+                <!-- 措施下面增加白色卡片打底 -->
                 <view class="method-card">
                     <view class="method-grid">
                         <view
@@ -127,7 +127,7 @@
 const STORE_KEY = 'period_record_v1';
 // const STORE_KEY = 'sex_record_v1';
 
-// ✅ 删除按钮宽度（rpx）——要和 css 里的 .swipe-actions width 一致
+// 删除按钮宽度（rpx）——要和 css 里的 .swipe-actions width 一致
 const DELETE_W_RPX = 160;
 
 function loadStore() {
@@ -172,7 +172,7 @@ export default {
             methodKey: 'cs_01',
             method: '无措施',
 
-            // ✅ swipe 状态
+            // swipe 状态
             startX_var: 0,
             startY_var: 0,
             activeIndex_var: -1,

@@ -38,9 +38,15 @@ export default {
         return {
             logs: [
 				{
+				    version: '0.1.4',
+				    desc: '修订补丁',
+				    isLatest: true,
+				    items: ['应用市场上架测试']
+				},
+				{
 				    version: '0.1.3',
 				    desc: '局部优化',
-				    isLatest: true,
+				    // isLatest: true,
 				    items: ['“类型”弹窗优化','解决了一些已知问题']
 				},
 				{

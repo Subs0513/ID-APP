@@ -26,7 +26,7 @@
           <view class="row-sub">起始日：{{ coupleStartDate ? coupleStartDate : '未设置' }}</view>
         </view>
 
-        <!-- ✅ 改成组件：三列日期滚轮 -->
+        <!-- 改成组件：三列日期滚轮 -->
         <button class="row-action" @tap="openCoupleDateWheel">修改</button>
       </view>
 
@@ -159,7 +159,7 @@
       </view>
     </view>
 
-    <!-- ✅ 自写滚轮弹层：单列 picker-view（经期 / 周期共用） -->
+    <!-- 自写滚轮弹层：单列 picker-view（经期 / 周期共用） -->
     <view v-if="showWheel" class="w-mask" @tap="closeWheel">
       <view class="w-sheet" @tap.stop="noop">
         <view class="w-top">
@@ -193,7 +193,7 @@
       </view>
     </view>
 
-    <!-- ✅ 三列日期滚轮组件（我们在一起的日期） -->
+    <!-- 三列日期滚轮组件（我们在一起的日期） -->
 	<!-- subtitle="选择未来日期倒数，选择过去日期正数" -->
 	
     <YMDWheel
@@ -271,7 +271,7 @@ export default {
       periodLength: DEFAULTS.periodLength,
       cycleLength: DEFAULTS.cycleLength,
 
-      // ✅ 自写滚轮相关
+      // 自写滚轮相关
       showWheel: false,
       wheelType: '', // 'period' | 'cycle'
       wheelTitle: '',
@@ -279,7 +279,7 @@ export default {
       wheelIndex: 0, // picker-view 用 index
       wheelDraftIndex: 0, // change 时暂存，点完成才提交
 
-      // ✅ 日期滚轮组件：只需要开关
+      // 日期滚轮组件：只需要开关
       showDateWheel: false
     };
   },
@@ -451,7 +451,7 @@ export default {
       this.closeLoginSheet();
     },
 
-    // ----------------- ✅ 自写滚轮：经期/周期 -----------------
+    // ----------------- 自写滚轮：经期/周期 -----------------
     openPeriodWheel() {
       const opts = [];
       for (let i = 2; i <= 20; i++) opts.push(i);

@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/add/add",
+    "pages/period/period",
+    "pages/me/me",
+    "pages/detail/detail",
+    "pages/about/about",
+    "pages/editDetail/editDetail",
+    "pages/subabout/privacy/privacy",
+    "pages/subabout/agreement/agreement",
+    "pages/subabout/intro/intro",
+    "pages/subabout/feedback/feedback",
+    "pages/subabout/changelog/changelog",
+    "pages/subperiod/analysis/analysis",
+    "pages/subperiod/addlove/addlove",
+    "pages/subperiod/addpain/addpain",
+    "pages/subabout/info-list/info-list",
+    "pages/subperiod/love/love",
+    "pages/subperiod/weight/weight",
+    "pages/profile/profile"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTitleText": "时序·Chrona",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f7f7f7"
+  },
+  "tabBar": {
+    "fontSize": 16,
+    "height": 60,
+    "color": "#ffd1df",
+    "selectedColor": "#ffffff",
+    "backgroundColor": "#ff92b5",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "static/tab/0.png",
+        "selectedIconPath": "static/tab/0_s.png"
+      },
+      {
+        "pagePath": "pages/add/add",
+        "text": "新增",
+        "iconPath": "static/tab/1.png",
+        "selectedIconPath": "static/tab/1_s.png"
+      },
+      {
+        "pagePath": "pages/period/period",
+        "text": "经期",
+        "iconPath": "static/tab/2.png",
+        "selectedIconPath": "static/tab/2_s.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我",
+        "iconPath": "static/tab/3.png",
+        "selectedIconPath": "static/tab/3_s.png"
+      }
+    ]
+  },
+  "permission": {},
+  "plugins": {},
+  "usingComponents": {},
+  "lazyCodeLoading": "requiredComponents"
+}

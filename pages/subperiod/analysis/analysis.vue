@@ -94,7 +94,7 @@
               <text class="cycle-status">{{ item.status }}</text>
             </view>
 
-            <!-- ✅ 文字不放在粉色条里，避免被裁剪 -->
+            <!-- 文字不放在粉色条里，避免被裁剪 -->
             <view class="cycle-bar-wrap">
               <view class="cycle-bar" :style="item.barStyle"></view>
               <text class="cycle-bar-text-fixed">{{ item.lenText }}</text>
@@ -340,7 +340,7 @@ function buildCycleChangeCard(recordsAsc, settings) {
   items.forEach((it) => {
     const rawPct = (it.len / fixedMaxLen) * 100;
     const pct = Math.round(rawPct);
-    it.barPct = clamp(pct, 18, 100);       // ✅ 最小可见宽度 + 最大不超出
+    it.barPct = clamp(pct, 18, 100);       // 最小可见宽度 + 最大不超出
     it.barStyle = `width: ${it.barPct}%;`;
   });
 
@@ -778,34 +778,9 @@ export default {
 	  const riskPct = estimatePregnancyRatePct(curPhaseCounts);
 	  const sexPregRateText = `${riskPct.toFixed(1)}%`;
 
-	  
-	 //  const startsAsc = (recordsAsc || []).map(r => r.start).filter(Boolean).sort();
-	 //  if (startsAsc.length >= 2) {
-	 //    const prevStart = startsAsc[startsAsc.length - 2];
-	 //    const prevEnd = addDaysStr(latestStart, -1);
-	 //    const prevCycleLen = diffDays(prevStart, latestStart);
-	 //    const prevPred = predictNext(prevStart, prevCycleLen, settings);
-	 //    prevSex = buildSexTexts(store, prevStart, prevEnd, prevPred.ovulationDay);
-	  
-	 //    // 给上一周期文案加前缀，避免和本周期混淆
-	 //    // prevSex.summary = `上一周期：${prevSex.summary.replace('本周期', '')}`.replace('记录爱爱', '记录爱爱');
-	 //    // prevSex.fertile = prevSex.fertile ? `上一周期：${prevSex.fertile}` : '';
-	 //    // prevSex.unprotected = prevSex.unprotected ? `上一周期：${prevSex.unprotected}` : '';
-		// prevSex.summary = `上一周期：${prevSex.summary}`;
-		// prevSex.fertile = prevSex.fertile ? `上一周期：${prevSex.fertile}` : '';
-		// prevSex.unprotected = prevSex.unprotected ? `上一周期：${prevSex.unprotected}` : '';
-
-	 //  }
-
-
-      // const cycleChange = buildCycleChangeCard(recordsAsc, settings);
-
-      // const painSummaryText = this.painSummaryText || '最近3个周期未记录痛经';
-      // const painLevelText = this.painLevelText || '';
-      // const painPeakText = this.painPeakText || '';
 	  const cycleChange = buildCycleChangeCard(recordsAsc, settings);
 	  
-	  // ✅ 痛经：从 store.painRecords 现算（本周期范围：latestStart ~ thisCycleEnd）
+	  // 痛经：从 store.painRecords 现算（本周期范围：latestStart ~ thisCycleEnd）
 	  const painTexts = buildPainTexts(store.painRecords, latestStart, thisCycleEnd);
 	  const painSummaryText = painTexts.painSummaryText;
 	  const painLevelText = painTexts.painLevelText;
@@ -924,7 +899,7 @@ export default {
 	  const padL = 18;
 	  const padR = 18;
 	  const padT = 10;
-	  const padB = 34; // ✅ 底部稍微再留一点：要放7个日期
+	  const padB = 34; // 底部稍微再留一点：要放7个日期
 	
 	  const innerW = W - padL - padR;
 	  const innerH = H - padT - padB;
@@ -947,9 +922,9 @@ export default {
 	  const values = series.values || [];
 	  const labels = series.labels || []; // "M/D"
 	
-	  // ✅ 横坐标：每天都显示（7个都显示）
+	  // 横坐标：每天都显示（7个都显示）
 	  ctx.setFillStyle('#999');
-	  ctx.setFontSize(9); // ✅ 字更小一点，避免拥挤
+	  ctx.setFontSize(9); // 字更小一点，避免拥挤
 	  for (let i = 0; i < labels.length; i++) {
 	    const lb = labels[i] || '';
 	    const x = xs[i];
@@ -1003,11 +978,11 @@ export default {
 	  });
 	  if (started) ctx.stroke();
 	
-	  // ✅ 点（粉色不变）
+	  // 点（粉色不变）
 	  const r = 4;
 	  ctx.setFillStyle('#ff6b9a');
 	
-	  // ✅ 文字：统一深灰色 & 放在点下面
+	  // 文字：统一深灰色 & 放在点下面
 	  const textColor = '#444';
 	  const fontSize = 10; // 不能太大
 	  ctx.setFontSize(fontSize);
@@ -1035,7 +1010,7 @@ export default {
 	    // 边界保护
 	    tx = Math.max(2, Math.min(W - estW - 2, tx));
 	
-	    // ✅ 放点下面：y + 16
+	    // 放点下面：y + 16
 	    // 同时防止贴到最底部（要给日期让位）
 	    const maxTextY = H - 18;        // 离底部留点空间给日期
 	    const ty = Math.min(maxTextY, y + 16);

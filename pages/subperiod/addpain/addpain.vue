@@ -52,7 +52,9 @@
     <view v-if="showPopup" class="mask" @tap="onCancel"></view>
 
     <!-- 居中弹窗（仿“爱爱”的弹窗结构） -->
-    <view v-if="showPopup" class="popup" @tap.stop>
+    <!-- <view v-if="showPopup" class="popup" @tap.stop> -->
+	<view v-if="showPopup" class="popup" @tap.stop="noop">
+
       <view class="popup-title">{{ editingIndex >= 0 ? '修改痛经记录' : '添加痛经记录' }}</view>
 
       <!-- 时间（滚轮） -->
@@ -96,10 +98,13 @@
 
         <view class="option-card">
           <view class="option-wrap">
-            <view
+			  <!-- 下方空行 -->
+            <!-- :key="'lv' + idx" -->
+			<view
               class="option-item"
               v-for="(lv, idx) in levels"
-              :key="'lv' + idx"
+              
+			  :key="idx"
               :class="{ active: form.level === lv }"
               @tap="pickLevel(lv)"
             >
@@ -121,10 +126,13 @@
 
         <view class="option-card">
           <view class="option-wrap">
-            <view
+			  <!-- 原有 -->
+            <!-- :key="'md' + idx" -->
+			<view
               class="option-item"
               v-for="(md, idx) in medicines"
-              :key="'md' + idx"
+              
+			  :key="idx"
               :class="{ active: form.medicine === md }"
               @tap="pickMedicine(md)"
             >
@@ -143,10 +151,10 @@
 </template>
 
 <script>
-// ✅ 和经期主数据用同一个 store（period.js 也是这个 key）
+// 和经期主数据用同一个 store（period.js 也是这个 key）
 const STORE_KEY = 'period_record_v1';
 
-// ✅ 删除按钮宽度（rpx）——要和 css 里的 .swipe-actions width 一致
+// 删除按钮宽度（rpx）——要和 css 里的 .swipe-actions width 一致
 const DELETE_W_RPX = 160;
 
 function loadStore() {
@@ -210,6 +218,9 @@ export default {
   },
 
   methods: {
+	  
+	 noop() {},
+	
     /* =========================
      * 弹窗逻辑（仿 love）
      * ========================= */
@@ -366,7 +377,7 @@ export default {
       const cur = records[idx];
       if (!cur) return;
 
-      // ✅ 修复点：这里用 rpxPerPx_var（你原来用 _rpxPerPx 会是 undefined）
+      // 修复点：这里用 rpxPerPx_var（你原来用 _rpxPerPx 会是 undefined）
       const dxRpx = dxPx * this.rpxPerPx_var;
       let x = dxRpx;
 

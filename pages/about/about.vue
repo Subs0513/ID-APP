@@ -97,7 +97,7 @@ export default {
         /* 帮助反馈 */
         onFeedback() {
             // 示例：反馈页
-            // wx.navigateTo({ url: '/pages/subabout/feedback/feedback' })
+            wx.navigateTo({ url: '/pages/subabout/feedback/feedback' })
         },
 
         /* 更新日志 */

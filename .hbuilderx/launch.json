@@ -2,8 +2,19 @@
     "version" : "1.0",
     "configurations" : [
         {
+            "customPlaygroundType" : "device",
             "playground" : "standard",
             "type" : "uni-app:app-android"
+        },
+        {
+            "app" : {
+                "launchtype" : "local"
+            },
+            "default" : {
+                "launchtype" : "local"
+            },
+            "provider" : "aliyun",
+            "type" : "uniCloud"
         }
     ]
 }
